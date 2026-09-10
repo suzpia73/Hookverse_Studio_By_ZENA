@@ -32,14 +32,30 @@
 
 ---
 
-### 다음 할 일 (진행 중)
-- [x] **`make_backup_package.py` 백업 스크립트 작성 완료** (2026-09-10)
-- [/] **`D:\HOOKVERSE-BACKUP\` 에 백업 패키지 만들기 실행 중**
-  - API 키 6종, 에이전트 도구 코드, 시스템 설정, 에이전트 설정, 웹앱 소스, 제나 설정
-- [ ] 백업 완료 확인 후 오빠에게 삭제 & 재설치 순서 안내
-- [ ] 재설치 후 새 워크스페이스(`HOOKVERSE_STUDIO_V2`) 세팅
-- [ ] test_all_keys.py로 6대 API 확인
-- [ ] CEO 테스트 (`CEO~ 뭐하고 있니?`)
+### 진행 상황 (2026-09-10 클린 청소 완료! 🧹)
+- [x] **`D:\HOOKVERSE-BACKUP\HOOKVERSE_BACKUP_20260910_203630\` 백업 완료** ✅
+- [x] **1단계 삭제 완료** (2026-09-10)
+  - Ollama 프로그램 삭제 완료 (오빠 직접 수행)
+  - Connect AI 확장 언인스톨 완료 (오빠 직접 수행)
+  - `C:\Users\june2\.ollama` (모델 잔여물 완전 삭제 완료)
+  - `C:\Users\june2\.connect-ai-brain` (크래시 유발하던 거대 파일 완전 삭제 완료)
+
+### 진행 상황 (2026-09-10 클린 재시작 V2 세팅 완료! 🎉)
+- [x] **`D:\HOOKVERSE-BACKUP\HOOKVERSE_BACKUP_20260910_203630\` 백업 완료** ✅
+- [x] **1단계 찌꺼기 삭제 완료** (Ollama 삭제, Connect AI 언인스톨, 잔여 캐시 폴더 정리) ✅
+- [x] **2단계 최신 재설치 완료** (Ollama 0.34.0 설치, Connect AI 확장 설치) ✅
+- [x] **MX250 최적화 모델 생성 완료**: `gemma2-safe` (num_ctx 2048 세팅 완료) ✅
+- [x] **새 워크스페이스 구축 완료**: `d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2` (깨끗한 첫 Git 커밋 완료) ✅
+
+### 다음 할 일 (V2 폴더 열기 & 실전 테스트)
+- [x] 1. Antigravity IDE에서 새 폴더 `HOOKVERSE_STUDIO_V2` 열기 ✅
+- [x] 2. 6대 API 점검 (`python test_all_keys.py`) — 4개 합격, 2개(구글 OAuth 토큰 갱신) 대기 중 ✅
+  - ✅ 텔레그램 봇: 정상 작동
+  - ✅ 제미나이 API: 최신 `gemini-3.6-flash`로 갱신하여 정상 작동
+  - ✅ 유튜브 Data API: 정상 작동
+  - ✅ 페이팔 Sandbox: 정상 작동
+  - ⏳ 구글 캘린더 & 유튜브 분석 OAuth: 기존 토큰 만료(`invalid_grant`)로 1회 재인증 필요 (`python exchange_token.py`)
+- [x] 3. Connect AI 실전 테스트 (`CEO~ 뭐하고 있니?`) — 0xc0000409 크래시 완전 해결! llama-server 정상 연동 및 답변 생성 확인 완료 ✅ (2026-09-10)
 
 ---
 

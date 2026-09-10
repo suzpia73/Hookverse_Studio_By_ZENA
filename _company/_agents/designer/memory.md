@@ -20,3 +20,5 @@ _Designer 에이전트만 읽고 쓰는 개인 노트. 학습·교훈·자주 �
 - [2026-05-26] 회사 브랜드 및 이미지를 위한 디자인 컨셉 개발 → 산출물 sessions/2026-05-26T15-30/designer.md
 - [2026-05-27] 기획안에 대한 디자인 브리프 작성 → 산출물 sessions/2026-05-27T12-34/designer.md
 - [2026-06-02] Prepare visual design assets based on user's instructions → 산출물 sessions/2026-06-02T14-05/designer.md
+- [2026-09-10] 회사 목표 ( Hookverse Studio )와 각 에이전트 개인 목표 ( _agents/{id}/goal.md ) 를 정리 → 산출물 sessions/2026-09-10T12-44/designer.md
+- [2026-09-10] 1~2명의 에이전트에게  주어진 작업을 분배 → 산출물 sessions/2026-09-10T12-44/designer.md

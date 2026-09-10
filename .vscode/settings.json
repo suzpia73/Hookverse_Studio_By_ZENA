@@ -1,4 +1,6 @@
 {
-    "connectAiLab.ollamaModel": "gemma2-safe",
+    "connectAiLab.ollamaUrl": "http://127.0.0.1:11434",
+    "connectAiLab.defaultModel": "gemma2-safe",
+    "connectAiLab.localBrainPath": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2",
     "connectAiLab.companyPath": "_company"
 }
