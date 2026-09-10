@@ -19,6 +19,11 @@ __pycache__/
 # 환경 변수 및 시크릿
 .env
 .env.local
+*.local.json
+*_setup.json
+*_account.json
+*_write.json
+*_revenue.json
 
 # 백업 및 임시
 _제나비밀금고/
