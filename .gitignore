@@ -1,0 +1,25 @@
+# Node / WebApp
+node_modules/
+.next/
+dist/
+build/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Connect AI & Ollama 임시 로그
+.connect-ai-dev.log
+.connect-ai-dev.pid
+.telegram_poll.lock
+.telegram_offset.json
+
+# 환경 변수 및 시크릿
+.env
+.env.local
+
+# 백업 및 임시
+_제나비밀금고/
+*.bak
