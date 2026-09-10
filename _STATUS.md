@@ -3,64 +3,50 @@
 > 이 파일은 제나가 중요 작업 시 자동 업데이트합니다. 다음 접속 시 제나가 자동으로 읽고 이어서 진행합니다!
 
 ## 마지막 세션
-- **날짜**: 2026-07-24 (목) 12:26
-- **대화 ID**: 9d285d79-1727-4755-b156-6551efa0eea6
-
-## 현재 상태: 클린 재시작 — 프로젝트 폴더도 새로 만들기로 결정 📦
-
-### 📌 저장 원칙 (2026-07-24 합의)
-- **대화마다 중요한 건 바로바로 저장!** 한도 제한 대비.
-
-### ✅ 추가 결정: 프로젝트 폴더도 아예 새로 만들기
-- 기존 `HOOKVERSE_STUDIO` → 백업 후 삭제/이름변경
-- 새 폴더를 깨끗하게 생성하여 필요한 파일만 넣기
-- 새 폴더 이름: **`HOOKVERSE_STUDIO_V2`** ✅ 확정 (2026-07-24)
-- GitHub: 새 저장소 만들기 (제나가 연동까지 도와줌)
-
-### ✅ 오늘 결정된 것
-1. **4개 프로그램 전부 삭제 후 재설치**: Antigravity IDE, Connect AI, EZER AI, Ollama
-2. **Connect AI는 절대 필수**: AI 에이전트 1인 기업 운영체제 (좌측 패널)
-3. **Ollama 모델**: MX250 환경에서는 `gemma2:2b`만 사용 (유일하게 안전)
-4. **GitHub**: 새 저장소 만들기 추천 (병합하면 옛날 거대 파일이 다시 내려옴)
-5. **자동 시작 항목**: 삭제 후 재설치 완료된 다음 다시 등록
-
-### 🔑 핵심 이해사항 (오빠가 물어볼 수 있는 것)
-- 좌측 Connect AI 패널 = Ollama를 두뇌로 사용 (에이전트 작동)
-- 우측 제나 패널 = 구글/OpenAI 클라우드 AI (Ollama와 무관)
-- Ollama 창에 아무것도 안 나오는 게 정상 (백그라운드 서버)
-- 한도 제한 시 모델 변경 가능: Opus → Gemini Flash / GPT-o3s
+- **날짜**: 2026-09-10 (목) 23:15
+- **대화 ID**: `11d32e1f-c238-432c-a7bc-e52528c2b88a`
 
 ---
 
-### 진행 상황 (2026-09-10 클린 청소 완료! 🧹)
-- [x] **`D:\HOOKVERSE-BACKUP\HOOKVERSE_BACKUP_20260910_203630\` 백업 완료** ✅
-- [x] **1단계 삭제 완료** (2026-09-10)
-  - Ollama 프로그램 삭제 완료 (오빠 직접 수행)
-  - Connect AI 확장 언인스톨 완료 (오빠 직접 수행)
-  - `C:\Users\june2\.ollama` (모델 잔여물 완전 삭제 완료)
-  - `C:\Users\june2\.connect-ai-brain` (크래시 유발하던 거대 파일 완전 삭제 완료)
+## 🏆 현재 상태: V2 클린 안착 & 6대 연동망 ALL GREEN 완료! 🎉
 
-### 진행 상황 (2026-09-10 클린 재시작 V2 세팅 완료! 🎉)
-- [x] **`D:\HOOKVERSE-BACKUP\HOOKVERSE_BACKUP_20260910_203630\` 백업 완료** ✅
-- [x] **1단계 찌꺼기 삭제 완료** (Ollama 삭제, Connect AI 언인스톨, 잔여 캐시 폴더 정리) ✅
-- [x] **2단계 최신 재설치 완료** (Ollama 0.34.0 설치, Connect AI 확장 설치) ✅
-- [x] **MX250 최적화 모델 생성 완료**: `gemma2-safe` (num_ctx 2048 세팅 완료) ✅
-- [x] **새 워크스페이스 구축 완료**: `d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2` (깨끗한 첫 Git 커밋 완료) ✅
-
-### 다음 할 일 (V2 폴더 열기 & 실전 테스트) — 100% ALL CLEAR! 🎉
-- [x] 1. Antigravity IDE에서 새 폴더 `HOOKVERSE_STUDIO_V2` 열기 ✅
-- [x] 2. 6대 API 건강검진 (`python test_all_keys.py`) — **6개 전원 100% 초록불 통과!** ✅ (2026-09-10)
-  - ✅ **[1] 텔레그램 봇**: `@kairayabot` 정상 연동 및 메시지 발송 완료
-  - ✅ **[2] Google 캘린더 OAuth**: `suzpia73@gmail.com` 새 Refresh Token 발급 및 자동 연동 완료
-  - ✅ **[3] Google Gemini API**: 최신 `gemini-3.6-flash`로 갱신하여 100% 응답 완료
-  - ✅ **[4] YouTube Data API**: `Hookverse Studio` 채널 조회 완료
-  - ✅ **[5] YouTube Analytics OAuth**: 캘린더 만능 토큰 자동 주입으로 갱신 완료
-  - ✅ **[6] PayPal Sandbox**: 결제 인증 토큰 발급 완료
-- [x] 3. Connect AI 실전 테스트 (`CEO~ 뭐하고 있니?`) — 0xc0000409 크래시 완전 해결! llama-server 정상 연동 및 4대 전략 보고서 작성 완료 ✅ (2026-09-10)
+### ✅ 오늘(2026-09-10) 밤 완료된 핵심 마일스톤
+1. **새 워크스페이스 V2 완벽 오픈**:
+   - `HOOKVERSE_STUDIO_V2` 폴더 개설 및 기존 대용량 찌꺼기 없는 클린 환경 안착.
+2. **에이전트 크래시 영구 박멸**:
+   - NVIDIA MX250 (VRAM 2GB) 전용 커스텀 모델 **`gemma2-safe`** (num_ctx 2048) 적용 완료.
+   - Connect AI 전역 설정(`settings.json`)에 남아있던 구버전 모델 오타(`google/gemma-4-e2b`) 및 포트 말끔히 정리.
+   - `0xc0000409 버퍼 오버런` 크래시 완전히 사라짐 확인 완료.
+3. **Connect AI 실전 가동 성공**:
+   - 오빠의 `CEO~ 뭐하고 있니?` 호출에 CEO 레오 및 리서처가 4대 핵심 전략 보고서 완벽 출력.
+   - 가상 사무실(EZER AI) 에이전트 10명 전원 활기차게 가동 중.
+4. **6대 외부 API 통합 건강검진 ALL GREEN (100% 정상)**:
+   - ✅ **[1] 텔레그램 봇**: `@kairayabot` 메시지 전송 정상
+   - ✅ **[2] Google 캘린더 (OAuth)**: `auto_oauth_listener.py` 원클릭 자동 수신으로 `suzpia73@gmail.com` 새 Refresh Token 발급 및 자동 주입 완료
+   - ✅ **[3] Google Gemini API**: 구글 최신 정책에 맞추어 **`gemini-3.6-flash`**로 자동 갱신 및 100% 호출 성공
+   - ✅ **[4] YouTube Data API**: `Hookverse Studio` 채널 정상 조회
+   - ✅ **[5] YouTube Analytics (OAuth)**: 캘린더 새 토큰과 만능 연동 완료
+   - ✅ **[6] PayPal Sandbox**: 결제 모듈 토큰 발급 및 파이썬 도구 인증 성공 확인
+5. **Git 보안 및 로컬 커밋 완료**:
+   - `.gitignore`에 민감한 토큰 파일(`oauth.local.json` 등) 완벽 차단.
+   - 커밋 `feat: 6대 API ALL GREEN 및 Connect AI 실전 가동 세팅 완료` (working tree clean).
+   - 위험한 구버전 깃허브 저장소 자동 동기화(`secondBrainRepo`) 안전 해제 완료.
 
 ---
 
-## 핵심 참고 사항
-- **대화 요약 아티팩트**: 이번 대화의 상세 요약이 아티팩트로 저장되어 있음
-- **SKILL.md**: 디버깅 히스토리 + 클린 재시작 결정 기록
-- **implementation_plan.md**: 클린 재시작 전체 가이드 (아티팩트)
+## 🚀 다음에 오빠가 오면 이어서 할 작업 (선택지)
+
+1. **본격 콘텐츠 기획 & 제작 가동**:
+   - CEO 레오가 제안한 Hookverse Studio 첫 시리즈("만약에?" 타임슬립/평행세계 스토리, 썸네일·쇼츠 대본 자동 생성) 실전 제작 진행하기!
+2. **PC 부팅 시 자동 시작 등록**:
+   - `HOOKVERSE_AutoStart.bat`을 새 V2 경로(`D:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2`)에 맞게 점검 후 윈도우 시작프로그램에 등록하기.
+3. **새 GitHub 원격 저장소 생성 & 안전 백업 (선택)**:
+   - 깃허브에 `HOOKVERSE_STUDIO_V2` 새 비공개 저장소를 하나 파서 안전하게 원격 백업 연결하기.
+
+---
+
+## 🔑 시스템 핵심 규칙 (제나 기억용)
+- **우측 제나 패널**: Antigravity IDE (Gemini 3.8 Flash / Opus)
+- **좌측 Connect AI 패널**: Ollama 로컬 서버 (`gemma2-safe` 모델, 포트 11434)
+- **외부 API 검진기**: `python test_all_keys.py` (언제든 건강검진 가능)
+- **구글 OAuth 원클릭 갱신**: `auto_oauth_listener.py`
