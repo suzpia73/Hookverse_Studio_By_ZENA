@@ -15,13 +15,16 @@
    - `Modelfile`의 `num_predict`를 512 → 1024로 상향 조정 완료.
    - 오빠가 `ollama create gemma2-safe -f Modelfile` 재빌드 성공 (`success` 확인).
    - 토큰 조기 컷오프로 인한 JSON 파싱 에러 완전 해결.
-2. **EZER AI 3대 브레인 팩 주입 100% 성공**:
-   - `테스트 브레인 팩`, `MrBeast 유튜브 전략`, `AI 1인 기업 자동화 챕터 1` 모두 에이전트 장기기억 탑재 완료.
-   - 에이전트가 "AI_1인기업자동화_챕터_1의 지식을 바탕으로 업무 진행할 준비 완료" 응답 확인.
-3. **HOOKVERSE_AutoStart.bat 경로 V2 갱신 완료**:
+4. **에이전트 모델 안정화 업그레이드 (타임아웃 & 무한루프 방지)**:
+   - `Modelfile`에 `repeat_penalty 1.15` 및 `temperature 0.7` 추가 (동일 단어/URL 반복 타임아웃 차단).
+   - `_company/_shared/agent_models.json` 전 에이전트 모델명을 `gemma2-safe`로 완전 통일.
+5. **에이전트 15분 백그라운드 자동 관제 시스템(Watchdog) 구축 완료**:
+   - `agent_watchdog.py` 개발 완료 (15분 주기 자동 세션 스캔, 업무 분배 및 타임아웃 감시, watchdog_report.md 출력).
+   - `HOOKVERSE_AutoStart.bat`에 워치독 백그라운드 자동 실행 연동 완료.
+6. **HOOKVERSE_AutoStart.bat 경로 V2 갱신 완료**:
    - 자동 실행 경로를 `D:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2`로 일치화 완료.
-4. **다음 작업**:
-   - Connect AI에서 MrBeast 전략 기반 첫 유튜브 쇼츠 기획안 도출 & 제작 시작.
+7. **다음 작업**:
+   - `ollama create gemma2-safe -f Modelfile` 재적용 후 5대 레전드 공식 쇼츠 대본 기획.
 1. **새 워크스페이스 V2 완벽 오픈**:
    - `HOOKVERSE_STUDIO_V2` 폴더 개설 및 기존 대용량 찌꺼기 없는 클린 환경 안착.
 2. **에이전트 크래시 영구 박멸**:

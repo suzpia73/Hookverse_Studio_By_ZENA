@@ -15,6 +15,9 @@ start "HOOKVERSE_RunNow" /min python auto_runner.py --now
 :: 백그라운드 상주 스케줄러 실행 (매일 15:00 대기)
 start "HOOKVERSE_Scheduler" /min python auto_runner.py --time 15:00
 
+:: 백그라운드 15분 에이전트 자동 관제관 실행
+start "HOOKVERSE_Watchdog" /min python agent_watchdog.py --interval 15
+
 
 echo [HOOKVERSE] 오늘의 자동 작업을 백그라운드에서 실행합니다.
 timeout /t 3 /nobreak > nul

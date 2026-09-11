@@ -47,6 +47,7 @@ _재사용 가능한 패턴 모음. `memory.md`는 모든 활동의 로그(appen
 | 파일 | 상태 | 설명 |
 |---|---|---|
 | `content_hook_pattern.md` | ✅ 활성 | 검증된 후크 공식 4가지 + HOOKVERSE 맞춤 방향 |
+| `shorts_5_viral_formula.md` | ✅ 활성 | 5대 레전드 통합 숏폼 바이럴 공식 (미스터비스트·호모지·마크로버 등) |
 
 ---
 
