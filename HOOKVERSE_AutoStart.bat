@@ -4,7 +4,7 @@
 
 title HOOKVERSE AutoRunner
 echo [HOOKVERSE] 에이전트 자동 실행 시작...
-cd /d "D:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO"
+cd /d "D:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2"
 
 :: 로그인 직후 네트워크와 로컬 AI가 준비될 시간을 넉넉히 확보
 timeout /t 180 /nobreak > nul

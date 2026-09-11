@@ -19,7 +19,7 @@
   python auto_runner.py --time 08:30
 
 Windows 자동 시작 등록:
-  schtasks /create /tn "HOOKVERSE_AutoRunner" /tr "python D:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO\\auto_runner.py" /sc ONLOGON /f
+  schtasks /create /tn "HOOKVERSE_AutoRunner" /tr "python D:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\auto_runner.py" /sc ONLOGON /f
 """
 
 import os, sys, time, subprocess, argparse, json
