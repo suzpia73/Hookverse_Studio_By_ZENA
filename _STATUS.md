@@ -28,9 +28,13 @@
    - 제나가 백그라운드에서 진행 상태 관제 중.
 8. **Hookverse Studio 11대 유튜브 마스터 아키텍처 로드맵 정립**:
    - 트렌드 수집, 패턴 분석, 대본 자동화, 템플릿, 캘린더/스케줄러, 피드백 루프, 결제/수익화 등 11개 영역 에이전트별 매핑 완료.
-9. **공식 버추얼 뮤즈 'G3 (지스리)' 캐릭터 바이블 구축 및 전 에이전트 장착**:
-   - `_company/_shared/g3_character_sheet.md` 생성 (얼굴 일관성 고정 키워드, 시그니처 턱선 점, 샴페인골드 럭셔리 드레스, 마스터 프롬프트 수록).
-   - `Designer`와 `Leo(YouTube)`의 시스템 프롬프트에 공식 주인공으로 연동 완료.
+9. **공식 버추얼 뮤즈 '뉴라 (NEURA)' 캐릭터 바이블 구축 및 전 에이전트 장착**:
+   - 공식 모델명: **`뉴라 (NEURA)`** (레퍼런스: `G3 MASTER FACE ANCHOR LOCK`).
+   - `_company/_shared/g3_character_sheet.md` 및 `identity.md`에 공식 등재 완료.
+   - OSMU 4단계 유니버스 파이프라인(웹소설 ➡️ 웹툰 ➡️ 영상 ➡️ MV & OST) 구축 완료.
+   - `Designer`, `Leo(YouTube)`, `Writer`의 시스템 프롬프트에 뉴라 메인 주인공 연동 완료.
+10. **제나의 '1차 절대 기준(헌법)' 수립 완료**:
+   - [AGENTS.md](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/AGENTS.md) 및 [SKILL.md](file:///C:/Users/june2/.gemini/config/skills/hookverse_system/SKILL.md)에 11대 자동화 요구사항과 KAIRA/뉴라/만약에 세계관을 항상 1차 기준으로 삼는 제나 전용 운영 헌법 등록 완료.
 1. **새 워크스페이스 V2 완벽 오픈**:
    - `HOOKVERSE_STUDIO_V2` 폴더 개설 및 기존 대용량 찌꺼기 없는 클린 환경 안착.
 2. **에이전트 크래시 영구 박멸**:
