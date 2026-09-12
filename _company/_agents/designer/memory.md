@@ -22,3 +22,5 @@ _Designer 에이전트만 읽고 쓰는 개인 노트. 학습·교훈·자주 �
 - [2026-06-02] Prepare visual design assets based on user's instructions → 산출물 sessions/2026-06-02T14-05/designer.md
 - [2026-09-10] 회사 목표 ( Hookverse Studio )와 각 에이전트 개인 목표 ( _agents/{id}/goal.md ) 를 정리 → 산출물 sessions/2026-09-10T12-44/designer.md
 - [2026-09-10] 1~2명의 에이전트에게  주어진 작업을 분배 → 산출물 sessions/2026-09-10T12-44/designer.md
+- [2026-09-11] 브랜드 컨셉, 핵심 메시지, 디자인, 이미지, 템플릿 활용, 샘플, 고유한 스타일, 디자인 컨셉   → 산출물 sessions/2026-09-11T03-07/designer.md
+- [2026-09-11] 디자이너(Designer): g3_character_sheet.md의 뉴라(NEURA) 마스터 앵커 락,  1997년 여의도 배경 AI 이미지 프롬프트 3컷 및 썸네일 브리프 작성 → 산출물 sessions/2026-09-11T06-03/designer.md
