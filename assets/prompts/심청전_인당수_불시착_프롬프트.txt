@@ -1,0 +1,7 @@
+# 🎨 G3 실사 프롬프트: 심청전_인당수_불시착
+- 생성 일시: 2026-09-12 18:29:26
+- 렌즈: 85mm
+- 조명: 야간_시네마틱_앰비언트
+
+## 📋 최종 완성 영문 프롬프트 (복사용)
+A cinematic vertical 9:16 photograph of Neura in 심청전_인당수_불시착. Neura is an East Asian Korean woman in her early 20s with monolid eyes, fair natural skin texture with subtle visible pores (strictly NO smooth plastic AI skin), damp black hair. Wearing an authentic matte cotton gabardine trench coat over a champagne gold slip dress. Shot on 85mm portrait lens, f/1.8 shallow depth of field, natural candid shot. Dramatic lighting with 야간_시네마틱_앰비언트, realistic cool blue screen glow reflections on her cheekbones, jawline, and lips. Hyperrealistic 35mm film grain, 8k resolution, authentic atmosphere. --ar 9:16 --style raw --v 6.0

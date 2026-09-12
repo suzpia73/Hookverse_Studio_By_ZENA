@@ -22,7 +22,12 @@ AUTONOMY_LEVEL: 2
 
 ## 사용 가능한 도구
 
-## 사용 가능한 도구
+### `trend_scanner` (활성 · 연두색 불)
+키워드를 분석하여 숏폼 바이럴 포인트, 해시태그, 타겟 시청자 분석 리포트를 `_company/reports/`에 물리적 `.md` 파일로 즉시 생성합니다.
+
+- **실행 스크립트**: `_agents/researcher/tools/trend_scanner.py`
+- **매니페스트**: `_agents/researcher/tools/trend_scanner.json`
+- **산출물 경로**: `_company/reports/{키워드}_트렌드분석.md`
 
 ### `web_search` ✅ 완성
 DuckDuckGo 기반 웹검색 (API 키 불필요, 무료)

@@ -22,24 +22,25 @@ AUTONOMY_LEVEL: 2
 
 ## 사용 가능한 도구
 
-_⚠️ 이 에이전트의 도구는 모두 로드맵 단계입니다. 현재 LLM 추론만 가능하고, 외부 API 호출이나 파일 생성은 아직 동작하지 않습니다._
+### `short_script` (활성 · 연두색 불)
+Hookverse Studio 5-in-1 바이럴 공식에 맞춘 30초 숏폼 나레이션 대본 및 4단 컷 기획서를 물리적 `.md` 파일로 즉시 생성하여 `assets/scripts/`에 저장합니다.
+
+- **실행 스크립트**: `_agents/writer/tools/short_script.py`
+- **매니페스트**: `_agents/writer/tools/short_script.json`
+- **산출물 경로**: `assets/scripts/{제목}_30초대본.md`
+
+---
 
 ## 로드맵 (예정)
 
 ### `tone_learner` _(예정)_
 사용자 과거 글 학습 → 톤 복제
 
-- 아직 구현되지 않은 도구입니다. 로드맵에 있으며 향후 버전에서 추가 예정.
-
 ### `multi_platform_adapt` _(예정)_
 하나의 스크립트 → YouTube/IG/블로그 자동 변환
 
-- 아직 구현되지 않은 도구입니다. 로드맵에 있으며 향후 버전에서 추가 예정.
-
 ### `hook_library` _(예정)_
 후크·CTA 라이브러리 운영
-
-- 아직 구현되지 않은 도구입니다. 로드맵에 있으며 향후 버전에서 추가 예정.
 
 
 ---
