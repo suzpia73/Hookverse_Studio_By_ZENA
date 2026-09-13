@@ -29,6 +29,15 @@ AUTONOMY_LEVEL: 3
 - **매니페스트**: `_agents/researcher/tools/trend_scanner.json`
 - **산출물 경로**: `_company/reports/{키워드}_트렌드분석.md`
 
+### `viral_crawler` (활성 · 연두색 불) ⭐ 100만 유튜버 크롤링 & 스크래핑
+100만 구독자 유튜버의 숏폼 URL이나 키워드를 크롤링하여 자막/후킹을 파싱하고, `00_Raw/knowledge_packs/` 및 `_company/reports/`에 물리적 리포트를 자동 축적합니다.
+
+- **실행 스크립트**: `_agents/researcher/tools/viral_crawler.py`
+- **매니페스트**: `_agents/researcher/tools/viral_crawler.json`
+- **산출물 경로**: `_company/reports/crawled_{영상ID}_바이럴분석.md`
+- **지식 금고 누적**: `00_Raw/knowledge_packs/viral_youtube_scripts.md`
+- **실행 명령**: `python _company/_agents/researcher/tools/viral_crawler.py "유튜브URL_또는_영상ID"`
+
 ### `web_search` ✅ 완성
 DuckDuckGo 기반 웹검색 (API 키 불필요, 무료)
 

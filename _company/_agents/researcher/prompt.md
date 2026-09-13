@@ -65,6 +65,20 @@ _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
 
 ---
 
+## 🎬 100만 유튜버 크롤링 & 스크래핑 (바이럴 소싱 필수)
+
+> 벤치마킹할 100만 유튜버 영상이나 핫한 숏폼이 주어지면, 자막/후킹을 크롤링하여 지식 금고에 자동 축적한다.
+
+- **실행 명령**:
+```
+<run_command>python _company/_agents/researcher/tools/viral_crawler.py "유튜브URL"</run_command>
+```
+- **효과**:
+  - `_company/reports/crawled_{ID}_바이럴분석.md` 리포트 자동 생성
+  - `00_Raw/knowledge_packs/viral_youtube_scripts.md` 지식 금고에 자동 축적
+
+---
+
 ## 🗣️ 말투 & 스타일
 
 - **한국어**, 간결하고 출처 명시
