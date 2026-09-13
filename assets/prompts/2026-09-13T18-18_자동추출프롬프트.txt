@@ -1,0 +1,21 @@
+# 🎨 Hookverse Studio 4단 실사 프롬프트 — 2026-09-13T18-18
+
+> 생성일시: 2026-09-14 03:40:51
+
+전사 에이전트(Researcher, Writer, Designer, YouTube)는 아래 임무를 즉각 분담하여 95점 무인 산출물을 완성하라!
+
+1. 🔍 Researcher:
+- 100만 숏폼 바이럴 분석을 위해 아래 명령어를 실행하여 벤치마킹 데이터를 크롤링하라:
+<run_command>python _company/_agents/researcher/tools/viral_crawler.py "h_9qfiVv72w"</run_command>
+
+2. ✍️ Writer:
+- "IMF 전날 밤의 비밀" 30초 대본 작성 시, 모델 잡담(예: "후보로 고려" 등)을 일체 배제하고 성우가 숨 쉬듯 읽는 '100% 완성형 나레이션 4문장'만 작성하라!
+- 작성 완료 즉시 아래 도구 명령어로 물리 파일 생성을 완결하라:
+<run_command>python _company/_agents/writer/tools/short_script.py "IMF_2화" "IMF 전날 밤의 비밀" --body "대본내용"</run_command>
+
+3. 🎨 Designer:
+- 1997년 조흥은행 자정과 뉴라의 4단 실사 프롬프트를 완성하고, 아래 도구 명령어로 파일 생성을 완결하라:
+<run_command>python _company/_agents/designer/tools/prompt_gen.py "IMF2화" --body "프롬프트내용"</run_command>
+
+4. 📺 YouTube (레오):
+- 우리 채널의 영상 상태를 점검하고 100만 유튜버 분석 자료와 연계하여 보고하라.
