@@ -1,0 +1,8 @@
+# 🎨 G3 실사 프롬프트: IMF2화_자정의조흥은행
+- 생성 일시: 2026-09-14 01:42:38
+- 렌즈 규격: 35mm
+- 조명 기법: 야간_시네마틱_이중색온도
+- 연출 헌법: 10대 시네마틱 연속성 연출헌법 준수 (G3 안면 앵커락)
+
+## 📋 최종 완성 영문 프롬프트 (Midjourney / SD 복사용)
+A cinematic vertical 9:16 hyperrealistic photograph of Neura in 1997 vintage Seoul Myeongdong alley at midnight (00:00). Heavy cold rain, wet reflective asphalt streets with warm vintage Korean neon signage reflections (Chohung Bank vintage logo signage in distant background). Neura is a 24-year-old Korean woman with authentic natural skin texture, visible subtle pores, two distinct beauty marks (one below left eye, one near right collarbone). Wearing a vintage matte cotton gabardine trench coat, completely soaked with realistic water dripping, collars flipped up, holding an umbrella slightly tilted. Shot on 35mm cine lens, shallow depth of field. Lighting: 야간_시네마틱_이중색온도, dual color temperature (warm tungsten streetlights vs cold cyan rain ambiance), rim light outlining her drenched silhouette. Kodak Portra 400 35mm film grain, 8k resolution, authentic Korean 1997 atmosphere, highly detailed, masterwork. --ar 9:16 --style raw --v 6.0
