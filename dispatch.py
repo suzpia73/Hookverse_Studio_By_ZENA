@@ -17,31 +17,29 @@ def dispatch(command: str):
     cmd_lower = command.lower()
     
     # 1. 작가 (Writer) 라우팅
-    if any(k in cmd_lower for k in ["작가", "대본", "스크립트", "writer", "글써", "시나리오"]):
+    if any(k in cmd_lower for k in ["작가", "대본", "스크립트", "writer", "글써", "시나리오", "화", "쇼츠"]):
         print("🤖 [Writer 에이전트 호출] ➡️ 30초 숏폼 대본 생성 도구 가동 중...")
         # 제목 추출 (따옴표나 키워드)
         match = re.search(r"['\"](.*?)['\"]", command)
-        title = match.group(1) if match else "미스터리_숏폼_대본"
+        title = match.group(1) if match else "IMF_2화_IMF전날밤의비밀"
         
         script_tool = os.path.join(BASE_DIR, "_company", "_agents", "writer", "tools", "short_script.py")
         res = subprocess.run([PYTHON_EXE, script_tool, title], capture_output=True, text=True)
         print(res.stdout)
         if res.returncode == 0:
             print(f"🎉 Writer 업무 완료! 산출물이 assets/scripts/ 에 준비되었습니다.\n")
-        return
 
     # 2. 디자이너 (Designer) 라우팅
-    elif any(k in cmd_lower for k in ["디자이너", "프롬프트", "그림", "이미지", "designer"]):
+    if any(k in cmd_lower for k in ["디자이너", "프롬프트", "그림", "이미지", "designer", "컷", "실사"]):
         print("🤖 [Designer 에이전트 호출] ➡️ G3 실사 프롬프트 생성 도구 가동 중...")
         match = re.search(r"['\"](.*?)['\"]", command)
-        title = match.group(1) if match else "미스터리_씬"
+        title = match.group(1) if match else "IMF2화_자정의조흥은행"
         
         prompt_tool = os.path.join(BASE_DIR, "_company", "_agents", "designer", "tools", "prompt_gen.py")
         res = subprocess.run([PYTHON_EXE, prompt_tool, title], capture_output=True, text=True)
         print(res.stdout)
         if res.returncode == 0:
             print(f"🎉 Designer 업무 완료! 산출물이 assets/prompts/ 에 준비되었습니다.\n")
-        return
 
     # 3. 리서처 (Researcher) 라우팅
     elif any(k in cmd_lower for k in ["리서처", "조사", "트렌드", "키워드", "분석", "researcher"]):
