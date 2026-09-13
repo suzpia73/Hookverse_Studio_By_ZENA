@@ -57,7 +57,7 @@ def main():
         sys.exit(1)
     top_n = int(cfg.get("TOP_N_PER_CHANNEL", 5))
     lookback = int(cfg.get("LOOKBACK_DAYS", 30))
-    ollama_url = (acct.get("OLLAMA_URL") or "http://127.0.0.1:1234").rstrip("/")
+    ollama_url = (acct.get("OLLAMA_URL") or "http://127.0.0.1:11434").rstrip("/")
     model = acct.get("MODEL") or ""
     # LM Studio: URL에 1234 또는 /v1 포함 여부로 엔진 판별
     base = ollama_url.rstrip('/')

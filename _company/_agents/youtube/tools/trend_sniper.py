@@ -55,7 +55,7 @@ def main():
     if not target_keywords:
         print("⚠️  TARGET_KEYWORDS가 비어있어요. 분석할 키워드를 1개 이상 추가하세요.")
         sys.exit(1)
-    ollama_url = (_shared(cfg, acct, "OLLAMA_URL", "http://127.0.0.1:1234") or "http://127.0.0.1:1234").rstrip("/")
+    ollama_url = (_shared(cfg, acct, "OLLAMA_URL", "http://127.0.0.1:11434") or "http://127.0.0.1:11434").rstrip("/")
     model = _shared(cfg, acct, "MODEL", "") or ""
     pick = min(2, len(target_keywords))
     chosen = random.sample(target_keywords, pick)
