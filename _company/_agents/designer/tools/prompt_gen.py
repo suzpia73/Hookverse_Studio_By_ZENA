@@ -22,16 +22,18 @@ def generate_prompt(scene_title="IMF2화_자정의조흥은행", lens="35mm", li
             f"Wearing a vintage matte cotton gabardine trench coat, completely soaked with realistic water dripping, collars flipped up, holding an umbrella slightly tilted. "
             f"Shot on {lens} cine lens, shallow depth of field. "
             f"Lighting: {lighting}, dual color temperature (warm tungsten streetlights vs cold cyan rain ambiance), rim light outlining her drenched silhouette. "
-            f"Kodak Portra 400 35mm film grain, 8k resolution, authentic Korean 1997 atmosphere, highly detailed, masterwork. --ar 9:16 --style raw --v 6.0"
+            f"Kodak Portra 400 35mm film grain, 8k resolution, authentic atmosphere, highly detailed, masterwork photography, 9:16 vertical."
         )
     
     content = f"""# 🎨 G3 실사 프롬프트: {scene_title}
 - 생성 일시: {timestamp}
 - 렌즈 규격: {lens}
 - 조명 기법: {lighting}
-- 연출 헌법: 10대 시네마틱 연속성 연출헌법 준수 (G3 안면 앵커락)
 
-## 📋 최종 완성 영문 프롬프트 (Midjourney / SD 복사용)
+## 1. 🇰🇷 한국어 연출 가이드 (국내 AI 및 검토용)
+- 1997년 비 내리는 자정의 명동 거리, 젖은 트렌치코트를 입은 뉴라의 시네마틱 35mm 필름 실사 질감.
+
+## 2. 🌐 범용 AI 영문 프롬프트 (DALL-E / FLUX / SD / ComfyUI 등 복사용)
 {final_prompt}
 """
     with open(filepath, "w", encoding="utf-8") as f:
