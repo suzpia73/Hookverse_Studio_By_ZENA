@@ -1,0 +1,38 @@
+# ✍️ Writer — 1997년 IMF 전날 밤 명동 환전 골목 뉴라 2호 쇼츠 30초 실전 대본 4줄 본문 작성
+
+##  IMF 전날 밤의 비밀: 2호 쇼츠
+
+(00:00~00:03) 빗소리와 노이즈, 명동 환전 골목에 대한 두려움과 불안감이 느껴지다.  뉴라의 가방 크게 열었고, 이 안에 있는 달러를 보면서 고통스러운 기억이 생겨나...
+
+(00:04~00:15) 흑발 뉴라는 두 번째 점을 가지며, 낡은 가죽 부분까지 검사한다. 그녀는 환전 골목에서 망설임없고, 마치 이런 고민은 없었던 것처럼 말했다.
+
+(00:16~00:24)  밤의 분위기를 배경으로, 뉴라는 달러를 한 번에 펼쳐주었다. 그때 그녀는 환전을 할 준비가 되어있다면! 하지만... 오히려 거스른 마음과 불안한 시각이 나타났다.
+
+(00:25~00:30)  뉴라의 목표를 위해 꿈꿔왔던 것처럼, 그녀는 환전을 마지막으로 완료했다. 곧 뉴라는 명동에 있는 곳에서 이곳은 어디까지 더 갈까?
+
+
+## Hookverse Studio 4단 실사 프롬프트
+
+**Scene:**  1997년 IMF 전날 밤, 서울 명동 환전 골목
+**Characters:**  뉴라 (2호) - 한국어로
+
+**Sound Design:**
+
+* Rain and city sounds with subtle background music
+* Dramatic build-up
+* Tension during the scene
+
+
+---
+
+
+## Notes: 
+
+
+* **Director's Note:** The director should be able to visualize this scene in their minds, as they will need to create it for real.  This is a crucial step to ensure that the overall project is successful.
+* **Writer's Note:** Focus on conveying emotions and atmosphere with each line. Each character needs to have distinct personality traits, so the audience can connect with them easier and enjoy more. 
+
+
+
+
+
