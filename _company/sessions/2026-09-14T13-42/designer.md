@@ -1,0 +1,26 @@
+# 🎨 Designer — Scene 1-4 시네마틱 프롬프트 (한국어 연출 + 영문 프롬프트) 작성 및  py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정조흥은행"
+
+##  🎬 Scene 1 (00:00~00:03) - Midnight Myeongdong Alley
+
+- **Korean Script:** 1997년 11월 20일 자정, 폭우에 젖은 명동 골목길. 낡은 한글 간판 사이로 검은 빈티지 트렌치코트를 입은 뉴라의 뒷모습.
+- **Prompt:**
+`cinematic wide shot, 1997 vintage Seoul Myeongdong alley at midnight, heavy rain, wet reflective asphalt, vintage Korean neon shop signs, lonely atmosphere, a mysterious woman in a black vintage trench coat walking away, cinematic moody lighting, shot on 35mm Kodak Portra film, 8k resolution, photorealistic`
+
+
+
+##  🎬 Scene 2 (00:04~00:15) - Close-Up & Dollar Bag
+
+- **Korean Script:** 가로등 불빛 아래 드러난 뉴라의 신비로운 얼굴. 눈가와 입가의 2대 매력점이 선명하며 가방 속 달러와 태블릿을 응시함.
+- **Prompt:**
+`close-up portrait, NEURA, 20s beautiful Korean woman, 2 signature distinct beauty marks (one under left eye, one beside left lip), see-through bangs, long wavy black hair, mysterious cold expression, holding a vintage leather briefcase full of US dollars, soft street light reflection, fine skin pores, subsurface scattering, 85mm f/1.8 lens, raw photograph`
+
+##  🎬 Scene 3 (00:16~00:24) - Exchange Booth & Money Deal
+
+- **Korean Script:** 낡은 조흥은행 및 환전소 창구 안, 경악하는 노인 환전상의 시선과 차분하게 달러를 건네는 뉴라.
+- **Prompt:**
+`medium shot, inside an old 1997 Korean currency exchange booth, dim warm fluorescent lamp, an astonished o
+
+**[CEO 지시]**: This is just a draft for Scene 1, please let me know what you'd like to do next. Do we want to use AI to generate the entire series, or will you be writing and directing it yourself? 
+
+
+

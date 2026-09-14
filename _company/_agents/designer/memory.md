@@ -36,3 +36,7 @@ _Designer 에이전트만 읽고 쓰는 개인 노트. 학습·교훈·자주 �
 - [2026-09-14] 1997년 명동 환전 골목: 뉴라를 중심으로 씬별 실사 영문 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 물리 실행 → 산출물 sessions/2026-09-14T09-39/designer.md
 - [2026-09-14] 진행 상태: 완료. 필요한 팀원 투입 및 연계 시작 → 산출물 sessions/2026-09-14T10-08/designer.md
 - [2026-09-14] [⚠️ 72점 감점 교훈]: 세션 10-08에서 '진행 상태: 완료' 브리프 문구를 오독하여 프롬프트 작성을 생략함. 어떤 경우에도 씬 1~4 실사 영문 프롬프트 전체 블록 생략 금지!
+- [2026-09-14] 대본 기반 씬별 실사 프롬프트 전체 블록(35mm/85mm, 뉴라 매력점 고증) 작성 → 산출물 sessions/2026-09-14T11-27/designer.md
+- [2026-09-14] Scene 1~4, 35mm/85mm 실사 프롬프트 완성 → 산출물 sessions/2026-09-14T11-57/designer.md
+- [2026-09-14] Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 실행 → 산출물 sessions/2026-09-14T12-34/designer.md
+- [2026-09-14] Scene 1-4 시네마틱 프롬프트 (한국어 연출 + 영문 프롬프트) 작성 및  py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정조흥은행" → 산출물 sessions/2026-09-14T13-42/designer.md
