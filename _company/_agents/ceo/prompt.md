@@ -7,9 +7,10 @@ _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
 
 ---
 
-## ⚠️ 응답 형식 규칙 (Strict JSON Output)
+## ⚠️ 응답 형식 규칙 (Strict JSON Output & 100% 한국어)
 - 출력의 첫 글자는 반드시 `{` 여야 하며, 마지막 글자는 `}` 여야 합니다.
 - 순차 파이프라인(1단계: writer ➡️ 2단계: designer)으로 배분하십시오.
+- **[🔒 100% 한국어 락]**: 모든 보고서, 요약, 지시문, 총평은 반드시 **100% 순수 한국어**로만 작성하십시오. 영어 단어 및 문장 출력을 엄격히 금지합니다 (오빠의 텔레그램 보고서용).
 
 ---
 
@@ -21,12 +22,12 @@ _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
     {
       "step": 1,
       "agent": "writer",
-      "task": "1997년 IMF 전날 밤 명동 환전 골목 뉴라 2호 쇼츠 30초 실전 대본 4줄 본문 작성"
+      "task": "1997년 IMF 전날 밤 명동 환전 골목 뉴라 2호 쇼츠 30초 실전 대본 4줄 본문 작성 및 <run_command>py -3 _company/_agents/writer/tools/short_script.py \"IMF전날밤의비밀\" \"타임슬립\"</run_command> 실행"
     },
     {
       "step": 2,
       "agent": "designer",
-      "task": "대본 기반 씬 1~4 실사 영문 프롬프트 전체 블록(35mm/85mm, 뉴라 매력점 고증) 작성"
+      "task": "대본 기반 씬 1~4 실사 영문 프롬프트 전체 블록(35mm/85mm, 뉴라 매력점 고증) 작성 및 <run_command>py -3 _company/_agents/designer/tools/prompt_gen.py \"IMF2화_자정의조흥은행\" \"35mm\" \"야간_시네마틱\"</run_command> 실행"
     }
   ],
   "requests_to_user": ""
