@@ -1,76 +1,21 @@
 import os
 import sys
 import argparse
-from datetime import datetime
+import subprocess
 
-def generate_prompt(scene_title="IMF3화_유령을쫓는자들", lens="35mm / 85mm Cine Lens", lighting="새벽_안개_느와르_이중색온도", custom_prompt=None):
-    output_dir = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2\assets\prompts"
-    os.makedirs(output_dir, exist_ok=True)
-    
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    safe_title = scene_title.replace(" ", "_")
-    filename = f"{safe_title}_8씬_완성프롬프트.txt"
-    filepath = os.path.join(output_dir, filename)
-    
-    if custom_prompt:
-        final_prompt = custom_prompt
-    else:
-        final_prompt = f"""# 🎨 Hookverse Studio {scene_title} 8씬 시네마틱 프롬프트 팩
-- 규격: 9:16 Vertical (1080x1920 Full HD), 35mm / 50mm / 85mm Cine Lens
-- 룩앤필: 1997 Vintage Seoul Noir, Kodak Portra 400 Film Grain, David Fincher Suspense Mood
+WORKSPACE = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2"
+PIPELINE_SCRIPT = os.path.join(WORKSPACE, "tools", "ai_production_pipeline.py")
 
----
-
-## 씬 1 (00:00~06:20) | 조흥은행 앞 경찰 통제선과 취재진
-A cinematic vertical 9:16 hyperrealistic photograph of 1997 Seoul Myeongdong street at cold dawn (06:00 AM). Police yellow tape blocking the entrance of Chohung Bank. Vintage reporters holding bulky 1990s TV cameras with flashing flashbulbs. Heavy cold morning mist, wet asphalt. 35mm cine lens, deep atmospheric perspective, Kodak Portra 400 grain, 8k, 9:16.
-
----
-
-## 씬 2 (06:20~11:50) | 텅 빈 대형 금고 앞 경악하는 특별수사관
-A dramatic vertical 9:16 shot inside the massive underground Chohung Bank vault. Two Korean male investigators in vintage 1997 trench coats standing frozen in disbelief before completely empty steel security racks where billions in cash should be. Harsh single overhead fluorescent tube casting stark contrast and long shadows. 50mm lens, suspense thriller mood, 8k, 9:16.
-
----
-
-## 씬 3 (11:50~16:80) | 금고 바닥 'NEURA' 붉은 서명 장부 익스트림 접사
-An extreme macro vertical 9:16 close-up of an open aged yellow bank ledger lying on the dusty vault floor. A striking, sharp signature written in vibrant blood-red fountain pen ink reads: 'NEURA'. 85mm macro lens, razor-sharp focus on the wet red ink texture and paper fibers, cinematic crime drama lighting, 8k, 9:16.
-
----
-
-## 씬 4 (16:80~22:10) | 긴급 무전기를 든 수사반장 미디엄 샷
-A gritty cinematic vertical 9:16 medium shot of a senior detective holding a heavy retro black walkie-talkie to his mouth, speaking with intense urgency. Dim underground corridor background with spinning red emergency siren light reflecting on wet concrete walls. 50mm lens, David Fincher neo-noir grading, 8k, 9:16.
-
----
-
-## 씬 5 (22:10~27:30) | 안개 낀 한강 다리 위 뉴라의 옆모습 실루엣
-A hauntingly beautiful cinematic vertical 9:16 profile shot of Neura standing by the railing of Mapo Bridge over the Han River in thick dawn fog. She wears a vintage matte black gabardine trench coat with collar flipped up, wet wavy black hair. Side profile showing her subtle beauty mark under left eye. Cold blue dawn light with distant amber bridge lamps blurred. 35mm cine lens, Christopher Nolan suspense mood, 8k, 9:16.
-
----
-
-## 씬 6 (27:30~32:80) | 2구 스마트폰 화면 속 환율 급등 속보 접사
-A vertical 9:16 macro close-up of a silver dual-lens futuristic smartphone held by wet feminine hands. Glowing screen displays '1997.11.21 07:00:00 - BREAKING: USD/KRW SURGES PAST 1,900'. Raindrops on glass screen refracting cold light. 85mm macro lens, razor-sharp UI focus, 8k, 9:16.
-
----
-
-## 씬 7 (32:80~38:50) | 2026 현대 금융 데이터 분석실 모니터
-A sleek vertical 9:16 photograph in 2026. A modern financial analyst's dark office with multiple glowing OLED monitors analyzing declassified 1997 foreign exchange transaction logs, displaying a highlighted encrypted ghost account tagged 'NEURA DEFENSE FUND'. 50mm lens, modern high-tech cybersecurity atmosphere, 8k, 9:16.
-
----
-
-## 씬 8 (38:50~45:20) | 현대인의 스마트폰 뱅킹 달러 계좌 POV
-A chilling first-person POV vertical 9:16 close-up of elegant feminine hands holding a 2026 smartphone. A mobile banking app screen displays 'USD Foreign Currency Savings: $100,000,000'. Screen light reflecting in the user's thumb. Intense viral hook question: 'Who saved the country?'. 85mm macro, hyperrealistic, 8k, 9:16.
-"""
-
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write(final_prompt)
-        
-    print(f"✅ [Designer] 8씬 완성 프롬프트 팩 생성 성공: {filepath}")
-    return filepath
+def generate_prompt(scene_title="IMF3화_유령을쫓는자들"):
+    cmd = [sys.executable, PIPELINE_SCRIPT, scene_title]
+    res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
+    print(res.stdout)
+    if res.returncode != 0:
+        print("[-] 에러 발생:", res.stderr)
+    return os.path.join(WORKSPACE, "assets", "prompts", f"{scene_title}_8씬_완성프롬프트.txt")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Hookverse G3 Cinematic Prompt Generator")
-    parser.add_argument("title", nargs="?", default="IMF2화_자정의조흥은행")
-    parser.add_argument("lens", nargs="?", default="35mm")
-    parser.add_argument("lighting", nargs="?", default="야간_시네마틱_이중색온도")
-    parser.add_argument("--prompt", "-p", help="Custom English prompt text", default=None)
+    parser = argparse.ArgumentParser(description="Hookverse AI Prompt Generator")
+    parser.add_argument("title", nargs="?", default="IMF3화_유령을쫓는자들")
     args = parser.parse_args()
-    generate_prompt(args.title, args.lens, args.lighting, custom_prompt=args.prompt)
+    generate_prompt(args.title)

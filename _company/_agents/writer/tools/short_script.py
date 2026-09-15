@@ -1,57 +1,25 @@
 import os
 import sys
 import argparse
-from datetime import datetime
+import subprocess
 
-def generate_script(title="IMF3화_유령을쫓는자들", genre="타임슬립/What If/스릴러", characters="뉴라 (NEURA), 특별조사반", script_body=None):
-    output_dir = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2\assets\scripts"
-    os.makedirs(output_dir, exist_ok=True)
-    
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    safe_title = title.replace(" ", "_")
-    filename = f"{safe_title}_대본.md"
-    filepath = os.path.join(output_dir, filename)
-    
-    if script_body:
-        body_content = script_body
-    else:
-        body_content = f"""### [파트 1 : 1997년 11월 21일 새벽, 조흥은행 금고의 진실 (00:00 ~ 22:10)]
-- 씬 1 (00:00 ~ 06:20 | 6.2s) : 1997년 11월 21일 새벽 6시, 명동 조흥은행 앞 경찰 통제선과 몰려든 기자들.
-  🗣️ "국가 부도 선언 당일 아침, 명동 조흥은행 지하 금고에 비상이 걸렸습니다."
-- 씬 2 (06:20 ~ 11:50 | 5.3s) : 굳게 닫혔던 육중한 금고 문이 활짝 열리고, 당혹감에 휩싸인 재정경제원 요원들.
-  🗣️ "수십억 달러가 보관되어 있어야 할 거대한 철제 금고는 흔적도 없이 비어 있었습니다."
-- 씬 3 (11:50 ~ 16:80 | 5.3s) : 바닥에 떨어진 낡은 대출 승인 장부, 그 위에 피처럼 선명하게 남은 붉은 서명 'NEURA'.
-  🗣️ "현장에 남겨진 유일한 단서는 단 하나의 붉은 서명, 'NEURA'."
-- 씬 4 (16:80 ~ 22:10 | 5.3s) : 수사관의 긴급 무전과 다급하게 울리는 사이렌.
-  🗣️ "1997년 대한민국 정부 전산망 그 어디에도 존재하지 않는 유령의 이름이었습니다."
+WORKSPACE = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2"
+PIPELINE_SCRIPT = os.path.join(WORKSPACE, "tools", "ai_production_pipeline.py")
 
-### [서스펜스 침묵 구간 (22:10 ~ 23:60 | 1.5초)]
-- 🤫 (1.5초 서스펜스 정적 & 긴박한 타자기 소리)
+def generate_script(title="IMF3화_유령을쫓는자들", genre="타임슬립/What If/스릴러"):
+    cmd = [sys.executable, PIPELINE_SCRIPT, f"{title} ({genre})"]
+    res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
+    print(res.stdout)
+    if res.returncode != 0:
+        print("[-] 에러 발생:", res.stderr)
+    return os.path.join(WORKSPACE, "assets", "scripts", f"{title}_대본.md")
 
-### [파트 2 : 미래를 바꾼 유령의 반격 & 현실 후킹 (23:60 ~ 45:20)]
-- 씬 5 (23:60 ~ 28:80 | 5.2s) : 안개 자욱한 한강 다리 위, 트렌치코트 깃을 세우고 공중전화를 끊는 뉴라의 옆모습.
-  🗣️ "하지만 금고를 먼저 털어 도망친 건 국가 부패 세력이었습니다."
-- 씬 6 (28:80 ~ 34:30 | 5.5s) : 뉴라의 손에 들린 2구 듀얼 렌즈 미래 스마트폰 화면에 뜨는 '환율 급등 1,900원 돌파' 속보.
-  🗣️ "그녀는 그들이 빼돌린 마지막 달러 가방을 회수해 대한민국 방어 자금으로 전환했습니다."
-- 씬 7 (34:30 ~ 40:00 | 5.7s) : 2026년 현대의 금융 데이터 분석실 모니터에 비밀리에 복원된 1997년 외환 거래 로그.
-  🗣️ "그날 이후, 한국의 외환 위기 뒤편엔 역사에 기록되지 않은 수호자가 있었습니다."
-- 씬 8 (40:00 ~ 45:20 | 5.2s) : 현대인의 스마트폰 뱅킹 화면 속 달러 예금 계좌를 비추는 POV.
-  🗣️ "당신의 외화 통장을 열어보세요. 그 유령이 남긴 잔고의 비밀이 보일지 모릅니다." """
-
-    content = f"""# 🎬 8씬 시네마틱 바이럴 숏폼 대본: {title}
-
-- **장르/세계관**: {genre}
-- **등장인물**: {characters}
-- **런타임**: 45.2초 (가변 싱크 8씬 규격)
-- **생성 일시**: {timestamp}
-- **연출 헌법**: 10대 시네마틱 연속성 연출헌법 준수 (APVD 140% 무한루프)
-- **권장 성우**: 손서현 (ko-KR-SunHiNeural, +20%, -2Hz 중저음 미스터리 딕션)
-
----
-
-## 📜 8씬 나레이션 대본 & 사운드 큐
-
-{body_content}
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Hookverse AI Script Generator")
+    parser.add_argument("title", nargs="?", default="IMF3화_유령을쫓는자들")
+    parser.add_argument("genre", nargs="?", default="타임슬립/What If/스릴러")
+    args = parser.parse_args()
+    generate_script(args.title, args.genre)
 
 ---
 

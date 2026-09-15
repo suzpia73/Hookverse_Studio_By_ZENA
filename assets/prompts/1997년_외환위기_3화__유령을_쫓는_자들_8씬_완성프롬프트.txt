@@ -1,0 +1,56 @@
+# 🎨 Hookverse Studio 1997년 외환위기 3화: 유령을 쫓는 자들 8씬 시네마틱 프롬프트 팩
+
+---
+
+### 씬 1 (00:00 ~ 06:20) | 1997년 폭락하는 명동 거리
+> **카메라 화각**: 35mm Wide Cine Lens (공간감, 시대 배경)  
+> **연출 특성**: 6500K 차가운 빗줄기 배경 vs 2200K 따뜻한 나트륨 조명 림 라이트, 붉은 주가 전광판 반사광.
+
+```text
+Cinematic 35mm wide cine lens movie still of a 24-year-old Korean woman with wet wavy black hair, natural skin texture with subtle pores, two distinct beauty marks (one below left eye, one near right collarbone). She wears a vintage oversized black wool coat over a champagne gold silk evening dress. Standing alone on a rainy Myeongdong street in 1997, surrounded by retro Korean store neon signs and stock market ticker boards reflecting intense red light on wet asphalt. Dual color temperature contrast: cool 6500K rain-slicked blue night background versus warm 2200K sodium street lamp rim lighting on her coat shoulders. Moody, atmospheric, photorealistic film grain, shot on Arri Alexa, 8k resolution --ar 9:16 --v 6.0
+```
+
+---
+
+### 씬 2 (06:20 ~ 11:50) | 멈춰버린 시계와 환전소 창구
+> **카메라 화각**: 50mm Bust / Medium Shot  
+> **연출 특성**: '1997.11.20 00:00' 낡은 간판, 멈춘 버튼식 공중전화기, 서늘한 눈빛의 뉴라 안면 고정.
+
+```text
+Cinematic 50mm bust medium shot of the 24-year-old Korean woman, wet wavy black hair, natural skin texture with subtle pores, two distinct beauty marks (one below left eye, one near right collarbone). She stands under an old vintage Choheung Bank sign reading "1997.11.20 00:00". Her sharp, cool eyes stare intensely toward an abandoned vintage push-button payphone and a currency exchange window. Vintage black wool coat, water drops glistening on her cheeks, warm amber tungsten reflections in shallow depth of field bokeh background, realistic skin imperfections, dramatic lighting --ar 9:16 --v 6.0
+```
+
+---
+
+### 씬 3 (11:50 ~ 16:80) | 아날로그 속 2026년 캐시 태블릿
+> **카메라 화각**: 85mm Macro Extreme Close-up (핵심 소품 접사)  
+> **연출 특성**: 어두운 1997년 환전소 내부, 시대고증을 파괴하는 오프라인 캐시 태블릿의 푸른 광선 및 유리창 빗물 분쇄.
+
+```text
+Cinematic 85mm macro extreme close-up shot of a futuristic 2026 ultra-thin offline cash tablet glowing in icy blue holographic light, placed amidst dusty 1997 paper documents and analog ledgers inside a dark currency exchange booth. Raindrops streaming down the dirty glass window pane, refracting blue light rays across yellowed paper stacks. Ultra-detailed digital screen interface displaying illicit wire transfer logs, shallow depth of field, dramatic dark thriller aesthetic, photorealistic texture --ar 9:16 --v 6.0
+```
+
+---
+
+### 씬 4 (16:80 ~ 22:10) | 조여오는 유령의 그림자
+> **카메라 화각**: 50mm Medium Close-up  
+> **연출 특성**: 180도 가상선 유지, 다가오는 그림자 실루엣, 뉴라의 흔들리는 눈동자와 빨간 비상등 반사.
+
+```text
+Cinematic 50mm medium close-up shot of the 24-year-old Korean woman with anxious eyes, wet wavy black hair, two distinct beauty marks (one below left eye, one near right collarbone). Intense red warning light flashes across her face and wet coat collar. Behind the rain-streaked frosted glass of the exchange window, a tall dark ominous silhouette approaches her in the shadows. High-tension atmospheric thriller, soft rim lighting, candid snapshot angle, detailed skin peach fuzz and pores --ar 9:16 --v 6.0
+```
+
+---
+
+### 씬 5 (23:60 ~ 28:80) | 빗속 골목길 데이터 칩 탈취
+> **카메라 화각**: 35mm Low-Angle / Wide Shot  
+> **연출 특성**: 골목길 탈출 동작, 젖은 가죽 가방과 실크 드레스/울 코트 하이라이트 극대화.
+
+```text
+Cinematic 35mm low-angle wide shot of the 24-year-old Korean woman rapidly escaping into a wet dark Seoul alleyway in 1997. She snatches a small encrypted black data drive from her wet vintage leather handbag. High dynamic range highlighting the wet texture of her oversized black wool coat and champagne gold silk dress. Rain dripping around her, low-angle dynamic composition, rim light reflecting off wet asphalt and stone walls, dark suspense thriller atmosphere --ar 9:16 --v 6.0
+```
+
+---
+
+### 씬 6 (28:80 ~ 34:30) | 30년 후의 계좌
+> **카메라 화각
