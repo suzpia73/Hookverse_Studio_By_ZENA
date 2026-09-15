@@ -200,14 +200,46 @@ def main():
                         send_telegram(token, auth_chat_id, reply)
                         print("[+] 상태 보고 전송 완료!")
                         
-                    # 2. 비디오 렌더링 명령어
+                    # 2. AI 무인 제작 파이프라인 명령어 (대본, 프롬프트, 성우 음성 1초 창작)
+                    elif any(user_text.startswith(k) for k in ["제작:", "대본:", "만들어:", "/create ", "/make "]) or "제작해" in user_text:
+                        # 주제어 추출
+                        topic = user_text
+                        for prefix in ["제작:", "대본:", "만들어:", "/create ", "/make "]:
+                            if topic.startswith(prefix):
+                                topic = topic[len(prefix):].strip()
+                                break
+                        if not topic:
+                            topic = "IMF 3화: 유령을 쫓는 자들"
+                            
+                        send_telegram(token, auth_chat_id, f"🚀 오빠 지시 접수! 사내 4대 기준서(10대 연출헌법) 기반으로 *'{topic}'* 8씬 대본·프롬프트·음성 무인 제작을 시작할게요! 잠시만 기다려주세요! ☕")
+                        
+                        pipeline_script = os.path.join(WORKSPACE, "tools", "ai_production_pipeline.py")
+                        try:
+                            cmd = [sys.executable, pipeline_script, topic]
+                            res = subprocess.run(cmd, cwd=WORKSPACE, capture_output=True, text=True, errors="ignore", timeout=90)
+                            if res.returncode == 0:
+                                success_msg = (
+                                    f"🎉 *오빠! '{topic}' 무인 제작이 완벽히 끝났어요!*\n\n"
+                                    f"• 📜 *8씬 마스터 대본*: `assets/scripts/` 안착\n"
+                                    f"• 🎨 *8씬 G3 프롬프트*: `assets/prompts/` 안착\n"
+                                    f"• 🎙️ *뉴럴 성우 음성*: `assets/audio/` 안착\n\n"
+                                    f"이제 언제든 영상 조립(`렌더링`) 지시만 주시면 바로 쇼츠로 뽑아낼 수 있어요! 💖"
+                                )
+                                send_telegram(token, auth_chat_id, success_msg)
+                            else:
+                                send_telegram(token, auth_chat_id, f"⚠️ 제작 중 에러가 발생했어요:\n{res.stderr[-300:]}")
+                        except Exception as e:
+                            send_telegram(token, auth_chat_id, f"❌ 제작 실행 실패: {e}")
+                        print(f"[+] '{topic}' 무인 파이프라인 릴레이 완료 보고 전송!")
+
+                    # 3. 비디오 렌더링 명령어
                     elif any(k in user_text.lower() for k in ["렌더링", "조립", "영상만들어", "/render"]):
                         send_telegram(token, auth_chat_id, "🎬 오빠 지시 접수! 노트북에서 지금 바로 2화 비디오 렌더링을 시작할게요. 잠시만 기다려주세요!")
                         reply = run_video_assembly()
                         send_telegram(token, auth_chat_id, reply)
                         print("[+] 렌더링 결과 전송 완료!")
                         
-                    # 3. 일상 대화 및 자유 소통 (Gemini AI 두뇌 구동)
+                    # 4. 일상 대화 및 자유 소통 (Gemini AI 두뇌 구동)
                     else:
                         if gemini_key:
                             reply = get_gemini_reply(gemini_key, gemini_model, user_text)
