@@ -1,21 +1,4 @@
-import os
-import sys
-import argparse
-from datetime import datetime
-
-def generate_prompt(scene_title="IMF3화_유령을쫓는자들", lens="35mm / 85mm Cine Lens", lighting="새벽_안개_느와르_이중색온도", custom_prompt=None):
-    output_dir = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2\assets\prompts"
-    os.makedirs(output_dir, exist_ok=True)
-    
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    safe_title = scene_title.replace(" ", "_")
-    filename = f"{safe_title}_8씬_완성프롬프트.txt"
-    filepath = os.path.join(output_dir, filename)
-    
-    if custom_prompt:
-        final_prompt = custom_prompt
-    else:
-        final_prompt = f"""# 🎨 Hookverse Studio {scene_title} 8씬 시네마틱 프롬프트 팩
+# 🎨 Hookverse Studio IMF3화_유령을쫓는자들 8씬 시네마틱 프롬프트 팩
 - 규격: 9:16 Vertical (1080x1920 Full HD), 35mm / 50mm / 85mm Cine Lens
 - 룩앤필: 1997 Vintage Seoul Noir, Kodak Portra 400 Film Grain, David Fincher Suspense Mood
 
@@ -58,19 +41,3 @@ A sleek vertical 9:16 photograph in 2026. A modern financial analyst's dark offi
 
 ## 씬 8 (38:50~45:20) | 현대인의 스마트폰 뱅킹 달러 계좌 POV
 A chilling first-person POV vertical 9:16 close-up of elegant feminine hands holding a 2026 smartphone. A mobile banking app screen displays 'USD Foreign Currency Savings: $100,000,000'. Screen light reflecting in the user's thumb. Intense viral hook question: 'Who saved the country?'. 85mm macro, hyperrealistic, 8k, 9:16.
-"""
-
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write(final_prompt)
-        
-    print(f"✅ [Designer] 8씬 완성 프롬프트 팩 생성 성공: {filepath}")
-    return filepath
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Hookverse G3 Cinematic Prompt Generator")
-    parser.add_argument("title", nargs="?", default="IMF2화_자정의조흥은행")
-    parser.add_argument("lens", nargs="?", default="35mm")
-    parser.add_argument("lighting", nargs="?", default="야간_시네마틱_이중색온도")
-    parser.add_argument("--prompt", "-p", help="Custom English prompt text", default=None)
-    args = parser.parse_args()
-    generate_prompt(args.title, args.lens, args.lighting, custom_prompt=args.prompt)
