@@ -20,7 +20,7 @@ _이 문서는 Hookverse Studio의 모든 에이전트(디자이너·레오·작
 | **얼굴 & 눈매** | 매혹적인 캣츠아이·사슴상, 맑고 투명한 도자기 피부, 깊은 웜브라운 눈동자 | `stunning Korean muse, cat-like captivating almond brown eyes, dewy porcelain skin` |
 | **🎯 시그니처 앵커 (점 2개 고정)** | **눈가 매력점 + 입가 매력점 (정확히 2개만 존재)** | `exactly two signature beauty marks: one subtle mole near corner of right eye, one small distinct beauty mark near mouth corner, clean clear skin with no other spots` |
 | **헤어스타일** | 시스루 뱅(See-through bangs) + 우아하게 흐르는 흑갈색 롱 웨이브 | `flowing long wavy dark brunette hair, delicate see-through bangs` |
-| **바디 라인** | 슬림 & 볼륨감 있는 황금비율, 긴 목선과 우아한 쇄골 라인 | `slender hourglass silhouette, elegant long neck, defined collarbones` |
+| **바디 라인 & 피지컬** | **169cm, 50kg, 완벽한 8등신 황금비율**, **긴 인심(Inseam)의 압도적인 롱다리 각선미**, 쏙 들어간 **한 줌 잘록한 개미허리**, 은은하게 탄탄한 **슬림 11자 복근**, 슬림 글래머 실루엣, 긴 목선과 우아한 쇄골 라인 | `169cm tall, slender 50kg, exceptionally long legs with high inseam, snatched tiny curved hourglass waist, subtly toned 11-line athletic abs, perfect eight-head-high golden ratio model proportions, slender glamorous silhouette, elegant long neck, defined collarbones` |
 | **시그니처 의상** | 샴페인 골드 실크 새틴 백리스 드레스, 미니멀 드롭 이어링 | `luxurious champagne gold silk satin dress, minimalist drop earrings` |
 
 ---
@@ -35,6 +35,7 @@ _이 문서는 Hookverse Studio의 모든 에이전트(디자이너·레오·작
 captivating cat-like warm brown almond eyes, glossy rose lips,
 (exactly two distinct beauty marks: one subtle mole near corner of right eye, one small beauty mark near mouth corner:1.4),
 flowing long wavy dark brunette hair with delicate see-through bangs,
+169cm tall, slender 50kg, exceptionally long legs with high inseam, snatched tiny hourglass waist, subtly toned 11-line abs,
 slender glamorous silhouette, elegant long neck and collarbones,
 wearing luxurious champagne gold silk satin dress, minimal diamond pendant, drop earrings,
 cinematic lighting, ultra-detailed 8k, modern luxury aesthetic, 85mm lens portrait, sharp focus, natural skin texture

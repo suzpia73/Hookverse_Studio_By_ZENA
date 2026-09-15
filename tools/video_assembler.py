@@ -73,23 +73,18 @@ def assemble_shorts(
     # 컷 3: 다급한 줌인 (1.0 -> 1.10)
     # 컷 4: 아련한 줌아웃 (1.08 -> 1.0)
     
-    # 복합 필터 그래프 생성
+    # 복합 필터 그래프 생성: 각 이미지를 정확한 시간동안 표시하고 순차 연결
     inputs = []
     filter_complex_parts = []
     
     for idx, img in enumerate(image_paths):
         inputs.extend(["-loop", "1", "-t", str(per_image_duration), "-i", img])
         
-        # 줌 모션 설정 (zoompan 필터 사용 또는 scale+crop)
-        # 1080x1920 해상도에 맞게 scale 및 패딩/크롭
-        # 줌인과 줌아웃 교차 적용
-        zoom_expr = "min(zoom+0.0008,1.08)" if idx % 2 == 0 else "max(1.08-0.0008*on,1.0)"
-        
+        # 1080x1920 규격 맞춤 및 안정적 FPS/SAR 설정 (버그 없는 순차 전환)
         filter_part = (
             f"[{idx}:v]scale={width}:{height}:force_original_aspect_ratio=increase,"
             f"crop={width}:{height},"
-            f"zoompan=z='{zoom_expr}':d={int(per_image_duration*fps)}:s={width}x{height}:fps={fps},"
-            f"setsar=1[v{idx}];"
+            f"setsar=1,fps={fps}[v{idx}];"
         )
         filter_complex_parts.append(filter_part)
         
@@ -107,7 +102,7 @@ def assemble_shorts(
         "-map", "[vcat]",
         "-map", f"{num_images}:a",
         "-c:v", "libx264",
-        "-preset", "fast",
+        "-preset", "veryfast",
         "-pix_fmt", "yuv420p",
         "-c:a", "aac",
         "-b:a", "192k",
