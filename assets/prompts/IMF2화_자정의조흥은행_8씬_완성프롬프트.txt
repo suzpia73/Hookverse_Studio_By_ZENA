@@ -1,0 +1,76 @@
+# 🎨 Hookverse Studio 2화 'IMF 전날 밤의 비밀' 8씬 완벽 시네마틱 프롬프트 팩
+- 프로젝트: KAIRA 공식 2호 쇼츠 (44.5초 가변 싱크 에디션)
+- 규격: 9:16 Vertical (1080x1920 Full HD), 35mm / 85mm Cine Lens
+- 룩앤필: 1997 Vintage Seoul Noir, Kodak Portra 400 Film Grain, Dual Color Temperature
+
+---
+
+## 씬 1 (00:00~06:20) | 조흥은행 자정 시계탑 와이드 롱샷
+- 앵글: 35mm Wide Long Shot (공간감과 시대 분위기 압도)
+- 내용: 1997년 11월 21일 비 내리는 자정의 명동 거리. 조흥은행 구형 세로 간판과 자정 정각(00:00)을 가리키는 거대한 시계탑.
+```text
+A cinematic vertical 9:16 hyperrealistic photograph of 1997 vintage Seoul Myeongdong street at midnight (00:00). Heavy cold rain falling through vintage warm tungsten streetlights. In the background, the authentic 1997 vintage Korean Chohung Bank building with its retro vertical signage and a prominent clock tower reading exactly 00:00 midnight. Wet reflective asphalt road reflecting green and warm neon reflections. Wide angle 35mm cine lens, deep atmospheric perspective, authentic 1990s Korean city atmosphere, Kodak Portra 400 film grain, 8k resolution, photorealistic masterwork, 9:16 aspect ratio.
+```
+
+---
+
+## 씬 2 (06:20~11:50) | 공중전화 부스로 뛰어드는 뉴라 바스트샷
+- 앵글: 35mm Dynamic Bust Shot (긴박한 핸드헬드 POV)
+- 내용: 빗속을 뚫고 한국통신 은색 공중전화 부스로 거칠게 뛰어드는 뉴라. 젖은 블랙 개버딘 트렌치코트, 얼굴에 맺힌 차가운 빗방울.
+```text
+A dynamic cinematic vertical 9:16 photograph of Neura rushing into a vintage 1997 Korean public telephone booth in heavy rain. Bust shot, dynamic handheld motion feel. Neura is a 24-year-old Korean woman with authentic natural skin texture, visible fine pores, two distinct beauty marks (one below left eye, one near right collarbone), wet long wavy black hair plastered to her forehead. Wearing a drenched vintage matte black cotton gabardine trench coat with water droplets dripping from the lapels. 35mm lens, f/2.0, shallow depth of field, cold blue rain ambience contrasted with warm streetlight rim light, Kodak Portra 400 grain, hyperdetailed realism, 9:16.
+```
+
+---
+
+## 씬 3 (11:50~16:80) | 스마트폰 배터리 1% 깜빡임 익스트림 접사
+- 앵글: 85mm Macro Extreme Close-up (극단적 디테일 접사)
+- 내용: 뉴라의 젖은 손가락에 들린 은색 스마트폰 액정. 빨간색 배터리 1% 아이콘 깜빡임, 화면 상단에 '1997.11.21 00:00:00 SEOUL' 타임스탬프와 외환보유고 고갈 긴급 알림.
+```text
+An extreme macro close-up vertical 9:16 shot of a vintage silver smartphone held by wet female fingers inside a rain-streaked glass booth. The glowing OLED screen displays a flashing red battery icon at '1%'. Crisp digital UI shows '1997.11.21 00:00:00 SEOUL - CRITICAL ALERT: FOREIGN RESERVES DEPLETED'. Water droplets on the glass screen refracting cold cyan light. Shot on 85mm macro lens, f/2.8, razor-sharp focus on the 1% battery symbol, blurred dark vintage phone booth interior in background, photorealistic tension, 8k, 9:16.
+```
+
+---
+
+## 씬 4 (16:80~22:10) | 공중전화 수화기 통화 미디엄 클로즈업
+- 앵글: 50mm Medium Close-up (정면 POV)
+- 내용: 공중전화 본체의 묵직한 유선 수화기를 귀에 대고 다급하게 외치는 뉴라. 스마트폰 화면의 차가운 청백색 빛(Screen Glow)이 얼굴 한쪽에 반사되는 서스펜스 라이팅.
+```text
+A cinematic vertical 9:16 medium close-up of Neura inside a dimly lit 1997 Korean telephone booth. She is holding the heavy retro silver corded handset to her ear, lips slightly parted in intense urgency ("Empty the vault!"). Dual lighting setup: her left cheek illuminated by the cold cyan glow of her smartphone screen, while her right side catches warm ambient tungsten light. Authentic natural skin, visible pores, two signature beauty marks (under left eye, right collarbone). Water streaks running down the glass booth behind her. 50mm cine lens, Kodak Portra 400 grain, high suspense mood, 8k resolution, 9:16.
+```
+
+---
+
+## 씬 5 (22:10~27:30) | 조흥은행 지하 금고 철문 오픈 로우앵글
+- 앵글: 28mm Low-Angle Long Shot (압도적 중압감)
+- 내용: 1.5초의 서스펜스 침묵 후 육중한 조흥은행 지하 대형 금고 철문이 서서히 열리는 장면. 거대한 원형 회전식 핸들과 리벳 못, 차가운 철제 금고 틈 사이로 흘러나오는 서늘한 흰색 연무(냉기).
+```text
+A dramatic cinematic vertical 9:16 low-angle long shot of a massive underground bank vault door slowly cracking open in 1997 Seoul. The heavy industrial steel door of Chohung Bank underground vault, featuring a giant retro circular locking wheel, massive steel bolts, and brushed metal textures. As it opens slightly, a stream of cold white mist and mysterious pale fluorescent light spills across the wet dark concrete floor. Low angle perspective emphasizing the colossal scale and tension. 28mm wide cine lens, David Fincher neo-noir thriller lighting, deep shadows, 8k photorealism, 9:16.
+```
+
+---
+
+## 씬 6 (27:30~32:80) | 텅 빈 금고 & 'NEURA' 붉은 서명 장부 탑다운 클로즈업
+- 앵글: 50mm Top-Down High-Angle Close-up (충격적 진실)
+- 내용: 달러 한 장 없이 텅 빈 차가운 금고 바닥. 바닥 한가운데 놓인 오래된 누런 대출 승인 장부 위에 피처럼 붉은 잉크로 날카롭게 갈겨쓴 영문 필기체 서명: 'NEURA'.
+```text
+A shocking top-down vertical 9:16 close-up shot inside the vast empty bank vault. The barren concrete floor has zero cash stacks, completely desolate. In the center lies an open vintage 1997 Korean bank ledger with yellowed aged paper and official red stamps. At the bottom of the approval form, a striking sharp signature written in deep blood-red fountain pen ink reads: 'NEURA'. Harsh single overhead fluorescent tube casting stark contrast. 50mm lens, razor-sharp focus on the red ink signature, cinematic thriller atmosphere, 8k resolution, 9:16.
+```
+
+---
+
+## 씬 7 (32:80~38:50) | 달러 가방 쥐고 새벽 안개 속 사라지는 롱코트 뒷태
+- 앵글: 50mm Back-View Long Shot (미스터리한 여운)
+- 내용: 1997년 11월 21일 짙은 새벽 안개 속 명동 골목길. 한 손에 무거운 빈티지 가죽 보스턴 달러 가방을 쥔 뉴라의 검은 롱코트 뒷모습이 안개 너머로 서서히 멀어져 사라지는 장면.
+```text
+A mysterious cinematic vertical 9:16 back-view long shot of Neura walking away into the thick cold dawn fog of 1997 Seoul. Shot from behind at street level. She wears a long matte black cotton trench coat swinging with her purposeful stride, holding a heavy vintage dark leather duffel bag in her right hand. Damp asphalt streets, retro neon shop signs flickering through the heavy morning mist. Christopher Nolan suspense aesthetic, cool muted color grading, shallow depth of field, Kodak Portra 400 film grain, cinematic storytelling, 8k, 9:16.
+```
+
+---
+
+## 씬 8 (38:50~44:50) | 현대인의 지갑 속 낡은 100달러 지폐 일련번호 현실 후킹
+- 앵글: 85mm First-Person POV Extreme Close-up (현실 참여형 소름 엔딩)
+- 내용: 2026년 현재. 어두운 방 안, 현대적인 가죽 지갑을 열고 엄지손가락으로 1997년 시리즈 낡은 100달러 지폐를 빼내는 1인칭 시점. 벤자민 프랭클린 초상화 옆 일련번호에 붉은 돋보기 하이라이트. "당신의 지갑 속 100달러, 일련번호를 확인해보세요."
+```text
+A chilling first-person POV vertical 9:16 close-up of hands opening a modern dark leather wallet in 2026. A worn vintage Series 1996/1997 US $100 bill is being pulled out with the thumb. Extreme sharp focus on the Benjamin Franklin portrait and the crisp serial number printed on the aged green paper currency. Modern smartphone screen light illuminating the scene from above. Intense viral hook question atmosphere: 'Check your wallet right now'. 85mm macro cine lens, hyperrealistic paper texture and micro-fibers, 8k masterwork, 9:16.
+```

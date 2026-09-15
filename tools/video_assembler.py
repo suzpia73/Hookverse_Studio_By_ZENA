@@ -20,11 +20,29 @@ IMAGES_DIR = os.path.join(WORKSPACE, "assets", "images")
 VIDEOS_DIR = os.path.join(WORKSPACE, "assets", "videos")
 
 def get_ffmpeg_binary():
+    # 1. imageio_ffmpeg 동적 시도 (Pyrefly missing-import 경고 방지)
     try:
-        import imageio_ffmpeg
-        return imageio_ffmpeg.get_ffmpeg_exe()
+        import importlib
+        m = importlib.import_module("imageio_ffmpeg")
+        exe = m.get_ffmpeg_exe()
+        if exe and os.path.exists(exe):
+            return exe
     except Exception:
-        return "ffmpeg"
+        pass
+
+    # 2. Python 환경 내 imageio_ffmpeg 바이너리 직접 탐색
+    py_dir = os.path.dirname(sys.executable)
+    pkg_patterns = [
+        os.path.join(py_dir, "Lib", "site-packages", "imageio_ffmpeg", "binaries", "ffmpeg*"),
+        os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "Python", "Python314", "Lib", "site-packages", "imageio_ffmpeg", "binaries", "ffmpeg*"),
+    ]
+    for pattern in pkg_patterns:
+        matches = glob.glob(pattern)
+        if matches and os.path.exists(matches[0]):
+            return matches[0]
+
+    # 3. 시스템 PATH fallback
+    return "ffmpeg"
 
 def get_audio_duration(ffmpeg_exe: str, audio_path: str) -> float:
     """FFmpeg를 통해 오디오의 정확한 재생 시간(초)을 측정"""
@@ -43,6 +61,7 @@ def assemble_shorts(
     audio_path: str,
     image_paths: list,
     output_filename: str = "IMF2화_자정의조흥은행_최종완성본.mp4",
+    custom_durations: list = None,
     width: int = 1080,
     height: int = 1920,
     fps: int = 30
@@ -58,27 +77,29 @@ def assemble_shorts(
     if num_images == 0:
         raise ValueError("합성할 이미지가 없습니다.")
         
-    per_image_duration = duration / num_images
-    print(f"[*] 🎬 비디오 조립 시작:")
+    # 가변 타임코드 적용: custom_durations가 전달되면 대사 호흡 길이에 1:1 Sync, 없으면 균등 분할
+    if custom_durations and len(custom_durations) == num_images:
+        durations = [float(d) for d in custom_durations]
+        scale_factor = duration / sum(durations) if sum(durations) > 0 else 1.0
+        durations = [d * scale_factor for d in durations]
+        print(f"[*] 🎬 가변 타임코드 모드 활성화 (대사-이미지 1:1 Sync):")
+        for i, (p, d) in enumerate(zip(image_paths, durations)):
+            print(f"    - 씬 {i+1}: {d:.2f}초 ({os.path.basename(p)})")
+    else:
+        per_image_duration = duration / num_images
+        durations = [per_image_duration] * num_images
+        print(f"[*] 🎬 균등 타임코드 모드: 장당 {per_image_duration:.2f}초 ({num_images}장)")
+
     print(f"    - 총 오디오 길이: {duration:.2f}초")
-    print(f"    - 이미지 수: {num_images}장 (장당 약 {per_image_duration:.2f}초)")
     print(f"    - 해상도: {width}x{height} (9:16 Vertical Shorts)")
     
     output_path = os.path.join(VIDEOS_DIR, output_filename)
     
-    # 각 이미지 클립을 생성하기 위한 FFmpeg 입력 구성
-    # 켄 번스(Ken Burns) 줌인/줌아웃 효과 필터
-    # 컷 1: 서서히 줌인 (1.0 -> 1.08)
-    # 컷 2: 서서히 줌아웃 (1.08 -> 1.0)
-    # 컷 3: 다급한 줌인 (1.0 -> 1.10)
-    # 컷 4: 아련한 줌아웃 (1.08 -> 1.0)
-    
-    # 복합 필터 그래프 생성: 각 이미지를 정확한 시간동안 표시하고 순차 연결
     inputs = []
     filter_complex_parts = []
     
-    for idx, img in enumerate(image_paths):
-        inputs.extend(["-loop", "1", "-t", str(per_image_duration), "-i", img])
+    for idx, (img, dur) in enumerate(zip(image_paths, durations)):
+        inputs.extend(["-loop", "1", "-t", f"{dur:.3f}", "-i", img])
         
         # 1080x1920 규격 맞춤 및 안정적 FPS/SAR 설정 (버그 없는 순차 전환)
         filter_part = (
@@ -128,6 +149,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Hookverse Shorts Video Assembler")
     parser.add_argument("--audio", "-a", default=None)
     parser.add_argument("--output", "-o", default="IMF2화_자정의조흥은행_최종완성본.mp4")
+    parser.add_argument("--durations", "-d", nargs="+", type=float, default=None, help="씬별 가변 듀레이션(초) 리스트")
     args = parser.parse_args()
     
     # 기본 오디오
@@ -135,7 +157,7 @@ if __name__ == "__main__":
     if not target_audio or not os.path.exists(target_audio):
         target_audio = os.path.join(AUDIO_DIR, "IMF2화_자정의조흥은행_30초대본_성우음성.mp3")
         
-    # 2화 4컷 이미지 수집
+    # 2화 이미지 수집
     ep02_img_dir = os.path.join(IMAGES_DIR, "IMF2화")
     img_files = sorted(glob.glob(os.path.join(ep02_img_dir, "*.jpg")))
     
@@ -148,4 +170,4 @@ if __name__ == "__main__":
     for f in img_files:
         print(f"    - {os.path.basename(f)}")
         
-    assemble_shorts(target_audio, img_files, output_filename=args.output)
+    assemble_shorts(target_audio, img_files, output_filename=args.output, custom_durations=args.durations)
