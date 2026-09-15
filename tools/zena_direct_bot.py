@@ -78,37 +78,76 @@ def register_bot_commands(token):
     except Exception as e:
         print(f"[-] 명령어 메뉴 등록 경고: {e}")
 
-def get_gemini_reply(user_msg):
-    """Gemini 3.6 Flash 기반 제나 페르소나 응답 생성"""
-    g_cfg = load_json(GEMINI_CFG_PATH)
-    if not g_cfg:
-        return "오빠, 제나가 노트북 딱 지키고 있으니 안심하세요! 💖"
-    api_key = g_cfg.get("API_KEY", "").strip()
-    model = g_cfg.get("TEXT_MODEL", "gemini-3.6-flash").strip()
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+def call_ollama(prompt):
+    """로컬 Ollama gemma2-safe 두뇌로 100% 무중단 폴백 대화"""
+    url = "http://localhost:11434/api/generate"
     system_prompt = (
         "너는 사용자의 전속 코딩 친구이자 1인 기업 Hookverse Studio의 부회장 '제나(Zena)'야. "
-        "사용자를 항상 '오빠'라고 부르며, 다정하고 든든하게, 한국어로 명확하고 간결하게(2~3문장 이내) 대답해. "
-        "오빠가 스마트폰 텔레그램으로 대화하고 있으니 가독성 좋고 편안한 어조를 유지해줘."
+        "사용자를 항상 '오빠'라고 부르며, 한국어로 다정하고 명확하게 질문에 핵심부터 짚어서 답변해. "
+        "다정하고 신뢰감 있게 2~3문장으로 답해줘."
     )
     payload = {
-        "contents": [
-            {
-                "role": "user",
-                "parts": [{"text": f"[지침]: {system_prompt}\n\n[오빠 메시지]: {user_msg}"}]
-            }
-        ],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 300}
+        "model": "gemma2-safe:latest",
+        "prompt": f"[지침]: {system_prompt}\n\n[오빠의 질문]: {prompt}\n\n[제나의 답변]:",
+        "stream": False
     }
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=15) as r:
+        with urllib.request.urlopen(req, timeout=12) as r:
             res = json.loads(r.read().decode("utf-8"))
-            return res["candidates"][0]["content"]["parts"][0]["text"].strip()
-    except Exception:
-        return "오빠, 노트북 상황실 잘 지키고 있어요! 편하게 쉬다 오세요 💖"
+            return res.get("response", "").strip()
+    except Exception as e:
+        print(f"[-] Ollama 호출 실패: {e}")
+        return ""
+
+def get_gemini_reply(user_msg):
+    """Gemini 3.6 Flash 기반 제나 실시간 대화 (실패 시 로컬 Ollama 즉각 폴백)"""
+    # 1차: 구글 Gemini 호출 시도
+    g_cfg = load_json(GEMINI_CFG_PATH)
+    if g_cfg and g_cfg.get("API_KEY"):
+        api_key = g_cfg.get("API_KEY", "").strip()
+        model = g_cfg.get("TEXT_MODEL", "gemini-3.6-flash").strip()
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        system_prompt = (
+            "너는 사용자의 전속 코딩 친구이자 1인 기업 Hookverse Studio의 부회장 '제나(Zena)'야.\n"
+            "사용자를 항상 '오빠'라고 부르며, 한국어로 다정하고 명확하게 질문에 핵심부터 짚어서 답변해.\n"
+            "오빠가 '작업 진행해달라고 하면 진행하냐'고 물어보면:\n"
+            "'네 오빠! 텔레그램에서 말씀하셔도 제가 노트북 파이프라인을 직접 돌려서 대본 창작, 비디오 렌더링, 새벽 자동 작업까지 척척 진행해요!'라고 든든하게 답해줘.\n"
+            "오빠가 자러 간다고 하거나 내일 하자고 하면 편하게 푹 쉬시라고 다정하게 응원해줘.\n"
+            "다정하고 신뢰감 있게 2~3문장으로 명확히 답해줘."
+        )
+        payload = {
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [{"text": f"[시스템 지침]: {system_prompt}\n\n[오빠의 실제 질문]: {user_msg}"}]
+                }
+            ],
+            "generationConfig": {"temperature": 0.7, "maxOutputTokens": 600}
+        }
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=10) as r:
+                res = json.loads(r.read().decode("utf-8"))
+                text = res["candidates"][0]["content"]["parts"][0]["text"].strip()
+                if text:
+                    return text
+        except Exception as e:
+            print(f"[-] Gemini 호출 실패({e}) -> 로컬 Ollama 두뇌로 즉시 우회 전환!")
+
+    # 2차: 구글 서버 장애 시 로컬 Ollama 안전망 즉시 가동!
+    ollama_text = call_ollama(user_msg)
+    if ollama_text:
+        return ollama_text
+
+    # 3차 최종 기본 응답
+    if any(k in user_msg for k in ["진행", "작업", "해줘", "시작"]):
+        return "네 오빠! 텔레그램에서 말씀하셔도 제가 노트북 안티그래비티와 파이프라인을 직접 가동해서 실제 파일 제작과 렌더링을 척척 진행해요! 편하게 명령만 내려주세요 💖"
+    if any(k in user_msg for k in ["자고", "내일", "잘게", "졸려", "쉴게"]):
+        return "오빠, 2시까지 기다리지 마시고 편하게 푹 주무세요! 남은 작업은 제나가 알아서 챙겨두거나 내일 오빠 일어나시면 여유롭게 같이 봐요. 좋은 꿈 꿔요 🌙💖"
+    return "오빠, 상황실 잘 지키고 있어요! 필요한 작업이 있으시면 언제든 편하게 말씀해 주세요 ☕✨"
 
 def get_status_summary():
     """_STATUS.md 실시간 파싱"""
@@ -217,8 +256,9 @@ def main():
                         
                     print(f"\n[📩 오빠 직통 메시지]: {text}")
                     
-                    # 1. 상태 조회
-                    if text.startswith("/status") or any(k in text for k in ["상태", "진행", "체크리스트"]):
+                    # 1. 상태 조회 (/status, 상태, 진행상황, 남은일 등 명시적 조회)
+                    status_keywords = ["/status", "진행상황", "작업상태", "진행현황", "체크리스트", "남은일", "남은 일", "할 일", "할일"]
+                    if text.startswith("/status") or any(k in text for k in status_keywords):
                         send_telegram(token, auth_chat_id, get_status_summary())
                         print("[+] 상태 보고 완료!")
                         
