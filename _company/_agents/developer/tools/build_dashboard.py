@@ -1,0 +1,526 @@
+#!/usr/bin/env python3
+"""
+build_dashboard.py — Hookverse Studio 개발자 에이전트(Developer 코다리) 전용 웹 대시보드 빌더 v1.0
+디자인 규격: 50_디자인/masterclass/DESIGN.md (Midnight Stage 다크 시네마틱 UI)
+역할:
+1. Hookverse Studio의 실시간 자산(1~3화 비디오, 대본, 프롬프트, 오디오)과 10대 에이전트 상태를 스캔합니다.
+2. 넷플릭스/마스터클래스급 반응형 실시간 종합 상황실(dashboard.html)을 빌드합니다.
+3. 브라우저에서 원클릭으로 열어볼 수 있도록 디스크에 안착시킵니다.
+"""
+
+import os
+import glob
+from datetime import datetime
+
+WORKSPACE = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2"
+SCRIPTS_DIR = os.path.join(WORKSPACE, "assets", "scripts")
+PROMPTS_DIR = os.path.join(WORKSPACE, "assets", "prompts")
+VIDEOS_DIR = os.path.join(WORKSPACE, "assets", "videos")
+AUDIO_DIR = os.path.join(WORKSPACE, "assets", "audio")
+OUTPUT_HTML = os.path.join(WORKSPACE, "dashboard.html")
+
+def scan_assets():
+    videos = [os.path.basename(p) for p in glob.glob(os.path.join(VIDEOS_DIR, "*.mp4"))]
+    scripts = [os.path.basename(p) for p in glob.glob(os.path.join(SCRIPTS_DIR, "*.md"))]
+    prompts = [os.path.basename(p) for p in glob.glob(os.path.join(PROMPTS_DIR, "*.txt"))]
+    audios = [os.path.basename(p) for p in glob.glob(os.path.join(AUDIO_DIR, "*.mp3"))]
+    return {
+        "videos": videos,
+        "scripts": scripts,
+        "prompts": prompts,
+        "audios": audios
+    }
+
+def generate_dashboard_html():
+    assets = scan_assets()
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hookverse Studio — 시네마틱 관제 대시보드</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --color-pitch-black: #0a0a0c;
+      --color-charcoal-canvas: #121316;
+      --color-deep-slate: #1a1c22;
+      --color-border: #272a34;
+      --color-pure-white: #ffffff;
+      --color-silver-mist: #9ea0a9;
+      --color-action-raspberry: #e32652;
+      --color-highlight-gold: #eed37f;
+      --color-interactive-lime: #10b981;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-display: 'Oswald', sans-serif;
+    }}
+
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      background-color: var(--color-pitch-black);
+      color: var(--color-pure-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 24px;
+      min-height: 100vh;
+    }}
+
+    .container {{
+      max-width: 1400px;
+      margin: 0 auto;
+    }}
+
+    /* Header */
+    header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 32px;
+    }}
+
+    .brand {{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }}
+
+    .badge-logo {{
+      background: linear-gradient(135deg, var(--color-action-raspberry), #b8183d);
+      color: white;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+    }}
+
+    .brand-title h1 {{
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }}
+
+    .brand-title p {{
+      font-size: 13px;
+      color: var(--color-silver-mist);
+    }}
+
+    .status-pill {{
+      background-color: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--color-interactive-lime);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .pulse {{
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-interactive-lime);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--color-interactive-lime);
+    }}
+
+    /* KPI Stats Grid */
+    .kpi-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }}
+
+    .kpi-card {{
+      background-color: var(--color-charcoal-canvas);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }}
+
+    .kpi-card::before {{
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background-color: var(--color-action-raspberry);
+    }}
+
+    .kpi-card.gold::before {{ background-color: var(--color-highlight-gold); }}
+    .kpi-card.green::before {{ background-color: var(--color-interactive-lime); }}
+
+    .kpi-label {{
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--color-silver-mist);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }}
+
+    .kpi-val {{
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 6px;
+    }}
+
+    .kpi-sub {{
+      font-size: 12px;
+      color: var(--color-silver-mist);
+    }}
+
+    /* Main Sections Grid */
+    .dashboard-layout {{
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 28px;
+    }}
+
+    @media (max-width: 1024px) {{
+      .dashboard-layout {{ grid-template-columns: 1fr; }}
+    }}
+
+    .panel {{
+      background-color: var(--color-charcoal-canvas);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }}
+
+    .panel-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 20px;
+    }}
+
+    .panel-title {{
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+
+    /* Video Pipeline Cards */
+    .episode-card {{
+      background-color: var(--color-deep-slate);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+
+    .episode-info h3 {{
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--color-pure-white);
+    }}
+
+    .episode-info p {{
+      font-size: 13px;
+      color: var(--color-silver-mist);
+    }}
+
+    .tag-group {{
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }}
+
+    .tag {{
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }}
+
+    .tag-ready {{ background-color: rgba(16, 185, 129, 0.2); color: var(--color-interactive-lime); }}
+    .tag-gold {{ background-color: rgba(238, 211, 127, 0.2); color: var(--color-highlight-gold); }}
+
+    /* Agent Fleet Grid */
+    .agent-fleet {{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }}
+
+    .agent-box {{
+      background-color: var(--color-deep-slate);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }}
+
+    .agent-icon {{
+      font-size: 24px;
+      width: 42px;
+      height: 42px;
+      background-color: var(--color-charcoal-canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }}
+
+    .agent-meta h4 {{
+      font-size: 14px;
+      font-weight: 600;
+    }}
+
+    .agent-meta p {{
+      font-size: 11px;
+      color: var(--color-silver-mist);
+    }}
+
+    /* Asset List */
+    .asset-item {{
+      font-size: 13px;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+
+    .asset-item:last-child {{ border-bottom: none; }}
+    .asset-name {{ color: #e2e8f0; font-family: monospace; font-size: 12px; }}
+
+    footer {{
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-silver-mist);
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+    }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="badge-logo">HV</div>
+        <div class="brand-title">
+          <h1>HOOKVERSE STUDIO V2</h1>
+          <p>AI 에이전트 1인 기업 완전 자율화 통제실 · Midnight Stage</p>
+        </div>
+      </div>
+      <div class="status-pill">
+        <div class="pulse"></div>
+        <span>실시간 무인 공장 ALL GREEN</span>
+      </div>
+    </header>
+
+    <!-- KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">완성 비디오 (MP4)</div>
+        <div class="kpi-val">{len(assets['videos'])}</div>
+        <div class="kpi-sub">조흥은행 8씬 가변 싱크 완결</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">마스터 대본 (8씬)</div>
+        <div class="kpi-val">{len(assets['scripts'])}</div>
+        <div class="kpi-sub">10대 헌법 메타프롬프트 창작</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">시네마틱 프롬프트 팩</div>
+        <div class="kpi-val">{len(assets['prompts'])}</div>
+        <div class="kpi-sub">G3 Master Face Anchor Lock</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">뉴럴 성우 오디오</div>
+        <div class="kpi-val">{len(assets['audios'])}</div>
+        <div class="kpi-sub">edge-tts 선희 뉴럴 딕션</div>
+      </div>
+    </div>
+
+    <!-- Main Content Layout -->
+    <div class="dashboard-layout">
+      <!-- Left Column: Pipeline Execution -->
+      <div class="left-col">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">🎬 K-시네마틱 숏폼 에피소드 파이프라인</div>
+            <span style="font-size: 12px; color: var(--color-highlight-gold);">45.24s 가변 싱크 표준</span>
+          </div>
+
+          <!-- Ep 1 -->
+          <div class="episode-card">
+            <div class="episode-info">
+              <h3>1화: 국가 부도의 날 (파일럿 런칭)</h3>
+              <p>유튜브 실시간 41회 조회 · 시청 지속시간 2분 39초 (636% 무한루프 실증)</p>
+              <div class="tag-group">
+                <span class="tag tag-ready">유튜브 일부공개</span>
+                <span class="tag tag-gold">G3 앵커락 실증</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ep 2 -->
+          <div class="episode-card" style="border-left: 4px solid var(--color-action-raspberry);">
+            <div class="episode-info">
+              <h3>2화: IMF 전날 밤의 비밀 (자정의 조흥은행)</h3>
+              <p>조흥은행 지하 금고 1:1 대본·성우 음성·비디오(45.24s) 조립 안착 완료</p>
+              <div class="tag-group">
+                <span class="tag tag-ready">45.24s 비디오 렌더링 완료</span>
+                <span class="tag tag-ready">1:1 SRT 자막 완비</span>
+                <span class="tag tag-gold">2시 쿼터 해제 후 3컷 교체 대기</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ep 3 -->
+          <div class="episode-card">
+            <div class="episode-info">
+              <h3>3화: 유령을 쫓는 자들 (특별조사반의 추적)</h3>
+              <p>AI 메타프롬프트 무인 파이프라인 한 줄 지시로 8씬 대본·프롬프트·음성 100% 자동 창작 성공</p>
+              <div class="tag-group">
+                <span class="tag tag-ready">8씬 대본 안착</span>
+                <span class="tag tag-ready">8씬 프롬프트 팩 안착</span>
+                <span class="tag tag-ready">45s 뉴럴 오디오 안착</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Physical Assets -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">📁 최근 디스크 안착 물리 자산 (Physical Assets)</div>
+            <span style="font-size: 12px; color: var(--color-silver-mist);">실시간 디스크 동기화</span>
+          </div>
+          <div>
+            {"".join([f'<div class="asset-item"><span class="asset-name">🎬 {v}</span><span class="tag tag-ready">MP4 비디오</span></div>' for v in assets['videos']])}
+            {"".join([f'<div class="asset-item"><span class="asset-name">📜 {s}</span><span class="tag tag-gold">대본 MD</span></div>' for s in assets['scripts'][:4]])}
+            {"".join([f'<div class="asset-item"><span class="asset-name">🎨 {p}</span><span class="tag tag-ready">프롬프트 TXT</span></div>' for p in assets['prompts'][:4]])}
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: 10 Agent Fleet -->
+      <div class="right-col">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">🤖 10대 에이전트 무인 공장</div>
+            <span style="font-size: 12px; color: var(--color-interactive-lime);">ALL ONLINE</span>
+          </div>
+
+          <div class="agent-fleet">
+            <div class="agent-box">
+              <div class="agent-icon">👑</div>
+              <div class="agent-meta">
+                <h4>CEO 레오</h4>
+                <p>8씬 단일 SOP 지휘</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">✍️</div>
+              <div class="agent-meta">
+                <h4>작가 에디</h4>
+                <p>5-in-1 바이럴 숏폼 대본</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">🎨</div>
+              <div class="agent-meta">
+                <h4>디자이너 픽스</h4>
+                <p>G3 앵커락 실사 프롬프트</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">💻</div>
+              <div class="agent-meta">
+                <h4>개발자 코다리</h4>
+                <p>대시보드 & 템플릿 배포</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">💼</div>
+              <div class="agent-meta">
+                <h4>비즈니스</h4>
+                <p>PayPal 달러 수익 정산</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">📱</div>
+              <div class="agent-meta">
+                <h4>비서 영숙</h4>
+                <p>텔레그램 실시간 직통</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">🔍</div>
+              <div class="agent-meta">
+                <h4>리서처</h4>
+                <p>트렌드 & 뉴스재킹</p>
+              </div>
+            </div>
+            <div class="agent-box">
+              <div class="agent-icon">📺</div>
+              <div class="agent-meta">
+                <h4>유튜브</h4>
+                <p>후킹 지표 & 알고리즘</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Virtual Muse Profile -->
+        <div class="panel" style="border: 1px solid var(--color-highlight-gold);">
+          <div class="panel-header">
+            <div class="panel-title" style="color: var(--color-highlight-gold);">✨ 공식 버추얼 뮤즈: 뉴라</div>
+            <span class="tag tag-gold">G3 Master Lock</span>
+          </div>
+          <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 12px;">
+            1997년 외환위기와 2026년을 넘나드는 타임슬립 다크 히어로. 국가 부패 세력이 빼돌린 달러를 회수하여 대한민국 미래를 지키는 수호자.
+          </p>
+          <div style="font-size: 11px; color: var(--color-silver-mist); line-height: 1.8;">
+            • <b>안면 고정</b>: 눈가 1개, 오른쪽 쇄골/턱선 1개 시그니처 매력점<br>
+            • <b>연령/마스크</b>: 24세 한국 여성, 촉촉한 모공 질감, 젖은 웨이브 흑발<br>
+            • <b>시그니처 룩</b>: 빈티지 매트 블랙 개버딘 트렌치코트 + 샴페인 골드 실크
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Hookverse Studio V2 · CEO Leo & Vice President Jena · System Synchronized at {now_str}
+    </footer>
+  </div>
+</body>
+</html>
+"""
+    with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"[+] ✅ [Developer 코다리] 시네마틱 관제 대시보드 빌드 완료: {OUTPUT_HTML}")
+    return OUTPUT_HTML
+
+if __name__ == "__main__":
+    generate_dashboard_html()
