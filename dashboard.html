@@ -50,30 +50,58 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .badge-logo {
-      background: linear-gradient(135deg, var(--color-action-raspberry), #b8183d);
-      color: white;
+    .emblem-gold-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff2b2 0%, #d4af37 40%, #996515 85%, #d4af37 100%);
+      color: #1a1505;
       font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 8px;
-      letter-spacing: 1px;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(255, 242, 178, 0.8);
+      position: relative;
+      flex-shrink: 0;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
     }
 
     .brand-title h1 {
       font-family: var(--font-display);
       font-size: 28px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .brand-title p {
       font-size: 13px;
       color: var(--color-silver-mist);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .channel-handle {
+      background: rgba(238, 211, 127, 0.15);
+      border: 1px solid rgba(238, 211, 127, 0.35);
+      color: var(--color-highlight-gold);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     .status-pill {
@@ -425,10 +453,10 @@
   <div class="container">
     <header>
       <div class="brand">
-        <div class="badge-logo">HV</div>
+        <div class="emblem-gold-circle">HV</div>
         <div class="brand-title">
-          <h1>HOOKVERSE STUDIO V2</h1>
-          <p>AI 에이전트 1인 기업 완전 자율화 통제실 · Midnight Stage</p>
+          <h1>HOOKVERSE STUDIO</h1>
+          <p><span class="channel-handle">@hookverse_studio</span> AI 에이전트 1인 기업 완전 자율 관제실</p>
         </div>
       </div>
       <div class="status-pill">
