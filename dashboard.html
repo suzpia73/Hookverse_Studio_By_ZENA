@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hookverse Studio — 시네마틱 관제 대시보드</title>
-  <link rel="icon" href="./assets/images/hookverse_studio_logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -99,16 +98,6 @@
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .channel-handle:hover {
-      background: var(--color-highlight-gold);
-      color: #1a1505;
-      box-shadow: 0 0 10px rgba(238, 211, 127, 0.5);
-      transform: translateY(-1px);
     }
 
     .status-pill {
@@ -309,217 +298,13 @@
     .asset-item:last-child { border-bottom: none; }
     .asset-name { color: #e2e8f0; font-family: monospace; font-size: 12px; }
 
-    /* Trend Radar Component */
-    .trend-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-
-    .tab-btn {
-      background: var(--color-deep-slate);
-      border: 1px solid var(--color-border);
-      color: var(--color-silver-mist);
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn:hover {
-      border-color: var(--color-action-raspberry);
-      color: var(--color-pure-white);
-    }
-
-    .tab-btn.active {
-      background: var(--color-action-raspberry);
-      border-color: var(--color-action-raspberry);
-      color: var(--color-pure-white);
-    }
-
-    .trend-card {
-      background: var(--color-deep-slate);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 16px;
-      margin-bottom: 14px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .trend-card:hover {
-      border-color: var(--color-highlight-gold);
-      transform: translateY(-2px);
-    }
-
-    .trend-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .trend-kw-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--color-pure-white);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .consensus-badge {
-      background: rgba(238, 211, 127, 0.2);
-      border: 1px solid var(--color-highlight-gold);
-      color: var(--color-highlight-gold);
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .sources-row {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-
-    .source-pill {
-      background: rgba(255, 255, 255, 0.08);
-      color: #94a3b8;
-      font-size: 10px;
-      padding: 2px 7px;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .source-pill.highlight {
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--color-interactive-lime);
-      border-color: rgba(16, 185, 129, 0.3);
-    }
-
-    .sample-headline {
-      font-size: 12px;
-      color: var(--color-silver-mist);
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-
-    .hook-box {
-      background: rgba(227, 38, 82, 0.08);
-      border-left: 3px solid var(--color-action-raspberry);
-      padding: 10px 12px;
-      border-radius: 4px;
-      font-size: 13px;
-      color: #fed7aa;
-      margin-bottom: 12px;
-      font-style: italic;
-    }
-
-    .trend-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--color-silver-mist);
-    }
-
-    .btn-launch {
-      background: linear-gradient(135deg, var(--color-action-raspberry), #b8183d);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-    }
-
-    .btn-launch:hover {
-      opacity: 0.9;
-    }
-
-    /* Vrew 4-Layer Cinematic Showcase */
-    .vrew-showcase-panel {
-      background: var(--color-deep-slate);
-      border: 1px solid rgba(238, 211, 127, 0.3);
-      border-radius: 12px;
-      padding: 18px;
-      margin-top: 18px;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .vrew-showcase-img {
-      width: 130px;
-      height: 231px;
-      border-radius: 8px;
-      object-fit: cover;
-      border: 1.5px solid rgba(238, 211, 127, 0.5);
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
-
-    .vrew-showcase-img:hover {
-      transform: scale(1.04);
-    }
-
-    .vrew-showcase-meta {
-      flex: 1;
-    }
-
-    .vrew-showcase-meta h4 {
-      font-size: 15px;
-      color: var(--color-pure-white);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .vrew-layer-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 12px;
-      color: #cbd5e1;
-    }
-
-    .vrew-layer-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      line-height: 1.4;
-    }
-
-    .layer-tag {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--color-highlight-gold);
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      white-space: nowrap;
-      border: 1px solid rgba(238, 211, 127, 0.3);
-    }
-
     /* Cinematic Video Player Panel */
     .shorts-player-panel {
       background: var(--color-charcoal-canvas);
       border: 1px solid rgba(238, 211, 127, 0.35);
       border-radius: 12px;
       padding: 20px;
-      margin-top: 24px;
+      margin-bottom: 24px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
@@ -596,10 +381,10 @@
       font-weight: 700;
       padding: 3px 8px;
       border-radius: 4px;
-      background: rgba(227, 38, 82, 0.2);
-      color: var(--color-action-raspberry);
-      border: 1px solid rgba(227, 38, 82, 0.4);
-      white-space: nowrap;
+      background: rgba(238, 211, 127, 0.2);
+      color: var(--color-highlight-gold);
+      border: 1px solid rgba(238, 211, 127, 0.4);
+      flex-shrink: 0;
     }
 
     footer {
@@ -616,17 +401,10 @@
   <div class="container">
     <header>
       <div class="brand">
-        <a href="https://www.youtube.com/@hookverse_studio" target="_blank" title="유튜브 공식 채널 바로가기" style="display: flex; align-items: center; text-decoration: none;">
-          <img src="./assets/images/hookverse_studio_logo.png" alt="Hookverse Studio Logo" class="emblem-gold-circle-img">
-        </a>
+        <img src="./assets/images/hookverse_studio_logo.png" alt="Hookverse Studio" class="emblem-gold-circle-img">
         <div class="brand-title">
           <h1>HOOKVERSE STUDIO</h1>
-          <p>
-            <a href="https://www.youtube.com/@hookverse_studio" target="_blank" class="channel-handle" style="text-decoration: none;" title="공식 유튜브 채널 직통 연결">
-              @hookverse_studio ↗
-            </a> 
-            AI 에이전트 1인 기업 완전 자율 관제실
-          </p>
+          <p><span class="channel-handle">@hookverse_studio</span> · AI 에이전트 1인 기업 완전 자율화 통제실 · Midnight Stage</p>
         </div>
       </div>
       <div class="status-pill">
@@ -639,373 +417,81 @@
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-label">완성 비디오 (MP4)</div>
-        <div class="kpi-val">5</div>
+        <div class="kpi-val">8</div>
         <div class="kpi-sub">조흥은행 8씬 가변 싱크 완결</div>
       </div>
       <div class="kpi-card gold">
         <div class="kpi-label">마스터 대본 (8씬)</div>
-        <div class="kpi-val">10</div>
+        <div class="kpi-val">14</div>
         <div class="kpi-sub">10대 헌법 메타프롬프트 창작</div>
       </div>
       <div class="kpi-card green">
         <div class="kpi-label">시네마틱 프롬프트 팩</div>
-        <div class="kpi-val">9</div>
+        <div class="kpi-val">13</div>
         <div class="kpi-sub">G3 Master Face Anchor Lock</div>
       </div>
-    </div>
-
-    <!-- Visual Node Wiring Studio Panel (Full Width) -->
-    <div class="panel" style="margin-bottom: 24px; border: 1px solid rgba(168, 85, 247, 0.4); background: linear-gradient(180deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);">
-      <div class="panel-header">
-        <div class="panel-title" style="display: flex; align-items: center; gap: 8px;">
-          <span style="color: #a855f7; font-size: 18px;">⚡</span>
-          <span><b>Hookverse Studio 실시간 비주얼 노드 파이프라인 (Visual Node Wiring Studio)</b></span>
-          <span style="font-size: 11px; padding: 2px 8px; border-radius: 9999px; background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">LIVE 5-NODE CONNECTED</span>
-        </div>
-        <div>
-          <button id="btn-run-node-sim" class="btn-launch" style="background: linear-gradient(135deg, #7c3aed, #a855f7); box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);">
-            ▶ 라인 펄스 시뮬레이션 가동
-          </button>
-        </div>
-      </div>
-      <p style="font-size: 12px; color: var(--color-silver-mist); margin-bottom: 16px;">
-        대본 노드에서 뻗어나온 선을 따라 음성·자막·이미지가 동시 생성되고, 모션 비디오를 거쳐 캡컷 타임라인에 1초의 오차도 없이 칼싱크로 결합되는 실물 배선도입니다.
-      </p>
-
-      <!-- Node Canvas Wrapper -->
-      <div style="position: relative; width: 100%; min-height: 260px; background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); overflow: hidden; padding: 20px;">
-        <!-- SVG Wires Layer -->
-        <svg id="node-svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
-          <defs>
-            <linearGradient id="wire-grad-purple" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#ec4899" stop-opacity="0.9"/>
-            </linearGradient>
-            <linearGradient id="wire-grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9"/>
-            </linearGradient>
-            <linearGradient id="wire-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#facc15" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#10b981" stop-opacity="0.9"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          <!-- Wire Lines (Curved Bezier Paths) -->
-          <!-- 1. Script -> Audio -->
-          <path id="wire-script-audio" d="M 180 130 C 230 130, 250 60, 310 60" stroke="url(#wire-grad-gold)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 2. Script -> Subtitle -->
-          <path id="wire-script-sub" d="M 180 130 C 230 130, 250 130, 310 130" stroke="url(#wire-grad-purple)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 3. Script -> Image -->
-          <path id="wire-script-img" d="M 180 130 C 230 130, 250 200, 310 200" stroke="url(#wire-grad-blue)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 4. Image -> Motion -->
-          <path id="wire-img-motion" d="M 470 200 C 510 200, 520 200, 560 200" stroke="url(#wire-grad-blue)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 5. Audio -> CapCut -->
-          <path id="wire-audio-capcut" d="M 470 60 C 580 60, 680 130, 770 130" stroke="url(#wire-grad-gold)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 6. Subtitle -> CapCut -->
-          <path id="wire-sub-capcut" d="M 470 130 C 580 130, 680 130, 770 130" stroke="url(#wire-grad-purple)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 7. Motion -> CapCut -->
-          <path id="wire-motion-capcut" d="M 700 200 C 740 200, 750 140, 770 130" stroke="url(#wire-grad-blue)" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <!-- 8. CapCut -> YouTube -->
-          <path id="wire-capcut-yt" d="M 920 130 C 960 130, 970 130, 1000 130" stroke="#10b981" stroke-width="4" stroke-dasharray="6,4" fill="none" filter="url(#glow)"/>
-
-          <!-- Animated Pulses (Circles that travel on paths) -->
-          <circle id="pulse-1" r="5" fill="#facc15" filter="url(#glow)"/>
-          <circle id="pulse-2" r="5" fill="#ec4899" filter="url(#glow)"/>
-          <circle id="pulse-3" r="5" fill="#06b6d4" filter="url(#glow)"/>
-        </svg>
-
-        <!-- HTML Node Cards on Grid -->
-        <div style="display: flex; justify-content: space-between; align-items: center; height: 220px; position: relative; z-index: 2;">
-          
-          <!-- Column 1: Source Script Node -->
-          <div class="node-box active" id="node-script" style="width: 160px; background: rgba(15, 23, 42, 0.9); border: 2px solid #a855f7; border-radius: 10px; padding: 12px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);">
-            <div style="font-size: 10px; color: #a855f7; font-weight: 700;">NODE 01: INPUT</div>
-            <div style="font-size: 13px; font-weight: 700; color: #fff; margin: 4px 0;">📜 7:3 마스터 대본</div>
-            <div style="font-size: 10px; color: #94a3b8;">1997 자정의 조흥은행 (8씬 칼싱크 대본)</div>
-            <div style="margin-top: 8px; font-size: 9px; color: #4ade80; display: flex; align-items: center; gap: 4px;">
-              <span style="display:inline-block; width:6px; height:6px; background:#4ade80; border-radius:50%;"></span>
-              READY (8 Scenes)
-            </div>
-          </div>
-
-          <!-- Column 2: 3 Parallel Generation Nodes -->
-          <div style="display: flex; flex-direction: column; gap: 10px; width: 160px;">
-            <!-- Audio Node -->
-            <div class="node-box" id="node-audio" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #facc15; border-radius: 8px; padding: 8px; box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);">
-              <div style="font-size: 9px; color: #facc15; font-weight: 700;">NODE 02-A: TTS</div>
-              <div style="font-size: 11px; font-weight: 700; color: #fff;">🎙️ 뉴럴 성우 음성</div>
-              <div style="font-size: 9px; color: #94a3b8;">선희 뉴럴 딕션 45.24s</div>
-            </div>
-            <!-- Subtitle Node -->
-            <div class="node-box" id="node-sub" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #ec4899; border-radius: 8px; padding: 8px; box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);">
-              <div style="font-size: 9px; color: #ec4899; font-weight: 700;">NODE 02-B: VREW</div>
-              <div style="font-size: 11px; font-weight: 700; color: #fff;">⚡ 0.15s 바운스 자막</div>
-              <div style="font-size: 9px; color: #94a3b8;">네온 옐로우 하이라이트</div>
-            </div>
-            <!-- Image Node -->
-            <div class="node-box" id="node-img" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #06b6d4; border-radius: 8px; padding: 8px; box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);">
-              <div style="font-size: 9px; color: #06b6d4; font-weight: 700;">NODE 02-C: VISUAL</div>
-              <div style="font-size: 11px; font-weight: 700; color: #fff;">🖼️ Opal/Veo 이미지</div>
-              <div style="font-size: 9px; color: #94a3b8;">G3 뉴라 5각 안면 고정</div>
-            </div>
-          </div>
-
-          <!-- Column 3: Motion Video Node -->
-          <div class="node-box" id="node-motion" style="width: 140px; background: rgba(15, 23, 42, 0.9); border: 1px solid #3b82f6; border-radius: 8px; padding: 10px; box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);">
-            <div style="font-size: 9px; color: #3b82f6; font-weight: 700;">NODE 03: I2V</div>
-            <div style="font-size: 12px; font-weight: 700; color: #fff; margin: 3px 0;">🎥 모션 비디오 렌더</div>
-            <div style="font-size: 9px; color: #94a3b8;">줌인·패닝·틴티드 비네팅</div>
-            <div style="margin-top: 6px; font-size: 9px; color: #38bdf8;">1080p MP4 Clpis</div>
-          </div>
-
-          <!-- Column 4: CapCut Auto Assembler Node -->
-          <div class="node-box" id="node-capcut" style="width: 150px; background: rgba(15, 23, 42, 0.9); border: 2px solid #10b981; border-radius: 10px; padding: 12px; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);">
-            <div style="font-size: 9px; color: #10b981; font-weight: 700;">NODE 04: EDITOR</div>
-            <div style="font-size: 13px; font-weight: 700; color: #fff; margin: 4px 0;">🎬 캡컷 자동 합성</div>
-            <div style="font-size: 9px; color: #94a3b8;">45.24s 8씬 칼싱크 결합</div>
-            <div style="margin-top: 6px; font-size: 9px; color: #4ade80;">Draft Ready (PC 연동)</div>
-          </div>
-
-          <!-- Column 5: YouTube Studio 99:1 Launch Node -->
-          <div class="node-box" id="node-yt" style="width: 150px; background: rgba(220, 38, 38, 0.15); border: 2px solid #ef4444; border-radius: 10px; padding: 12px; box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);">
-            <div style="font-size: 9px; color: #f87171; font-weight: 700;">NODE 05: LAUNCH</div>
-            <div style="font-size: 13px; font-weight: 700; color: #fff; margin: 4px 0;">🚀 유튜브 99:1 발사대</div>
-            <div style="font-size: 9px; color: #fca5a5;">메타데이터 99% 완결</div>
-            <div style="margin-top: 6px; font-size: 10px; color: #fef08a; font-weight: 700;">오빠의 1% [게시] 대기</div>
-          </div>
-
-        </div>
+      <div class="kpi-card">
+        <div class="kpi-label">뉴럴 성우 오디오</div>
+        <div class="kpi-val">4</div>
+        <div class="kpi-sub">edge-tts 선희 뉴럴 딕션</div>
       </div>
     </div>
 
     <!-- Main Content Layout -->
     <div class="dashboard-layout">
-      <!-- Left Column: Pipeline Execution & Trend Radar -->
+      <!-- Left Column: Pipeline Execution -->
       <div class="left-col">
-        <!-- Cross-Platform Trend Radar Panel -->
-        <div class="panel" style="border: 1px solid rgba(227, 38, 82, 0.4);">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span style="color: var(--color-action-raspberry);">🌐</span> 크로스 플랫폼 공통 트렌드 레이더 v3.0
-            </div>
-            <span style="font-size: 11px; color: var(--color-interactive-lime);">
-              ● 구글·유튜브·뉴스 교집합 감사 가동 중
-            </span>
-          </div>
-
-          <!-- Category Filter Tabs -->
-          <div class="trend-tabs">
-            <button class="tab-btn active" onclick="filterTrends('ALL')">전체 교집합</button>
-            <button class="tab-btn" onclick="filterTrends('HISTORY_MYSTERY')">🏛️ 역사 · 미스터리</button>
-            <button class="tab-btn" onclick="filterTrends('SCI_TECH_FUTURE')">🚀 AI · 미래 SF</button>
-            <button class="tab-btn" onclick="filterTrends('CULTURE_MYTH')">🐉 전래동화 · 신화</button>
-            <button class="tab-btn" onclick="filterTrends('BREAKING_MEGA')">💥 긴급 · 경제위기</button>
-          </div>
-
-          <!-- Trend Items Container -->
-          <div id="trend-list-container">
-            <!-- Dynamically populated -->
-          </div>
-        </div>
-
         <div class="panel">
           <div class="panel-header">
             <div class="panel-title">🎬 K-시네마틱 숏폼 에피소드 파이프라인</div>
-            <span style="font-size: 12px; color: var(--color-highlight-gold);">45.24s 가변 싱크 표준</span>
+            <span style="font-size: 12px; color: var(--color-highlight-gold);">4컷/8씬 가변 싱크 표준 & 실시간 인터랙티브 플레이어</span>
           </div>
 
-          <!-- Ep 1 -->
-          <div class="episode-card">
-            <div class="episode-info">
-              <h3>1화: 국가 부도의 날 (파일럿 런칭)</h3>
-              <p>유튜브 실시간 41회 조회 · 시청 지속시간 2분 39초 (636% 무한루프 실증)</p>
-              <div class="tag-group">
-                <span class="tag tag-ready">유튜브 일부공개</span>
-                <span class="tag tag-gold">G3 앵커락 실증</span>
-              </div>
+          <!-- 2-Column Cinematic Shorts Player -->
+          <div class="shorts-player-container">
+            <!-- Left: 9:16 Vertical Video Viewport -->
+            <div class="video-viewport-wrapper">
+              <video id="main-shorts-video" controls autoplay muted playsinline poster="./assets/images/IMF2화/IMF전날밤의비밀_ep02_cut02.jpg" src="./assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4">
+                브라우저가 비디오 태그를 지원하지 않습니다.
+              </video>
             </div>
-          </div>
 
-          <!-- Ep 2 -->
-          <div class="episode-card" style="border-left: 4px solid var(--color-action-raspberry);">
-            <div class="episode-info">
-              <h3>2화: IMF 전날 밤의 비밀 (자정의 조흥은행)</h3>
-              <p>조흥은행 지하 금고 1:1 대본·성우 음성·비디오(45.24s) 조립 안착 완료</p>
-              <div class="tag-group">
-                <span class="tag tag-ready">45.24s 비디오 렌더링 완료</span>
-                <span class="tag tag-ready">1:1 SRT 자막 완비</span>
-                <span class="tag tag-gold">2시 쿼터 해제 후 3컷 교체 대기</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Ep 3 -->
-          <div class="episode-card">
-            <div class="episode-info">
-              <h3>3화: 유령을 쫓는 자들 (특별조사반의 추적)</h3>
-              <p>AI 메타프롬프트 무인 파이프라인 한 줄 지시로 8씬 대본·프롬프트·음성 100% 자동 창작 성공</p>
-              <div class="tag-group">
-                <span class="tag tag-ready">8씬 대본 안착</span>
-                <span class="tag tag-ready">8씬 프롬프트 팩 안착</span>
-                <span class="tag tag-ready">45s 뉴럴 오디오 안착</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Vrew 4-Layer Cinematic Golden Layout Showcase -->
-          <div class="vrew-showcase-panel">
-            <img src="./assets/images/IMF2화_브루스타일_완벽복제_미리보기.jpg" alt="Vrew 4-Layer Layout" class="vrew-showcase-img">
-            <div class="vrew-showcase-meta">
-              <h4>🎬 Vrew-CapCut 4대 시네마틱 레이아웃 & 가시성·가독성 벤치마킹 규격 (제10조)</h4>
-              <p style="font-size: 11px; color: var(--color-silver-mist); margin-bottom: 10px;">
-                오빠의 템플릿 기반 벤치마킹 진화 · 나레이션-비주얼 1:1 무결점 매칭 · 10대 에이전트 무인 자동 렌더링
-              </p>
-              <div class="vrew-layer-list">
-                <div class="vrew-layer-item">
-                  <span class="layer-tag" style="background: rgba(30, 64, 175, 0.4); border-color: #3b82f6;">1. 좌측 상단 2단 캡슐</span>
-                  <span><b>[WHAT-IF | 02화]</b> 캡슐 태그 + <b>'자정의 조흥은행'</b> 글래스모피즘 타이틀</span>
+            <!-- Right: 1~3 Playlist & Details -->
+            <div class="player-controls-side">
+              <div style="margin-bottom: 8px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border);">
+                <div id="current-video-title" style="font-size: 15px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 4px;">
+                  2화: IMF 전날 밤의 비밀 (추격과 비밀 통화)
                 </div>
-                <div class="vrew-layer-item">
-                  <span class="layer-tag" style="background: rgba(212, 175, 55, 0.3); border-color: #d4af37;">2. 우측 상단 엠블럼</span>
-                  <span><b>황금 시네마 3D 엠블럼 뱃지</b> + 1초 주기 은은한 골드 펄스 글로우</span>
-                </div>
-                <div class="vrew-layer-item">
-                  <span class="layer-tag" style="background: rgba(168, 85, 247, 0.3); border-color: #a855f7;">3. 중앙 1:1 컷 & 무빙</span>
-                  <span>나레이션 키워드와 1:1 일치하는 <b>35mm 켄 번스 카메라 모션</b> + SFX 칼싱크</span>
-                </div>
-                <div class="vrew-layer-item">
-                  <span class="layer-tag" style="background: rgba(250, 204, 21, 0.25); border-color: #facc15; color: #facc15;">4. 가독성 극대화 자막</span>
-                  <span><b>0.15s 바운스 팝인</b> + <b>도파민 키워드 네온 옐로우(#FACC15) 하이라이트</b> + 하단 틴티드 비네팅(Y축 79.5%)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Scene 2, 3, 4 Real-time Visual Inspection Gallery -->
-          <div class="panel" style="border: 2px solid var(--color-highlight-gold); margin-top: 24px; background: rgba(18, 19, 22, 0.95);">
-            <div class="panel-header" style="margin-bottom: 14px;">
-              <div class="panel-title" style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: var(--color-highlight-gold); font-size: 18px;">📸</span> 
-                <span style="font-size: 16px; font-weight: 700; color: var(--color-highlight-gold);">
-                  오빠 검토용 실물 컷 갤러리 (씬 2 · 씬 3 · 씬 4 연속성 비교 뷰어)
-                </span>
-              </div>
-              <span style="font-size: 12px; color: var(--color-interactive-lime); font-weight: 600;">
-                ● 1호 원본 레퍼런스 주입 & 점박이 0% & 면티 100% 퇴출 완료
-              </span>
-            </div>
-            <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 16px; line-height: 1.5;">
-              오빠께서 직접 눈으로 확인하실 수 있도록 <b>가장 최근 생성된 실물 3개 컷</b>을 나란히 배치했습니다. 
-              <br>1) <b>씬 2</b>(선 모습) ➡️ 2) <b>씬 3</b>(부스로 질주) ➡️ 3) <b>씬 4</b>(수화기 통화)의 얼굴·의상(골드 드레스)·부스 방향을 한눈에 비교해 보세요!
-            </p>
-
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-              <!-- Cut 02 -->
-              <div style="background: var(--color-deep-slate); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; padding: 10px; text-align: center;">
-                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 8px;">
-                  [씬 2] 시계탑 아래 빗속의 뉴라
-                </div>
-                <img src="./assets/images/review/review_cut02_neura.jpg" alt="Scene 2" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(238, 211, 127, 0.4);">
-                <div style="font-size: 11px; color: var(--color-silver-mist); margin-top: 8px; line-height: 1.4; text-align: left;">
-                  ✔ 1호 원본 얼굴 복원<br>✔ 샴페인 골드 실크 드레스 넥라인<br>✔ 점박이/잡티 0% 맑은 피부
+                <div id="current-video-desc" style="font-size: 12px; color: var(--color-silver-mist); line-height: 1.5;">
+                  169cm 8등신 롱다리 각선미 & 볼륨 · 비 내리는 1997년 자정 추격전과 1% 배터리 공중전화 비밀 통화 4컷 마스터 완결
                 </div>
               </div>
 
-              <!-- Cut 03 -->
-              <div style="background: var(--color-deep-slate); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; padding: 10px; text-align: center;">
-                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 8px;">
-                  [씬 3] 빗속을 뚫고 부스로 질주
+              <!-- Ep 1 Card -->
+              <div id="ep1-card" class="playlist-card" onclick="selectShortsVideo('./assets/videos/국가부도_첫쇼츠.mp4', '1화: 국가 부도의 날 (파일럿 런칭)', '유튜브 실시간 41회 조회 · 시청 지속시간 2분 39초 (636% 무한루프 실증) · G3 앵커락 실증', 'ep1-card')">
+                <div class="episode-info">
+                  <div class="playlist-title">1화: 국가 부도의 날 (파일럿 런칭)</div>
+                  <div class="playlist-desc">유튜브 41회 · 지속 2분 39초 (636% 무한루프)</div>
                 </div>
-                <img src="./assets/images/review/review_cut03_running.jpg" alt="Scene 3" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(238, 211, 127, 0.4);">
-                <div style="font-size: 11px; color: var(--color-silver-mist); margin-top: 8px; line-height: 1.4; text-align: left;">
-                  ✔ 1% 배터리 폰 완전 삭제<br>✔ 대본대로 부스로 뛰어드는 샷<br>⚠️ <b>부스 문/입구 방향 점검 대상</b>
-                </div>
+                <span class="player-badge">▶ 재생</span>
               </div>
 
-              <!-- Cut 04 -->
-              <div style="background: var(--color-deep-slate); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; padding: 10px; text-align: center;">
-                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 8px;">
-                  [씬 4] 수화기 들고 흔들리는 눈빛
+              <!-- Ep 2 Card (Active Default) -->
+              <div id="ep2-card" class="playlist-card active" onclick="selectShortsVideo('./assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4', '2화: IMF 전날 밤의 비밀 (추격과 비밀 통화)', '169cm 8등신 롱다리 각선미 & 볼륨 · 비 내리는 1997년 자정 추격전과 1% 배터리 공중전화 비밀 통화 4컷 마스터 완결', 'ep2-card')">
+                <div class="episode-info">
+                  <div class="playlist-title" style="color: var(--color-highlight-gold);">2화: IMF 전날 밤의 비밀 (신규 완성본)</div>
+                  <div class="playlist-desc">4컷(37.44s) 칼싱크 · 169cm 각선미 & 볼륨 안착</div>
                 </div>
-                <img src="./assets/images/review/review_cut04_call.jpg" alt="Scene 4" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(238, 211, 127, 0.4);">
-                <div style="font-size: 11px; color: var(--color-silver-mist); margin-top: 8px; line-height: 1.4; text-align: left;">
-                  ✔ 엉뚱한 무전기폰 100% 삭제<br>✔ 공중전화 수화기만 쥔 정면 POV<br>✔ 씬 2와 완벽 일치하는 뉴라 얼굴
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interactive Shorts Real-time Video Player -->
-          <div class="shorts-player-panel">
-            <div class="panel-header" style="margin-bottom: 12px;">
-              <div class="panel-title" style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: var(--color-highlight-gold);">🎬</span> 시네마틱 숏폼 실물 웹 플레이어 (Interactive Shorts Player)
-              </div>
-              <span style="font-size: 11px; color: var(--color-interactive-lime);">● 1080x1920 세로 숏폼 실물 렌더링 검증 뷰어</span>
-            </div>
-            <p style="font-size: 12px; color: var(--color-silver-mist); margin-bottom: 14px;">
-              오빠가 브라우저에서 직접 완성된 실물 비디오 클립을 원클릭으로 감상하고, 성우 음성 및 칼싱크 자막 호흡을 즉시 확인할 수 있는 내장 멀티미디어 플레이어입니다.
-            </p>
-
-            <div class="shorts-player-container">
-              <!-- Video Viewport -->
-              <div class="video-viewport-wrapper">
-                <video id="main-shorts-player" controls preload="metadata" poster="./assets/images/hookverse_studio_logo.png">
-                  <source id="video-source-elem" src="./assets/videos/IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4" type="video/mp4">
-                  브라우저가 비디오 재생을 지원하지 않습니다.
-                </video>
+                <span class="player-badge" style="background: rgba(226, 75, 137, 0.2); color: var(--color-action-raspberry); border-color: rgba(226, 75, 137, 0.4);">★ 지금 재생중</span>
               </div>
 
-              <!-- Controls & Playlist -->
-              <div class="player-controls-side">
-                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 2px;">
-                  📼 실물 렌더링 완료 비디오 재생목록 (원클릭 전환)
+              <!-- Ep 3 Card -->
+              <div id="ep3-card" class="playlist-card" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4', '3화: 유령의 반전 (조흥은행 금고 잠입)', '새벽 02:00 조흥은행 지하 금고 잠입 · NEURA 1997 비밀 장부와 2026년 100달러 지폐의 소름 돋는 반전 8씬', 'ep3-card')">
+                <div class="episode-info">
+                  <div class="playlist-title">3화: 유령의 반전 (조흥은행 금고 잠입)</div>
+                  <div class="playlist-desc">새벽 02:00 지하 금고 잠입 · NEURA 비밀 장부와 100달러 지폐의 반전</div>
                 </div>
-
-                <!-- Item 1: 2화 3컷 교체 및 0.1초 칼싱크 최신 완성본 -->
-                <div class="playlist-card active" id="card-ep2-vault" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4', 'IMF 2화: 자정의 조흥은행 (0.1초 칼싱크 3컷 교체 완성본)', '45.24초 · 3대 실사 컷(씬 2, 4, 8) 교체 및 나레이션 0.1초 칼싱크 안착', 'card-ep2-vault')">
-                  <div>
-                    <div class="playlist-title">IMF 2화: 자정의 조흥은행 (0.1초 칼싱크 3컷 교체 완성본)</div>
-                    <div class="playlist-desc">45.24초 · 3대 실사 컷(씬 2, 4, 8) 교체 및 나레이션 0.1초 칼싱크 안착</div>
-                  </div>
-                  <span class="player-badge">★ 최신 0.1s 칼싱크</span>
-                </div>
-
-                <!-- Item 2: 1호 공식 쇼츠: 국가 부도의 날 (공식 기준본) -->
-                <div class="playlist-card" id="card-ep1-pilot" onclick="selectShortsVideo('./assets/videos/국가부도_첫쇼츠.mp4', '1호 공식 쇼츠: 국가 부도의 날 (유튜브 발행 공식 기준본)', '24.00초 · 1997 불시착 실사 컷 · 유튜브 실시간 41회 검증 완료', 'card-ep1-pilot')">
-                  <div>
-                    <div class="playlist-title">1호 공식 쇼츠: 국가 부도의 날 (유튜브 발행 공식 기준본)</div>
-                    <div class="playlist-desc">24.00초 · 1997 불시착 실사 컷 · 유튜브 실시간 41회 검증 완료</div>
-                  </div>
-                  <span class="player-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--color-interactive-lime); border-color: rgba(16, 185, 129, 0.4);">★ 1호 공식 기준본</span>
-                </div>
-
-                <!-- Item 3: 2화 이전 2차 가변싱크 테스트본 -->
-                <div class="playlist-card" id="card-ep2-40s" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4', 'IMF 2화: 조흥은행 금고일치 (이전 2차 테스트본)', '45.24초 · 3컷 교체 전 및 싱크 조정 전 이전 버전', 'card-ep2-40s')">
-                  <div>
-                    <div class="playlist-title">IMF 2화: 조흥은행 금고일치 (이전 2차 테스트본)</div>
-                    <div class="playlist-desc">45.24초 · 3컷 교체 전 및 싱크 조정 전 이전 버전</div>
-                  </div>
-                  <span class="player-badge" style="background: rgba(238, 211, 127, 0.2); color: var(--color-highlight-gold); border-color: rgba(238, 211, 127, 0.4);">이전 테스트</span>
-                </div>
-
-                <!-- Now Playing Bar -->
-                <div style="margin-top: 8px; padding: 10px 14px; background: rgba(0,0,0,0.4); border-radius: 6px; border-left: 3px solid var(--color-highlight-gold);">
-                  <div style="font-size: 11px; color: var(--color-silver-mist);">현재 재생 선택:</div>
-                  <div id="now-playing-title" style="font-size: 13px; font-weight: 700; color: var(--color-highlight-gold); margin-top: 2px;">
-                    IMF 2화: 자정의 조흥은행 (0.1초 칼싱크 3컷 교체 완성본)
-                  </div>
-                  <div id="now-playing-desc" style="font-size: 11px; color: #cbd5e1; margin-top: 2px;">
-                    45.24초 · 3대 실사 컷(씬 2, 4, 8) 교체 및 나레이션 0.1초 칼싱크 안착
-                  </div>
-                </div>
+                <span class="player-badge">▶ 재생</span>
               </div>
             </div>
           </div>
@@ -1018,9 +504,9 @@
             <span style="font-size: 12px; color: var(--color-silver-mist);">실시간 디스크 동기화</span>
           </div>
           <div>
-            <div class="asset-item"><span class="asset-name">🎬 IMF2화_8씬_가변싱크_테스트렌더링.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_자정의조흥은행_40초표준완결본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_자정의조흥은행_최종완성본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_조흥은행금고일치_가변싱크_완성본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 국가부도_첫쇼츠.mp4</span><span class="tag tag-ready">MP4 비디오</span></div>
-            <div class="asset-item"><span class="asset-name">📜 1997년_외환위기_3화__유령을_쫓는_자들_대본.md</span><span class="tag tag-gold">대본 MD</span></div><div class="asset-item"><span class="asset-name">📜 2026-09-13T17-35_자동추출대본.md</span><span class="tag tag-gold">대본 MD</span></div><div class="asset-item"><span class="asset-name">📜 2026-09-13T18-18_자동추출대본.md</span><span class="tag tag-gold">대본 MD</span></div><div class="asset-item"><span class="asset-name">📜 2026-09-14T13-42_자동추출대본.md</span><span class="tag tag-gold">대본 MD</span></div>
-            <div class="asset-item"><span class="asset-name">🎨 1997년_외환위기_3화__유령을_쫓는_자들_8씬_완성프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div><div class="asset-item"><span class="asset-name">🎨 2026-09-13T17-35_자동추출프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div><div class="asset-item"><span class="asset-name">🎨 2026-09-13T18-18_자동추출프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div><div class="asset-item"><span class="asset-name">🎨 2026-09-14T13-42_자동추출프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div>
+            <div class="asset-item"><span class="asset-name">🎬 IMF2화_8씬_가변싱크_테스트렌더링.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_자정의조흥은행_40초표준완결본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_자정의조흥은행_최종완성본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_조흥은행금고일치_가변싱크_완성본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 IMF2화_추격과비밀통화_4컷_마스터완성본.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 temp_master.mp4</span><span class="tag tag-ready">MP4 비디오</span></div><div class="asset-item"><span class="asset-name">🎬 국가부도_첫쇼츠.mp4</span><span class="tag tag-ready">MP4 비디오</span></div>
+            <div class="asset-item"><span class="asset-name">📜 1997_외환위기_3화__유령을_쫓는_자들_대본.md</span><span class="tag tag-gold">대본 MD</span></div><div class="asset-item"><span class="asset-name">📜 1997년_외환위기_3화__유령을_쫓는_자들_대본.md</span><span class="tag tag-gold">대본 MD</span></div><div class="asset-item"><span class="asset-name">📜 2026-09-13T17-35_자동추출대본.md</span><span class="tag tag-gold">대본 MD</span></div><div class="asset-item"><span class="asset-name">📜 2026-09-13T18-18_자동추출대본.md</span><span class="tag tag-gold">대본 MD</span></div>
+            <div class="asset-item"><span class="asset-name">🎨 1997_외환위기_3화__유령을_쫓는_자들_8씬_완성프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div><div class="asset-item"><span class="asset-name">🎨 1997년_외환위기_3화__유령을_쫓는_자들_8씬_완성프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div><div class="asset-item"><span class="asset-name">🎨 2026-09-13T17-35_자동추출프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div><div class="asset-item"><span class="asset-name">🎨 2026-09-13T18-18_자동추출프롬프트.txt</span><span class="tag tag-ready">프롬프트 TXT</span></div>
           </div>
         </div>
       </div>
@@ -1112,211 +598,49 @@
     </div>
 
     <footer>
-      Hookverse Studio V2 · CEO Leo & Vice President Jena · System Synchronized at 2026-09-16 00:17:16
+      Hookverse Studio · CEO Leo & Vice President Jena · System Synchronized at 2026-09-17 02:26:05
     </footer>
   </div>
 
   <script>
-    const TREND_DATA = [
-      {
-        keyword: "암흑물질 우주 진화",
-        category: "SCI_TECH_FUTURE",
-        consensus_score: 100,
-        is_mega_viral: true,
-        sources: ["GoogleNews_Tech", "GoogleNews_Top", "YouTube_Trending_Signals"],
-        sample_title: "우주 진화 130억년 비밀 풀 '암흑물질'…내년부터 본격연구 - 지디넷코리아",
-        track: "Track A (SF 타임슬립 실사)",
-        hook: "만약 전 세계를 뒤흔든 암흑물질 관측 공식이 300년 전 조선 실록에 암호로 숨겨져 있었다면?",
-        visual: "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
-      },
-      {
-        keyword: "디아블로 & 양자 AI",
-        category: "SCI_TECH_FUTURE",
-        consensus_score: 95,
-        is_mega_viral: true,
-        sources: ["GoogleNews_Tech", "YouTube_Trending_Signals"],
-        sample_title: "'디아블로 5'에 녹아든 차세대 그래픽 DNA와 생성형 AI 알고리즘",
-        track: "Track A (SF 타임슬립)",
-        hook: "만약 게임 속 가상세계의 물리 엔진이 사실 1997년 연구소에서 봉인된 양자 시뮬레이션의 파편이라면?",
-        visual: "모니터 너머로 쏟아지는 붉은 빛과 현실 세계의 시공간이 일그러지는 미스터리 앵글"
-      },
-      {
-        keyword: "1997 외환 비자금",
-        category: "BREAKING_MEGA",
-        consensus_score: 98,
-        is_mega_viral: true,
-        sources: ["GoogleTrends_KR", "GoogleNews_Top"],
-        sample_title: "환율 급등 비상경보…외환위기 당시 비공개 달러 유출 계좌 재조명",
-        track: "Track A (단막극 시네마틱 소설 실사)",
-        hook: "만약 오늘날의 환율 폭등의 진짜 원인이 1997년 조흥은행 지하 금고에서 빼돌려진 20조 원의 비자금 때문이라면?",
-        visual: "1997년 자정 비 내리는 명동, 블랙 트렌치코트의 뉴라가 서류 가방을 쥔 채 어둠 속을 응시하는 35mm 실사 컷"
-      },
-      {
-        keyword: "구전 설화 시공간 오파츠",
-        category: "CULTURE_MYTH",
-        consensus_score: 90,
-        is_mega_viral: false,
-        sources: ["YouTube_Trending_Signals", "GoogleNews_Top"],
-        sample_title: "단군 신화 속 신시(神市)와 환웅의 천부인 3개, 고대 유물 발굴 재평가",
-        track: "Track B (K-전래동화 3D 픽사 뉴라)",
-        hook: "만약 우리가 알던 환웅의 천부인이 사실 3D 픽사 뉴라가 미래에서 떨어뜨린 차원 이동 장치였다면?",
-        visual: "영롱한 반딧불이가 날아다니는 신비로운 태백산 숲속, 빛을 뿜는 금빛 오파츠를 바라보는 3D 픽사 뉴라"
-      },
-      {
-        keyword: "왕조 실록 숨겨진 기록",
-        category: "HISTORY_MYSTERY",
-        consensus_score: 92,
-        is_mega_viral: false,
-        sources: ["GoogleNews_Top", "GoogleTrends_KR"],
-        sample_title: "조선왕조실록에 기록된 1609년 강원도 간성 '미확인 비행물체' 기록 학술 분석",
-        track: "Track A (대체역사 미스터리 실사)",
-        hook: "만약 1609년 하늘에서 떨어진 정체불명의 빛이 2026년에서 과거로 불시착한 타임슬립 캡슐이었다면?",
-        visual: "달빛 아래 갓을 쓴 조선 관리와 젖은 블랙 코트를 입은 뉴라의 숨 막히는 대치 컷"
-      }
-    ];
-
-    function renderTrends(items) {
-      const container = document.getElementById("trend-list-container");
-      if (!items || items.length === 0) {
-        container.innerHTML = '<div style="color: var(--color-silver-mist); font-size: 13px; padding: 16px; text-align: center;">해당 카테고리에 부합하는 크로스 플랫폼 트렌드가 없습니다.</div>';
-        return;
-      }
-
-      container.innerHTML = items.map(t => {
-        const badgeClass = t.is_mega_viral ? "consensus-badge" : "consensus-badge";
-        const badgeText = t.is_mega_viral ? `🔥 메가 골든 ${t.consensus_score}점` : `✨ 추천 ${t.consensus_score}점`;
-        const sourcesBadges = t.sources.map(s => {
-          const cleanName = s.replace("_", " ").replace("Trending Signals", "Signals");
-          return `<span class="source-pill highlight">${cleanName}</span>`;
-        }).join(" ");
-
-        return `
-          <div class="trend-card">
-            <div class="trend-card-top">
-              <div class="trend-kw-title">
-                <span>⚡</span> ${t.keyword}
-              </div>
-              <span class="${badgeClass}">${badgeText}</span>
-            </div>
-            <div class="sources-row">
-              <span style="font-size: 10px; color: var(--color-silver-mist); margin-right: 4px; align-self: center;">크로스 플랫폼:</span>
-              ${sourcesBadges}
-            </div>
-            <div class="sample-headline">📰 <b>이슈 배경</b>: ${t.sample_title}</div>
-            <div class="hook-box">
-              💬 <b>Hookverse 3초 킬러 후킹</b>:<br>
-              "${t.hook}"
-            </div>
-            <div class="trend-footer">
-              <div>
-                <b>추천 트랙</b>: <span style="color: var(--color-highlight-gold);">${t.track}</span>
-              </div>
-              <button class="btn-launch" onclick="launchRelay('${t.keyword}', '${t.track}')">
-                🚀 이 소재로 4인 릴레이 발사
-              </button>
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    function filterTrends(category) {
-      // 탭 활성화 상태 변경
-      const btns = document.querySelectorAll(".tab-btn");
-      btns.forEach(btn => {
-        if (btn.innerText.includes("전체") && category === "ALL") btn.classList.add("active");
-        else if (btn.innerText.includes("역사") && category === "HISTORY_MYSTERY") btn.classList.add("active");
-        else if (btn.innerText.includes("AI") && category === "SCI_TECH_FUTURE") btn.classList.add("active");
-        else if (btn.innerText.includes("전래동화") && category === "CULTURE_MYTH") btn.classList.add("active");
-        else if (btn.innerText.includes("긴급") && category === "BREAKING_MEGA") btn.classList.add("active");
-        else btn.classList.remove("active");
-      });
-
-      if (category === "ALL") {
-        renderTrends(TREND_DATA);
-      } else {
-        const filtered = TREND_DATA.filter(t => t.category === category);
-        renderTrends(filtered);
-      }
-    }
-
-    function launchRelay(keyword, track) {
-      const trackCode = track.includes("Track B") ? "B" : "A";
-      alert(`[Hookverse Studio 릴레이 발사]\\n\\n소재: '${keyword}'\\n편성: ${track}\\n\\n오빠! 터미널에서 'python tools/agent_relay_runner.py --track ${trackCode}' 를 실행하시면 CEO 레오, 작가 에디, 디자이너 픽스, 코다리가 즉시 무인 릴레이로 대본과 영상, 프롬프트를 완성합니다!`);
-    }
-
-    // 초기 렌더링
-    renderTrends(TREND_DATA);
-
-    // ==========================================
-    // ⚡ 실시간 비주얼 노드 파이프라인 시뮬레이터
-    // ==========================================
-    const simBtn = document.getElementById("btn-run-node-sim");
-    if (simBtn) {
-      simBtn.addEventListener("click", () => {
-        simBtn.disabled = true;
-        simBtn.innerText = "⚡ 라인 데이터 전송 중...";
-        
-        const nodes = [
-          { id: "node-script", delay: 0 },
-          { id: "node-audio", delay: 600 },
-          { id: "node-sub", delay: 800 },
-          { id: "node-img", delay: 1000 },
-          { id: "node-motion", delay: 1800 },
-          { id: "node-capcut", delay: 2600 },
-          { id: "node-yt", delay: 3400 }
-        ];
-
-        // 노드 순차 발광
-        nodes.forEach(item => {
-          setTimeout(() => {
-            const el = document.getElementById(item.id);
-            if (el) {
-              el.style.transform = "scale(1.05)";
-              el.style.borderColor = "#facc15";
-              el.style.boxShadow = "0 0 25px rgba(250, 204, 21, 0.6)";
-              setTimeout(() => {
-                el.style.transform = "scale(1.0)";
-                if (item.id === "node-yt") {
-                  el.style.borderColor = "#ef4444";
-                  el.style.boxShadow = "0 0 15px rgba(239, 68, 68, 0.4)";
-                } else if (item.id === "node-capcut") {
-                  el.style.borderColor = "#10b981";
-                  el.style.boxShadow = "0 0 15px rgba(168, 85, 247, 0.3)";
-                } else {
-                  el.style.borderColor = "";
-                  el.style.boxShadow = "";
-                }
-              }, 500);
-            }
-          }, item.delay);
-        });
-
-        setTimeout(() => {
-          simBtn.disabled = false;
-          simBtn.innerText = "▶ 라인 펄스 시뮬레이션 가동";
-          alert("🎉 [Hookverse Visual Node] 전 라인 데이터 전송 완료!\n\n1. 대본 ➡️ 음성·자막·이미지 3분기 동시 생성\n2. 이미지 ➡️ 1080p 모션 비디오 렌더 완료\n3. 캡컷 타임라인에 45.24초 칼싱크 자동 안착 완료!\n4. 유튜브 스튜디오 99:1 최종 발사 대기 중!");
-        }, 3900);
-      });
-    }
-
-    // 시네마틱 숏폼 실물 웹 플레이어 영상 전환 함수
     function selectShortsVideo(src, title, desc, cardId) {
-      const player = document.getElementById("main-shorts-player");
-      const titleElem = document.getElementById("now-playing-title");
-      const descElem = document.getElementById("now-playing-desc");
-
-      document.querySelectorAll(".playlist-card").forEach(c => c.classList.remove("active"));
-      const activeCard = document.getElementById(cardId);
-      if (activeCard) activeCard.classList.add("active");
-
-      if (titleElem) titleElem.innerText = title;
-      if (descElem) descElem.innerText = desc;
-
-      player.pause();
-      player.src = src;
-      player.load();
-      player.play().catch(e => console.log("자동재생 알림:", e));
+      const video = document.getElementById('main-shorts-video');
+      const titleEl = document.getElementById('current-video-title');
+      const descEl = document.getElementById('current-video-desc');
+      
+      if (video) {
+        video.src = src;
+        video.play().catch(function(e) {
+          console.log('User interaction required for unmuted autoplay:', e);
+        });
+      }
+      
+      if (titleEl) titleEl.innerText = title;
+      if (descEl) descEl.innerText = desc;
+      
+      // Update active card styling
+      document.querySelectorAll('.playlist-card').forEach(function(card) {
+        card.classList.remove('active');
+        const badge = card.querySelector('.player-badge');
+        if (badge) {
+          badge.innerText = '▶ 재생';
+          badge.style.background = 'rgba(238, 211, 127, 0.2)';
+          badge.style.color = 'var(--color-highlight-gold)';
+          badge.style.borderColor = 'rgba(238, 211, 127, 0.4)';
+        }
+      });
+      
+      const targetCard = document.getElementById(cardId);
+      if (targetCard) {
+        targetCard.classList.add('active');
+        const activeBadge = targetCard.querySelector('.player-badge');
+        if (activeBadge) {
+          activeBadge.innerText = '★ 지금 재생중';
+          activeBadge.style.background = 'rgba(226, 75, 137, 0.2)';
+          activeBadge.style.color = 'var(--color-action-raspberry)';
+          activeBadge.style.borderColor = 'rgba(226, 75, 137, 0.4)';
+        }
+      }
     }
   </script>
 </body>

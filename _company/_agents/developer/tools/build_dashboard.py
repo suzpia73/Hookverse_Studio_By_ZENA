@@ -87,30 +87,54 @@ def generate_dashboard_html():
     .brand {{
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
     }}
 
-    .badge-logo {{
-      background: linear-gradient(135deg, var(--color-action-raspberry), #b8183d);
-      color: white;
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 8px;
-      letter-spacing: 1px;
+    .emblem-gold-circle-img {{
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 6px rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(238, 211, 127, 0.6);
+      flex-shrink: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }}
+
+    .emblem-gold-circle-img:hover {{
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 0 28px rgba(238, 211, 127, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
     }}
 
     .brand-title h1 {{
       font-family: var(--font-display);
       font-size: 28px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }}
 
     .brand-title p {{
       font-size: 13px;
       color: var(--color-silver-mist);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .channel-handle {{
+      background: rgba(238, 211, 127, 0.15);
+      border: 1px solid rgba(238, 211, 127, 0.35);
+      color: var(--color-highlight-gold);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }}
 
     .status-pill {{
@@ -311,6 +335,95 @@ def generate_dashboard_html():
     .asset-item:last-child {{ border-bottom: none; }}
     .asset-name {{ color: #e2e8f0; font-family: monospace; font-size: 12px; }}
 
+    /* Cinematic Video Player Panel */
+    .shorts-player-panel {{
+      background: var(--color-charcoal-canvas);
+      border: 1px solid rgba(238, 211, 127, 0.35);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }}
+
+    .shorts-player-container {{
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-top: 16px;
+    }}
+
+    .video-viewport-wrapper {{
+      position: relative;
+      width: 250px;
+      height: 444px; /* 9:16 vertical ratio */
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(238, 211, 127, 0.4);
+      box-shadow: 0 0 25px rgba(238, 211, 127, 0.2), 0 0 50px rgba(0, 0, 0, 0.8);
+      flex-shrink: 0;
+    }}
+
+    .video-viewport-wrapper video {{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }}
+
+    .player-controls-side {{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }}
+
+    .playlist-card {{
+      background: var(--color-deep-slate);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }}
+
+    .playlist-card:hover {{
+      border-color: var(--color-action-raspberry);
+      transform: translateX(4px);
+    }}
+
+    .playlist-card.active {{
+      border-color: var(--color-highlight-gold);
+      background: rgba(238, 211, 127, 0.08);
+      box-shadow: inset 0 0 12px rgba(238, 211, 127, 0.15);
+    }}
+
+    .playlist-title {{
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-pure-white);
+      margin-bottom: 3px;
+    }}
+
+    .playlist-desc {{
+      font-size: 11px;
+      color: var(--color-silver-mist);
+    }}
+
+    .player-badge {{
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(238, 211, 127, 0.2);
+      color: var(--color-highlight-gold);
+      border: 1px solid rgba(238, 211, 127, 0.4);
+      flex-shrink: 0;
+    }}
+
     footer {{
       margin-top: 40px;
       text-align: center;
@@ -325,10 +438,10 @@ def generate_dashboard_html():
   <div class="container">
     <header>
       <div class="brand">
-        <div class="badge-logo">HV</div>
+        <img src="./assets/images/hookverse_studio_logo.png" alt="Hookverse Studio" class="emblem-gold-circle-img">
         <div class="brand-title">
-          <h1>HOOKVERSE STUDIO V2</h1>
-          <p>AI 에이전트 1인 기업 완전 자율화 통제실 · Midnight Stage</p>
+          <h1>HOOKVERSE STUDIO</h1>
+          <p><span class="channel-handle">@hookverse_studio</span> · AI 에이전트 1인 기업 완전 자율화 통제실 · Midnight Stage</p>
         </div>
       </div>
       <div class="status-pill">
@@ -368,43 +481,54 @@ def generate_dashboard_html():
         <div class="panel">
           <div class="panel-header">
             <div class="panel-title">🎬 K-시네마틱 숏폼 에피소드 파이프라인</div>
-            <span style="font-size: 12px; color: var(--color-highlight-gold);">45.24s 가변 싱크 표준</span>
+            <span style="font-size: 12px; color: var(--color-highlight-gold);">4컷/8씬 가변 싱크 표준 & 실시간 인터랙티브 플레이어</span>
           </div>
 
-          <!-- Ep 1 -->
-          <div class="episode-card">
-            <div class="episode-info">
-              <h3>1화: 국가 부도의 날 (파일럿 런칭)</h3>
-              <p>유튜브 실시간 41회 조회 · 시청 지속시간 2분 39초 (636% 무한루프 실증)</p>
-              <div class="tag-group">
-                <span class="tag tag-ready">유튜브 일부공개</span>
-                <span class="tag tag-gold">G3 앵커락 실증</span>
-              </div>
+          <!-- 2-Column Cinematic Shorts Player -->
+          <div class="shorts-player-container">
+            <!-- Left: 9:16 Vertical Video Viewport -->
+            <div class="video-viewport-wrapper">
+              <video id="main-shorts-video" controls autoplay muted playsinline poster="./assets/images/IMF2화/IMF전날밤의비밀_ep02_cut02.jpg" src="./assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4">
+                브라우저가 비디오 태그를 지원하지 않습니다.
+              </video>
             </div>
-          </div>
 
-          <!-- Ep 2 -->
-          <div class="episode-card" style="border-left: 4px solid var(--color-action-raspberry);">
-            <div class="episode-info">
-              <h3>2화: IMF 전날 밤의 비밀 (자정의 조흥은행)</h3>
-              <p>조흥은행 지하 금고 1:1 대본·성우 음성·비디오(45.24s) 조립 안착 완료</p>
-              <div class="tag-group">
-                <span class="tag tag-ready">45.24s 비디오 렌더링 완료</span>
-                <span class="tag tag-ready">1:1 SRT 자막 완비</span>
-                <span class="tag tag-gold">2시 쿼터 해제 후 3컷 교체 대기</span>
+            <!-- Right: 1~3 Playlist & Details -->
+            <div class="player-controls-side">
+              <div style="margin-bottom: 8px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border);">
+                <div id="current-video-title" style="font-size: 15px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 4px;">
+                  2화: IMF 전날 밤의 비밀 (추격과 비밀 통화)
+                </div>
+                <div id="current-video-desc" style="font-size: 12px; color: var(--color-silver-mist); line-height: 1.5;">
+                  169cm 8등신 롱다리 각선미 & 볼륨 · 비 내리는 1997년 자정 추격전과 1% 배터리 공중전화 비밀 통화 4컷 마스터 완결
+                </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Ep 3 -->
-          <div class="episode-card">
-            <div class="episode-info">
-              <h3>3화: 유령을 쫓는 자들 (특별조사반의 추적)</h3>
-              <p>AI 메타프롬프트 무인 파이프라인 한 줄 지시로 8씬 대본·프롬프트·음성 100% 자동 창작 성공</p>
-              <div class="tag-group">
-                <span class="tag tag-ready">8씬 대본 안착</span>
-                <span class="tag tag-ready">8씬 프롬프트 팩 안착</span>
-                <span class="tag tag-ready">45s 뉴럴 오디오 안착</span>
+              <!-- Ep 1 Card -->
+              <div id="ep1-card" class="playlist-card" onclick="selectShortsVideo('./assets/videos/국가부도_첫쇼츠.mp4', '1화: 국가 부도의 날 (파일럿 런칭)', '유튜브 실시간 41회 조회 · 시청 지속시간 2분 39초 (636% 무한루프 실증) · G3 앵커락 실증', 'ep1-card')">
+                <div class="episode-info">
+                  <div class="playlist-title">1화: 국가 부도의 날 (파일럿 런칭)</div>
+                  <div class="playlist-desc">유튜브 41회 · 지속 2분 39초 (636% 무한루프)</div>
+                </div>
+                <span class="player-badge">▶ 재생</span>
+              </div>
+
+              <!-- Ep 2 Card (Active Default) -->
+              <div id="ep2-card" class="playlist-card active" onclick="selectShortsVideo('./assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4', '2화: IMF 전날 밤의 비밀 (추격과 비밀 통화)', '169cm 8등신 롱다리 각선미 & 볼륨 · 비 내리는 1997년 자정 추격전과 1% 배터리 공중전화 비밀 통화 4컷 마스터 완결', 'ep2-card')">
+                <div class="episode-info">
+                  <div class="playlist-title" style="color: var(--color-highlight-gold);">2화: IMF 전날 밤의 비밀 (신규 완성본)</div>
+                  <div class="playlist-desc">4컷(37.44s) 칼싱크 · 169cm 각선미 & 볼륨 안착</div>
+                </div>
+                <span class="player-badge" style="background: rgba(226, 75, 137, 0.2); color: var(--color-action-raspberry); border-color: rgba(226, 75, 137, 0.4);">★ 지금 재생중</span>
+              </div>
+
+              <!-- Ep 3 Card -->
+              <div id="ep3-card" class="playlist-card" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4', '3화: 유령의 반전 (조흥은행 금고 잠입)', '새벽 02:00 조흥은행 지하 금고 잠입 · NEURA 1997 비밀 장부와 2026년 100달러 지폐의 소름 돋는 반전 8씬', 'ep3-card')">
+                <div class="episode-info">
+                  <div class="playlist-title">3화: 유령의 반전 (조흥은행 금고 잠입)</div>
+                  <div class="playlist-desc">새벽 02:00 지하 금고 잠입 · NEURA 비밀 장부와 100달러 지폐의 반전</div>
+                </div>
+                <span class="player-badge">▶ 재생</span>
               </div>
             </div>
           </div>
@@ -511,9 +635,51 @@ def generate_dashboard_html():
     </div>
 
     <footer>
-      Hookverse Studio V2 · CEO Leo & Vice President Jena · System Synchronized at {now_str}
+      Hookverse Studio · CEO Leo & Vice President Jena · System Synchronized at {now_str}
     </footer>
   </div>
+
+  <script>
+    function selectShortsVideo(src, title, desc, cardId) {{
+      const video = document.getElementById('main-shorts-video');
+      const titleEl = document.getElementById('current-video-title');
+      const descEl = document.getElementById('current-video-desc');
+      
+      if (video) {{
+        video.src = src;
+        video.play().catch(function(e) {{
+          console.log('User interaction required for unmuted autoplay:', e);
+        }});
+      }}
+      
+      if (titleEl) titleEl.innerText = title;
+      if (descEl) descEl.innerText = desc;
+      
+      // Update active card styling
+      document.querySelectorAll('.playlist-card').forEach(function(card) {{
+        card.classList.remove('active');
+        const badge = card.querySelector('.player-badge');
+        if (badge) {{
+          badge.innerText = '▶ 재생';
+          badge.style.background = 'rgba(238, 211, 127, 0.2)';
+          badge.style.color = 'var(--color-highlight-gold)';
+          badge.style.borderColor = 'rgba(238, 211, 127, 0.4)';
+        }}
+      }});
+      
+      const targetCard = document.getElementById(cardId);
+      if (targetCard) {{
+        targetCard.classList.add('active');
+        const activeBadge = targetCard.querySelector('.player-badge');
+        if (activeBadge) {{
+          activeBadge.innerText = '★ 지금 재생중';
+          activeBadge.style.background = 'rgba(226, 75, 137, 0.2)';
+          activeBadge.style.color = 'var(--color-action-raspberry)';
+          activeBadge.style.borderColor = 'rgba(226, 75, 137, 0.4)';
+        }}
+      }}
+    }}
+  </script>
 </body>
 </html>
 """

@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: ShortsYellow,Malgun Gothic,58,&H0033E5FF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5.0,3.0,2,60,60,260,1
+Style: ShortsWhite,Malgun Gothic,56,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5.0,3.0,2,60,60,260,1
+Style: ShortsAlert,Malgun Gothic,60,&H003333FF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,6.0,4.0,2,60,60,260,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.80,ShortsYellow,,0,0,260,,하지만 이미 놈들이 움직였습니다.
+Dialogue: 0,0:00:03.80,0:00:06.50,ShortsWhite,,0,0,260,,1997년 11월 21일 자정,
+Dialogue: 0,0:00:06.50,0:00:08.80,ShortsWhite,,0,0,260,,조흥은행 시계탑이 멈춘 순간.
+Dialogue: 0,0:00:08.80,0:00:13.20,ShortsYellow,,0,0,260,,어둠 속에서 좁혀오는 검은 양복들.
+Dialogue: 0,0:00:13.20,0:00:18.60,ShortsWhite,,0,0,260,,그녀는 빗속 골목으로 질주했습니다.
+Dialogue: 0,0:00:18.60,0:00:22.80,ShortsAlert,,0,0,260,,공중전화 부스. 배터리는 단 1%...
+Dialogue: 0,0:00:22.80,0:00:27.40,ShortsWhite,,0,0,260,,남은 기회는 단 한 번뿐이었습니다.
+Dialogue: 0,0:00:27.40,0:00:31.80,ShortsYellow,,0,0,260,,수화기 너머 조력자에게 남긴 명령.
+Dialogue: 0,0:00:31.80,0:00:35.20,ShortsAlert,,0,0,260,,"박 과장님! 당장 금고를 잠그세요!"
+Dialogue: 0,0:00:35.20,0:00:37.44,ShortsWhite,,0,0,260,,...그리고 전화는 끊겼습니다.
