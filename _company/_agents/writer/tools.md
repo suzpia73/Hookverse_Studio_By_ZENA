@@ -20,7 +20,9 @@ AUTONOMY_LEVEL: 3
 
 ---
 
-## 사용 가능한 도구
+### `legal_guardrail` (신규 핵심 · 초록색 불) ⭐ 법적 무결점 0% 검사기
+작성된 대본의 초상권, 저작권, 사내 8대 금기어(정치/사회 편향, 클릭베이트)를 자동 감사하여 100점 만점으로 채점하고 검증합니다.
+- **실행 명령**: `python tools/legal_guardrail.py`
 
 ### `short_script` (활성 · 연두색 불)
 Hookverse Studio 5-in-1 바이럴 공식에 맞춘 30초 숏폼 나레이션 대본 및 4단 컷 기획서를 물리적 `.md` 파일로 즉시 생성하여 `assets/scripts/`에 저장합니다.
@@ -28,6 +30,7 @@ Hookverse Studio 5-in-1 바이럴 공식에 맞춘 30초 숏폼 나레이션 대
 - **실행 스크립트**: `_agents/writer/tools/short_script.py`
 - **매니페스트**: `_agents/writer/tools/short_script.json`
 - **산출물 경로**: `assets/scripts/{제목}_30초대본.md`
+- **사내 바이블**: `_company/_shared/거장_연출_및_후킹_바이블.md` 적용 필수!
 
 ---
 

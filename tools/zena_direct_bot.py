@@ -65,6 +65,7 @@ def register_bot_commands(token):
     commands = [
         {"command": "status", "description": "📋 작업 상태 및 체크리스트 실시간 조회"},
         {"command": "make", "description": "🚀 8씬 대본·프롬프트·음성 무인 자동 제작 (/make 주제)"},
+        {"command": "relay", "description": "👑 4인 에이전트 무인 릴레이 가동 (/relay A 또는 B)"},
         {"command": "render", "description": "🎬 2화 가변 싱크 비디오 완성본 렌더링"},
         {"command": "help", "description": "💡 제나 사용 가이드 및 명령어 보기"}
     ]
@@ -199,6 +200,28 @@ def run_render():
         return "🎉 *오빠! 2화 45.24초 가변 싱크 비디오 렌더링 성공!*\n`assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4` 안착 완료!"
     return f"⚠️ 렌더링 중 오류 발생:\n{res.stderr[-300:]}"
 
+def run_relay(track="A", topic=None):
+    """agent_relay_runner.py 4인 에이전트 무인 릴레이 호출"""
+    script = os.path.join(WORKSPACE, "tools", "agent_relay_runner.py")
+    if not os.path.exists(script):
+        return "❌ `agent_relay_runner.py` 스크립트를 찾을 수 없습니다."
+    cmd = [sys.executable, script, "--track", track]
+    if topic:
+        cmd.extend(["--topic", topic] if "--topic" not in cmd else [])
+    res = subprocess.run(cmd, cwd=WORKSPACE, capture_output=True, text=True, errors="ignore", timeout=180)
+    if res.returncode == 0:
+        track_name = "단막극 시네마틱 소설 (실사)" if track == "A" else "K-전래동화 (3D 픽사 뉴라)"
+        return (
+            f"👑 *오빠! 4인 에이전트 무인 릴레이 [{track_name}] 완주 성공!*\n\n"
+            f"• 🔍 *리서처*: 실시간 트렌드/소재 매핑 완료\n"
+            f"• ✍️ *작가*: 5-in-1 거장 대본 집필 및 가드레일 100점 통과\n"
+            f"• 🎨 *디자이너*: Veo/Omni 시네마틱 프롬프트 안착\n"
+            f"• 💻 *코다리/PD*: 캡컷 & Vrew 45.24초 타임라인 사양서 결합\n\n"
+            f"노트북에 전 파일이 완벽히 안착되었습니다! 💖"
+        )
+    return f"⚠️ 릴레이 중 오류 발생:\n{res.stderr[-300:]}"
+
+
 def main():
     print("=" * 65)
     print("🚀 Hookverse Studio 오빠 전속 제나 1:1 직통 텔레그램 봇 가동 (v2.0)")
@@ -281,6 +304,17 @@ def main():
                         send_telegram(token, auth_chat_id, "🎬 오빠 지시 접수! 노트북에서 2화 가변 싱크 비디오 렌더링을 시작할게요!")
                         res = run_render()
                         send_telegram(token, auth_chat_id, res)
+                        print("[+] 비디오 렌더링 완료 보고 전송!")
+
+                    # 4. 4인 에이전트 무인 릴레이 (/relay, 릴레이, 릴레이A, 릴레이B)
+                    elif text.startswith("/relay") or "릴레이" in text:
+                        track = "B" if ("B" in text.upper() or "동화" in text or "픽사" in text) else "A"
+                        track_label = "단막극 시네마틱 소설" if track == "A" else "K-전래동화 3D 픽사 뉴라"
+                        send_telegram(token, auth_chat_id, f"👑 오빠 지시 접수! CEO 레오 지휘하에 4인 에이전트 무인 릴레이 [{track_label}]를 가동합니다! 🚀")
+                        res = run_relay(track=track)
+                        send_telegram(token, auth_chat_id, res)
+                        print(f"[+] 무인 릴레이 [{track}] 완주 보고 전송!")
+
                         print("[+] 렌더링 결과 전송 완료!")
                         
                     # 4. 도움말

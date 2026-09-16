@@ -1,0 +1,31 @@
+[Google Veo Cinematic Prompt - Scene 1]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 1997년 11월 20일 자정, 명동의 시계탑이 멈춘 순간.. Optics: 35mm anamorphic wide lens, f/2.8, Midnight Seoul rain reflections, neon glow, moody mist. Camera Motion: Slow aerial push-in, cinematic vertical framing, 24fps. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Change background clock to show exactly 00:00 midnight
+
+[Google Veo Cinematic Prompt - Scene 2]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair, wearing matte black cotton trench coat over champagne gold slip dress. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 차디찬 빗속 공중전화 부스에 한 여자가 서 있습니다.. Optics: 85mm f/1.4 portrait lens, shallow depth of field, Roger Deakins style rim light on wet hair, cool blue screen glare. Camera Motion: Slow tracking shot from side to front POV. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Ensure facial anchor lock: verify beauty mark under left eye
+
+[Google Veo Cinematic Prompt - Scene 3]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 스마트폰 화면에 뜬 긴급 속보, 대한민국 부도 D-1.. Optics: 100mm macro lens, ultra crisp focus, Cold blue OLED screen glow in dark phone booth. Camera Motion: Static slow push-in on glowing smartphone screen. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Timestamp on screen must read 1997.11.21 00:00:00
+
+[Google Veo Cinematic Prompt - Scene 4]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair, wearing matte black cotton trench coat over champagne gold slip dress. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 수화기 너머로는 알 수 없는 잡음만 흘러나옵니다.. Optics: 35mm handheld documentary style, subtle breathing camera, Raindrops on green phone booth glass, dramatic contrast shadows. Camera Motion: Intense handheld POV, eye-level angle. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Ensure retro Korean button payphone model from 1997
+
+[Google Veo Cinematic Prompt - Scene 5]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 그 시각, 조흥은행 지하 금고의 육중한 철문이 열려 있었습니다.. Optics: 24mm wide angle lens, low angle looking up, Cold emergency tungsten overhead lamps, eerie shadows. Camera Motion: Slow mechanical reveal dolly shot. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Heavy vault door cracked open with broken official seal
+
+[Google Veo Cinematic Prompt - Scene 6]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 텅 빈 금고 바닥, 찢겨진 장부 위에 남겨진 붉은 서명, 뉴라.. Optics: 50mm macro cinema lens, Single beam flashlight cutting through basement dust. Camera Motion: Top-down flat lay tracking shot across old paper ledger. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Clear handwritten signature 'NEURA' on Korean bank ledger
+
+[Google Veo Cinematic Prompt - Scene 7]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair, wearing matte black cotton trench coat over champagne gold slip dress. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 어둠 속으로 사라지는 트렌치코트의 그림자.. Optics: 85mm portrait lens, deep cinematic bokeh, Street lamp silhouette, matte black trench coat rim light. Camera Motion: Slow tracking shot behind walking figure into midnight alley fog. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Holding vintage leather duffel bag in right hand
+
+[Google Veo Cinematic Prompt - Scene 8]
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair, wearing matte black cotton trench coat over champagne gold slip dress. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 그녀의 손에 들린 지갑 속엔 미래의 달러가 채워져 있었습니다.. Optics: 50mm cinematic lens, intimate close-up, Warm interior wallet glow contrasting cold night street. Camera Motion: Subtle slow push-in, freezing at the final frame for infinite loop. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+[Gemini Omni Conversational Edit Directive]: Delicate feminine hand with neat nude nails opening leather wallet

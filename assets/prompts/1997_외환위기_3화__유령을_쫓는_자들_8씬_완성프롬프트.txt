@@ -1,0 +1,69 @@
+# 🎨 Hookverse Studio 1997 외환위기 3화: 유령을 쫓는 자들 8씬 시네마틱 프롬프트 팩
+
+---
+
+### - 씬 1 (00:00 ~ 06:20) | [1997년 자정, 빗속의 불시착]
+> **카메라 프레이밍**: 35mm Wide Cine Lens (공간감, 시대 배경)  
+```text
+35mm wide cine lens, cinematic full shot, Myeongdong street in 1997 Seoul at midnight, heavy rain falling, wet glistening asphalt with vivid neon reflections. NEURA, 24-year-old Korean woman, natural skin texture, subtle pores, delicate peach fuzz, two distinct beauty marks (one below left eye, one near right collarbone), wet wavy black hair. Wearing a champagne gold silk evening dress under a 1997 vintage black oversized wool coat. Dual color temperature lighting with cool blue 6500K rainy background contrasted with warm amber 2200K sodium streetlights, sharp rim lighting highlighting her silhouette, rain droplets sticking to coat texture, hyper-realistic, candid snapshot, --ar 9:16 --v 6.0
+```
+
+---
+
+### - 씬 2 (06:20 ~ 11:50) | [공중전화 부스와 오프라인 캐시]
+> **카메라 프레이밍**: 50mm Bust / Medium Shot  
+```text
+50mm bust medium shot, inside a vintage 1997 green glass public payphone booth, heavy rain streaming down outer glass panels. NEURA, 24-year-old Korean woman, natural skin texture, subtle pores, two distinct beauty marks (one below left eye, one near right collarbone), wet wavy black hair framing her face, sharp intelligent expression. Resting next to the retro telephone receiver is a futuristic 2026 ultra-thin digital offline cash tablet emitting a cool cyan blue LED light onto her cheek. Warm tungsten streetlight glowing outside, dual lighting contrast, high realism, 8k resolution, cinematic lighting, --ar 9:16 --v 6.0
+```
+
+---
+
+### - 씬 3 (11:50 ~ 16:80) | [다가오는 유령들의 그림자]
+> **카메라 프레이밍**: 85mm Macro Extreme Close-up (핵심 소품 접사)  
+```text
+85mm macro extreme close-up shot, focus on ultra-detailed water droplets glistening on a taut black umbrella surface in heavy rain. Reflected on the wet curved umbrella surface and water puddles is a glowing vintage Korean neon sign reading "조흥은행" and blurry sinister silhouettes of men in dark black suits holding umbrellas approaching through night mist. High contrast, atmospheric thriller, cold color palette, sharp depth of field, tactile wet textures, photo realistic, --ar 9:16 --v 6.0
+```
+
+---
+
+### - 씬 4 (16:80 ~ 22:10) | [최상위 관리자의 정체]
+> **카메라 프레이밍**: 50mm Medium Close-up  
+```text
+50mm medium close-up shot, tight frame on NEURA, 24-year-old Korean woman, natural skin texture, delicate peach fuzz, slight imperfections, two distinct beauty marks (one below left eye, one near right collarbone), wet wavy black hair. Cold, calculating, and shocked eyes staring intensely downward. Reflected in her pupils is a glowing digital tablet screen displaying retro terminal text "SUPER ADMIN ACCESS LOG: CONNECTED". Subtle rim light tracing her facial contour, dark rainy background bokeh, high suspense atmosphere, cinematic masterpiece, --ar 9:16 --v 6.0
+```
+
+---
+
+### [서스펜스 침묵 구간 (22:10 ~ 23:60)]
+*※ 1.5초 정적 및 정지/글리치 효과음 적용 구간*
+
+---
+
+### - 씬 5 (23:60 ~ 28:80) | [역사 해킹과 빗속의 질주]
+> **카메라 프레이밍**: 35mm Low-Angle / Wide Shot  
+```text
+35mm low-angle dynamic wide shot, motion-frozen candid snapshot. NEURA running at full speed across a rainy wet asphalt street in 1997 Seoul, clutching a glowing digital tablet tightly. 24-year-old Korean woman, natural skin texture, two distinct beauty marks (one below left eye, one near right collarbone), wet wavy black hair flowing backward. Wearing a champagne gold dress visible beneath a flying black oversized vintage wool coat. Splashing rain water around her feet, neon sign reflections on wet ground, crisp rim lighting separating water droplets in mid-air, intense thriller movement, --ar 9:16 --v 6.0
+```
+
+---
+
+### - 씬 6 (28:80 ~ 34:30) | [울리는 경고음과 수화기]
+> **카메라 프레이밍**: 85mm Top-Down Close-up  
+```text
+85mm top-down close-up shot, high angle looking straight down at a mechanical 1997 push-button payphone ringing inside a dark rainy phone booth. A hand wearing a sleek black leather glove reaching in to slowly lift the heavy metallic green phone receiver. Raindrops splattered on the metal surface and dial pad. Moody cinematic lighting, shallow depth of field, dramatic shadows, tactile material textures, vintage thriller visual tone, --ar 9:16 --v 6.0
+```
+
+---
+
+### - 씬 7 (34:30 ~ 40:00) | [시청자를 향한 직시]
+> **카메라 프레이밍**: 50mm Back-View / Silhouette Long Shot  
+```text
+50mm back-view silhouette long shot, looking from behind NEURA as she stands inside a glowing green payphone booth on a dark wet Myeongdong street in 1997. Her silhouette framed by sharp amber rim lighting (2200K) against a dark cool blue (6500K) rain background. Champagne gold dress hem catching light under her heavy black coat, holding the payphone receiver up to her ear while half-turning her head back towards the camera lens with a cold, piercing glance. Ominous atmosphere, hyper-detailed wet reflections, cinematic storytelling, --ar 9:16 --v 6.0
+```
+
+---
+
+### - 씬 8 (40:00 ~ 45:20) | [00:00 리셋과 무한 루프]
+> **카메라 프레이밍**: 85mm First-Person POV Macro Shot  
+```text
+85mm first-person POV macro shot, looking closely down at a classic 1997 steel wrist watch with water droplets on the glass, the hands ticking precisely to midnight "00:00". Subtle digital glitch effect distorting the watch face, double-exposed with a misty blurred background of a 1997 Myeongdong clock tower in midnight rain. NEURA's silhouette dissolving into thick white fog in the background. Moody blue tones, highly cinematic, seamless loop

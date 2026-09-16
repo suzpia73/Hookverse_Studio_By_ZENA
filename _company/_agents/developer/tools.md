@@ -20,7 +20,13 @@ AUTONOMY_LEVEL: 3
 
 ---
 
-## 사용 가능한 도구
+### `capcut_draft_generator` (신규 핵심 · 초록색 불) ⭐ PC 실물 캡컷 프로젝트 생성기
+오빠 PC의 캡컷 드래프트 폴더(`%LOCALAPPDATA%/CapCut/User Data/Projects/com.lveditor.draft/`)에 45초 숏폼 프로젝트를 실물 생성하여, 캡컷 앱 실행 시 첫 화면에 즉시 편집 가능하게 띄웁니다.
+- **실행 명령**: `python tools/capcut_draft_generator.py`
+
+### `capcut_vrew_bridge` (신규 핵심 · 초록색 불) ⭐ 캡컷 & Vrew 45초 타임라인 결합기
+45.24초 8씬 가변 듀레이션, 트랜지션, 사운드 이펙트, 자막 서식을 결합한 프로젝트 명세서를 생성합니다.
+- **실행 명령**: `python tools/capcut_vrew_bridge.py`
 
 ### `web_init`
 5개 템플릿 자동 시작 — vite·next·astro·expo·vanilla

@@ -1,0 +1,183 @@
+{
+  "project_name": "무인릴레이_전래동화픽사",
+  "format": "YouTube Shorts (9:16 Vertical)",
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "fps": 30,
+  "total_duration": 45.24,
+  "total_scenes": 8,
+  "vrew_compatible": true,
+  "capcut_compatible": true,
+  "timeline": [
+    {
+      "scene_index": 1,
+      "scene_title": "00:00 시계탑 정각",
+      "start_time": 0.0,
+      "end_time": 6.2,
+      "duration": 6.2,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut01.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "clock_tick_heavy.mp3",
+      "camera_motion": "SlowZoomIn",
+      "capcut_transition": "FadeIn",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 2,
+      "scene_title": "빗속 공중전화 부스 뉴라",
+      "start_time": 6.2,
+      "end_time": 11.5,
+      "duration": 5.3,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut02.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "heavy_rain_ambient.mp3",
+      "camera_motion": "TrackingRight",
+      "capcut_transition": "CrossDissolve",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 3,
+      "scene_title": "스마트폰 긴급 속보 D-1",
+      "start_time": 11.5,
+      "end_time": 16.8,
+      "duration": 5.3,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut03.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "digital_glitch_alert.mp3",
+      "camera_motion": "PushIn",
+      "capcut_transition": "GlitchZoom",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 4,
+      "scene_title": "수화기 긴급 통화 시도",
+      "start_time": 16.8,
+      "end_time": 22.1,
+      "duration": 5.3,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut04.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "payphone_dial_buzz.mp3",
+      "camera_motion": "HandheldBreath",
+      "capcut_transition": "Cut",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 5,
+      "scene_title": "조흥은행 지하 금고 철문",
+      "start_time": 22.1,
+      "end_time": 27.3,
+      "duration": 5.2,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut05.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "heavy_vault_metal_creak.mp3",
+      "camera_motion": "SlowDollyIn",
+      "capcut_transition": "WipeDown",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 6,
+      "scene_title": "금고 장부 붉은 서명",
+      "start_time": 27.3,
+      "end_time": 32.8,
+      "duration": 5.5,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut06.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "suspense_drone_bass.mp3",
+      "camera_motion": "TopDownTracking",
+      "capcut_transition": "FlashWhite",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 7,
+      "scene_title": "안개 속으로 사라진 그림자",
+      "start_time": 32.8,
+      "end_time": 38.5,
+      "duration": 5.7,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut07.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "footsteps_wet_asphalt.mp3",
+      "camera_motion": "TrackingBack",
+      "capcut_transition": "FogDissolve",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    },
+    {
+      "scene_index": 8,
+      "scene_title": "지갑 속 미래의 달러 루프",
+      "start_time": 38.5,
+      "end_time": 45.24,
+      "duration": 6.74,
+      "video_asset": "assets/images/IMF2화/IMF전날밤의비밀_ep02_cut08.jpg",
+      "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
+      "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+      "sfx_effect": "leather_wallet_snap_echo.mp3",
+      "camera_motion": "SlowPushIn",
+      "capcut_transition": "InfiniteLoopFreeze",
+      "vrew_styling": {
+        "font_name": "Pretendard ExtraBold",
+        "font_size": 300,
+        "text_color": "#FFFFFF",
+        "outline_color": "#A855F7",
+        "outline_thickness": 18,
+        "position_y": 78
+      }
+    }
+  ]
+}

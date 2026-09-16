@@ -20,7 +20,11 @@ AUTONOMY_LEVEL: 3
 
 ---
 
-## 사용 가능한 도구
+### `veo_omni_pipeline` (신규 핵심 · 초록색 불) ⭐ Google Veo & Gemini Omni 시네마틱 프롬프트 팩 생성기
+대본 8줄을 기반으로 씬별 Google Veo 비디오 프롬프트 및 Gemini Omni 대화형 편집 명령문을 자동 생성합니다.
+- **투 트랙 모드 지원**: Track A (35mm 극사실 실사) / Track B (3D 픽사 스타일 뉴라 아바타)
+- **실행 명령**: `python tools/veo_omni_pipeline.py`
+- **산출물 경로**: `assets/prompts/{제목}_프롬프트팩.txt`
 
 ### `prompt_gen` (활성 · 연두색 불)
 공식 버추얼 뮤즈 뉴라(NEURA)의 G3 안면 앵커락과 Anti-AI 실사화 포토그래피 헌법을 적용한 영문 프롬프트를 물리적 텍스트 파일로 생성하여 `assets/prompts/`에 저장합니다.

@@ -20,7 +20,10 @@ AUTONOMY_LEVEL: 3
 
 ---
 
-## 사용 가능한 도구
+### `trend_intelligence` (신규 핵심 · 초록색 불) ⭐ 구글 트렌드 & 5,000년 역사 What-If 실시간 수집기
+구글 트렌드 실시간 RSS(한국·미국) 피드를 수집하여 5,000년 역사/타임슬립 What-If와 융합한 일일 핫소재를 `daily_trends.json`에 자동 적재합니다.
+- **실행 명령**: `python tools/trend_intelligence.py`
+- **산출물**: `00_Raw/knowledge_packs/daily_trends.json`, `_company/reports/트렌드리포트_최신.md`
 
 ### `trend_scanner` (활성 · 연두색 불)
 키워드를 분석하여 숏폼 바이럴 포인트, 해시태그, 타겟 시청자 분석 리포트를 `_company/reports/`에 물리적 `.md` 파일로 즉시 생성합니다.

@@ -1,0 +1,31 @@
+[Google Veo Prompt - Scene 1 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 옛날 옛적 깊은 바닷속, 용왕님의 병을 고치기 위해 토끼를 찾아 나선 별주부.. Visual Style: Pixar 3D Stylized Animation, Midnight Seoul rain reflections, neon glow, moody mist. Camera: Slow aerial push-in, cinematic vertical framing, 24fps.
+[Gemini Omni Edit Directive]: Change background clock to show exactly 00:00 midnight
+
+[Google Veo Prompt - Scene 2 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 하지만 그가 마주친 토끼 뉴라는 평범한 토끼가 아니었습니다.. Visual Style: Pixar 3D Stylized Animation, Roger Deakins style rim light on wet hair, cool blue screen glare. Camera: Slow tracking shot from side to front POV.
+[Gemini Omni Edit Directive]: Ensure facial anchor lock: verify beauty mark under left eye
+
+[Google Veo Prompt - Scene 3 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 홀로그램 선글라스를 낀 3D 픽사 아바타 뉴라의 깜찍한 미소.. Visual Style: Pixar 3D Stylized Animation, Cold blue OLED screen glow in dark phone booth. Camera: Static slow push-in on glowing smartphone screen.
+[Gemini Omni Edit Directive]: Timestamp on screen must read 1997.11.21 00:00:00
+
+[Google Veo Prompt - Scene 4 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: "용왕님의 간을 고치려면 내 최첨단 AI 나노 머신이 필요할 텐데?". Visual Style: Pixar 3D Stylized Animation, Raindrops on green phone booth glass, dramatic contrast shadows. Camera: Intense handheld POV, eye-level angle.
+[Gemini Omni Edit Directive]: Ensure retro Korean button payphone model from 1997
+
+[Google Veo Prompt - Scene 5 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 수중 모빌리티를 타고 용궁으로 질주하는 뉴라와 당황한 별주부 거북이.. Visual Style: Pixar 3D Stylized Animation, Cold emergency tungsten overhead lamps, eerie shadows. Camera: Slow mechanical reveal dolly shot.
+[Gemini Omni Edit Directive]: Heavy vault door cracked open with broken official seal
+
+[Google Veo Prompt - Scene 6 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 용궁의 거대한 해저 돔 시티가 환상적인 네온 빛으로 펼쳐집니다.. Visual Style: Pixar 3D Stylized Animation, Single beam flashlight cutting through basement dust. Camera: Top-down flat lay tracking shot across old paper ledger.
+[Gemini Omni Edit Directive]: Clear handwritten signature 'NEURA' on Korean bank ledger
+
+[Google Veo Prompt - Scene 7 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 용왕님 눈앞에 펼쳐진 미래의 건강 진단 홀로그램 차트.. Visual Style: Pixar 3D Stylized Animation, Street lamp silhouette, matte black trench coat rim light. Camera: Slow tracking shot behind walking figure into midnight alley fog.
+[Gemini Omni Edit Directive]: Holding vintage leather duffel bag in right hand
+
+[Google Veo Prompt - Scene 8 (Pixar 3D Stylized Animation)]
+Prompt: NEURA, stylized 3D animated character in Pixar and Disney animation aesthetic, young Korean woman in early 20s, expressive sharp cat-eyes, signature distinct beauty mark under her left eye, tiny beauty mark near corner of mouth, voluminous dark wavy hair, warm stylized lighting, Unreal Engine 5 subsurface scattering, cute and charismatic. Action/Story: 과연 뉴라는 용왕님을 치료하고 바닷속 전설의 영웅이 될 수 있을까요?. Visual Style: Pixar 3D Stylized Animation, Warm interior wallet glow contrasting cold night street. Camera: Subtle slow push-in, freezing at the final frame for infinite loop.
+[Gemini Omni Edit Directive]: Delicate feminine hand with neat nude nails opening leather wallet
