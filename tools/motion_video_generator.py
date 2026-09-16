@@ -35,19 +35,22 @@ def generate_motion_clip(image_path, output_mp4, duration=5.0, motion_type="doll
         # 천천히 전진하며 미세하게 숨 쉬는 카메라 무빙
         vf = (
             f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            f"zoompan=z='min(zoom+0.0015,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={int(duration*30)}:s=1080x1920:fps=30"
+            f"zoompan=z='min(zoom+0.0015,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={int(duration*30)}:s=1080x1920:fps=30,"
+            f"drawbox=y=ih*0.76:color=black@0.45:width=iw:height=ih*0.24:t=fill"
         )
     elif motion_type == "tracking_pan":
         # 우측으로 천천히 이동하는 트래킹 샷
         vf = (
             f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            f"zoompan=z=1.08:x='if(lte(on,1),(iw-iw/zoom)/2,x+0.5)':y='ih/2-(ih/zoom/2)':d={int(duration*30)}:s=1080x1920:fps=30"
+            f"zoompan=z=1.08:x='if(lte(on,1),(iw-iw/zoom)/2,x+0.5)':y='ih/2-(ih/zoom/2)':d={int(duration*30)}:s=1080x1920:fps=30,"
+            f"drawbox=y=ih*0.76:color=black@0.45:width=iw:height=ih*0.24:t=fill"
         )
     else:
         # 긴장감 있는 핸드헬드 POV 샷
         vf = (
             f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            f"zoompan=z='min(zoom+0.001,1.10)':x='iw/2-(iw/zoom/2)+sin(in)*2':y='ih/2-(ih/zoom/2)+cos(in)*2':d={int(duration*30)}:s=1080x1920:fps=30"
+            f"zoompan=z='min(zoom+0.001,1.10)':x='iw/2-(iw/zoom/2)+sin(in)*2':y='ih/2-(ih/zoom/2)+cos(in)*2':d={int(duration*30)}:s=1080x1920:fps=30,"
+            f"drawbox=y=ih*0.76:color=black@0.45:width=iw:height=ih*0.24:t=fill"
         )
 
     cmd = [
