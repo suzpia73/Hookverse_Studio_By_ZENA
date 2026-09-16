@@ -112,7 +112,14 @@ def build_project_bridge(durations=None, project_name="IMF2화_자정의조흥�
                 "stroke_color": "#A855F7",
                 "stroke_width_px": 16,
                 "shadow_opacity": 0.75,
-                "safe_zone_y_percent": 80.0
+                "safe_zone_y_percent": 79.5,
+                "animation": {
+                    "type": "VrewQuickBouncePopIn",
+                    "start_scale": 0.6,
+                    "drop_duration_sec": 0.15,
+                    "bounce_tension": 1.15,
+                    "landing_snap_sec": 0.05
+                }
             }
         },
         "timeline": timeline

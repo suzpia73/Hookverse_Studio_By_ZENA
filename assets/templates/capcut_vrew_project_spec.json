@@ -1,5 +1,5 @@
 {
-  "project_name": "무인릴레이_단막극소설",
+  "project_name": "IMF2화_자정의조흥은행",
   "format": "YouTube Shorts (9:16 Vertical)",
   "resolution": {
     "width": 1080,
@@ -45,7 +45,14 @@
       "stroke_color": "#A855F7",
       "stroke_width_px": 16,
       "shadow_opacity": 0.75,
-      "safe_zone_y_percent": 80.0
+      "safe_zone_y_percent": 79.5,
+      "animation": {
+        "type": "VrewQuickBouncePopIn",
+        "start_scale": 0.6,
+        "drop_duration_sec": 0.15,
+        "bounce_tension": 1.15,
+        "landing_snap_sec": 0.05
+      }
     }
   },
   "timeline": [
