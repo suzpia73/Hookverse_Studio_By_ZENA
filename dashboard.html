@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hookverse Studio — 시네마틱 관제 대시보드</title>
+  <link rel="icon" href="./assets/images/hookverse_studio_logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -53,24 +54,20 @@
       gap: 18px;
     }
 
-    .emblem-gold-circle {
-      width: 54px;
-      height: 54px;
+    .emblem-gold-circle-img {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #fff2b2 0%, #d4af37 40%, #996515 85%, #d4af37 100%);
-      color: #1a1505;
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.4);
-      border: 2px solid rgba(255, 242, 178, 0.8);
-      position: relative;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 6px rgba(255, 255, 255, 0.4);
+      border: 2px solid rgba(238, 211, 127, 0.6);
       flex-shrink: 0;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .emblem-gold-circle-img:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 0 28px rgba(238, 211, 127, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
     }
 
     .brand-title h1 {
@@ -453,7 +450,7 @@
   <div class="container">
     <header>
       <div class="brand">
-        <div class="emblem-gold-circle">HV</div>
+        <img src="./assets/images/hookverse_studio_logo.png" alt="Hookverse Studio Logo" class="emblem-gold-circle-img">
         <div class="brand-title">
           <h1>HOOKVERSE STUDIO</h1>
           <p><span class="channel-handle">@hookverse_studio</span> AI 에이전트 1인 기업 완전 자율 관제실</p>
