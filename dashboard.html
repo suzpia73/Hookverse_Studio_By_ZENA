@@ -563,10 +563,136 @@
         <div class="kpi-val">9</div>
         <div class="kpi-sub">G3 Master Face Anchor Lock</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-label">뉴럴 성우 오디오</div>
-        <div class="kpi-val">2</div>
-        <div class="kpi-sub">edge-tts 선희 뉴럴 딕션</div>
+    </div>
+
+    <!-- Visual Node Wiring Studio Panel (Full Width) -->
+    <div class="panel" style="margin-bottom: 24px; border: 1px solid rgba(168, 85, 247, 0.4); background: linear-gradient(180deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);">
+      <div class="panel-header">
+        <div class="panel-title" style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: #a855f7; font-size: 18px;">⚡</span>
+          <span><b>Hookverse Studio 실시간 비주얼 노드 파이프라인 (Visual Node Wiring Studio)</b></span>
+          <span style="font-size: 11px; padding: 2px 8px; border-radius: 9999px; background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">LIVE 5-NODE CONNECTED</span>
+        </div>
+        <div>
+          <button id="btn-run-node-sim" class="btn-launch" style="background: linear-gradient(135deg, #7c3aed, #a855f7); box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);">
+            ▶ 라인 펄스 시뮬레이션 가동
+          </button>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--color-silver-mist); margin-bottom: 16px;">
+        대본 노드에서 뻗어나온 선을 따라 음성·자막·이미지가 동시 생성되고, 모션 비디오를 거쳐 캡컷 타임라인에 1초의 오차도 없이 칼싱크로 결합되는 실물 배선도입니다.
+      </p>
+
+      <!-- Node Canvas Wrapper -->
+      <div style="position: relative; width: 100%; min-height: 260px; background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); overflow: hidden; padding: 20px;">
+        <!-- SVG Wires Layer -->
+        <svg id="node-svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+          <defs>
+            <linearGradient id="wire-grad-purple" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#ec4899" stop-opacity="0.9"/>
+            </linearGradient>
+            <linearGradient id="wire-grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9"/>
+            </linearGradient>
+            <linearGradient id="wire-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#facc15" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0.9"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <!-- Wire Lines (Curved Bezier Paths) -->
+          <!-- 1. Script -> Audio -->
+          <path id="wire-script-audio" d="M 180 130 C 230 130, 250 60, 310 60" stroke="url(#wire-grad-gold)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 2. Script -> Subtitle -->
+          <path id="wire-script-sub" d="M 180 130 C 230 130, 250 130, 310 130" stroke="url(#wire-grad-purple)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 3. Script -> Image -->
+          <path id="wire-script-img" d="M 180 130 C 230 130, 250 200, 310 200" stroke="url(#wire-grad-blue)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 4. Image -> Motion -->
+          <path id="wire-img-motion" d="M 470 200 C 510 200, 520 200, 560 200" stroke="url(#wire-grad-blue)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 5. Audio -> CapCut -->
+          <path id="wire-audio-capcut" d="M 470 60 C 580 60, 680 130, 770 130" stroke="url(#wire-grad-gold)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 6. Subtitle -> CapCut -->
+          <path id="wire-sub-capcut" d="M 470 130 C 580 130, 680 130, 770 130" stroke="url(#wire-grad-purple)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 7. Motion -> CapCut -->
+          <path id="wire-motion-capcut" d="M 700 200 C 740 200, 750 140, 770 130" stroke="url(#wire-grad-blue)" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <!-- 8. CapCut -> YouTube -->
+          <path id="wire-capcut-yt" d="M 920 130 C 960 130, 970 130, 1000 130" stroke="#10b981" stroke-width="4" stroke-dasharray="6,4" fill="none" filter="url(#glow)"/>
+
+          <!-- Animated Pulses (Circles that travel on paths) -->
+          <circle id="pulse-1" r="5" fill="#facc15" filter="url(#glow)"/>
+          <circle id="pulse-2" r="5" fill="#ec4899" filter="url(#glow)"/>
+          <circle id="pulse-3" r="5" fill="#06b6d4" filter="url(#glow)"/>
+        </svg>
+
+        <!-- HTML Node Cards on Grid -->
+        <div style="display: flex; justify-content: space-between; align-items: center; height: 220px; position: relative; z-index: 2;">
+          
+          <!-- Column 1: Source Script Node -->
+          <div class="node-box active" id="node-script" style="width: 160px; background: rgba(15, 23, 42, 0.9); border: 2px solid #a855f7; border-radius: 10px; padding: 12px; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);">
+            <div style="font-size: 10px; color: #a855f7; font-weight: 700;">NODE 01: INPUT</div>
+            <div style="font-size: 13px; font-weight: 700; color: #fff; margin: 4px 0;">📜 7:3 마스터 대본</div>
+            <div style="font-size: 10px; color: #94a3b8;">1997 자정의 조흥은행 (8씬 칼싱크 대본)</div>
+            <div style="margin-top: 8px; font-size: 9px; color: #4ade80; display: flex; align-items: center; gap: 4px;">
+              <span style="display:inline-block; width:6px; height:6px; background:#4ade80; border-radius:50%;"></span>
+              READY (8 Scenes)
+            </div>
+          </div>
+
+          <!-- Column 2: 3 Parallel Generation Nodes -->
+          <div style="display: flex; flex-direction: column; gap: 10px; width: 160px;">
+            <!-- Audio Node -->
+            <div class="node-box" id="node-audio" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #facc15; border-radius: 8px; padding: 8px; box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);">
+              <div style="font-size: 9px; color: #facc15; font-weight: 700;">NODE 02-A: TTS</div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">🎙️ 뉴럴 성우 음성</div>
+              <div style="font-size: 9px; color: #94a3b8;">선희 뉴럴 딕션 45.24s</div>
+            </div>
+            <!-- Subtitle Node -->
+            <div class="node-box" id="node-sub" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #ec4899; border-radius: 8px; padding: 8px; box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);">
+              <div style="font-size: 9px; color: #ec4899; font-weight: 700;">NODE 02-B: VREW</div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">⚡ 0.15s 바운스 자막</div>
+              <div style="font-size: 9px; color: #94a3b8;">네온 옐로우 하이라이트</div>
+            </div>
+            <!-- Image Node -->
+            <div class="node-box" id="node-img" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #06b6d4; border-radius: 8px; padding: 8px; box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);">
+              <div style="font-size: 9px; color: #06b6d4; font-weight: 700;">NODE 02-C: VISUAL</div>
+              <div style="font-size: 11px; font-weight: 700; color: #fff;">🖼️ Opal/Veo 이미지</div>
+              <div style="font-size: 9px; color: #94a3b8;">G3 뉴라 5각 안면 고정</div>
+            </div>
+          </div>
+
+          <!-- Column 3: Motion Video Node -->
+          <div class="node-box" id="node-motion" style="width: 140px; background: rgba(15, 23, 42, 0.9); border: 1px solid #3b82f6; border-radius: 8px; padding: 10px; box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);">
+            <div style="font-size: 9px; color: #3b82f6; font-weight: 700;">NODE 03: I2V</div>
+            <div style="font-size: 12px; font-weight: 700; color: #fff; margin: 3px 0;">🎥 모션 비디오 렌더</div>
+            <div style="font-size: 9px; color: #94a3b8;">줌인·패닝·틴티드 비네팅</div>
+            <div style="margin-top: 6px; font-size: 9px; color: #38bdf8;">1080p MP4 Clpis</div>
+          </div>
+
+          <!-- Column 4: CapCut Auto Assembler Node -->
+          <div class="node-box" id="node-capcut" style="width: 150px; background: rgba(15, 23, 42, 0.9); border: 2px solid #10b981; border-radius: 10px; padding: 12px; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);">
+            <div style="font-size: 9px; color: #10b981; font-weight: 700;">NODE 04: EDITOR</div>
+            <div style="font-size: 13px; font-weight: 700; color: #fff; margin: 4px 0;">🎬 캡컷 자동 합성</div>
+            <div style="font-size: 9px; color: #94a3b8;">45.24s 8씬 칼싱크 결합</div>
+            <div style="margin-top: 6px; font-size: 9px; color: #4ade80;">Draft Ready (PC 연동)</div>
+          </div>
+
+          <!-- Column 5: YouTube Studio 99:1 Launch Node -->
+          <div class="node-box" id="node-yt" style="width: 150px; background: rgba(220, 38, 38, 0.15); border: 2px solid #ef4444; border-radius: 10px; padding: 12px; box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);">
+            <div style="font-size: 9px; color: #f87171; font-weight: 700;">NODE 05: LAUNCH</div>
+            <div style="font-size: 13px; font-weight: 700; color: #fff; margin: 4px 0;">🚀 유튜브 99:1 발사대</div>
+            <div style="font-size: 9px; color: #fca5a5;">메타데이터 99% 완결</div>
+            <div style="margin-top: 6px; font-size: 10px; color: #fef08a; font-weight: 700;">오빠의 1% [게시] 대기</div>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -910,6 +1036,58 @@
 
     // 초기 렌더링
     renderTrends(TREND_DATA);
+
+    // ==========================================
+    // ⚡ 실시간 비주얼 노드 파이프라인 시뮬레이터
+    // ==========================================
+    const simBtn = document.getElementById("btn-run-node-sim");
+    if (simBtn) {
+      simBtn.addEventListener("click", () => {
+        simBtn.disabled = true;
+        simBtn.innerText = "⚡ 라인 데이터 전송 중...";
+        
+        const nodes = [
+          { id: "node-script", delay: 0 },
+          { id: "node-audio", delay: 600 },
+          { id: "node-sub", delay: 800 },
+          { id: "node-img", delay: 1000 },
+          { id: "node-motion", delay: 1800 },
+          { id: "node-capcut", delay: 2600 },
+          { id: "node-yt", delay: 3400 }
+        ];
+
+        // 노드 순차 발광
+        nodes.forEach(item => {
+          setTimeout(() => {
+            const el = document.getElementById(item.id);
+            if (el) {
+              el.style.transform = "scale(1.05)";
+              el.style.borderColor = "#facc15";
+              el.style.boxShadow = "0 0 25px rgba(250, 204, 21, 0.6)";
+              setTimeout(() => {
+                el.style.transform = "scale(1.0)";
+                if (item.id === "node-yt") {
+                  el.style.borderColor = "#ef4444";
+                  el.style.boxShadow = "0 0 15px rgba(239, 68, 68, 0.4)";
+                } else if (item.id === "node-capcut") {
+                  el.style.borderColor = "#10b981";
+                  el.style.boxShadow = "0 0 15px rgba(168, 85, 247, 0.3)";
+                } else {
+                  el.style.borderColor = "";
+                  el.style.boxShadow = "";
+                }
+              }, 500);
+            }
+          }, item.delay);
+        });
+
+        setTimeout(() => {
+          simBtn.disabled = false;
+          simBtn.innerText = "▶ 라인 펄스 시뮬레이션 가동";
+          alert("🎉 [Hookverse Visual Node] 전 라인 데이터 전송 완료!\n\n1. 대본 ➡️ 음성·자막·이미지 3분기 동시 생성\n2. 이미지 ➡️ 1080p 모션 비디오 렌더 완료\n3. 캡컷 타임라인에 45.24초 칼싱크 자동 안착 완료!\n4. 유튜브 스튜디오 99:1 최종 발사 대기 중!");
+        }, 3900);
+      });
+    }
   </script>
 </body>
 </html>
