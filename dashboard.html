@@ -99,6 +99,16 @@
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .channel-handle:hover {
+      background: var(--color-highlight-gold);
+      color: #1a1505;
+      box-shadow: 0 0 10px rgba(238, 211, 127, 0.5);
+      transform: translateY(-1px);
     }
 
     .status-pill {
@@ -517,10 +527,17 @@
   <div class="container">
     <header>
       <div class="brand">
-        <img src="./assets/images/hookverse_studio_logo.png" alt="Hookverse Studio Logo" class="emblem-gold-circle-img">
+        <a href="https://www.youtube.com/@hookverse_studio" target="_blank" title="유튜브 공식 채널 바로가기" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="./assets/images/hookverse_studio_logo.png" alt="Hookverse Studio Logo" class="emblem-gold-circle-img">
+        </a>
         <div class="brand-title">
           <h1>HOOKVERSE STUDIO</h1>
-          <p><span class="channel-handle">@hookverse_studio</span> AI 에이전트 1인 기업 완전 자율 관제실</p>
+          <p>
+            <a href="https://www.youtube.com/@hookverse_studio" target="_blank" class="channel-handle" style="text-decoration: none;" title="공식 유튜브 채널 직통 연결">
+              @hookverse_studio ↗
+            </a> 
+            AI 에이전트 1인 기업 완전 자율 관제실
+          </p>
         </div>
       </div>
       <div class="status-pill">
