@@ -513,6 +513,95 @@
       border: 1px solid rgba(238, 211, 127, 0.3);
     }
 
+    /* Cinematic Video Player Panel */
+    .shorts-player-panel {
+      background: var(--color-charcoal-canvas);
+      border: 1px solid rgba(238, 211, 127, 0.35);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .shorts-player-container {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-top: 16px;
+    }
+
+    .video-viewport-wrapper {
+      position: relative;
+      width: 250px;
+      height: 444px; /* 9:16 vertical ratio */
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(238, 211, 127, 0.4);
+      box-shadow: 0 0 25px rgba(238, 211, 127, 0.2), 0 0 50px rgba(0, 0, 0, 0.8);
+      flex-shrink: 0;
+    }
+
+    .video-viewport-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .player-controls-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .playlist-card {
+      background: var(--color-deep-slate);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .playlist-card:hover {
+      border-color: var(--color-action-raspberry);
+      transform: translateX(4px);
+    }
+
+    .playlist-card.active {
+      border-color: var(--color-highlight-gold);
+      background: rgba(238, 211, 127, 0.08);
+      box-shadow: inset 0 0 12px rgba(238, 211, 127, 0.15);
+    }
+
+    .playlist-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-pure-white);
+      margin-bottom: 3px;
+    }
+
+    .playlist-desc {
+      font-size: 11px;
+      color: var(--color-silver-mist);
+    }
+
+    .player-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(227, 38, 82, 0.2);
+      color: var(--color-action-raspberry);
+      border: 1px solid rgba(227, 38, 82, 0.4);
+      white-space: nowrap;
+    }
+
     footer {
       margin-top: 40px;
       text-align: center;
@@ -794,6 +883,128 @@
                 <div class="vrew-layer-item">
                   <span class="layer-tag" style="background: rgba(250, 204, 21, 0.25); border-color: #facc15; color: #facc15;">4. 가독성 극대화 자막</span>
                   <span><b>0.15s 바운스 팝인</b> + <b>도파민 키워드 네온 옐로우(#FACC15) 하이라이트</b> + 하단 틴티드 비네팅(Y축 79.5%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scene 2, 3, 4 Real-time Visual Inspection Gallery -->
+          <div class="panel" style="border: 2px solid var(--color-highlight-gold); margin-top: 24px; background: rgba(18, 19, 22, 0.95);">
+            <div class="panel-header" style="margin-bottom: 14px;">
+              <div class="panel-title" style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--color-highlight-gold); font-size: 18px;">📸</span> 
+                <span style="font-size: 16px; font-weight: 700; color: var(--color-highlight-gold);">
+                  오빠 검토용 실물 컷 갤러리 (씬 2 · 씬 3 · 씬 4 연속성 비교 뷰어)
+                </span>
+              </div>
+              <span style="font-size: 12px; color: var(--color-interactive-lime); font-weight: 600;">
+                ● 1호 원본 레퍼런스 주입 & 점박이 0% & 면티 100% 퇴출 완료
+              </span>
+            </div>
+            <p style="font-size: 12px; color: #cbd5e1; margin-bottom: 16px; line-height: 1.5;">
+              오빠께서 직접 눈으로 확인하실 수 있도록 <b>가장 최근 생성된 실물 3개 컷</b>을 나란히 배치했습니다. 
+              <br>1) <b>씬 2</b>(선 모습) ➡️ 2) <b>씬 3</b>(부스로 질주) ➡️ 3) <b>씬 4</b>(수화기 통화)의 얼굴·의상(골드 드레스)·부스 방향을 한눈에 비교해 보세요!
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+              <!-- Cut 02 -->
+              <div style="background: var(--color-deep-slate); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; padding: 10px; text-align: center;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 8px;">
+                  [씬 2] 시계탑 아래 빗속의 뉴라
+                </div>
+                <img src="./assets/images/review/review_cut02_neura.jpg" alt="Scene 2" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(238, 211, 127, 0.4);">
+                <div style="font-size: 11px; color: var(--color-silver-mist); margin-top: 8px; line-height: 1.4; text-align: left;">
+                  ✔ 1호 원본 얼굴 복원<br>✔ 샴페인 골드 실크 드레스 넥라인<br>✔ 점박이/잡티 0% 맑은 피부
+                </div>
+              </div>
+
+              <!-- Cut 03 -->
+              <div style="background: var(--color-deep-slate); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; padding: 10px; text-align: center;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 8px;">
+                  [씬 3] 빗속을 뚫고 부스로 질주
+                </div>
+                <img src="./assets/images/review/review_cut03_running.jpg" alt="Scene 3" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(238, 211, 127, 0.4);">
+                <div style="font-size: 11px; color: var(--color-silver-mist); margin-top: 8px; line-height: 1.4; text-align: left;">
+                  ✔ 1% 배터리 폰 완전 삭제<br>✔ 대본대로 부스로 뛰어드는 샷<br>⚠️ <b>부스 문/입구 방향 점검 대상</b>
+                </div>
+              </div>
+
+              <!-- Cut 04 -->
+              <div style="background: var(--color-deep-slate); border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; padding: 10px; text-align: center;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 8px;">
+                  [씬 4] 수화기 들고 흔들리는 눈빛
+                </div>
+                <img src="./assets/images/review/review_cut04_call.jpg" alt="Scene 4" style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(238, 211, 127, 0.4);">
+                <div style="font-size: 11px; color: var(--color-silver-mist); margin-top: 8px; line-height: 1.4; text-align: left;">
+                  ✔ 엉뚱한 무전기폰 100% 삭제<br>✔ 공중전화 수화기만 쥔 정면 POV<br>✔ 씬 2와 완벽 일치하는 뉴라 얼굴
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Shorts Real-time Video Player -->
+          <div class="shorts-player-panel">
+            <div class="panel-header" style="margin-bottom: 12px;">
+              <div class="panel-title" style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--color-highlight-gold);">🎬</span> 시네마틱 숏폼 실물 웹 플레이어 (Interactive Shorts Player)
+              </div>
+              <span style="font-size: 11px; color: var(--color-interactive-lime);">● 1080x1920 세로 숏폼 실물 렌더링 검증 뷰어</span>
+            </div>
+            <p style="font-size: 12px; color: var(--color-silver-mist); margin-bottom: 14px;">
+              오빠가 브라우저에서 직접 완성된 실물 비디오 클립을 원클릭으로 감상하고, 성우 음성 및 칼싱크 자막 호흡을 즉시 확인할 수 있는 내장 멀티미디어 플레이어입니다.
+            </p>
+
+            <div class="shorts-player-container">
+              <!-- Video Viewport -->
+              <div class="video-viewport-wrapper">
+                <video id="main-shorts-player" controls preload="metadata" poster="./assets/images/hookverse_studio_logo.png">
+                  <source id="video-source-elem" src="./assets/videos/IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4" type="video/mp4">
+                  브라우저가 비디오 재생을 지원하지 않습니다.
+                </video>
+              </div>
+
+              <!-- Controls & Playlist -->
+              <div class="player-controls-side">
+                <div style="font-size: 12px; font-weight: 700; color: var(--color-highlight-gold); margin-bottom: 2px;">
+                  📼 실물 렌더링 완료 비디오 재생목록 (원클릭 전환)
+                </div>
+
+                <!-- Item 1: 2화 3컷 교체 및 0.1초 칼싱크 최신 완성본 -->
+                <div class="playlist-card active" id="card-ep2-vault" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4', 'IMF 2화: 자정의 조흥은행 (0.1초 칼싱크 3컷 교체 완성본)', '45.24초 · 3대 실사 컷(씬 2, 4, 8) 교체 및 나레이션 0.1초 칼싱크 안착', 'card-ep2-vault')">
+                  <div>
+                    <div class="playlist-title">IMF 2화: 자정의 조흥은행 (0.1초 칼싱크 3컷 교체 완성본)</div>
+                    <div class="playlist-desc">45.24초 · 3대 실사 컷(씬 2, 4, 8) 교체 및 나레이션 0.1초 칼싱크 안착</div>
+                  </div>
+                  <span class="player-badge">★ 최신 0.1s 칼싱크</span>
+                </div>
+
+                <!-- Item 2: 1호 공식 쇼츠: 국가 부도의 날 (공식 기준본) -->
+                <div class="playlist-card" id="card-ep1-pilot" onclick="selectShortsVideo('./assets/videos/국가부도_첫쇼츠.mp4', '1호 공식 쇼츠: 국가 부도의 날 (유튜브 발행 공식 기준본)', '24.00초 · 1997 불시착 실사 컷 · 유튜브 실시간 41회 검증 완료', 'card-ep1-pilot')">
+                  <div>
+                    <div class="playlist-title">1호 공식 쇼츠: 국가 부도의 날 (유튜브 발행 공식 기준본)</div>
+                    <div class="playlist-desc">24.00초 · 1997 불시착 실사 컷 · 유튜브 실시간 41회 검증 완료</div>
+                  </div>
+                  <span class="player-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--color-interactive-lime); border-color: rgba(16, 185, 129, 0.4);">★ 1호 공식 기준본</span>
+                </div>
+
+                <!-- Item 3: 2화 이전 2차 가변싱크 테스트본 -->
+                <div class="playlist-card" id="card-ep2-40s" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4', 'IMF 2화: 조흥은행 금고일치 (이전 2차 테스트본)', '45.24초 · 3컷 교체 전 및 싱크 조정 전 이전 버전', 'card-ep2-40s')">
+                  <div>
+                    <div class="playlist-title">IMF 2화: 조흥은행 금고일치 (이전 2차 테스트본)</div>
+                    <div class="playlist-desc">45.24초 · 3컷 교체 전 및 싱크 조정 전 이전 버전</div>
+                  </div>
+                  <span class="player-badge" style="background: rgba(238, 211, 127, 0.2); color: var(--color-highlight-gold); border-color: rgba(238, 211, 127, 0.4);">이전 테스트</span>
+                </div>
+
+                <!-- Now Playing Bar -->
+                <div style="margin-top: 8px; padding: 10px 14px; background: rgba(0,0,0,0.4); border-radius: 6px; border-left: 3px solid var(--color-highlight-gold);">
+                  <div style="font-size: 11px; color: var(--color-silver-mist);">현재 재생 선택:</div>
+                  <div id="now-playing-title" style="font-size: 13px; font-weight: 700; color: var(--color-highlight-gold); margin-top: 2px;">
+                    IMF 2화: 자정의 조흥은행 (0.1초 칼싱크 3컷 교체 완성본)
+                  </div>
+                  <div id="now-playing-desc" style="font-size: 11px; color: #cbd5e1; margin-top: 2px;">
+                    45.24초 · 3대 실사 컷(씬 2, 4, 8) 교체 및 나레이션 0.1초 칼싱크 안착
+                  </div>
                 </div>
               </div>
             </div>
@@ -1087,6 +1298,25 @@
           alert("🎉 [Hookverse Visual Node] 전 라인 데이터 전송 완료!\n\n1. 대본 ➡️ 음성·자막·이미지 3분기 동시 생성\n2. 이미지 ➡️ 1080p 모션 비디오 렌더 완료\n3. 캡컷 타임라인에 45.24초 칼싱크 자동 안착 완료!\n4. 유튜브 스튜디오 99:1 최종 발사 대기 중!");
         }, 3900);
       });
+    }
+
+    // 시네마틱 숏폼 실물 웹 플레이어 영상 전환 함수
+    function selectShortsVideo(src, title, desc, cardId) {
+      const player = document.getElementById("main-shorts-player");
+      const titleElem = document.getElementById("now-playing-title");
+      const descElem = document.getElementById("now-playing-desc");
+
+      document.querySelectorAll(".playlist-card").forEach(c => c.classList.remove("active"));
+      const activeCard = document.getElementById(cardId);
+      if (activeCard) activeCard.classList.add("active");
+
+      if (titleElem) titleElem.innerText = title;
+      if (descElem) descElem.innerText = desc;
+
+      player.pause();
+      player.src = src;
+      player.load();
+      player.play().catch(e => console.log("자동재생 알림:", e));
     }
   </script>
 </body>

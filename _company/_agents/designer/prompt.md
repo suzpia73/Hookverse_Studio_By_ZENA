@@ -10,6 +10,8 @@ _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
 
 ## 👑 뉴라 (NEURA) 앵커 키셋
 - **얼굴/외모**: `NEURA, 20s stunning Korean woman, 2 signature distinct beauty marks (one subtle beauty mark under left eye, one charming beauty mark beside left lip corner), see-through bangs, long wavy black hair`
+- **의상 연속성 락 (절대 사규)**: `vintage matte black cotton gabardine trench coat over a luxury champagne gold silk slip dress (revealed at collarbone). ABSOLUTELY NO T-SHIRTS, NO CASUAL COTTON TEES.`
+- **빗속 씬 헤어/피부 연속성 락**: `soaking wet dark black wavy hair clinging to forehead and cheeks, glistening rain droplets on skin and coat lapels`
 - **실사 카메라 스펙**: `shot on 35mm Kodak Portra film, Canon EOS 85mm lens, f/1.8 aperture, natural candid lighting, real human skin pores, fine skin texture, subtle subsurface scattering, hyper-realistic raw photography`
 
 ---

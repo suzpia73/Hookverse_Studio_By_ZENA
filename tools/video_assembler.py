@@ -148,8 +148,10 @@ def assemble_shorts(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Hookverse Shorts Video Assembler")
     parser.add_argument("--audio", "-a", default=None)
-    parser.add_argument("--output", "-o", default="IMF2화_자정의조흥은행_최종완성본.mp4")
-    parser.add_argument("--durations", "-d", nargs="+", type=float, default=None, help="씬별 가변 듀레이션(초) 리스트")
+    # 2화 8씬 정밀 SRT 칼싱크 기본 타임코드: 6.2s, 5.3s, 5.3s, 5.3s, 5.2s, 5.7s, 5.5s, 6.74s (총 45.24s)
+    DEFAULT_IMF2_DURATIONS = [6.2, 5.3, 5.3, 5.3, 5.2, 5.7, 5.5, 6.74]
+    parser.add_argument("--output", "-o", default="IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4")
+    parser.add_argument("--durations", "-d", nargs="+", type=float, default=DEFAULT_IMF2_DURATIONS, help="씬별 가변 듀레이션(초) 리스트")
     args = parser.parse_args()
     
     # 기본 오디오
