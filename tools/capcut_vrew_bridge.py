@@ -82,6 +82,39 @@ def build_project_bridge(durations=None, project_name="IMF2화_자정의조흥�
         "total_scenes": len(timeline),
         "vrew_compatible": True,
         "capcut_compatible": True,
+        "cinematic_layout_spec": {
+            "top_left_badge": {
+                "text": "Hookverse Studio",
+                "box_color": "#1e40af",
+                "text_color": "#FFFFFF",
+                "font_family": "Pretendard Bold",
+                "x_percent": 6.5,
+                "y_percent": 5.2,
+                "width_px": 280,
+                "height_px": 72
+            },
+            "top_right_logo": {
+                "asset_path": "assets/images/hookverse_studio_logo.png",
+                "type": "Golden Film Circle 3D Emblem",
+                "x_percent": 82.0,
+                "y_percent": 4.8,
+                "size_px": 130,
+                "glow_effect": "RimLight Gold #D4AF37"
+            },
+            "center_visual_motion": {
+                "ken_burns_motion": ["SlowZoomIn", "TrackingRight", "GlitchZoom", "SlowDollyIn"],
+                "color_grading": "Cinematic 35mm Contrast (Selective Color: Orange/Gold Highlight)"
+            },
+            "bottom_subtitles": {
+                "font_family": "Pretendard ExtraBold",
+                "font_size_pt": 88,
+                "text_color": "#FFFFFF",
+                "stroke_color": "#A855F7",
+                "stroke_width_px": 16,
+                "shadow_opacity": 0.75,
+                "safe_zone_y_percent": 80.0
+            }
+        },
         "timeline": timeline
     }
     

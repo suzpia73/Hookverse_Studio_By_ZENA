@@ -436,6 +436,73 @@
       opacity: 0.9;
     }
 
+    /* Vrew 4-Layer Cinematic Showcase */
+    .vrew-showcase-panel {
+      background: var(--color-deep-slate);
+      border: 1px solid rgba(238, 211, 127, 0.3);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 18px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .vrew-showcase-img {
+      width: 130px;
+      height: 231px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1.5px solid rgba(238, 211, 127, 0.5);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .vrew-showcase-img:hover {
+      transform: scale(1.04);
+    }
+
+    .vrew-showcase-meta {
+      flex: 1;
+    }
+
+    .vrew-showcase-meta h4 {
+      font-size: 15px;
+      color: var(--color-pure-white);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .vrew-layer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+
+    .vrew-layer-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .layer-tag {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--color-highlight-gold);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+      border: 1px solid rgba(238, 211, 127, 0.3);
+    }
+
     footer {
       margin-top: 40px;
       text-align: center;
@@ -556,6 +623,35 @@
                 <span class="tag tag-ready">8씬 대본 안착</span>
                 <span class="tag tag-ready">8씬 프롬프트 팩 안착</span>
                 <span class="tag tag-ready">45s 뉴럴 오디오 안착</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vrew 4-Layer Cinematic Golden Layout Showcase -->
+          <div class="vrew-showcase-panel">
+            <img src="./assets/images/IMF2화_브루스타일_완벽복제_미리보기.jpg" alt="Vrew 4-Layer Layout" class="vrew-showcase-img">
+            <div class="vrew-showcase-meta">
+              <h4>🎬 Vrew-CapCut 4대 시네마틱 레이아웃 표준 규격</h4>
+              <p style="font-size: 11px; color: var(--color-silver-mist); margin-bottom: 10px;">
+                오빠가 정립하신 방송국급 황금 비율 1:1 완벽 복제 · 모든 쇼츠 씬 자동 오버레이
+              </p>
+              <div class="vrew-layer-list">
+                <div class="vrew-layer-item">
+                  <span class="layer-tag">1. 좌측 상단</span>
+                  <span>로열 블루 박스 + <b>'Hookverse Studio'</b> 공식 타이틀</span>
+                </div>
+                <div class="vrew-layer-item">
+                  <span class="layer-tag">2. 우측 상단</span>
+                  <span><b>황금 시네마 엠블럼 뱃지</b> 워터마크 (35mm 필름 휠)</span>
+                </div>
+                <div class="vrew-layer-item">
+                  <span class="layer-tag">3. 중앙 메인</span>
+                  <span><b>35mm 켄 번스 카메라 모션</b> + 선택적 포인트 컬러링</span>
+                </div>
+                <div class="vrew-layer-item">
+                  <span class="layer-tag">4. 하단 자막</span>
+                  <span><b>화이트 볼드 88pt + 마젠타 네온 16px</b> (하단 80% 안전구역)</span>
+                </div>
               </div>
             </div>
           </div>
