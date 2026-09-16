@@ -19,7 +19,11 @@
      - 브라우저 서브에이전트로 `opal.google` 인터페이스 스캔 완료 (Input ➡️ Generate ➡️ Output 구조 확인).
      - `00_Raw/knowledge_packs/google_opal_hookverse_workflow.json` 및 `_company/_shared/구글_오팔_시네마틱_노드_설계서.md` 설계도 완비.
 - **📋 전사 누적 마스터 우선순위 체크리스트 (2~3일 마스터 로드맵)**:
-  - [x] **[Day 1-1] 구글 트렌드 & 유튜브 실시간 소재 자동 수집 노드 구축 (`tools/trend_intelligence.py`) (완료)**
+  - [x] **[Day 1-1] 크로스 플랫폼 트렌드 & 4대 카테고리 레이더 엔진 완비 (`tools/trend_intelligence.py` v3.0) (완료)**
+    - 구글 트렌드(KR/US) + 구글 뉴스 + 테크/과학 + 유튜브 급상승 시그널 4대 멀티 소스 교차 수집!
+    - 4대 카테고리 필터(`HISTORY_MYSTERY`, `SCI_TECH_FUTURE`, `CULTURE_MYTH`, `BREAKING_MEGA`) 지원!
+    - 크로스 플랫폼 공통도(Consensus Score 1~100점) 정밀 산출 및 무관 가십 100% 자동 탈락(DROP)!
+    - `dashboard.html`에 [🌐 크로스 플랫폼 공통 트렌드 레이더 v3.0] 인터랙티브 패널 장착 완료!
   - [x] **[Day 1-2] 미스터비스트 & 거장 연출기법 사내 바이블 내재화 (`거장_연출_및_후킹_바이블.md`) (완료)**
   - [x] **[Day 1-3] 법적 무결점(초상권/저작권 0%) 가드레일 엔진 구축 (`tools/legal_guardrail.py`) (완료)**
   - [x] **[Day 2-1] Google Opal (`opal.google`) 브라우저 실사 & 5단계 비주얼 노드 설계서 구축 (완료)**

@@ -274,6 +274,143 @@
     .asset-item:last-child { border-bottom: none; }
     .asset-name { color: #e2e8f0; font-family: monospace; font-size: 12px; }
 
+    /* Trend Radar Component */
+    .trend-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tab-btn {
+      background: var(--color-deep-slate);
+      border: 1px solid var(--color-border);
+      color: var(--color-silver-mist);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--color-action-raspberry);
+      color: var(--color-pure-white);
+    }
+
+    .tab-btn.active {
+      background: var(--color-action-raspberry);
+      border-color: var(--color-action-raspberry);
+      color: var(--color-pure-white);
+    }
+
+    .trend-card {
+      background: var(--color-deep-slate);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .trend-card:hover {
+      border-color: var(--color-highlight-gold);
+      transform: translateY(-2px);
+    }
+
+    .trend-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .trend-kw-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-pure-white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .consensus-badge {
+      background: rgba(238, 211, 127, 0.2);
+      border: 1px solid var(--color-highlight-gold);
+      color: var(--color-highlight-gold);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .sources-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .source-pill {
+      background: rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .source-pill.highlight {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--color-interactive-lime);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .sample-headline {
+      font-size: 12px;
+      color: var(--color-silver-mist);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .hook-box {
+      background: rgba(227, 38, 82, 0.08);
+      border-left: 3px solid var(--color-action-raspberry);
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #fed7aa;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .trend-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--color-silver-mist);
+    }
+
+    .btn-launch {
+      background: linear-gradient(135deg, var(--color-action-raspberry), #b8183d);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-launch:hover {
+      opacity: 0.9;
+    }
+
     footer {
       margin-top: 40px;
       text-align: center;
@@ -326,8 +463,34 @@
 
     <!-- Main Content Layout -->
     <div class="dashboard-layout">
-      <!-- Left Column: Pipeline Execution -->
+      <!-- Left Column: Pipeline Execution & Trend Radar -->
       <div class="left-col">
+        <!-- Cross-Platform Trend Radar Panel -->
+        <div class="panel" style="border: 1px solid rgba(227, 38, 82, 0.4);">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span style="color: var(--color-action-raspberry);">🌐</span> 크로스 플랫폼 공통 트렌드 레이더 v3.0
+            </div>
+            <span style="font-size: 11px; color: var(--color-interactive-lime);">
+              ● 구글·유튜브·뉴스 교집합 감사 가동 중
+            </span>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="trend-tabs">
+            <button class="tab-btn active" onclick="filterTrends('ALL')">전체 교집합</button>
+            <button class="tab-btn" onclick="filterTrends('HISTORY_MYSTERY')">🏛️ 역사 · 미스터리</button>
+            <button class="tab-btn" onclick="filterTrends('SCI_TECH_FUTURE')">🚀 AI · 미래 SF</button>
+            <button class="tab-btn" onclick="filterTrends('CULTURE_MYTH')">🐉 전래동화 · 신화</button>
+            <button class="tab-btn" onclick="filterTrends('BREAKING_MEGA')">💥 긴급 · 경제위기</button>
+          </div>
+
+          <!-- Trend Items Container -->
+          <div id="trend-list-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
         <div class="panel">
           <div class="panel-header">
             <div class="panel-title">🎬 K-시네마틱 숏폼 에피소드 파이프라인</div>
@@ -477,5 +640,138 @@
       Hookverse Studio V2 · CEO Leo & Vice President Jena · System Synchronized at 2026-09-16 00:17:16
     </footer>
   </div>
+
+  <script>
+    const TREND_DATA = [
+      {
+        keyword: "암흑물질 우주 진화",
+        category: "SCI_TECH_FUTURE",
+        consensus_score: 100,
+        is_mega_viral: true,
+        sources: ["GoogleNews_Tech", "GoogleNews_Top", "YouTube_Trending_Signals"],
+        sample_title: "우주 진화 130억년 비밀 풀 '암흑물질'…내년부터 본격연구 - 지디넷코리아",
+        track: "Track A (SF 타임슬립 실사)",
+        hook: "만약 전 세계를 뒤흔든 암흑물질 관측 공식이 300년 전 조선 실록에 암호로 숨겨져 있었다면?",
+        visual: "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
+      },
+      {
+        keyword: "디아블로 & 양자 AI",
+        category: "SCI_TECH_FUTURE",
+        consensus_score: 95,
+        is_mega_viral: true,
+        sources: ["GoogleNews_Tech", "YouTube_Trending_Signals"],
+        sample_title: "'디아블로 5'에 녹아든 차세대 그래픽 DNA와 생성형 AI 알고리즘",
+        track: "Track A (SF 타임슬립)",
+        hook: "만약 게임 속 가상세계의 물리 엔진이 사실 1997년 연구소에서 봉인된 양자 시뮬레이션의 파편이라면?",
+        visual: "모니터 너머로 쏟아지는 붉은 빛과 현실 세계의 시공간이 일그러지는 미스터리 앵글"
+      },
+      {
+        keyword: "1997 외환 비자금",
+        category: "BREAKING_MEGA",
+        consensus_score: 98,
+        is_mega_viral: true,
+        sources: ["GoogleTrends_KR", "GoogleNews_Top"],
+        sample_title: "환율 급등 비상경보…외환위기 당시 비공개 달러 유출 계좌 재조명",
+        track: "Track A (단막극 시네마틱 소설 실사)",
+        hook: "만약 오늘날의 환율 폭등의 진짜 원인이 1997년 조흥은행 지하 금고에서 빼돌려진 20조 원의 비자금 때문이라면?",
+        visual: "1997년 자정 비 내리는 명동, 블랙 트렌치코트의 뉴라가 서류 가방을 쥔 채 어둠 속을 응시하는 35mm 실사 컷"
+      },
+      {
+        keyword: "구전 설화 시공간 오파츠",
+        category: "CULTURE_MYTH",
+        consensus_score: 90,
+        is_mega_viral: false,
+        sources: ["YouTube_Trending_Signals", "GoogleNews_Top"],
+        sample_title: "단군 신화 속 신시(神市)와 환웅의 천부인 3개, 고대 유물 발굴 재평가",
+        track: "Track B (K-전래동화 3D 픽사 뉴라)",
+        hook: "만약 우리가 알던 환웅의 천부인이 사실 3D 픽사 뉴라가 미래에서 떨어뜨린 차원 이동 장치였다면?",
+        visual: "영롱한 반딧불이가 날아다니는 신비로운 태백산 숲속, 빛을 뿜는 금빛 오파츠를 바라보는 3D 픽사 뉴라"
+      },
+      {
+        keyword: "왕조 실록 숨겨진 기록",
+        category: "HISTORY_MYSTERY",
+        consensus_score: 92,
+        is_mega_viral: false,
+        sources: ["GoogleNews_Top", "GoogleTrends_KR"],
+        sample_title: "조선왕조실록에 기록된 1609년 강원도 간성 '미확인 비행물체' 기록 학술 분석",
+        track: "Track A (대체역사 미스터리 실사)",
+        hook: "만약 1609년 하늘에서 떨어진 정체불명의 빛이 2026년에서 과거로 불시착한 타임슬립 캡슐이었다면?",
+        visual: "달빛 아래 갓을 쓴 조선 관리와 젖은 블랙 코트를 입은 뉴라의 숨 막히는 대치 컷"
+      }
+    ];
+
+    function renderTrends(items) {
+      const container = document.getElementById("trend-list-container");
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div style="color: var(--color-silver-mist); font-size: 13px; padding: 16px; text-align: center;">해당 카테고리에 부합하는 크로스 플랫폼 트렌드가 없습니다.</div>';
+        return;
+      }
+
+      container.innerHTML = items.map(t => {
+        const badgeClass = t.is_mega_viral ? "consensus-badge" : "consensus-badge";
+        const badgeText = t.is_mega_viral ? `🔥 메가 골든 ${t.consensus_score}점` : `✨ 추천 ${t.consensus_score}점`;
+        const sourcesBadges = t.sources.map(s => {
+          const cleanName = s.replace("_", " ").replace("Trending Signals", "Signals");
+          return `<span class="source-pill highlight">${cleanName}</span>`;
+        }).join(" ");
+
+        return `
+          <div class="trend-card">
+            <div class="trend-card-top">
+              <div class="trend-kw-title">
+                <span>⚡</span> ${t.keyword}
+              </div>
+              <span class="${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="sources-row">
+              <span style="font-size: 10px; color: var(--color-silver-mist); margin-right: 4px; align-self: center;">크로스 플랫폼:</span>
+              ${sourcesBadges}
+            </div>
+            <div class="sample-headline">📰 <b>이슈 배경</b>: ${t.sample_title}</div>
+            <div class="hook-box">
+              💬 <b>Hookverse 3초 킬러 후킹</b>:<br>
+              "${t.hook}"
+            </div>
+            <div class="trend-footer">
+              <div>
+                <b>추천 트랙</b>: <span style="color: var(--color-highlight-gold);">${t.track}</span>
+              </div>
+              <button class="btn-launch" onclick="launchRelay('${t.keyword}', '${t.track}')">
+                🚀 이 소재로 4인 릴레이 발사
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function filterTrends(category) {
+      // 탭 활성화 상태 변경
+      const btns = document.querySelectorAll(".tab-btn");
+      btns.forEach(btn => {
+        if (btn.innerText.includes("전체") && category === "ALL") btn.classList.add("active");
+        else if (btn.innerText.includes("역사") && category === "HISTORY_MYSTERY") btn.classList.add("active");
+        else if (btn.innerText.includes("AI") && category === "SCI_TECH_FUTURE") btn.classList.add("active");
+        else if (btn.innerText.includes("전래동화") && category === "CULTURE_MYTH") btn.classList.add("active");
+        else if (btn.innerText.includes("긴급") && category === "BREAKING_MEGA") btn.classList.add("active");
+        else btn.classList.remove("active");
+      });
+
+      if (category === "ALL") {
+        renderTrends(TREND_DATA);
+      } else {
+        const filtered = TREND_DATA.filter(t => t.category === category);
+        renderTrends(filtered);
+      }
+    }
+
+    function launchRelay(keyword, track) {
+      const trackCode = track.includes("Track B") ? "B" : "A";
+      alert(`[Hookverse Studio 릴레이 발사]\\n\\n소재: '${keyword}'\\n편성: ${track}\\n\\n오빠! 터미널에서 'python tools/agent_relay_runner.py --track ${trackCode}' 를 실행하시면 CEO 레오, 작가 에디, 디자이너 픽스, 코다리가 즉시 무인 릴레이로 대본과 영상, 프롬프트를 완성합니다!`);
+    }
+
+    // 초기 렌더링
+    renderTrends(TREND_DATA);
+  </script>
 </body>
 </html>

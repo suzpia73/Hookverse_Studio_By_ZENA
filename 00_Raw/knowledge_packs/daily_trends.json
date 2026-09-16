@@ -1,146 +1,297 @@
 {
-  "timestamp": "2026-09-16T14:22:35.111810",
-  "total_count": 10,
-  "source": "Google Trends RSS + Hookverse What-If Engine",
+  "timestamp": "2026-09-16T15:42:22.944964",
+  "filter_category": "ALL",
+  "min_score": 70,
+  "total_analyzed": 414,
+  "total_filtered": 414,
   "trends": [
     {
-      "keyword": "인턴",
-      "geo": "KR",
-      "traffic": "100+",
-      "news": [
-        "왕년 자랑 접고 나잇값 해라…‘인턴’ 최민식이 보여준 진짜 어른 [송원섭의 와칭]",
-        "은발 최민식의 잔망을 보는 것만으로 흐뭇한 '인턴' [여의도시네마]"
+      "keyword": "게임",
+      "sample_title": "게임",
+      "sources": [
+        "YouTube_Trending_Signals",
+        "GoogleNews_Tech",
+        "GoogleTrends_KR"
       ],
-      "what_if_concept": {
-        "anchor_story": "정약용이 2026년에 남겨놓은 거중기 설계도",
-        "what_if_hook": "만약 인턴의 진짜 배후가 정약용이 2026년에 남겨놓은 거중기 설계도와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
-      }
-    },
-    {
-      "keyword": "암표",
-      "geo": "KR",
-      "traffic": "200+",
-      "news": [
-        "'11만 원' BTS 공연티켓 '3백만 원'에 판 암표상 검거‥\"8년간 24억 챙겨\"",
-        "‘BTS 콘서트 300만원’…암표 팔아 24억 챙긴 암표업자"
-      ],
-      "what_if_concept": {
-        "anchor_story": "백두산 폭발 직전 발견된 지하 평행세계",
-        "what_if_hook": "만약 암표의 진짜 배후가 백두산 폭발 직전 발견된 지하 평행세계와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
-      }
-    },
-    {
-      "keyword": "연방공개시장위원회",
-      "geo": "KR",
-      "traffic": "500+",
-      "news": [
-        "코스피, 6710선 회복⋯ 삼성전자·SK하이닉스 3%대 강세",
-        "양대시장 美 국채금리·유가 상승에 '지지부진'…개인 나홀로 순매수 - 머니투데이"
-      ],
-      "what_if_concept": {
-        "anchor_story": "정약용이 2026년에 남겨놓은 거중기 설계도",
-        "what_if_hook": "만약 연방공개시장위원회의 진짜 배후가 정약용이 2026년에 남겨놓은 거중기 설계도와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
-      }
-    },
-    {
-      "keyword": "주식시장",
-      "geo": "KR",
-      "traffic": "100+",
-      "news": [
-        "“韓증시 다시 살 때”…블랙록, 3개월 만에 신흥국 주식 ‘비중확대’",
-        "“한국 주식 다시 볼 때”…블랙록, 3개월 만에 입장 바꾼 이유"
-      ],
-      "what_if_concept": {
-        "anchor_story": "1919년 상하이 임시정부 비밀 자금",
-        "what_if_hook": "만약 주식시장의 진짜 배후가 1919년 상하이 임시정부 비밀 자금와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
-      }
-    },
-    {
-      "keyword": "해병대",
-      "geo": "KR",
-      "traffic": "200+",
-      "news": [
-        "\"도대체 누가 누구야?\"… 김동준·한가인, 연예계 공식 '남매 닮은꼴'의 놀라운 투샷",
-        "신병4, 자체 최고 시청률 4.6%…한가인, 김동준 친누나로 등판"
-      ],
-      "what_if_concept": {
-        "anchor_story": "백두산 폭발 직전 발견된 지하 평행세계",
-        "what_if_hook": "만약 해병대의 진짜 배후가 백두산 폭발 직전 발견된 지하 평행세계와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
-      }
-    },
-    {
-      "keyword": "강경준",
-      "geo": "KR",
+      "source_count": 3,
       "traffic": "1000+",
-      "news": [
-        "♥강경준이 찍어줬나..장신영, 여행 중 미소가 끊이질 않네",
-        "장신영, 일본 여행서 선보인 올화이트룩…환한 미소"
-      ],
-      "what_if_concept": {
-        "anchor_story": "단군신화 속 고조선 신시(神市)의 오파츠",
-        "what_if_hook": "만약 강경준의 진짜 배후가 단군신화 속 고조선 신시(神市)의 오파츠와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
+      "category": "WHAT_IF_CANDIDATE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 게임의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
       }
     },
     {
-      "keyword": "부산국제영화제",
-      "geo": "KR",
-      "traffic": "100+",
-      "news": [
-        "A급 영화제로 무게감 키운 BIFF…남은 숙제는 '영화'",
-        "넷플릭스, 부산서 신진 창작자 교육… AI 영화 제작도 다룬다"
+      "keyword": "핵심",
+      "sample_title": "'디아블로 5'에 '디아블로 2' DNA…블리자드가 참고한 핵심 - 디지털투데이",
+      "sources": [
+        "YouTube_Trending_Signals",
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
       ],
-      "what_if_concept": {
-        "anchor_story": "정약용이 2026년에 남겨놓은 거중기 설계도",
-        "what_if_hook": "만약 부산국제영화제의 진짜 배후가 정약용이 2026년에 남겨놓은 거중기 설계도와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
+      "source_count": 3,
+      "traffic": "10,000+",
+      "category": "SCI_TECH_FUTURE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 핵심 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
       }
     },
     {
-      "keyword": "계단 오르기",
-      "geo": "KR",
-      "traffic": "2000+",
-      "news": [
-        "“계단 몇 칸에 헐떡?”..폐·심장이 보내는 소름 돋는 이상 신호",
-        "계단 운동 참 좋다는데…내 무릎으로도 가능할까?[건강팩트체크]"
+      "keyword": "진화",
+      "sample_title": "우주 진화 130억년 비밀 풀 '암흑물질'…내년부터 본격연구 - 지디넷코리아",
+      "sources": [
+        "YouTube_Trending_Signals",
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
       ],
-      "what_if_concept": {
-        "anchor_story": "조선왕조실록에 기록된 미확인 비행물체",
-        "what_if_hook": "만약 계단 오르기의 진짜 배후가 조선왕조실록에 기록된 미확인 비행물체와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
+      "source_count": 3,
+      "traffic": "10,000+",
+      "category": "HISTORY_MYSTERY",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 진화 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
       }
     },
     {
-      "keyword": "롯데월드",
-      "geo": "KR",
+      "keyword": "지디넷코리아",
+      "sample_title": "우주 진화 130억년 비밀 풀 '암흑물질'…내년부터 본격연구 - 지디넷코리아",
+      "sources": [
+        "YouTube_Trending_Signals",
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 3,
+      "traffic": "10,000+",
+      "category": "HISTORY_MYSTERY",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 지디넷코리아 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
+      }
+    },
+    {
+      "keyword": "교섭단체",
+      "sample_title": "교섭단체",
+      "sources": [
+        "GoogleNews_Top",
+        "GoogleTrends_KR"
+      ],
+      "source_count": 2,
       "traffic": "200+",
-      "news": [
-        "기묘한 세계부터 사파리·금융교육까지…가을 가족 나들이 어디로 갈까",
-        "롯데월드 부산·롯데워터파크, 추캉스 콘텐츠 풍성"
-      ],
-      "what_if_concept": {
-        "anchor_story": "1997년 IMF 자정의 조흥은행",
-        "what_if_hook": "만약 롯데월드의 진짜 배후가 1997년 IMF 자정의 조흥은행와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
+      "category": "WHAT_IF_CANDIDATE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 교섭단체의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
       }
     },
     {
-      "keyword": "골 때리는 그녀들",
-      "geo": "KR",
-      "traffic": "500+",
-      "news": [
-        "핸드볼계 기싸움 발발‥배민희, 5년 후배 박하얀에 “핸드볼 아나?” 도발(골때녀)",
-        "'골때리는그녀들' 마시마 vs 주명·정혜인 (골때녀)"
+      "keyword": "the",
+      "sample_title": "the walking dead",
+      "sources": [
+        "GoogleTrends_US",
+        "GoogleNews_Tech"
       ],
-      "what_if_concept": {
-        "anchor_story": "1997년 IMF 자정의 조흥은행",
-        "what_if_hook": "만약 골 때리는 그녀들의 진짜 배후가 1997년 IMF 자정의 조흥은행와 연결되어 있다면?",
-        "genre": "타임슬립 / SF 대체역사 / 서스펜스"
+      "source_count": 2,
+      "traffic": "200+",
+      "category": "WHAT_IF_CANDIDATE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 the의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
+      }
+    },
+    {
+      "keyword": "1분기",
+      "sample_title": "임신중지 약물 7년 만에 정식 도입…내년 1분기 목표 - DongA Science",
+      "sources": [
+        "YouTube_Trending_Signals",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "HISTORY_MYSTERY",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 1분기의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
+      }
+    },
+    {
+      "keyword": "국민",
+      "sample_title": "한동훈 “김승원 임명 땐 이 대통령 임기 못 마쳐…국민, 거리로 나갈 것” - 한겨레",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "WHAT_IF_CANDIDATE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 국민의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
+      }
+    },
+    {
+      "keyword": "에너지",
+      "sample_title": "트럼프 '에너지 휴전' 발표 하루 만에…러·우크라 또 공방(종합) - 연합뉴스",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "HISTORY_MYSTERY",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 에너지의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
+      }
+    },
+    {
+      "keyword": "발표",
+      "sample_title": "트럼프 '에너지 휴전' 발표 하루 만에…러·우크라 또 공방(종합) - 연합뉴스",
+      "sources": [
+        "YouTube_Trending_Signals",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "HISTORY_MYSTERY",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 발표의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
+      }
+    },
+    {
+      "keyword": "르포",
+      "sample_title": "[르포] 실외기 한 대로 냉난방·온수까지…제주서 시험대 오른 히트펌프 - v.daum.net",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "HISTORY_MYSTERY",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A/B 하이브리드",
+        "anchor": "잊혀진 역사적 사건과 평행세계의 시간 분기점",
+        "hook": "만약 르포의 공식 기록이 누군가에 의해 의도적으로 조작된 거대한 What-If 세계라면?",
+        "visual": "안개 낀 고대 궁궐 앞, 젖은 개버딘 코트를 입은 뉴라의 시선이 과거와 미래의 경계를 응시하는 극적인 앵글"
+      }
+    },
+    {
+      "keyword": "디아블로",
+      "sample_title": "'디아블로 5'에 '디아블로 2' DNA…블리자드가 참고한 핵심 - 디지털투데이",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "SCI_TECH_FUTURE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 디아블로 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
+      }
+    },
+    {
+      "keyword": "DNA",
+      "sample_title": "'디아블로 5'에 '디아블로 2' DNA…블리자드가 참고한 핵심 - 디지털투데이",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "SCI_TECH_FUTURE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 DNA 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
+      }
+    },
+    {
+      "keyword": "블리자드가",
+      "sample_title": "'디아블로 5'에 '디아블로 2' DNA…블리자드가 참고한 핵심 - 디지털투데이",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "SCI_TECH_FUTURE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 블리자드가 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
+      }
+    },
+    {
+      "keyword": "참고한",
+      "sample_title": "'디아블로 5'에 '디아블로 2' DNA…블리자드가 참고한 핵심 - 디지털투데이",
+      "sources": [
+        "GoogleNews_Tech",
+        "GoogleNews_Top"
+      ],
+      "source_count": 2,
+      "traffic": "10,000+",
+      "category": "SCI_TECH_FUTURE",
+      "consensus_score": 100,
+      "is_mega_viral": true,
+      "adaptation": {
+        "track": "Track A (SF 타임슬립)",
+        "anchor": "2026년 양자 AI와 조선시대 외규장각의 비밀 교신",
+        "hook": "만약 전 세계를 뒤흔든 참고한 기술의 핵심 알고리즘이 300년 전 조선 실록에 암호로 기록되어 있었다면?",
+        "visual": "어두운 연구실 홀로그램 화면 속에 조선시대 천문도와 현대 양자 코드가 교차하는 네온 블루 톤 컷"
       }
     }
   ]
