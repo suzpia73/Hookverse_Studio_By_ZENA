@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: VrewWaveDrop,KyoboHandwriting2019A1,76,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,1,0,0,0,100,100,1,0,1,5.0,0.0,2,60,60,240,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.50,VrewWaveDrop,,0,0,0,,{\move(540,1500,540,1680,0,450)\fscx40\fscy40\t(0,450,\fscx108\fscy108)\t(450,700,\fscx100\fscy100)}어둠 속에서 좁혀오는 검은 양복의 사냥꾼들.

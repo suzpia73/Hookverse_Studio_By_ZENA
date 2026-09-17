@@ -1,0 +1,14 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: VrewPurple,KyoboHandwriting2019A1,90,&H00FFFFFF,&H000000FF,&H00D030A0,&H80000000,1,0,0,0,100,100,1,0,1,5.2,2.0,2,60,60,195,1
+Style: VrewPurpleEmphasis,KyoboHandwriting2019A1,95,&H00FFFFFF,&H000000FF,&H00D030A0,&H80000000,1,0,0,0,100,100,1,0,1,5.8,2.2,2,60,60,195,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.50,VrewPurple,,0,0,0,,{\move(540,1380,540,1725,0,380)\fscx25\fscy25\t(0,380,\fscx112\fscy112)\t(380,550,\fscx100\fscy100)}어둠 속에서 좁혀오는 검은 양복의 사냥꾼들.
