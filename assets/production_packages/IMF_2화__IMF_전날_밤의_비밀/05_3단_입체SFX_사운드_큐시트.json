@@ -1,0 +1,56 @@
+{
+  "project": "IMF 2화: IMF 전날 밤의 비밀",
+  "total_duration_sec": 37.40,
+  "master_voiceover": "assets/audio/IMF2화_손서현_풀나레이션.mp3",
+  "audio_ducking_rule": {
+    "voice_active": "-14dB (20% volume for BGM/Ambience)",
+    "voice_silent": "+6dB (80% volume for high tension suspense)"
+  },
+  "sound_layers": [
+    {
+      "time_range": "00:00~08:38",
+      "cut": "Cut 01: 자정 시계탑",
+      "layer1_voice": "손서현 뉴럴 보이스 (0.0s~7.8s)",
+      "layer2_foley_ambience": "1997 서울 밤거리 폭우 소리 (Torrential Rain loop) + 뺨에 부딪히는 바람 소리",
+      "layer3_sfx": [
+        {"timestamp_sec": 0.0, "sfx_name": "Deep Sub-bass Boom (40Hz)", "desc": "첫 0초 시선 강탈 충격 저음"},
+        {"timestamp_sec": 0.5, "sfx_name": "Midnight Retro Clock Tower Bell (Low Gong)", "desc": "00:00 자정 타종음 울림"},
+        {"timestamp_sec": 1.2, "sfx_name": "Gasping Breath (Panting)", "desc": "빗속 뉴라의 가쁜 숨소리"}
+      ]
+    },
+    {
+      "time_range": "08:38~16:99",
+      "cut": "Cut 02: 빗속 추격전",
+      "layer1_voice": "손서현 뉴럴 보이스 (8.4s~16.2s)",
+      "layer2_foley_ambience": "빗물 첨벙거리는 발자국 소리 (Puddle Splashing Foley) + 멀리서 들리는 천둥소리",
+      "layer3_sfx": [
+        {"timestamp_sec": 8.38, "sfx_name": "Cinematic Whoosh Transition", "desc": "화면 전환 스냅 줌 임팩트"},
+        {"timestamp_sec": 10.0, "sfx_name": "Tension String Riser (BPM 80 -> 130)", "desc": "사냥꾼 접근 긴장감 고조"},
+        {"timestamp_sec": 14.5, "sfx_name": "Heartbeat Sub-bass Pulse", "desc": "도망치는 심장박동 펄스 120BPM"}
+      ]
+    },
+    {
+      "time_range": "16:99~26:09",
+      "cut": "Cut 03: 공중전화 부스 안착 & 스마트폰 1%",
+      "layer1_voice": "손서현 뉴럴 보이스 (17.2s~25.5s)",
+      "layer2_foley_ambience": "유리창을 두드리는 먹먹한 빗소리 (Muffled Rain on Glass) + 가쁜 귓속말",
+      "layer3_sfx": [
+        {"timestamp_sec": 17.0, "sfx_name": "Retro Phone Booth Door Squeak & Slam", "desc": "부스 문 닫히는 마찰음"},
+        {"timestamp_sec": 19.5, "sfx_name": "High-tech Digital Glitch & Low Battery Warning Tone", "desc": "스마트폰 1% 경고 비프음"},
+        {"timestamp_sec": 24.0, "sfx_name": "Swallow Sound (Tense silence)", "desc": "침 삼키는 0.3초 정적"}
+      ]
+    },
+    {
+      "time_range": "26:09~37:40",
+      "cut": "Cut 04: 은색 수화기 & 다급한 외침",
+      "layer1_voice": "손서현 뉴럴 보이스 (26.3s~36.8s)",
+      "layer2_foley_ambience": "아날로그 다이얼 기계음 + 부스 안 울림",
+      "layer3_sfx": [
+        {"timestamp_sec": 26.1, "sfx_name": "Heavy Metallic Handset Lift Click", "desc": "은색 수화기 들어 올리는 금속음"},
+        {"timestamp_sec": 27.0, "sfx_name": "Rotary / Button Dial Beep (Retro)", "desc": "다급하게 다이얼 누르는 소리"},
+        {"timestamp_sec": 31.0, "sfx_name": "Dramatic Orchestral Stabs & Alarm Riser", "desc": "금고 잠그라는 절규와 함께 터지는 클라이맥스"},
+        {"timestamp_sec": 36.5, "sfx_name": "Abrupt Line Cut & Infinite Loop Whoosh", "desc": "통화 뚝 끊김과 동시에 1화 루프로 회귀"}
+      ]
+    }
+  ]
+}
