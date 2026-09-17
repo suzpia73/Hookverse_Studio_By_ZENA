@@ -16,28 +16,20 @@ def dispatch(command: str):
     
     cmd_lower = command.lower()
     
-    # 0. 사내 표준 제작 파이프라인 (SOP: Writer ➡️ Designer 순차 가동)
-    if any(k in cmd_lower for k in ["파이프라인", "제작", "표준", "풀세트"]):
-        print("👑 [CEO 레오 지휘] ➡️ 사내 표준 절차서(SOP)에 따라 2단계 제작 파이프라인을 가동합니다!")
-        title = "IMF2화_자정의조흥은행"
+    # 0. 사내 표준 제작 파이프라인 (10대 에이전트 자율 오케스트레이터)
+    if any(k in cmd_lower for k in ["파이프라인", "제작", "표준", "풀세트", "오케스트레이터"]):
+        print("👑 [CEO 레오 지휘] ➡️ 10대 에이전트 자율 제작 오케스트레이터(studio_orchestrator.py)를 가동합니다!")
+        title = "IMF 2화: IMF 전날 밤의 비밀"
         if "별주부" in command:
-            title = "별주부전_SF_자라의음모"
+            title = "별주부전 SF: 자라의 음모"
         elif "심청" in command:
-            title = "심청전_인당수의비밀"
-        elif "imf" in cmd_lower or "조흥" in command:
-            title = "IMF2화_자정의조흥은행"
+            title = "심청전 SF: 인당수의 비밀"
+        elif "3화" in command:
+            title = "IMF 3화: 유령을 쫓는 자들"
             
-        print(f"\n[1단계: Writer] 30초 대본 생성 도구 가동...")
-        script_tool = os.path.join(BASE_DIR, "_company", "_agents", "writer", "tools", "short_script.py")
-        res1 = subprocess.run([PYTHON_EXE, script_tool, title], capture_output=True, text=True)
-        print(res1.stdout.strip())
-        
-        print(f"\n[2단계: Designer] 씬 1~4 시네마틱 범용 프롬프트 도구 가동...")
-        prompt_tool = os.path.join(BASE_DIR, "_company", "_agents", "designer", "tools", "prompt_gen.py")
-        res2 = subprocess.run([PYTHON_EXE, prompt_tool, title, "35mm", "야간_시네마틱"], capture_output=True, text=True)
-        print(res2.stdout.strip())
-        
-        print(f"\n🎉 [CEO 레오] 사내 표준 제작 파이프라인 완료! (대본 ➡️ 프롬프트 물리 파일 안착 완결)\n")
+        orchestrator_script = os.path.join(BASE_DIR, "tools", "studio_orchestrator.py")
+        res = subprocess.run([PYTHON_EXE, orchestrator_script], capture_output=False, text=True)
+        print(f"\n🎉 [CEO 레오] 10대 에이전트 협력 파이프라인 완결! (대본 ➡️ 5대 연속성감사 ➡️ 프롬프트 ➡️ 음성 ➡️ 리포트)\n")
         return
 
     # 1. 작가 (Writer) 단독 라우팅

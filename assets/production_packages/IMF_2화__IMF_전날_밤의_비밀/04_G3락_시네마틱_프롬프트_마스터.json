@@ -1,0 +1,26 @@
+{
+  "cut01": {
+    "scene": "Cut 01: 자정의 조흥은행 시계탑 후킹",
+    "korean_intent": "1997년 11월 20일 자정, 조흥은행 본점 시계탑(00:00) 아래 45도 뒤돌아보는 뉴라. 흠뻑 젖은 머릿결, 단추 풀린 블랙 트렌치코트 속 골드 드레스 바스트 라인과 긴 다리.",
+    "prompt": "Cinematic 35mm low-angle shot of 24-year-old Korean virtual muse Neura standing in heavy torrential rain in 1997 midnight Seoul financial district. In the background, the iconic Korean retro stone bank building with a vintage illuminated clock tower striking exactly 00:00 midnight. Neura is drenched wet from head to toe, soaked wavy black hair clinging to her pale skin, feline cat-eyes, subtle beauty mark near eye. She turns her head back 45 degrees over her shoulder with an alarmed, intense gaze. She wears an open unbuttoned wet black leather trench coat revealing an elegant champagne gold satin slip dress with glamorous bust volume, slender waist, long slender legs. Raindrops glistening on skin and coat, cinematic neon green and amber city rim lighting, hyper-realistic, Kodak Vision3 500T 5219, photorealistic, 8k --ar 9:16 --style raw --v 6.1",
+    "negative_prompt": "umbrella, futuristic hologram, modern cars, low quality, cartoon, flat chest, short legs, dry hair"
+  },
+  "cut02": {
+    "scene": "Cut 02: 빗속 전력 질주 & 추격자들",
+    "korean_intent": "골목길을 가로질러 녹색 공중전화 부스를 향해 전력 질주하는 뉴라. 15미터 뒤편 검은 우산을 든 검은 양복 사냥꾼들.",
+    "prompt": "Dynamic front tracking cowboy shot of 24-year-old Korean virtual muse Neura sprinting fiercely through a flooded, dark 1997 Seoul alleyway in pouring rain. Neura has no umbrella, completely drenched wet hair whipping across her intense focused face. Wet black trench coat flaring open behind her as she runs, revealing champagne gold silk dress with glamorous bust silhouette and athletic long legs splashing puddles. Directly in front on the street corner stands a retro vintage green Korean public telephone booth glowing under streetlights. In the deep background 15 meters behind her, 2-3 menacing men in wet black suits holding black umbrellas are searching through the rain. Motion blur in raindrops, cinematic action movie frame, 50mm anamorphic lens, shallow depth of field, 8k --ar 9:16 --style raw --v 6.1",
+    "negative_prompt": "umbrella for woman, dry clothes, smiling, day time, futuristic sci-fi city, deformed hands, cartoon"
+  },
+  "cut03": {
+    "scene": "Cut 03: 녹색 부스 안, 현대 스마트폰 1% 확인",
+    "korean_intent": "녹색 부스 안쪽. 좌측 벽에 실버 메탈 공중전화기. 뉴라가 비스듬한 각도로 현대 슬림 유리 스마트폰을 쥐고 있고, 화면 모서리에 은은한 1% 빨간 배터리가 보임. 창밖의 우산 든 사냥꾼을 경계하는 날카로운 시선.",
+    "prompt": "Cinematic medium close-up inside a vintage retro green public telephone booth in 1997 Seoul. Mounted on the LEFT inner wall is a heavy metallic silver public payphone with a silver handset and steel armored coiled cord. 24-year-old Korean virtual muse Neura stands inside, completely soaked wet, drenched black hair plastered to her temple and neck. She is holding a sleek modern glass rectangle smartphone tilted obliquely at a 45-degree angle in her right hand; on the sleek dark phone screen, a subtle natural 1% red battery percentage icon and 'No Service' status are realistically visible. Neura peers warily through the rain-streaked glass window of the booth like a cautious hunter, watching silhouettes of black-suited men holding black umbrellas outside in the rain. Her wet black leather coat is open, showing champagne gold satin dress with prominent bust volume and feminine curves. Moody reflections of green booth frame and rain droplets on glass, soft cool atmospheric lighting, 50mm lens, photorealistic 8k --ar 9:16 --style raw --v 6.1",
+    "negative_prompt": "transparent phone, sci-fi hologram, futuristic laser gadget, clumsy painted red box, dry hair, umbrella for woman, right wall phone"
+  },
+  "cut04": {
+    "scene": "Cut 04: 좌측 벽 은색 수화기 밀착 & 다급한 외침",
+    "korean_intent": "좌측 벽의 실버 메탈 공중전화기. 은색 수화기를 귀와 입가에 밀착하고, 입술을 크게 벌려 박 과장에게 다급하게 소리치는 뉴라. 절박하고 심각한 리얼 표정.",
+    "prompt": "Dramatic close-up shot inside the vintage green telephone booth. Mounted on the LEFT wall is the metallic silver Korean payphone. 24-year-old Korean virtual muse Neura is holding the vintage metallic silver payphone handset firmly pressed against her left ear and cheek, connected by a flexible steel coil cord. Her mouth is visibly wide parted, shouting urgently and desperately directly into the telephone receiver microphone: 'Park Gwa-jang, they are here! Lock the vault right now!' Her face shows raw intensity, sweat and rainwater dripping down her jawline, feline cat-eyes wide with urgent panic, two delicate beauty marks near eye and lip. Her other soaked hand is pressed flat against the steamy rain-streaked glass booth wall. Wet black coat slipping off one shoulder, showcasing glamorous neckline and bust volume in the champagne gold silk slip. Extreme emotional tension, 85mm portrait cine prime, f/1.8, cinematic film grain, photorealistic masterpiece, 8k --ar 9:16 --style raw --v 6.1",
+    "negative_prompt": "closed mouth, smiling, happy, calm expression, plastic payphone, right side phone, futuristic holographic phone, cartoon, anime"
+  }
+}

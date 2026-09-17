@@ -1,0 +1,22 @@
+{
+  "RULE_1_PHONE_AUTHENTICITY": {
+    "status": "PASS",
+    "mandate": "과도한 미래 SF 홀로그램/투명폰 절대 금지! 현재 시대의 세련된 직사각형 유리 스마트폰이어야 하며, 비스듬한 각도에서 화면 귀퉁이에 은은한 1% 붉은 배터리 표시가 자연스럽게 보여야 함 (포토샵 낙서 금지)."
+  },
+  "RULE_2_BOOTH_SPATIAL_VECTOR": {
+    "status": "PASS",
+    "mandate": "컷 2(부스로 뛰어 들어감) ➡️ 컷 3(부스 내부 안착) ➡️ 컷 4(수화기 밀착). 공중전화기는 부스 내부 '좌측 벽(left inner wall)'에 일관되게 장착되어야 하며, 은색 메탈 본체와 은색 수화기, 스틸 코일선 방향이 컷 3과 컷 4에서 100% 동일해야 함."
+  },
+  "RULE_3_ACTING_AND_MOUTH": {
+    "status": "PASS",
+    "mandate": "컷 4에서 박 과장에게 다급히 외치는 장면: 입을 굳게 다문 어색한 포즈 절대 금지! 입술을 벌리고 수화기 마이크에 대고 실제로 다급하고 심각하게 외치는(shouting/speaking urgently into handset) 리얼한 액팅과 표정이어야 함."
+  },
+  "RULE_4_G3_NEURA_PHYSICAL_LOCK": {
+    "status": "PASS",
+    "mandate": "20대 한국 여성 버추얼 뮤즈 뉴라(NEURA). 캣츠아이 눈매, 눈가와 입술 근처 매력점. 단추 풀린 젖은 블랙 가죽 트렌치코트 사이로 드러난 샴페인 골드 실크 슬립 드레스의 글래머러스한 바스트 볼륨감, 슬렌더한 긴 다리, 머리부터 발끝까지 비에 흠뻑 젖은 머릿결(머리칼이 뺨과 턱에 달라붙음)."
+  },
+  "RULE_5_WEATHER_AND_HUNTER_LOGIC": {
+    "status": "PASS",
+    "mandate": "처음부터 끝까지 폭우(heavy rain). 뉴라는 절대 우산 없음. 뒤쫓는 검은 양복의 사냥꾼들은 검은 우산을 쓰고 부스 밖 빗속에서 수색 중이어야 함."
+  }
+}
