@@ -13,25 +13,30 @@ _이 문서는 Hookverse Studio의 모든 에이전트(디자이너·레오·작
 
 ---
 
-## 💎 비주얼 DNA (얼굴 일관성 고정 키워드)
+## 💎 비주얼 DNA & 7대 마스터 앵커락 원본 금고
 
-| 요소 | 세부 특징 | 프롬프트 고정 키워드 |
-|:---|:---|:---|
-| **얼굴 & 눈매** | 매혹적인 캣츠아이·사슴상, 맑고 투명한 도자기 피부, 깊은 웜브라운 눈동자 | `stunning Korean muse, cat-like captivating almond brown eyes, dewy porcelain skin` |
-| **🎯 시그니처 앵커 (점 2개 고정)** | **눈가 매력점 + 입가 매력점 (정확히 2개만 존재)** | `exactly two signature beauty marks: one subtle mole near corner of right eye, one small distinct beauty mark near mouth corner, clean clear skin with no other spots` |
-| **헤어스타일** | 시스루 뱅(See-through bangs) + 우아하게 흐르는 흑갈색 롱 웨이브 | `flowing long wavy dark brunette hair, delicate see-through bangs` |
-| **바디 라인 & 피지컬** | **169cm, 50kg, 완벽한 8등신 황금비율**, **긴 인심(Inseam)의 압도적인 롱다리 각선미**, 쏙 들어간 **한 줌 잘록한 개미허리**, 우아하고 자연스러운 **풍만한 볼륨감(Glamorous voluptuous bust)**, 은은하게 탄탄한 **슬림 11자 복근**, 슬림 글래머 실루엣, 긴 목선과 우아한 쇄골 라인 | `169cm tall, slender 50kg, exceptionally long slender legs with high inseam, snatched tiny curved hourglass waist, naturally glamorous voluptuous feminine bust, perfect eight-head-high golden ratio model proportions, slender glamorous silhouette, elegant long neck, defined collarbones` |
-| **시그니처 의상** | 샴페인 골드 실크 새틴 드레스(깊은 V넥), 미니멀 드롭 이어링 | `luxurious champagne gold silk satin slip dress with elegant deep V-neck, minimalist drop earrings` |
+> 🏛️ **물리 디렉토리**: [`d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2\assets\G3캐릭터앵커LOCK\`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/)  
+> 모든 에이전트와 도구는 뉴라의 일관성 생성이 필요할 때 아래 7대 마스터 원본을 목적에 맞게 직접 꺼내어 1:1 레퍼런스로 결속한다:
+
+| No | 파일명 | 앵커 용도 & 화각 | 핵심 고정 특징 |
+|:---:|:---|:---|:---|
+| **01** | [`크롭샷.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/크롭샷.jpg) | **안면 초근접 (페이스 클로즈업)** | 캣츠아이, 투명 도자기 피부, 시스루 뱅, 시그니처 매력점 |
+| **02** | [`상반신.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/상반신.jpg) | **바스트 & 쇄골 샷 (Bust Shot)** | 자연스러운 풍만한 볼륨감(Glamorous Bust), 우아한 목선, 깊은 V넥 |
+| **03** | [`반신.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/반신.jpg) | **웨이스트 & 골반 라인 (Waist Shot)** | 한 줌 잘록한 개미허리, 드레이프 실크 주름 |
+| **04** | [`전신_앞.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/전신_앞.jpg) | **정면 전신 (Full Body Front)** | 169cm 8등신 황금비율, 긴 인심(Inseam)의 압도적인 롱다리 각선미 |
+| **05** | [`전신_뒤.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/전신_뒤.jpg) | **백리스 뒤태 (Backless View)** | 매끈한 등 라인, 우아한 실루엣, 흑발 롱웨이브 뒷태 |
+| **06** | [`전신_우측.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/전신_우측.jpg) | **우측면 전신 (Right Profile)** | 네이비 슬릿 드레스, 옆태 S라인 실루엣 |
+| **07** | [`전신_좌측.jpg`](file:///d:/HOOKVERSE-SYSTEM/HOOKVERSE_STUDIO_V2/assets/G3캐릭터앵커LOCK/전신_좌측.jpg) | **좌측면 전신 (Left Profile)** | 트위드 투피스, 단정하고 지적인 도회적 럭셔리 무드 |
 
 ---
 
 ## 🔍 제나 자체 4대 무결점 검증 헌법 (Self-Audit Checklist)
 
 > 📌 **제나의 절대 생활화 수칙**: 오빠에게 이미지를 올리기 전, 제나가 아래 4대 항목을 1차 전수 자체 검증하여 통과된 것만 보고한다!
-> 1. **[안면 일관성 (G3 Face)]**: 1호 원본 뉴라 특유의 날카로운 캣츠아이, 도자기 피부, 눈가 1개 + 입가 1개 점 (목/가슴 왕점 0%).
-> 2. **[신체 비율 & 볼륨 (Body)]**: 169cm 8등신 롱다리 각선미, 한 줌 개미허리, 매력적인 바스트 볼륨 실루엣 일치 여부.
-> 3. **[의상 & 소품 (Style)]**: V넥 골드 실크 드레스(카라 셔츠 환각 0%), 1997 한국통신 은색 부스, 실버 수화기 일치 여부.
-> 4. **[서사 인과관계 (Story)]**: 우산 유무(1화 빗속 맨몸 ➡️ 2화 우산 없음), 시간 흐름(자정 ➡️ 새벽), 추격자/조력자 존재 일치 여부.
+> 1. **[안면 일관성 (G3 Face)]**: `크롭샷.jpg` 기준 1호 원본 뉴라 특유의 날카로운 캣츠아이, 도자기 피부, 눈가/입가 매력점 일치.
+> 2. **[신체 비율 & 볼륨 (Body)]**: `전신_앞.jpg` & `상반신.jpg` 기준 169cm 8등신 롱다리 각선미, 한 줌 개미허리, 매력적인 바스트 볼륨 실루엣 일치.
+> 3. **[의상 & 소품 (Style)]**: V넥 골드 실크 드레스(카라 셔츠 환각 0%), 1997 한국통신 은색 부스, 실버 수화기 일치.
+> 4. **[서사 인과관계 (Story)]**: 우산 유무(1화 빗속 맨몸 ➡️ 2화 우산 없음), 시간 흐름(자정 ➡️ 새벽), 사냥꾼 인과관계 일치.
 
 ---
 
