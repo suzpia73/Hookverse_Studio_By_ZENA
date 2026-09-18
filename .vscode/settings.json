@@ -4,16 +4,12 @@
     "connectAiLab.localBrainPath": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2",
     "connectAiLab.companyPath": "_company",
     "connectAiLab.secondBrainRepo": "",
-    "python.defaultInterpreterPath": "C:\\Users\\june2\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "python.defaultInterpreterPath": "C:/Users/june2/AppData/Local/Programs/Python/Python314/python.exe",
     "python.analysis.extraPaths": [
-        "C:\\Users\\june2\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages",
-        "C:\\Users\\june2\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages",
-        "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\tools"
+        "tools"
     ],
     "python.autoComplete.extraPaths": [
-        "C:\\Users\\june2\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages",
-        "C:\\Users\\june2\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages",
-        "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\tools"
+        "tools"
     ],
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingImports": "none",
