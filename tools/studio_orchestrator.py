@@ -25,6 +25,11 @@ import subprocess
 import urllib.request
 from datetime import datetime
 
+try:
+    import edge_tts  # type: ignore # pyright: ignore[reportMissingImports]
+except ImportError:
+    edge_tts = None
+
 WORKSPACE = r"d:\HOOKVERSE-SYSTEM\HOOKVERSE_STUDIO_V2"
 PYTHON_EXE = r"C:\Users\june2\AppData\Local\Programs\Python\Python314\python.exe"
 GEMINI_CFG_PATH = os.path.join(WORKSPACE, "_company", "_agents", "business", "tools", "gemini_account.json")
@@ -191,27 +196,35 @@ Hookverse Studio의 공식 버추얼 뮤즈 '뉴라(NEURA)'가 주인공인 30�
     def node_03_continuity_audit(self, script_data: dict):
         self.log("콘티감독 카이", "🎬", "오빠의 5대 시네마틱 연속성·공간·물리 헌법 자동 감사 가동...")
         
-        # 오빠의 5대 절대 헌법 룰셋 강제 적용
+        # 오빠의 7대 절대 헌법 룰셋 강제 적용 (v2.1 무결점 리마스터)
         rules = {
-            "RULE_1_PHONE_AUTHENTICITY": {
+            "RULE_1_PHONE_AUTHENTICITY_AND_FRONT_DISPLAY": {
                 "status": "PASS",
-                "mandate": "과도한 미래 SF 홀로그램/투명폰 절대 금지! 현재 시대의 세련된 직사각형 유리 스마트폰이어야 하며, 비스듬한 각도에서 화면 귀퉁이에 은은한 1% 붉은 배터리 표시가 자연스럽게 보여야 함 (포토샵 낙서 금지)."
+                "mandate": "스마트폰 앞면(OLED 디스플레이)과 뒷면(카메라 렌즈 패널)을 물리적으로 엄격히 분리! 배터리 1% 화면과 통신불가 UI는 오직 앞면 액정에만 표시되어야 하며, 뒷면 패널은 손바닥에 밀착되거나 반대편을 향해야 함 (뒷면에 배터리가 그려지는 옥에 티 100% REJECT)."
             },
-            "RULE_2_BOOTH_SPATIAL_VECTOR": {
+            "RULE_2_PAYPHONE_BOX_AND_COIL_CORD": {
                 "status": "PASS",
-                "mandate": "컷 2(부스로 뛰어 들어감) ➡️ 컷 3(부스 내부 안착) ➡️ 컷 4(수화기 밀착). 공중전화기는 부스 내부 '좌측 벽(left inner wall)'에 일관되게 장착되어야 하며, 은색 메탈 본체와 은색 수화기, 스틸 코일선 방향이 컷 3과 컷 4에서 100% 동일해야 함."
+                "mandate": "수화기만 허공에 떠 있는 샷 100% REJECT! 부스 좌측 벽면에 1997 은색 메탈 공중전화기 본체(동전 투입구, 번호 키패드)가 명확히 보여야 하며, 본체 밑바닥에서 늘어진 나선형 강철 코일선(spiraled steel coil cord)이 뉴라의 손에 쥔 수화기까지 물리적으로 팽팽하게 연결되어야 함."
             },
-            "RULE_3_ACTING_AND_MOUTH": {
+            "RULE_3_DUAL_ANCHOR_STRATEGY": {
                 "status": "PASS",
-                "mandate": "컷 4에서 박 과장에게 다급히 외치는 장면: 입을 굳게 다문 어색한 포즈 절대 금지! 입술을 벌리고 수화기 마이크에 대고 실제로 다급하고 심각하게 외치는(shouting/speaking urgently into handset) 리얼한 액팅과 표정이어야 함."
+                "mandate": "안면 앵커(크롭샷.jpg)와 화각별 바디 앵커(전신_앞/상반신/반신.jpg) 2장을 동시에 투입하여 얼굴과 화각/체형을 100% 동시 고정!"
             },
-            "RULE_4_G3_NEURA_PHYSICAL_LOCK": {
+            "RULE_4_SOAKED_WET_HAIR_TEXTURE": {
                 "status": "PASS",
-                "mandate": "20대 한국 여성 버추얼 뮤즈 뉴라(NEURA). 캣츠아이 눈매, 눈가와 입술 근처 매력점. 단추 풀린 젖은 블랙 가죽 트렌치코트 사이로 드러난 샴페인 골드 실크 슬립 드레스의 글래머러스한 바스트 볼륨감, 슬렌더한 긴 다리, 머리부터 발끝까지 비에 흠뻑 젖은 머릿결(머리칼이 뺨과 턱에 달라붙음)."
+                "mandate": "전 컷 공통으로 뉴라의 머리카락은 빗속에서 흠뻑 젖어 뺨과 이마, 목선에 가닥가닥 달라붙어 있는 생생한 비 텍스처(soaked wet hair strands clinging to face)여야 함."
             },
-            "RULE_5_WEATHER_AND_HUNTER_LOGIC": {
+            "RULE_5_ACTING_AND_EMOTION_SYNC": {
+                "status": "PASS",
+                "mandate": "나레이션의 감정선과 1:1 싱크: 1컷(뒤돌아보는 서늘한 경계) ➡️ 2컷(골목 은신 숨가쁜 1% 확인) ➡️ 3컷(물보라 튀기며 공중전화로 전력 질주) ➡️ 4컷(수화기에서 들려온 또 다른 내 목소리에 숨이 멎고 얼어붙은 극강의 클리프행어 표정)."
+            },
+            "RULE_6_WEATHER_AND_HUNTER_LOGIC": {
                 "status": "PASS",
                 "mandate": "처음부터 끝까지 폭우(heavy rain). 뉴라는 절대 우산 없음. 뒤쫓는 검은 양복의 사냥꾼들은 검은 우산을 쓰고 부스 밖 빗속에서 수색 중이어야 함."
+            },
+            "RULE_7_EP01_EP03_NARRATIVE_CONTINUITY": {
+                "status": "PASS",
+                "mandate": "EP01(시계탑 00:00 9시간 카운트다운) ➡️ EP02(추격전 & '금고를 연 건 너잖아?' 타임루프 복선) ➡️ EP03(지하 금고 잠입 & 조작된 과거의 진실) 3단 서사 징검다리 100% 검증 완결."
             }
         }
 
@@ -257,34 +270,32 @@ Hookverse Studio의 공식 버추얼 뮤즈 '뉴라(NEURA)'가 주인공인 30�
                 "negative_prompt": "umbrella for woman, dry clothes, smiling, day time, futuristic sci-fi city, deformed hands, cartoon"
             },
             "cut03": {
-                "scene": "Cut 03: 녹색 부스 안, 현대 스마트폰 1% 확인",
-                "korean_intent": "녹색 부스 안쪽. 좌측 벽에 실버 메탈 공중전화기. 뉴라가 비스듬한 각도로 현대 슬림 유리 스마트폰을 쥐고 있고, 화면 모서리에 은은한 1% 빨간 배터리가 보임. 창밖의 우산 든 사냥꾼을 경계하는 날카로운 시선.",
+                "scene": "Cut 03: 녹색 부스 안, 현대 스마트폰 앞면 액정 1% 확인",
+                "korean_intent": "녹색 부스 안쪽. 좌측 벽에 실버 메탈 공중전화기. 뉴라가 스마트폰 앞면 OLED 액정(초록 1% 배터리와 붉은 경고창)을 얼굴 앞에 비추며 확인. 뒷면은 손바닥에 밀착(뒷면에 배터리 없음). 창밖의 우산 든 사냥꾼을 경계하는 날카로운 시선.",
                 "prompt": (
                     "Cinematic medium close-up inside a vintage retro green public telephone booth in 1997 Seoul. "
                     "Mounted on the LEFT inner wall is a heavy metallic silver public payphone with a silver handset and steel armored coiled cord. "
                     "24-year-old Korean virtual muse Neura stands inside, completely soaked wet, drenched black hair plastered to her temple and neck. "
-                    "She is holding a sleek modern glass rectangle smartphone tilted obliquely at a 45-degree angle in her right hand; "
-                    "on the sleek dark phone screen, a subtle natural 1% red battery percentage icon and 'No Service' status are realistically visible. "
+                    "In her wet trembling hand, she holds a sleek black smartphone strictly facing forward with its front OLED glass screen visible to camera: "
+                    "the screen faintly glows with a 1% battery icon and 'No Service' status in Korean, casting subtle emerald rim light onto her wet cheekbones. "
+                    "The matte back panel of the phone is firmly pressed against her palm with no screens or icons on the back. "
                     "Neura peers warily through the rain-streaked glass window of the booth like a cautious hunter, watching silhouettes of black-suited men holding black umbrellas outside in the rain. "
-                    "Her wet black leather coat is open, showing champagne gold satin dress with prominent bust volume and feminine curves. "
                     "Moody reflections of green booth frame and rain droplets on glass, soft cool atmospheric lighting, 50mm lens, photorealistic 8k --ar 9:16 --style raw --v 6.1"
                 ),
-                "negative_prompt": "transparent phone, sci-fi hologram, futuristic laser gadget, clumsy painted red box, dry hair, umbrella for woman, right wall phone"
+                "negative_prompt": "battery on back of phone, transparent phone, sci-fi hologram, futuristic laser gadget, clumsy painted red box, dry hair, umbrella for woman, right wall phone"
             },
             "cut04": {
-                "scene": "Cut 04: 좌측 벽 은색 수화기 밀착 & 다급한 외침",
-                "korean_intent": "좌측 벽의 실버 메탈 공중전화기. 은색 수화기를 귀와 입가에 밀착하고, 입술을 크게 벌려 박 과장에게 다급하게 소리치는 뉴라. 절박하고 심각한 리얼 표정.",
+                "scene": "Cut 04: 좌측 벽 은색 수화기 밀착 & 타임루프 충격 엔딩",
+                "korean_intent": "좌측 벽의 실버 메탈 공중전화기 본체에서 연결된 강철 코일선 수화기를 귀에 대고 통화하다, 수화기 너머 또 다른 내 목소리에 숨이 멎고 얼어붙은 경악의 표정.",
                 "prompt": (
-                    "Dramatic close-up shot inside the vintage green telephone booth. Mounted on the LEFT wall is the metallic silver Korean payphone. "
-                    "24-year-old Korean virtual muse Neura is holding the vintage metallic silver payphone handset firmly pressed against her left ear and cheek, connected by a flexible steel coil cord. "
-                    "Her mouth is visibly wide parted, shouting urgently and desperately directly into the telephone receiver microphone: "
-                    "'Park Gwa-jang, they are here! Lock the vault right now!' "
-                    "Her face shows raw intensity, sweat and rainwater dripping down her jawline, feline cat-eyes wide with urgent panic, two delicate beauty marks near eye and lip. "
-                    "Her other soaked hand is pressed flat against the steamy rain-streaked glass booth wall. "
-                    "Wet black coat slipping off one shoulder, showcasing glamorous neckline and bust volume in the champagne gold silk slip. "
-                    "Extreme emotional tension, 85mm portrait cine prime, f/1.8, cinematic film grain, photorealistic masterpiece, 8k --ar 9:16 --style raw --v 6.1"
+                    "Dramatic close-up shot inside the vintage green telephone booth. Mounted prominently on the LEFT inner wall is the vintage metallic silver Korean payphone unit with coin slot and keypad. "
+                    "A heavy flexible steel coil cord connects from the bottom of the payphone unit directly to the silver metallic payphone handset that 24-year-old Korean virtual muse Neura holds firmly pressed against her left ear. "
+                    "Her face is frozen in extreme shock, breath hitched, pupils dilated in disbelief, lips parted in stunned silence as she hears her own voice speaking from the receiver: "
+                    "'...Put down the phone. The one who opened the vault was you.' "
+                    "Raw psychological horror, sweat and rainwater dripping down her jawline, feline cat-eyes wide with stunned horror. "
+                    "Rain sheets stream down the outside glass panes of the booth. Wet black hair plastered in soaked strands against her forehead, dripping water droplets, dramatic side-lighting, 8k cinematic masterpiece --ar 9:16 --style raw --v 6.1"
                 ),
-                "negative_prompt": "closed mouth, smiling, happy, calm expression, plastic payphone, right side phone, futuristic holographic phone, cartoon, anime"
+                "negative_prompt": "floating handset, missing payphone unit, closed mouth, smiling, happy, calm expression, plastic payphone, right side phone, futuristic holographic phone, cartoon, anime"
             }
         }
 
@@ -314,7 +325,8 @@ Hookverse Studio의 공식 버추얼 뮤즈 '뉴라(NEURA)'가 주인공인 30�
         target_shared = os.path.join(WORKSPACE, "assets", "audio", "IMF2화_손서현_풀나레이션.mp3")
         
         async def _generate():
-            import edge_tts
+            if edge_tts is None:
+                raise ModuleNotFoundError("edge_tts module is not installed")
             comm = edge_tts.Communicate(full_text, "ko-KR-SunHiNeural", rate="+20%", pitch="-2Hz")
             await comm.save(audio_out)
             # 공유 경로에도 복사

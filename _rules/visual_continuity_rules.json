@@ -1,0 +1,93 @@
+{
+  "version": "2.0.0",
+  "project": "Hookverse Studio",
+  "description": "20대 핵심축 기반 비주얼 연속성 및 물리 팩트 검증 사규 (ACCG v2.0)",
+  "global_visual_anchors": {
+    "weather": {
+      "mandatory_keywords": "heavy rain, dripping wet textures, water puddles reflecting neon lights, atmospheric Seoul 1997 midnight",
+      "hair_texture": "soaked wet black hair clinging to forehead, cheeks and neck, dripping rain droplets glistening under streetlights, authentic drenched rain texture"
+    },
+    "character_g3_anchor": {
+      "character_name": "NEURA",
+      "face_anchor_path": "assets/G3캐릭터앵커LOCK/크롭샷.jpg",
+      "costume": "drenched 90s vintage oversized black belted trench coat over wet satin cocktail dress",
+      "features": "sleek sharp cat-eye eyeliner, Korean female protagonist, intense cinematic stare"
+    },
+    "dual_anchor_strategy": {
+      "description": "얼굴 일관성과 화각/체형 일관성을 동시에 100% 묶기 위한 2중 앵커 참조 기법",
+      "reference_slot_1": "G3 Face Anchor (크롭샷.jpg)",
+      "reference_slot_2": "Shot-Specific Body Anchor (전신_앞/상반신/반신.jpg)"
+    }
+  },
+  "scene_fact_checks": {
+    "cut01": {
+      "scene_type": "Establishing Hook",
+      "shot_scale": "Low-angle Medium Shot",
+      "required_elements": [
+        "1997 Myeongdong Chohung Bank clock tower",
+        "clock hands frozen at exactly 00:00 midnight",
+        "Neura turning head back with sharp alert expression",
+        "no umbrellas, wet trench coat"
+      ],
+      "dual_anchor_files": [
+        "assets/G3캐릭터앵커LOCK/크롭샷.jpg",
+        "assets/G3캐릭터앵커LOCK/상반신.jpg"
+      ]
+    },
+    "cut02": {
+      "scene_type": "Alley Suspense & Smartphone Check",
+      "shot_scale": "Medium Close-up Alley Shot",
+      "required_elements": [
+        "hiding against wet dark brick alley wall",
+        "smartphone held in hand with OLED FRONT SCREEN strictly facing camera/Neura",
+        "screen glowing with green 1% battery indicator and red warning frame",
+        "matte glass back panel and camera lenses must rest flat against the palm or facing away from screen",
+        "subtle neon screen reflection illuminating her wet jawline and eyes",
+        "distant silhouettes of hunters holding black umbrellas in blurred rain background"
+      ],
+      "dual_anchor_files": [
+        "assets/G3캐릭터앵커LOCK/크롭샷.jpg",
+        "assets/G3캐릭터앵커LOCK/반신.jpg"
+      ],
+      "forbidden_errors": [
+        "battery indicator appearing on the camera/back panel of phone",
+        "phone reversed backwards",
+        "relaxed smiling pose"
+      ]
+    },
+    "cut03": {
+      "scene_type": "Dynamic Full-Body Chase Sprint",
+      "shot_scale": "Dynamic Full-Body Action Shot",
+      "required_elements": [
+        "sprinting forward through deep puddles, water splashing violently",
+        "soaking wet trench coat billowing behind her in dynamic motion",
+        "eyes fiercely locked onto the illuminated green metallic payphone booth ahead",
+        "chasing agents in black suits far behind in rainy motion blur"
+      ],
+      "dual_anchor_files": [
+        "assets/G3캐릭터앵커LOCK/크롭샷.jpg",
+        "assets/G3캐릭터앵커LOCK/전신_앞.jpg"
+      ]
+    },
+    "cut04": {
+      "scene_type": "Payphone Booth Climax & Time-Loop Twist",
+      "shot_scale": "Medium Close-up Payphone POV",
+      "required_elements": [
+        "inside 1997 metallic public payphone booth",
+        "vintage 1997 silver metallic payphone unit mounted clearly on the left wall with coin slot and push-button dial keypad",
+        "heavy spiraled steel coil cord extending from the bottom of the payphone unit directly to the handset in Neura's hand",
+        "silver handset firmly pressed against right ear",
+        "expression of sudden shock, frozen breath, pupils dilated as she hears her own cold voice from the receiver"
+      ],
+      "dual_anchor_files": [
+        "assets/G3캐릭터앵커LOCK/크롭샷.jpg",
+        "assets/G3캐릭터앵커LOCK/상반신.jpg"
+      ],
+      "forbidden_errors": [
+        "handset floating without payphone unit mounted on wall",
+        "missing spiral steel cord connecting unit and receiver",
+        "modern digital payphone or smartphone inside booth"
+      ]
+    }
+  }
+}
