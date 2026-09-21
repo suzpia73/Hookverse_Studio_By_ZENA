@@ -1,23 +1,30 @@
 # Hookverse Studio 작업 상태 (제나 자동 관리)
 
 ## 마지막 세션
-- **날짜**: 2026-09-20 (일) 18:32 ~ 19:51 ⚠️ 쿼터 제한으로 마지막 저장 불가 → 2026-09-21 제나가 파일 복원 후 반영 완료
+- **날짜**: 2026-09-21 (일) 18:58 ~ 19:29
 - **세션 핵심 달성 내용**:
-  1. **[✅ EP 02 Cut 01 마스터 실사 이미지 오빠 공식 승인 완료 (이전 세션 carry-over)]**
-  2. **[✅ Google Flow 2K 업스케일 원본 다운로드 메커니즘 규명 (이전 세션 carry-over)]**
-  3. **[✅ 4대 거장 시네마틱 디렉팅 노하우 사규화 (이전 세션 carry-over)]**
-  4. **[🔥 네거티브 프롬프트 원칙 완전 재정립 — 오빠 직접 기준 수립!]**:
-     - **핵심 원칙**: 포지티브에서 이미 방향을 잡은 항목은 네거티브에 중복 불필요!
-     - 포지티브가 잡은 예시: `1997 Seoul` → 현대 서울 차단, `soaking wet hair` → 마른 머리 차단, `19yo Korean female` → 서양인/금발 차단
-     - **네거티브는 "AI가 아무도 말 안 했는데 스스로 집어넣는 것들"만 막으면 됨**: 품질 아티팩트, 신체 기형, 합성티
-  5. **[✅ Cut 02 최종 네거티브 확정 (오빠 기준 반영 최종판)]**:
-     ```
-     generic AI beauty face, porcelain skin, plastic skin, extra limbs, mutated fingers, fused fingers, CGI 3D render, cutout look, mismatched lighting, floating subject, halo edges, cartoon, anime, watermark, blurry face
-     ```
-  6. **[✅ 두 분 참고 프롬프트에서 가져온 것들 정리 완료]**:
-     - **포지티브 부분 → 엄청나게 유용**: 18단 구조 체계(FORMAT→FACE→EMOTION→SCENE→POSE→LIGHTING), Anti-Cutout 엔진, Contact Shadow 헌법, Physical Reality 섹션(손가락 5개 강제), 레퍼런스 11대 보존 요소
-     - **네거티브 부분 → 일부만 유효**: cutout look, mismatched lighting, halo edges, extra limbs, mutated fingers, CGI 3D render (AI 자체 생성 아티팩트만)
-  7. **[⚠️ 세션 종료 시 쿼터 초과로 마지막 파일 저장 실패]** — 오늘 이 복원으로 100% 수습 완료!
+  1. **[✅ 전 세션(2026-09-20) 쿼터 제한 유실분 완전 복원]** — Git 커밋 `c890ede` & 원격 푸시 완료
+  2. **[✅ GPT PARK 채널 2개 영상 분석 & 시스템 내재화 완료]**:
+     - 영상 1: '무료 AI로 유튜브 쇼츠 자동 제작하기' (ShortsSmith 파이프라인)
+     - 영상 2: 'AI 비용 zero 만드는 법' (Groq/Cloudflare/NVIDIA NIM 무료 API)
+     - **우리에게 적용할 것**: Groq 무료 백업 엔진, Pexels/Pixabay 스톡 영상 자동화
+  3. **[✅ `ai_production_pipeline.py` → v2.0 업그레이드]**:
+     - Gemini 429/503 쿼터 초과 시 **Groq llama-3.3-70b-versatile로 자동 무중단 폴백**!
+     - `call_ai_generate()` 자동 스위칭 래퍼 탑재 — 오빠가 아무것도 안 하셔도 파이프라인 무중단 가동!
+  4. **[✅ `stock_video_fetcher.py` 신규 생성 (GPT PARK 내재화 결과물)]**:
+     - Pexels → Pixabay 자동 폴백으로 씬별 스톡 배경 영상 자동 다운로드
+     - IMF 2화 8씬 배경 키워드 사전 내장 — `assets/bgvideos/씬이름/` 에 자동 저장
+  5. **[✅ 두 파일 Python 문법 검사 PASS + Git 커밋 `b1965f1` & 원격 푸시 완료]**
+
+  **⚠️ 오빠가 해주실 한 가지 (30초)**:
+  - Groq API 키 발급: https://console.groq.com → API Keys → Create API Key
+  - `gsk_...` 키를 `gemini_account.json`에 `"GROQ_API_KEY": "gsk_..."` 추가
+  - Pexels 키: https://www.pexels.com/api/ → `"PEXELS_API_KEY"` 추가 (선택)
+  - Pixabay 키: https://pixabay.com/api/docs/ → `"PIXABAY_API_KEY"` 추가 (선택)
+
+  **🔖 이전 세션(2026-09-20) 캐리오버 핵심**:
+  - 네거티브 프롬프트 원칙: 포지티브가 방향 잡은 것은 네거티브 중복 불필요!
+  - Cut 02 최종 네거티브: `generic AI beauty face, porcelain skin, plastic skin, extra limbs, mutated fingers, fused fingers, CGI 3D render, cutout look, mismatched lighting, floating subject, halo edges, cartoon, anime, watermark, blurry face`
 
 - **🏃‍♂️ 제나 선에서 완료 및 이어서 진행할 실물 작업**:
   - [x] 1. 멀티 에이전트 자율 제작 오케스트레이터(`tools/studio_orchestrator.py`) 구축 및 7대 노드 풀가동 성공
@@ -29,10 +36,14 @@
   - [x] 7. Google Flow 2K 무료 업스케일 원본 다운로드 메커니즘 규명 및 핫싱크 도구(`tools/flow_download_sync.py`) 제작 완료
   - [x] 8. 오빠의 4대 거장 시네마틱 디렉팅 노하우 `SKILL.md` [섹션 55] 사규화 완료
   - [x] 9. 우리말 배웅/마중 어휘 사규 `AGENTS.md` 제7조 및 `SKILL.md` [섹션 56] 교정 완료
-  - [ ] 10. [0순위 / 다음 세션 0초 즉시 착수] **Cut 02 최종 1개 확정** (풀바디 98.7점 vs 웨이스트업 98.1점 중 오빠 선택) ➡️ **2K 원본 우리 폴더 이동** (`flow_download_sync.py` 가동)
-  - [ ] 11. [0순위] **Cut 03** 빗속 공중전화 부스 전력 질주 풀바디 (`크롭샷.jpg` + `전신_앞.jpg`) 생성
-  - [ ] 12. [0순위] **Cut 04** 수화기 낚아채는 클리프행어 정면 POV (`크롭샷.jpg` + `상반신.jpg`) 생성
-  - [ ] 13. [다음] EP 02 유튜브 스튜디오 99% 사전 세팅 및 오빠의 1% 최종 발사
+  - [x] 10. **[2026-09-21 완료] GPT PARK 영상 2편 분석 & 내재화**
+    - `ai_production_pipeline.py` v2.0 — Groq 자동 폴백 엔진 탑재
+    - `stock_video_fetcher.py` 신규 — Pexels/Pixabay 스톡 배경 영상 자동 다운로드
+  - [ ] 11. **[0순위 / 다음 세션 0초 착수] Groq API 키 등록** → `gemini_account.json`에 `"GROQ_API_KEY": "gsk_..."` 추가 (오빠가 직접)
+  - [ ] 12. **[0순위] Cut 02 최종 1개 확정** (풀바디 98.7점 vs 웨이스트업 98.1점) ➡️ **2K 원본 우리 폴더 이동**
+  - [ ] 13. **[0순위] Cut 03** 빗속 공중전화 부스 전력 질주 풀바디 생성
+  - [ ] 14. **[0순위] Cut 04** 수화기 낚아채는 클리프행어 정면 POV 생성
+  - [ ] 15. **[다음] EP 02 유튜브 스튜디오 99% 사전 세팅 및 오빠의 1% 최종 발사
 
 
 
