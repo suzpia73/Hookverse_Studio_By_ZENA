@@ -107,10 +107,10 @@ badge_path = os.path.join(WORKSPACE, "assets", "images", "hookverse_top_left_bad
 output_path = os.path.join(WORKSPACE, "assets", "videos", "IMF2화_추격과비밀통화_4컷_마스터완성본.mp4")
 
 cut_images = [
-    os.path.join(WORKSPACE, "assets", "images", "IMF2화", "IMF전날밤의비밀_ep02_cut01.jpg"),
-    os.path.join(WORKSPACE, "assets", "images", "IMF2화", "IMF전날밤의비밀_ep02_cut02.jpg"),
-    dst_cut03,
-    dst_cut04,
+    os.path.join(WORKSPACE, "assets", "images", "IMF2화_마스터4컷_스틸", "01_Cut01_시계탑훅_사냥꾼포위경계_마스터.png"),
+    os.path.join(WORKSPACE, "assets", "images", "IMF2화_마스터4컷_스틸", "02_Cut02_사냥꾼따돌림_모퉁이턴질주_마스터.png"),
+    os.path.join(WORKSPACE, "assets", "images", "IMF2화_마스터4컷_스틸", "03_Cut03_공중전화부스진입_탈출액션_마스터.png"),
+    os.path.join(WORKSPACE, "assets", "images", "IMF2화_마스터4컷_스틸", "04_Cut04_공중전화은색수화기_충격반전클리프행어_마스터.png"),
 ]
 
 # 성우 실제 녹음 4대 컷 구간 칼싱크 시간 (총 37.40초)
@@ -275,6 +275,15 @@ if os.path.exists(output_path) and os.path.getsize(output_path) > 100000:
     sz_mb = os.path.getsize(output_path) / (1024 * 1024)
     print(f"[+] 🎉 [마스터 비디오 최종 렌더링 완벽 성공!] ({sz_mb:.2f} MB)")
     print(f"    - 저장 위치: {output_path}")
+
+    # 프로덕션 패키지 및 비밀금고 영구 복사
+    pkg_dir = os.path.join(WORKSPACE, "assets", "production_packages", "IMF_2화__IMF_전날_밤의_비밀", "03_최종완제품_MP4")
+    vault_dir = os.path.join(WORKSPACE, "_제나비밀금고")
+    os.makedirs(pkg_dir, exist_ok=True)
+    os.makedirs(vault_dir, exist_ok=True)
+    shutil.copy2(output_path, os.path.join(pkg_dir, "IMF_2화_30초풀완제품_마스터.mp4"))
+    shutil.copy2(output_path, os.path.join(vault_dir, "IMF_2화_30초풀완제품_마스터_최종합격본.mp4"))
+    print(f"[+] 📦 프로덕션 패키지 및 비밀금고 영구 복사 완료!")
 else:
     print("[-] 렌더링 에러:")
     print(res_final.stderr[-1000:])
