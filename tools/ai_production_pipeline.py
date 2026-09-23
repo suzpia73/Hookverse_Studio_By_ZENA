@@ -271,7 +271,7 @@ def run_pipeline(topic: str):
      [영문 실사 프롬프트]
    ... 씬 8까지 반복
 """
-    prompt_content = call_ai_generate(metaprompt, designer_user_prompt, "8씬 프롬프트 창작")
+    prompt_content = call_ai_generate(metaprompt, designer_prompt, "8씬 프롬프트 창작")
     prompt_path = os.path.join(PROMPTS_DIR, f"{safe_title}_8씬_완성프롬프트.txt")
     with open(prompt_path, "w", encoding="utf-8") as f:
         f.write(prompt_content)
