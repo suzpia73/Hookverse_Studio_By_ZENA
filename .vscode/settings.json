@@ -4,7 +4,8 @@
     "connectAiLab.localBrainPath": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2",
     "connectAiLab.companyPath": "_company",
     "connectAiLab.secondBrainRepo": "",
-    "python.defaultInterpreterPath": "C:/Users/june2/AppData/Local/Programs/Python/Python314/python.exe",
+    "python.defaultInterpreterPath": "C:\\Users\\june2\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "python.pythonPath": "C:\\Users\\june2\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
     "python.analysis.extraPaths": [
         "tools"
     ],
@@ -19,4 +20,4 @@
     "go.useLanguageServer": false,
     "go.toolsManagement.autoUpdate": false,
     "go.showWelcome": false
-}
+}

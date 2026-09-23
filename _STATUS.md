@@ -1,30 +1,20 @@
 # Hookverse Studio 작업 상태 (제나 자동 관리)
 
 ## 마지막 세션
-- **날짜**: 2026-09-21 (일) 18:58 ~ 19:29
+- **날짜**: 2026-09-23 (수) 15:40 ~ 17:05
 - **세션 핵심 달성 내용**:
-  1. **[✅ 전 세션(2026-09-20) 쿼터 제한 유실분 완전 복원]** — Git 커밋 `c890ede` & 원격 푸시 완료
-  2. **[✅ GPT PARK 채널 2개 영상 분석 & 시스템 내재화 완료]**:
-     - 영상 1: '무료 AI로 유튜브 쇼츠 자동 제작하기' (ShortsSmith 파이프라인)
-     - 영상 2: 'AI 비용 zero 만드는 법' (Groq/Cloudflare/NVIDIA NIM 무료 API)
-     - **우리에게 적용할 것**: Groq 무료 백업 엔진, Pexels/Pixabay 스톡 영상 자동화
-  3. **[✅ `ai_production_pipeline.py` → v2.0 업그레이드]**:
-     - Gemini 429/503 쿼터 초과 시 **Groq llama-3.3-70b-versatile로 자동 무중단 폴백**!
-     - `call_ai_generate()` 자동 스위칭 래퍼 탑재 — 오빠가 아무것도 안 하셔도 파이프라인 무중단 가동!
-  4. **[✅ `stock_video_fetcher.py` 신규 생성 (GPT PARK 내재화 결과물)]**:
-     - Pexels → Pixabay 자동 폴백으로 씬별 스톡 배경 영상 자동 다운로드
-     - IMF 2화 8씬 배경 키워드 사전 내장 — `assets/bgvideos/씬이름/` 에 자동 저장
-  5. **[✅ 두 파일 Python 문법 검사 PASS + Git 커밋 `b1965f1` & 원격 푸시 완료]**
-
-  **⚠️ 오빠가 해주실 한 가지 (30초)**:
-  - Groq API 키 발급: https://console.groq.com → API Keys → Create API Key
-  - `gsk_...` 키를 `gemini_account.json`에 `"GROQ_API_KEY": "gsk_..."` 추가
-  - Pexels 키: https://www.pexels.com/api/ → `"PEXELS_API_KEY"` 추가 (선택)
-  - Pixabay 키: https://pixabay.com/api/docs/ → `"PIXABAY_API_KEY"` 추가 (선택)
-
-  **🔖 이전 세션(2026-09-20) 캐리오버 핵심**:
-  - 네거티브 프롬프트 원칙: 포지티브가 방향 잡은 것은 네거티브 중복 불필요!
-  - Cut 02 최종 네거티브: `generic AI beauty face, porcelain skin, plastic skin, extra limbs, mutated fingers, fused fingers, CGI 3D render, cutout look, mismatched lighting, floating subject, halo edges, cartoon, anime, watermark, blurry face`
+  1. **[✅ `D:\Downlods\9월23일_이전 작업 내용들.md` 100% 영구 백업 & 전수 정독 완료]**:
+     - `docs/9월23일_이전 작업 내용들.md` 및 `_제나비밀금고/` 이중 영구 보존 안착.
+     - 9월 21일 저녁부터의 대화, 오빠의 Groq API 키 등록 과정, 마지막 캡처 사진 2장 전수 정독 및 분석 완료!
+  2. **[✅ 오빠의 Groq API 키 등록 100% 정상 확인]**:
+     - `_company/_agents/business/tools/gemini_account.json`에 오빠가 등록해주신 `"GROQ_API_KEY"` 유효성 100% 검증 통과!
+  3. **[✅ 오빠 캡처 이미지 속 '문제 2개' 원인 규명 및 100% 원천 해결]**:
+     - **문제 1**: Gemini 쿼터 초과 / 503 오류 발생 시 무중단 가동 필요.
+     - **문제 2**: Groq로 자동 전환되었으나 `HTTP Error 404: Not Found` (Gemini & Groq 모두 실패) 발생.
+     - **진짜 원인**: Groq 서버에서 과거 모델(`llama-3.3-70b-versatile` 등)이 지원 중단(decommissioned)되어 404 발생.
+     - **제나의 해결**: Groq 현재 지원 최신 모델 전수 스캔 후, 한국어 최강 `qwen/qwen3.8-27b`와 대형 `openai/gpt-oss-120b` 다중 자동 폴백 레일 구축!
+     - **실물 검증 완료**: `tools/ai_production_pipeline.py` 대본(1단계) 및 8씬 프롬프트(2단계) 모두 `call_ai_generate` 장착 완료 & 호출 테스트 100% 성공 확인!
+  4. **[✅ Python 3.14.5 환경 완벽 작동 확인 & 문법 검사 PASS]**
 
 - **🏃‍♂️ 제나 선에서 완료 및 이어서 진행할 실물 작업**:
   - [x] 1. 멀티 에이전트 자율 제작 오케스트레이터(`tools/studio_orchestrator.py`) 구축 및 7대 노드 풀가동 성공
@@ -39,11 +29,13 @@
   - [x] 10. **[2026-09-21 완료] GPT PARK 영상 2편 분석 & 내재화**
     - `ai_production_pipeline.py` v2.0 — Groq 자동 폴백 엔진 탑재
     - `stock_video_fetcher.py` 신규 — Pexels/Pixabay 스톡 배경 영상 자동 다운로드
-  - [ ] 11. **[0순위 / 다음 세션 0초 착수] Groq API 키 등록** → `gemini_account.json`에 `"GROQ_API_KEY": "gsk_..."` 추가 (오빠가 직접)
+  - [x] 11. **[2026-09-23 완료] Groq API 키 검증 & 404 모델 에러 원천 해결**
+    - Groq 최신 활성 모델 `qwen/qwen3.8-27b` + `openai/gpt-oss-120b` 연동 완비
+    - `call_ai_generate()` Gemini & Groq 2중 무중단 가동 검증 성공
   - [ ] 12. **[0순위] Cut 02 최종 1개 확정** (풀바디 98.7점 vs 웨이스트업 98.1점) ➡️ **2K 원본 우리 폴더 이동**
   - [ ] 13. **[0순위] Cut 03** 빗속 공중전화 부스 전력 질주 풀바디 생성
   - [ ] 14. **[0순위] Cut 04** 수화기 낚아채는 클리프행어 정면 POV 생성
-  - [ ] 15. **[다음] EP 02 유튜브 스튜디오 99% 사전 세팅 및 오빠의 1% 최종 발사
+  - [ ] 15. **[다음] EP 02 유튜브 스튜디오 99% 사전 세팅 및 오빠의 1% 최종 발사**
 
 
 

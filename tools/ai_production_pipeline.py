@@ -112,31 +112,42 @@ def call_groq_generate(system_prompt: str, user_prompt: str) -> str:
         )
 
     url = "https://api.groq.com/openai/v1/chat/completions"
-    payload = {
-        "model": "llama-3.3-70b-versatile",
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ],
-        "temperature": 0.7,
-        "max_tokens": 4096
-    }
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        url, data=data,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {groq_key}",
-            "User-Agent": "HookverseAI/2.0"
-        },
-        method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=45) as resp:
-        res = json.loads(resp.read().decode("utf-8"))
-        choices = res.get("choices", [])
-        if choices:
-            return choices[0].get("message", {}).get("content", "").strip()
-    raise RuntimeError("Groq: 유효한 응답 없음")
+    # Groq 최신 활성 모델: qwen/qwen3.8-27b (한국어 탁월) -> openai/gpt-oss-120b (대형 모델)
+    groq_models = ["qwen/qwen3.8-27b", "openai/gpt-oss-120b"]
+    
+    last_err = None
+    for model_name in groq_models:
+        payload = {
+            "model": model_name,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            "temperature": 0.7,
+            "max_tokens": 4096
+        }
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            url, data=data,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {groq_key}",
+                "User-Agent": "HookverseAI/2.0"
+            },
+            method="POST"
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                res = json.loads(resp.read().decode("utf-8"))
+                choices = res.get("choices", [])
+                if choices:
+                    content = choices[0].get("message", {}).get("content", "").strip()
+                    if content:
+                        return content
+        except Exception as e:
+            last_err = e
+            continue
+    raise RuntimeError(f"Groq 모든 모델 실패: {last_err}")
 
 # ──────────────────────────────────────────────
 # 🔄 자동 폴백 스위칭 래퍼 (핵심!)
@@ -164,7 +175,7 @@ def call_ai_generate(system_prompt: str, user_prompt: str, step_name: str = "") 
 
     # 2차: Groq 백업
     try:
-        print(f"  🟠 [Groq llama-3.3-70b] {step_name} 백업 호출 중...")
+        print(f"  🟠 [Groq qwen3.8-27b] {step_name} 백업 호출 중...")
         result = call_groq_generate(system_prompt, user_prompt)
         print(f"  ✅ [Groq] {step_name} 성공! (백업 엔진 가동 완료)")
         return result
@@ -260,7 +271,7 @@ def run_pipeline(topic: str):
      [영문 실사 프롬프트]
    ... 씬 8까지 반복
 """
-    prompt_content = call_gemini_generate(metaprompt, designer_user_prompt)
+    prompt_content = call_ai_generate(metaprompt, designer_user_prompt, "8씬 프롬프트 창작")
     prompt_path = os.path.join(PROMPTS_DIR, f"{safe_title}_8씬_완성프롬프트.txt")
     with open(prompt_path, "w", encoding="utf-8") as f:
         f.write(prompt_content)
