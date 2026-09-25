@@ -94,7 +94,7 @@ def draw_convex_3d_text(font, text, cx, y_pos, base_w, base_h):
         b = int(15 + 20 * curve)
         for x in range(base_w):
             m_val = mask.getpixel((x, y))
-            m_int = int(m_val[0]) if isinstance(m_val, tuple) else int(m_val or 0)
+            m_int = m_val[0] if isinstance(m_val, tuple) else (m_val or 0)
             if m_int > 0:
                 gold_layer.putpixel((x, y), (r, g, b, 255))
 
@@ -103,9 +103,9 @@ def draw_convex_3d_text(font, text, cx, y_pos, base_w, base_h):
     for y in range(base_h):
         for x in range(base_w):
             v = inner_light.getpixel((x, y))
-            v_int = int(v[0]) if isinstance(v, tuple) else int(v or 0)
+            v_int = v[0] if isinstance(v, tuple) else (v or 0)
             m = mask.getpixel((x, y))
-            m_int = int(m[0]) if isinstance(m, tuple) else int(m or 0)
+            m_int = m[0] if isinstance(m, tuple) else (m or 0)
             if v_int > 30 and m_int > 0:
                 alpha = min(255, int(v_int * 1.8))
                 high_layer.putpixel((x, y), (255, 255, 235, alpha))

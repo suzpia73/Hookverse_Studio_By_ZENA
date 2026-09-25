@@ -26,13 +26,13 @@ result_img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 for y in range(H):
     for x in range(W):
         c_val = circle_mask.getpixel((x, y))
-        c_alpha = int(c_val[0]) if isinstance(c_val, tuple) else int(c_val or 0)
+        c_alpha = c_val[0] if isinstance(c_val, tuple) else (c_val or 0)
         if c_alpha == 0:
             continue
         
         px = img.getpixel((x, y))
         if isinstance(px, tuple) and len(px) >= 3:
-            r, g, b = int(px[0]), int(px[1]), int(px[2])
+            r, g, b = px[0], px[1], px[2]
         else:
             continue
         
