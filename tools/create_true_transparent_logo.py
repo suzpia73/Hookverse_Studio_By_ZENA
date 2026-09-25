@@ -58,7 +58,7 @@ for y in range(H):
             final_alpha = c_alpha
             
         if final_alpha > 0:
-            result_img.putpixel((x, y), (r, g, b, final_alpha))
+            result_img.putpixel((x, y), (r, g, b, int(final_alpha)))
 
 # 바운딩 박스로 크롭
 crop_box = (cx - radius, cy - radius, cx + radius, cy + radius)
