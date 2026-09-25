@@ -25,11 +25,16 @@ result_img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 
 for y in range(H):
     for x in range(W):
-        c_alpha = circle_mask.getpixel((x, y))
+        c_val = circle_mask.getpixel((x, y))
+        c_alpha = int(c_val[0]) if isinstance(c_val, tuple) else int(c_val or 0)
         if c_alpha == 0:
             continue
         
-        r, g, b, a = img.getpixel((x, y))
+        px = img.getpixel((x, y))
+        if isinstance(px, tuple) and len(px) >= 3:
+            r, g, b = int(px[0]), int(px[1]), int(px[2])
+        else:
+            continue
         
         # 밝기(Luminance) 및 채도(Colorfulness) 계산
         # 금색: R, G가 높음 (r > 60 or g > 50)
