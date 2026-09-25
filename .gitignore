@@ -29,4 +29,6 @@ __pycache__/
 _제나비밀금고/
 *.bak
 scratch_docs_text.txt
+scratch/
+clean_copy.html
 
