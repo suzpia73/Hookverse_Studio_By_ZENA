@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# type: ignore
 """
 render_perfect_270_badge_motion.py —
 [오빠의 냉철한 분석 100% 반영: 위치 완벽 일치 최종 마스터판]
@@ -152,6 +153,7 @@ def main():
 
     logo_path = os.path.join(IMAGES_DIR, "hookverse_studio_logo_transparent.png")
     has_logo = os.path.exists(logo_path)
+    logo_raw: Image.Image | None = None
     if has_logo:
         logo_raw = Image.open(logo_path).convert("RGBA").resize((136, 136), Image.Resampling.LANCZOS)
 
@@ -193,27 +195,27 @@ def main():
                     flash_intensity = math.exp(-dt * 12.0)
                     for py in range(by0, by1):
                         for px in range(bx0, bx1):
-                            m = l_pix[px, py]
+                            m = l_pix[px, py]  # type: ignore
                             if m > 20:
                                 w = m / 255.0
-                                r, g, b, a = pix[px, py]
+                                r, g, b, a = pix[px, py]  # type: ignore
                                 nr = min(255, int(r + (160 + 90 * flash_intensity) * w))
                                 ng = min(255, int(g + (140 + 80 * flash_intensity) * w))
                                 nb = min(255, int(b + (100 + 70 * flash_intensity) * w))
-                                pix[px, py] = (nr, ng, nb, a)
+                                pix[px, py] = (nr, ng, nb, a)  # type: ignore
                 else:
                     # Steady warm platinum glow (누적 유지)
                     shimmer = 1.0 + 0.08 * math.sin(t * 8.0 + idx)
                     for py in range(by0, by1):
                         for px in range(bx0, bx1):
-                            m = l_pix[px, py]
+                            m = l_pix[px, py]  # type: ignore
                             if m > 20:
                                 w = (m / 255.0) * shimmer
-                                r, g, b, a = pix[px, py]
+                                r, g, b, a = pix[px, py]  # type: ignore
                                 nr = min(255, int(r + 140 * w))
                                 ng = min(255, int(g + 120 * w))
                                 nb = min(255, int(b + 80 * w))
-                                pix[px, py] = (nr, ng, nb, a)
+                                pix[px, py] = (nr, ng, nb, a)  # type: ignore
 
         # 3. 셔터 플래시 버스트
         flash_power = 0.0
@@ -257,7 +259,7 @@ def main():
 
         # Top-left official badge
         canvas_mob.paste(frame, (70, 70), frame)
-        if has_logo:
+        if has_logo and logo_raw is not None:
             canvas_mob.paste(logo_raw, (874, 70), logo_raw)
 
         # Large center preview (810x408 - 3x scale)
