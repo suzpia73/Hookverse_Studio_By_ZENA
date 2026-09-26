@@ -1,5 +1,6 @@
 import os
 import math
+import random
 from PIL import Image, ImageDraw, ImageFilter
 
 def build_authentic_35mm_precision_banner():
@@ -24,6 +25,7 @@ def build_authentic_35mm_precision_banner():
 
     # =========================================================================
     # 2. [오리지널 앰버 브라운 & 가죽 질감] 중앙 내부 필름 레이어
+    #    (좌우 명암 밸런스 자연스럽게 보정: 좌측에도 은은한 웜 앰버 깊이감 부여)
     # =========================================================================
     inner = Image.new("RGBA", (safe_w, inner_h), (20, 14, 10, 255))
     for y in range(inner_h):
@@ -32,14 +34,92 @@ def build_authentic_35mm_precision_banner():
             nx = (xx - safe_w / 2.0) / (safe_w / 2.0)
             dist = math.sqrt((nx * 1.35) ** 2 + ny ** 2)
             intensity = max(0.0, 1.0 - min(1.0, dist)) ** 1.3
-            r = int(24 + (92 - 24) * intensity)
-            g = int(15 + (62 - 15) * intensity)
-            b = int(10 + (32 - 10) * intensity)
+            r = int(26 + (94 - 26) * intensity)
+            g = int(17 + (64 - 17) * intensity)
+            b = int(12 + (34 - 12) * intensity)
             inner.putpixel((xx, y), (r, g, b, 255))
 
     # 빈티지 필름 가죽 질감 블렌딩
     leather = img1.crop((910, 150, 1010, 550)).resize((safe_w, inner_h), Image.Resampling.LANCZOS)
     inner = Image.blend(inner, leather, 0.22)
+
+    # ★ [오빠 피드백 2] 변형적 원형/타원형 꼬불 실오라기 & 점먼지 & 스크래치 탑재
+    rng = random.Random(1997)  # IMF 1997 시네마 시드
+    noise_layer = Image.new("RGBA", (safe_w, inner_h), (0, 0, 0, 0))
+    d_noise = ImageDraw.Draw(noise_layer)
+
+    # A) 꼬불꼬불한 아날로그 직선/곡선 실오라기 (4가닥)
+    for _ in range(4):
+        pts = []
+        cx = rng.randint(40, safe_w - 40)
+        cy = rng.randint(25, inner_h - 25)
+        pts.append((cx, cy))
+        for _ in range(rng.randint(6, 12)):
+            cx += rng.randint(-12, 12)
+            cy += rng.randint(-12, 12)
+            cx = max(10, min(safe_w - 10, cx))
+            cy = max(5, min(inner_h - 5, cy))
+            pts.append((cx, cy))
+        hair_col = rng.choice([
+            (255, 245, 230, rng.randint(180, 240)),
+            (225, 185, 125, rng.randint(160, 220))
+        ])
+        for i in range(len(pts) - 1):
+            d_noise.line([pts[i], pts[i + 1]], fill=hair_col, width=rng.choice([1, 2]))
+
+    # B) ★ [오빠 요청 반영] 원형/타원형으로 둥글게 말려들어간 고리형 실오라기 (Curled Loop Fibers 3개)
+    for _ in range(3):
+        center_x = rng.randint(80, safe_w - 80)
+        center_y = rng.randint(30, inner_h - 30)
+        rx = rng.randint(8, 18)
+        ry = rng.randint(6, 14)
+        rot_angle = rng.uniform(0, math.pi)
+
+        loop_pts = []
+        steps = rng.randint(18, 28)
+        spiral_decay = rng.uniform(0.7, 0.95)
+        for s in range(steps):
+            theta = (s / float(steps)) * 2.5 * math.pi  # 한 바퀴 반 회전
+            cur_r = 1.0 - (1.0 - spiral_decay) * (s / float(steps))
+            lx = rx * cur_r * math.cos(theta)
+            ly = ry * cur_r * math.sin(theta)
+            # 회전 변환
+            rot_x = lx * math.cos(rot_angle) - ly * math.sin(rot_angle)
+            rot_y = lx * math.sin(rot_angle) + ly * math.cos(rot_angle)
+            loop_pts.append((center_x + rot_x, center_y + rot_y))
+
+        loop_col = rng.choice([
+            (255, 240, 220, rng.randint(190, 245)),
+            (230, 190, 130, rng.randint(170, 225))
+        ])
+        for i in range(len(loop_pts) - 1):
+            d_noise.line([loop_pts[i], loop_pts[i + 1]], fill=loop_col, width=1)
+
+    # C) 아날로그 점먼지 스팟 (30개)
+    for _ in range(30):
+        dx = rng.randint(15, safe_w - 15)
+        dy = rng.randint(8, inner_h - 8)
+        rad = rng.uniform(0.8, 2.0)
+        dust_col = rng.choice([
+            (255, 250, 240, rng.randint(160, 230)),
+            (235, 195, 130, rng.randint(150, 210)),
+            (35, 25, 18, rng.randint(120, 180))
+        ])
+        d_noise.ellipse([dx - rad, dy - rad, dx + rad, dy + rad], fill=dust_col)
+
+    # D) 빈티지 영사기 수직 스크래치 (3줄)
+    for _ in range(3):
+        sx = rng.randint(50, safe_w - 50)
+        sy1 = rng.randint(0, 40)
+        sy2 = rng.randint(inner_h - 40, inner_h)
+        s_col = rng.choice([
+            (255, 240, 210, rng.randint(70, 130)),
+            (45, 30, 20, rng.randint(80, 140))
+        ])
+        d_noise.line([sx, sy1, sx + rng.randint(-3, 3), sy2], fill=s_col, width=1)
+
+    noise_layer = noise_layer.filter(ImageFilter.GaussianBlur(0.3))
+    inner = Image.alpha_composite(inner, noise_layer)
 
     # 좌우 사이드 필름 번(Burn) 앰버 빛 효과
     w1 = img1.width
@@ -60,8 +140,8 @@ def build_authentic_35mm_precision_banner():
     inner.paste(edge_right, (safe_w - 120, 0), r_mask)
 
     # =========================================================================
-    # 3. [★ 실물 35mm 정품 타공 규격 1:1 수학적 칼대칭 렌더러]
-    #    (18x26px 직사각형 라운드, 41.0px 정밀 등간격, 따뜻한 앰버 영사기 투과광!)
+    # 3. [★ 오빠 피드백 1: 양끝단 반쪽 타공(Half-Hole) 정밀 렌더러]
+    #    (좌우 양끝단에 정확히 50% 잘린 반쪽 타공 배치 ➡️ 필름이 길어보이는 현상 100% 종결!)
     # =========================================================================
     rail_top = Image.new("RGBA", (safe_w, rail_h), (16, 12, 10, 255))
     rail_bottom = Image.new("RGBA", (safe_w, rail_h), (16, 12, 10, 255))
@@ -69,7 +149,7 @@ def build_authentic_35mm_precision_banner():
     d_top = ImageDraw.Draw(rail_top)
     d_bot = ImageDraw.Draw(rail_bottom)
 
-    # A) 레일 배경: 앰버 필름 그라데이션
+    # 레일 배경 앰버 그라데이션
     for y in range(rail_h):
         r_top = int(24 - 10 * (y / rail_h))
         g_top = int(18 - 8 * (y / rail_h))
@@ -81,40 +161,40 @@ def build_authentic_35mm_precision_banner():
         b_bot = int(8 + 6 * (y / rail_h))
         d_bot.line([0, y, safe_w, y], fill=(r_bot, g_bot, b_bot, 255))
 
-    # B) 레일 경계선 골든 앰버 헤어라인
+    # 레일 경계선 골든 앰버 헤어라인
     d_top.line([0, rail_h - 1, safe_w, rail_h - 1], fill=(70, 52, 35, 255), width=1)
     d_bot.line([0, 0, safe_w, 0], fill=(70, 52, 35, 255), width=1)
 
-    # C) 35mm 실물 측정 규격 정밀 배치
-    # 폭 18px, 높이 26px, r=3px (실물 필름과 100% 동일한 직사각형 라운드 형태)
+    # ★ 반쪽 타공(Half-hole) 공식:
+    # 좌측 끝단 중심: x = 0 (정확히 절반만 노출: -9px ~ +9px)
+    # 우측 끝단 중심: x = safe_w (정확히 절반만 노출: safe_w - 9px ~ safe_w + 9px)
+    # 총 간격 수: 38칸 ➡️ 등간격 pitch = safe_w / 38.0 = 40.684px
     hole_w = 18
     hole_h = 26
     corner_r = 3
-    pitch = 41.0  # 실물 측정 평균 피치
-
-    # 안전구역 좌우 칼대칭 시작 X좌표 계산
-    total_holes = int(safe_w // pitch)  # 37개
-    used_span = (total_holes - 1) * pitch + hole_w
-    start_x = (safe_w - used_span) / 2.0  # 완벽한 좌우 대칭 오프셋
+    num_intervals = 38
+    pitch = safe_w / float(num_intervals)  # 약 40.68px
 
     hole_y_top = (rail_h - hole_h) // 2  # 15px ~ 41px
     hole_y_bot = (rail_h - hole_h) // 2  # 15px ~ 41px
 
-    for i in range(total_holes):
-        hx = int(round(start_x + i * pitch))
+    # 총 39개 타공 구멍 (i=0은 좌측 반쪽, i=38은 우측 반쪽, i=1~37은 온전한 구멍)
+    for i in range(num_intervals + 1):
+        center_x = i * pitch
+        hx = int(round(center_x - hole_w / 2.0))
 
         for draw, hy in [(d_top, hole_y_top), (d_bot, hole_y_bot)]:
-            # 1단계: 외곽 미세 섀도우 림 (1px)
+            # 1단계: 외곽 미세 섀도우 림
             draw.rounded_rectangle([hx - 1, hy - 1, hx + hole_w, hy + hole_h],
                                    radius=corner_r + 1, fill=(28, 20, 14, 255))
-            # 2단계: 실물 필름 웜 앰버 골드 영사기 투과광 (은은한 백라이트)
+            # 2단계: 실물 필름 웜 앰버 골드 영사기 투과광
             draw.rounded_rectangle([hx, hy, hx + hole_w - 1, hy + hole_h - 1],
                                    radius=corner_r, fill=(218, 168, 88, 240))
-            # 3단계: 구멍 중심 따뜻한 샴페인 빛 (아날로그 투과 효과)
+            # 3단계: 구멍 중심 따뜻한 샴페인 빛
             draw.rounded_rectangle([hx + 1, hy + 1, hx + hole_w - 2, hy + hole_h - 2],
                                    radius=max(1, corner_r - 1), fill=(235, 185, 105, 255))
 
-    print(f"🎬 실물 규격 35mm 타공 렌더링 완료: 상/하 각 {total_holes}개 구멍 (등간격 {pitch}px, 이빨 빠짐/겹침 0%!)")
+    print(f"🎬 양끝단 반쪽 타공(Half-Hole) 렌더링 완료: 총 {num_intervals + 1}개 구멍 (등간격 {pitch:.2f}px, 완벽 대칭!)")
 
     # =========================================================================
     # 4. 필름 슬라이드 조립
@@ -194,13 +274,19 @@ def build_authentic_35mm_precision_banner():
     neu_x_in_slide = tx_in_slide + target_tw + gap - (n_bbox[0] if n_bbox else 0)
     neu_y_in_slide = (safe_h - neu_h) // 2
 
-    # 글자 백그라운드 섀도우
+    # ★ [오빠 피드백 3: 좌측 글자 뒤 웜 앰버 앰비언트 글로우 보강]
+    # (왼쪽이 너무 어둡지 않게, 글자 주변에 은은한 웜 앰버 백라이트를 감싸 좌우 조화 완벽 달성)
     t_glow = Image.new("RGBA", (safe_w, safe_h), (0, 0, 0, 0))
     d_tg = ImageDraw.Draw(t_glow)
+    # 깊은 섀도우 림
     d_tg.ellipse([tx_in_slide - 25, ty_in_slide - 15,
                   tx_in_slide + target_tw + 25, ty_in_slide + target_th + 15],
-                 fill=(10, 8, 5, 150))
-    t_glow = t_glow.filter(ImageFilter.GaussianBlur(20))
+                 fill=(12, 9, 6, 140))
+    # 따뜻한 앰버 앰비언트 (우측 뉴라 조명과 부드럽게 균형)
+    d_tg.ellipse([tx_in_slide - 45, ty_in_slide - 25,
+                  tx_in_slide + target_tw + 45, ty_in_slide + target_th + 25],
+                 fill=(80, 50, 20, 45))
+    t_glow = t_glow.filter(ImageFilter.GaussianBlur(22))
     film_slide = Image.alpha_composite(film_slide, t_glow)
 
     # 슬라이드에 글자와 뉴라 합성
@@ -234,7 +320,7 @@ def build_authentic_35mm_precision_banner():
     actual_left = side_margin
     actual_right = safe_w - (neu_x_in_slide + (n_bbox[2] if n_bbox else neu_w))
     print("==================================================")
-    print("🎬 실물 규격 35mm 완벽 타공 배너 완성!")
+    print("🎬 양끝단 반쪽 타공 & 고리형 실오라기 완성!")
     print(f"- 텍스트: {target_tw}x{target_th}px")
     print(f"- 뉴라: {neu_vis_w}x{neu_h}px")
     print(f"- 간격: {gap}px")
