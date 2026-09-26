@@ -10,7 +10,7 @@
      - **공식 마스터 배너 파일**: `assets/images/hookverse_youtube_channel_banner_2560x1440.png`
      - **모바일 1:1 프리뷰**: `assets/images/preview_mobile_view_1546x423.png`
      - **골드 박스 검증 뷰**: `assets/images/preview_bust_film_safezone.png`
-     - **영구 배너 생성기**: `tools/build_bust_film_banner.py` & `tools/build_perfect_cinema_banner.py` (동기화 완료)
+     - **영구 배너 생성기**: `tools/build_perfect_cinema_banner.py` (단일 공식 배너 빌더)
   - [x] 2. **[🛡️ 뉴라 인물 100% 무손실 바스트 실루엣 & 타원형 조명 블렌딩 완결]**:
      - **오빠의 지적 즉각 수용**: 가로줄과 흰 테두리를 만들던 억지 다각형 누끼 ❌ ➡️ **원본 전신_우측.jpg의 상반신(바스트 실루엣)을 100% 그대로 유지**!
      - **타원형 스포트라이트 조명**: 흰바탕을 조명 빛처럼 부드럽게 감싸 필름 배경 속에 자연스럽게 스며드는 소프트 비네팅 페이드 연출!
