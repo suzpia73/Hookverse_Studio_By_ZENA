@@ -1,4 +1,4 @@
-"""
+r"""
 Google Flow 2K 원본 이미지 자동 감지 및 프로젝트 폴더 핫싱크 도구
 (c) 2026 Hookverse Studio by ZENA
 
@@ -52,7 +52,7 @@ def sync_flow_2k_image(cut_number=2, custom_name=None):
     """최신 Flow 다운로드 이미지를 우리 프로젝트 폴더로 핫싱크"""
     latest = find_latest_flow_download()
     if not latest:
-        print("[!] 최근 다운로드된 이미지를 찾을 수 없습니다. (D:\Downlods 및 Downloads 확인)")
+        print(r"[!] 최근 다운로드된 이미지를 찾을 수 없습니다. (D:\Downlods 및 Downloads 확인)")
         return False
         
     src_file, mtime, size = latest

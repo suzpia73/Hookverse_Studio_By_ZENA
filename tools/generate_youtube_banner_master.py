@@ -53,16 +53,17 @@ def generate_perfect_symmetric_banner():
     
     title_text = "HOOKVERSE STUDIO"
     slogan_text = "새로운 시선이 당신의 상상을 깨우는 곳"
-    ip_text = "스토리텔링  ·  웹툰  ·  웹소설  ·  음악 & OST"
+    ip_text = "AI 에이전트 스튜디오를 구축하며 색다른 이야기를 빚어내는 1인 크리에이터"
     handle_text = "@hookverse_studio"
     
     t_bbox = d_temp.textbbox((0, 0), title_text, font=font_brand)
     s_bbox = d_temp.textbbox((0, 0), slogan_text, font=font_slogan_kr)
     ip_bbox = d_temp.textbbox((0, 0), ip_text, font=font_sub_ip)
     
-    title_w = t_bbox[2] - t_bbox[0]   # 약 460px
-    slogan_w = s_bbox[2] - s_bbox[0]  # 약 410px
-    text_w = max(title_w, slogan_w)
+    title_w = int(t_bbox[2] - t_bbox[0])   # 약 460px
+    slogan_w = int(s_bbox[2] - s_bbox[0])  # 약 410px
+    ip_w = int(ip_bbox[2] - ip_bbox[0])
+    text_w = max(title_w, slogan_w, ip_w)
     
     # [준비 2] 엠블럼 규격
     logo_size = 250  # 250 x 250
