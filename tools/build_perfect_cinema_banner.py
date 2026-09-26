@@ -266,7 +266,7 @@ def build_authentic_35mm_precision_banner():
     # 총 39개 타공 구멍 (i=0은 좌측 반쪽, i=38은 우측 반쪽, i=1~37은 온전한 구멍)
     for i in range(num_intervals + 1):
         center_x = i * pitch
-        hx = int(round(center_x - hole_w / 2.0))
+        hx = round(center_x - hole_w / 2.0)
 
         for draw, hy in [(d_top, hole_y_top), (d_bot, hole_y_bot)]:
             # 1단계: 외곽 미세 섀도우 림
