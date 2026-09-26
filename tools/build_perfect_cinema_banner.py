@@ -43,82 +43,109 @@ def build_authentic_35mm_precision_banner():
     leather = img1.crop((910, 150, 1010, 550)).resize((safe_w, inner_h), Image.Resampling.LANCZOS)
     inner = Image.blend(inner, leather, 0.22)
 
-    # ★ [오빠 피드백 2] 변형적 원형/타원형 꼬불 실오라기 & 점먼지 & 스크래치 탑재
-    rng = random.Random(1997)  # IMF 1997 시네마 시드
+    # ★ [오빠 요청 100% 반영] 왼쪽 어두운 공간(X: 30~345)에 풍성하고 선명한 아날로그 필름 노이즈 집중 배치!
+    rng = random.Random(2026)  # 2026 Hookverse 시드
     noise_layer = Image.new("RGBA", (safe_w, inner_h), (0, 0, 0, 0))
     d_noise = ImageDraw.Draw(noise_layer)
 
-    # A) 꼬불꼬불한 아날로그 직선/곡선 실오라기 (4가닥)
-    for _ in range(4):
+    # 1) [좌측 어두운 공간 전용] 꼬불꼬불한 아날로그 필름 실오라기 (총 7가닥, 선명한 웜 샴페인/골드/실버)
+    for _ in range(7):
         pts = []
-        cx = rng.randint(40, safe_w - 40)
+        cx = rng.randint(40, 330)
         cy = rng.randint(25, inner_h - 25)
         pts.append((cx, cy))
-        for _ in range(rng.randint(6, 12)):
-            cx += rng.randint(-12, 12)
-            cy += rng.randint(-12, 12)
-            cx = max(10, min(safe_w - 10, cx))
-            cy = max(5, min(inner_h - 5, cy))
+        for _ in range(rng.randint(9, 16)):
+            cx += rng.randint(-16, 16)
+            cy += rng.randint(-16, 16)
+            cx = max(20, min(340, cx))
+            cy = max(8, min(inner_h - 8, cy))
             pts.append((cx, cy))
         hair_col = rng.choice([
-            (255, 245, 230, rng.randint(180, 240)),
-            (225, 185, 125, rng.randint(160, 220))
+            (255, 245, 225, rng.randint(210, 255)),  # 선명한 샴페인 화이트 실오라기
+            (245, 195, 120, rng.randint(190, 245)),  # 따뜻한 앰버 골드 실오라기
+            (220, 210, 190, rng.randint(180, 230)),  # 빈티지 필름 실버 실오라기
+            (85, 60, 42, rng.randint(160, 220))      # 필름 다크 실오라기
         ])
+        w = rng.choice([1, 1, 2])
         for i in range(len(pts) - 1):
-            d_noise.line([pts[i], pts[i + 1]], fill=hair_col, width=rng.choice([1, 2]))
+            d_noise.line([pts[i], pts[i + 1]], fill=hair_col, width=w)
 
-    # B) ★ [오빠 요청 반영] 원형/타원형으로 둥글게 말려들어간 고리형 실오라기 (Curled Loop Fibers 3개)
+    # 2) [좌측 어두운 공간 전용] 동그랗게 꼬인 타원형 루프 실오라기 (총 3개)
     for _ in range(3):
-        center_x = rng.randint(80, safe_w - 80)
-        center_y = rng.randint(30, inner_h - 30)
-        rx = rng.randint(8, 18)
-        ry = rng.randint(6, 14)
-        rot_angle = rng.uniform(0, math.pi)
+        center_x = rng.randint(65, 310)
+        center_y = rng.randint(40, inner_h - 40)
+        rx = rng.randint(12, 24)
+        ry = rng.randint(9, 18)
+        rot_angle = rng.uniform(0, math.pi * 2)
 
         loop_pts = []
-        steps = rng.randint(18, 28)
-        spiral_decay = rng.uniform(0.7, 0.95)
+        steps = rng.randint(22, 34)
         for s in range(steps):
-            theta = (s / float(steps)) * 2.5 * math.pi  # 한 바퀴 반 회전
-            cur_r = 1.0 - (1.0 - spiral_decay) * (s / float(steps))
+            theta = (s / float(steps)) * 2.8 * math.pi
+            cur_r = 1.0 - 0.22 * (s / float(steps))
             lx = rx * cur_r * math.cos(theta)
             ly = ry * cur_r * math.sin(theta)
-            # 회전 변환
             rot_x = lx * math.cos(rot_angle) - ly * math.sin(rot_angle)
             rot_y = lx * math.sin(rot_angle) + ly * math.cos(rot_angle)
             loop_pts.append((center_x + rot_x, center_y + rot_y))
 
-        loop_col = rng.choice([
-            (255, 240, 220, rng.randint(190, 245)),
-            (230, 190, 130, rng.randint(170, 225))
+        l_col = rng.choice([
+            (255, 240, 210, rng.randint(200, 255)),
+            (240, 190, 115, rng.randint(190, 240)),
+            (215, 205, 185, rng.randint(180, 230))
         ])
         for i in range(len(loop_pts) - 1):
-            d_noise.line([loop_pts[i], loop_pts[i + 1]], fill=loop_col, width=1)
+            d_noise.line([loop_pts[i], loop_pts[i + 1]], fill=l_col, width=1)
 
-    # C) 아날로그 점먼지 스팟 (30개)
-    for _ in range(30):
+    # 3) [좌측 어두운 공간 전용] 아날로그 수직/미세 사선 필름 스크래치 (3줄)
+    for _ in range(3):
+        sx = rng.randint(50, 325)
+        sy1 = rng.randint(5, 45)
+        sy2 = rng.randint(inner_h - 45, inner_h - 5)
+        sc_col = (245, 220, 185, rng.randint(120, 180))
+        d_noise.line([sx, sy1, sx + rng.randint(-6, 6), sy2], fill=sc_col, width=1)
+
+    # 4) [좌측 어두운 공간 전용] 아날로그 필름 에멀전 마이크로 그레인 (좌측 60개 집중)
+    for _ in range(60):
+        gx = rng.randint(20, 340)
+        gy = rng.randint(8, inner_h - 8)
+        grad = rng.uniform(0.6, 1.8)
+        g_col = rng.choice([
+            (255, 245, 230, rng.randint(160, 240)),
+            (235, 185, 110, rng.randint(150, 220)),
+            (180, 160, 135, rng.randint(130, 190))
+        ])
+        d_noise.ellipse([gx - grad, gy - grad, gx + grad, gy + grad], fill=g_col)
+
+    # 5) [중앙 및 우측 공간] 자연스러운 실오라기 & 루프 (각 3개)
+    for _ in range(3):
+        pts = []
+        cx = rng.randint(460, safe_w - 60)
+        cy = rng.randint(30, inner_h - 30)
+        pts.append((cx, cy))
+        for _ in range(rng.randint(6, 12)):
+            cx += rng.randint(-12, 12)
+            cy += rng.randint(-12, 12)
+            cx = max(420, min(safe_w - 30, cx))
+            cy = max(10, min(inner_h - 10, cy))
+            pts.append((cx, cy))
+        for i in range(len(pts) - 1):
+            d_noise.line([pts[i], pts[i + 1]], fill=(255, 240, 215, 190), width=1)
+
+    # 6) 전체 아날로그 점먼지 스팟 (총 45개)
+    for _ in range(45):
         dx = rng.randint(15, safe_w - 15)
         dy = rng.randint(8, inner_h - 8)
-        rad = rng.uniform(0.8, 2.0)
+        rad = rng.uniform(0.8, 2.2)
         dust_col = rng.choice([
-            (255, 250, 240, rng.randint(160, 230)),
-            (235, 195, 130, rng.randint(150, 210)),
-            (35, 25, 18, rng.randint(120, 180))
+            (255, 250, 240, rng.randint(160, 240)),
+            (240, 195, 125, rng.randint(160, 220)),
+            (35, 25, 18, rng.randint(130, 190))
         ])
         d_noise.ellipse([dx - rad, dy - rad, dx + rad, dy + rad], fill=dust_col)
 
-    # D) 빈티지 영사기 수직 스크래치 (3줄)
-    for _ in range(3):
-        sx = rng.randint(50, safe_w - 50)
-        sy1 = rng.randint(0, 40)
-        sy2 = rng.randint(inner_h - 40, inner_h)
-        s_col = rng.choice([
-            (255, 240, 210, rng.randint(70, 130)),
-            (45, 30, 20, rng.randint(80, 140))
-        ])
-        d_noise.line([sx, sy1, sx + rng.randint(-3, 3), sy2], fill=s_col, width=1)
-
-    noise_layer = noise_layer.filter(ImageFilter.GaussianBlur(0.3))
+    # 선명도 보존을 위해 아주 미세한 블러만 적용 (0.15px)
+    noise_layer = noise_layer.filter(ImageFilter.GaussianBlur(0.15))
     inner = Image.alpha_composite(inner, noise_layer)
 
     # 좌우 사이드 필름 번(Burn) 앰버 빛 효과
