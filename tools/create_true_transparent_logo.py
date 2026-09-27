@@ -17,7 +17,7 @@ radius = 314.0  # 직경 628px 1:1 완전 정원
 
 # 1. 1차 4x 슈퍼샘플링 정원 마스크
 scale = 4
-mask_large = Image.new("L", (int(W * scale), int(H * scale)), 0)
+mask_large = Image.new("L", (W * scale, H * scale), 0)
 draw_large = ImageDraw.Draw(mask_large)
 draw_large.ellipse([(cx - radius) * scale, (cy - radius) * scale, (cx + radius) * scale, (cy + radius) * scale], fill=255)
 circle_mask = mask_large.resize((W, H), Image.Resampling.LANCZOS)
