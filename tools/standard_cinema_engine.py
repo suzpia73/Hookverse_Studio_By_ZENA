@@ -206,16 +206,16 @@ ass_escaped = ass_path.replace("\\", "/").replace(":", "\\:")
 fonts_escaped = fonts_dir.replace("\\", "/").replace(":", "\\:")
 
 # 오버레이 필터:
-# [오빠의 긴급 수정 지침 100% 무결점 반영]:
-# 1) 좌측 상단 배지: [배경 셔터 플래시 + 15타공 롤링 + 실오라기 + 스크래치 + 순차점등 모션 비디오] 좌->우 슬라이딩 인(0~0.5s) 후 안착 루프 (270x136, X=32, Y=52)
-# 2) 우측 상단 엠블럼: 배경 투명도의 기존 636x636 정원 엠블럼 안팎 투명화 적용, 1:1 완벽 정원 고정 (160x160, X=888, Y=40, 회전/흔들림 0%)
+# [오빠의 헌법 지침 100% 무결점 반영]:
+# 1) 좌측 상단 배지: [배경 셔터 플래시 + 15타공 롤링 + 실오라기 + 스크래치 + 순차점등 모션 비디오] 좌->우 슬라이딩 인(0~0.5s) 후 안착 루프 (270x136, X=32, Y=52, CY=120)
+# 2) 우측 상단 앰블럼: EP1화 검증 완료된 원형 디스크 앰블럼(안쪽 가죽+금색각인 보존, 외곽 투명화) + EP1 실측 황금 정원 비율(164x170, X=884, Y=35, CY=120 수평 칼일치!)
 # 3) 노이즈: 35mm 영화 필름 그레인 4%
 # 4) 자막: 절대 1~2줄 엄수 + [작은 점 낙하 바운스 안착 모션]
 filter_complex_final = (
     f"[1:v]scale=270:136,format=rgba[badge];"
-    f"[2:v]scale=160:160,format=rgba[logo];"
+    f"[2:v]scale=164:170,format=rgba[logo];"
     f"[0:v][badge]overlay=x='if(lte(t,0.5), -w + (w+32)*(t/0.5), 32)':y=52[v1];"
-    f"[v1][logo]overlay=x=888:y=40[v2];"
+    f"[v1][logo]overlay=x=884:y=35[v2];"
     f"[v2]noise=alls=4:allf=t+u[vgrain];"
     f"[vgrain]subtitles='{ass_escaped}':fontsdir='{fonts_escaped}'[vfinal]"
 )
@@ -277,5 +277,18 @@ for sname, stime in snaps:
     sout = os.path.join(snap_dir, sname)
     subprocess.run([ffmpeg_exe, "-y", "-ss", stime, "-i", output_path, "-vframes", "1", sout], capture_output=True)
     print(f"  ✓ 검증 스냅샷 완료 ({stime}): {sout}")
+
+# 엠블럼 부위 정밀 크롭 (오빠 시각 검증용)
+try:
+    snap_c1 = os.path.join(snap_dir, "snap_master_c01_02s.jpg")
+    if os.path.exists(snap_c1):
+        from PIL import Image
+        sim = Image.open(snap_c1)
+        # X: 880 ~ 1060, Y: 25 ~ 215
+        crop_emb = sim.crop((880, 25, 1060, 215))
+        crop_emb.save(os.path.join(snap_dir, "emblem_check.jpg"))
+        print(f"  ✓ 엠블럼 정밀 크롭 검증 이미지 생성 완료: emblem_check.jpg (크기: {crop_emb.size})")
+except Exception as e:
+    print(f"[!] 엠블럼 크롭 오류: {e}")
 
 print("[+] 🏆 Hookverse Studio 표준 시네마틱 렌더링 노드 엔진 정상 가동 완료!")
