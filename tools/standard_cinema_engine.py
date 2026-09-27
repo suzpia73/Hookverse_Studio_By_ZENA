@@ -76,8 +76,8 @@ else:
 # STEP 3: 브루 4대 씬 공식 카메라 모션 FX 비디오 렌더링 파이프라인
 # ==========================================
 audio_path = os.path.join(WORKSPACE, "assets", "audio", "IMF2화_추격과비밀통화_4컷_마스터음성.mp3")
-logo_path = os.path.join(WORKSPACE, "assets", "HOOKVERSE_공식_3대_브랜딩_완제품", "03_공식원형앰블럼_636x636_투명HQ.png")
-badge_path = os.path.join(WORKSPACE, "assets", "HOOKVERSE_공식_3대_브랜딩_완제품", "02_좌상단시네마틱배지_270px_공식스틸.png")
+logo_path = os.path.join(WORKSPACE, "assets", "images", "hookverse_studio_logo_transparent.png")
+badge_video = os.path.join(WORKSPACE, "assets", "HOOKVERSE_공식_3대_브랜딩_완제품", "02-1_공식배지모션_클로즈업_순차점등_540p.mp4")
 output_path = os.path.join(WORKSPACE, "assets", "videos", "IMF2화_추격과비밀통화_4컷_마스터완성본.mp4")
 
 cut_images = [
@@ -206,16 +206,16 @@ ass_escaped = ass_path.replace("\\", "/").replace(":", "\\:")
 fonts_escaped = fonts_dir.replace("\\", "/").replace(":", "\\:")
 
 # 오버레이 필터:
-# [오빠의 9대 수정 지침 100% 완벽 반영]
-# 1) 우상단 엠블럼: 회전/그네타기 없이 1:1 원형 비율 고정 (150x150, X=1080-150-32=898, Y=40)
-# 2) 좌상단 배지: 270x136 (Y=52) 슬라이드 인 안착
-# 3) 노이즈: 35mm 아날로그 필름 그레인 4%
-# 4) 자막: 교보손글씨2019 + 네온퍼플 외곽선 + 1~2줄 엄수
+# [오빠의 긴급 수정 지침 100% 무결점 반영]:
+# 1) 좌측 상단 배지: [배경 셔터 플래시 + 15타공 롤링 + 실오라기 + 스크래치 + 순차점등 모션 비디오] 루프 합성 (270x136, X=32, Y=52)
+# 2) 우측 상단 엠블럼: 배경 투명도의 기존 636x636 정원 엠블럼 안팎 투명화 적용, 1:1 완벽 정원 고정 (160x160, X=888, Y=40, 회전/흔들림 0%)
+# 3) 노이즈: 35mm 영화 필름 그레인 4%
+# 4) 자막: 절대 1~2줄 엄수 + [작은 점 낙하 바운스 안착 모션]
 filter_complex_final = (
     f"[1:v]scale=270:136,format=rgba[badge];"
-    f"[2:v]scale=150:150,format=rgba[logo];"
-    f"[0:v][badge]overlay=x='if(lte(t,0.5), -w + (w+32)*(t/0.5), 32)':y=52[v1];"
-    f"[v1][logo]overlay=x=898:y=40[v2];"
+    f"[2:v]scale=160:160,format=rgba[logo];"
+    f"[0:v][badge]overlay=x=32:y=52[v1];"
+    f"[v1][logo]overlay=x=888:y=40[v2];"
     f"[v2]noise=alls=4:allf=t+u[vgrain];"
     f"[vgrain]subtitles='{ass_escaped}':fontsdir='{fonts_escaped}'[vfinal]"
 )
@@ -223,7 +223,7 @@ filter_complex_final = (
 cmd_final = [
     ffmpeg_exe, "-y",
     "-i", merged_motion,
-    "-i", badge_path,
+    "-stream_loop", "-1", "-i", badge_video,
     "-i", logo_path,
     "-i", audio_path,
     "-filter_complex", filter_complex_final,
@@ -239,7 +239,7 @@ cmd_final = [
     output_path
 ]
 
-print("[*] 🚀 우상단 엠블럼(1:1고정) + 좌상단 배지 + 1~2줄 자막 + 1인칭 오디오 최종 결합 마스터 렌더링...")
+print("[*] 🚀 [모션 배지 루프 + 투명 정원 엠블럼 고정 + 1~2줄 바운스 자막 + 카이라 1인칭 오디오] 최종 결합 마스터 렌더링...")
 res_final = subprocess.run(cmd_final, capture_output=True, text=True, errors="ignore")
 
 if os.path.exists(output_path) and os.path.getsize(output_path) > 100000:
@@ -265,10 +265,11 @@ else:
 # ==========================================
 snap_dir = os.path.join(WORKSPACE, "assets", "images", "review")
 snaps = [
+    ("snap_master_c01_02s.jpg", "00:00:02"),
     ("snap_master_c01_04s.jpg", "00:00:04"),
-    ("snap_master_c02_16s.jpg", "00:00:16"),
-    ("snap_master_c03_26s.jpg", "00:00:26"),
-    ("snap_master_c04_38s.jpg", "00:00:38"),
+    ("snap_master_c02_13s.jpg", "00:00:13"),
+    ("snap_master_c03_24s.jpg", "00:00:24"),
+    ("snap_master_c04_36s.jpg", "00:00:36"),
 ]
 
 for sname, stime in snaps:
