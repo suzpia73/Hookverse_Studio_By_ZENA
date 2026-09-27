@@ -87,8 +87,8 @@ cut_images = [
     os.path.join(WORKSPACE, "assets", "images", "IMF2화_마스터4컷_스틸", "04_Cut04_공중전화은색수화기_충격반전클리프행어_마스터.png"),
 ]
 
-# 45.46초 카이라 마스터 음성 4대 컷 구간 칼싱크 시간 (총 45.46초)
-durations = [8.98, 11.64, 9.41, 15.43]
+# 49.35초 카이라 1인칭 생체 긴박 마스터 음성 4대 컷 구간 칼싱크 시간 (총 49.35초)
+durations = [11.30, 11.64, 9.41, 17.00]
 fps = 30
 W, H = 1080, 1920
 
@@ -203,23 +203,19 @@ print(f"[+] ✅ 4컷 다이내믹 모션 결합 완료: {merged_motion}")
 
 # 자막 경로 이스케이프
 ass_escaped = ass_path.replace("\\", "/").replace(":", "\\:")
-
-# 오버레이 필터:
-# [오빠가 방금 주신 브루(Vrew) 캡처 100% 정밀 연동]
-# 캡처 팩트:
-# 1) 효과 구분: [강조] 탭의 '그네타기' (Emphasis Swing)
-# 2) 적용범위: [반복] (영상 전체 무한 반복 루프)
-# 3) 재생 시간: [2 초] (정확히 2.0초 주기: 1초 우측 스윙 -> 1초 좌측 스윙)
-# 4) 시작 지연: [0 초] (영상 시작 0초부터 즉시 가동)
-# 5) 엠블럼 크기: 165x165 (오빠 시각 피드백 100% 반영: 220px에서 컴팩트 슬림화)
-# 6) 수평 중심선: 좌측 배지(CY=112px)와 우측 엠블럼(CY=112px) 1:1 완벽 수평 일치!
 fonts_escaped = fonts_dir.replace("\\", "/").replace(":", "\\:")
 
+# 오버레이 필터:
+# [오빠의 9대 수정 지침 100% 완벽 반영]
+# 1) 우상단 엠블럼: 회전/그네타기 없이 1:1 원형 비율 고정 (150x150, X=1080-150-32=898, Y=40)
+# 2) 좌상단 배지: 270x136 (Y=52) 슬라이드 인 안착
+# 3) 노이즈: 35mm 아날로그 필름 그레인 4%
+# 4) 자막: 교보손글씨2019 + 네온퍼플 외곽선 + 1~2줄 엄수
 filter_complex_final = (
     f"[1:v]scale=270:136,format=rgba[badge];"
-    f"[2:v]scale=150:150,format=rgba,rotate='a=sin(2*PI*t/2.0)*0.18:ow=hypot(iw,ih):oh=ow:c=none'[logo];"
+    f"[2:v]scale=150:150,format=rgba[logo];"
     f"[0:v][badge]overlay=x='if(lte(t,0.5), -w + (w+32)*(t/0.5), 32)':y=52[v1];"
-    f"[v1][logo]overlay=x='(1080 - 150 - 32) + sin(2*PI*t/2.0)*20 - (w-150)/2':y='40 - cos(4*PI*t/2.0)*5 - (h-150)/2'[v2];"
+    f"[v1][logo]overlay=x=898:y=40[v2];"
     f"[v2]noise=alls=4:allf=t+u[vgrain];"
     f"[vgrain]subtitles='{ass_escaped}':fontsdir='{fonts_escaped}'[vfinal]"
 )
@@ -243,7 +239,7 @@ cmd_final = [
     output_path
 ]
 
-print("[*] 🚀 우상단 엠블럼 + 좌상단 배지 + 자막 + 오디오 최종 결합 마스터 렌더링...")
+print("[*] 🚀 우상단 엠블럼(1:1고정) + 좌상단 배지 + 1~2줄 자막 + 1인칭 오디오 최종 결합 마스터 렌더링...")
 res_final = subprocess.run(cmd_final, capture_output=True, text=True, errors="ignore")
 
 if os.path.exists(output_path) and os.path.getsize(output_path) > 100000:
@@ -269,10 +265,10 @@ else:
 # ==========================================
 snap_dir = os.path.join(WORKSPACE, "assets", "images", "review")
 snaps = [
-    ("snap_master_c01_03s.jpg", "00:00:03"),
-    ("snap_master_c02_14s.jpg", "00:00:14"),
-    ("snap_master_c03_21s.jpg", "00:00:21"),
-    ("snap_master_c04_33s.jpg", "00:00:33"),
+    ("snap_master_c01_04s.jpg", "00:00:04"),
+    ("snap_master_c02_16s.jpg", "00:00:16"),
+    ("snap_master_c03_26s.jpg", "00:00:26"),
+    ("snap_master_c04_38s.jpg", "00:00:38"),
 ]
 
 for sname, stime in snaps:
