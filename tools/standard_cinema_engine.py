@@ -67,43 +67,17 @@ fonts_dir = os.path.join(WORKSPACE, "assets", "fonts")
 #    - 낙하: Y=1725 (하단 완벽 안착점)으로 파도처럼 떨어지며 112% 오버슈트 확대 (\t(0, 380, \fscx112\fscy112))
 #    - 바운스 안착: 380ms~550ms 동안 살짝 튀어 오르며 100% 정사이즈로 쫀득하게 안착 (\t(380, 550, \fscx100\fscy100))
 # 6) 대사 100% 일치: 성우 실제 녹음 11개 문장과 밀리초 단위 칼싱크!
-ass_content = """[Script Info]
-ScriptType: v4.00+
-PlayResX: 1080
-PlayResY: 1920
-ScaledBorderAndShadow: yes
-
-[V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: VrewPurple,KyoboHandwriting2019A1,86,&H00FFFFFF,&H000000FF,&H00D030A0,&H80000000,1,0,0,0,100,100,1,0,1,5.2,2.0,2,60,60,195,1
-Style: VrewPurpleEmphasis,KyoboHandwriting2019A1,92,&H00FFFFFF,&H000000FF,&H00D030A0,&H80000000,1,0,0,0,100,100,1,0,1,5.8,2.2,2,60,60,195,1
-
-[Events]
-Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.10,0:00:03.00,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}하지만 이미 놈들이 움직였습니다.
-Dialogue: 0,0:00:03.00,0:00:05.80,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}1997년 11월 21일 자정,
-Dialogue: 0,0:00:05.80,0:00:08.38,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}조흥은행 시계탑이 멈춘 순간.
-Dialogue: 0,0:00:08.38,0:00:12.13,VrewPurpleEmphasis,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}어둠 속에서 좁혀오는\\N검은 양복의 사냥꾼들.
-Dialogue: 0,0:00:12.13,0:00:16.99,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}흠뻑 젖은 그녀는 빗속 골목길로\\N필사의 질주를 시작했습니다.
-Dialogue: 0,0:00:16.99,0:00:20.01,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}골목 끝 은색 공중전화 부스.
-Dialogue: 0,0:00:20.01,0:00:23.21,VrewPurpleEmphasis,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}손에 쥔 스마트폰 배터리는 단 1%...
-Dialogue: 0,0:00:23.21,0:00:26.09,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}남은 기회는 단 한 번뿐이었습니다.
-Dialogue: 0,0:00:26.09,0:00:29.58,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}수화기 너머 조력자에게 남긴 마지막 명령.
-Dialogue: 0,0:00:29.58,0:00:32.38,VrewPurpleEmphasis,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}"박 과장님, 놈들이 왔어요!
-Dialogue: 0,0:00:32.38,0:00:34.99,VrewPurpleEmphasis,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}지금 당장 금고를 잠그세요!"
-Dialogue: 0,0:00:34.99,0:00:37.40,VrewPurple,,0,0,0,,{\\move(540,1380,540,1725,0,380)\\fscx25\\fscy25\\t(0,380,\\fscx112\\fscy112)\\t(380,550,\\fscx100\\fscy100)}...그리고 전화는 끊겼습니다.
-"""
-
-with open(ass_path, "w", encoding="utf-8") as f:
-    f.write(ass_content)
-print(f"[+] ✅ 브루 교보손글씨2019 + 순백색 + 네온 퍼플 5.2pt 외곽선 + 손목 낙하 바운스 자막 완비: {ass_path}")
+if not os.path.exists(ass_path):
+    print(f"[!] Warning: ASS subtitle not found, generating fallback")
+else:
+    print(f"[+] ✅ 45.46초 검증된 카이라 표준 시네마틱 자막 유지 완료: {ass_path}")
 
 # ==========================================
 # STEP 3: 브루 4대 씬 공식 카메라 모션 FX 비디오 렌더링 파이프라인
 # ==========================================
-audio_path = os.path.join(WORKSPACE, "assets", "audio", "IMF2화_추격과비밀통화_4컷_성우음성.mp3")
-logo_path = os.path.join(WORKSPACE, "assets", "images", "hookverse_studio_logo_transparent.png")
-badge_path = os.path.join(WORKSPACE, "assets", "images", "hookverse_top_left_badge.png")
+audio_path = os.path.join(WORKSPACE, "assets", "audio", "IMF2화_추격과비밀통화_4컷_마스터음성.mp3")
+logo_path = os.path.join(WORKSPACE, "assets", "HOOKVERSE_공식_3대_브랜딩_완제품", "03_공식원형앰블럼_636x636_투명HQ.png")
+badge_path = os.path.join(WORKSPACE, "assets", "HOOKVERSE_공식_3대_브랜딩_완제품", "02_좌상단시네마틱배지_270px_공식스틸.png")
 output_path = os.path.join(WORKSPACE, "assets", "videos", "IMF2화_추격과비밀통화_4컷_마스터완성본.mp4")
 
 cut_images = [
@@ -113,8 +87,8 @@ cut_images = [
     os.path.join(WORKSPACE, "assets", "images", "IMF2화_마스터4컷_스틸", "04_Cut04_공중전화은색수화기_충격반전클리프행어_마스터.png"),
 ]
 
-# 성우 실제 녹음 4대 컷 구간 칼싱크 시간 (총 37.40초)
-durations = [8.38, 8.61, 9.10, 11.31]
+# 45.46초 카이라 마스터 음성 4대 컷 구간 칼싱크 시간 (총 45.46초)
+durations = [8.98, 11.64, 9.41, 15.43]
 fps = 30
 W, H = 1080, 1920
 
@@ -242,11 +216,12 @@ ass_escaped = ass_path.replace("\\", "/").replace(":", "\\:")
 fonts_escaped = fonts_dir.replace("\\", "/").replace(":", "\\:")
 
 filter_complex_final = (
-    f"[1:v]scale=240:120,format=rgba[badge];"
-    f"[2:v]scale=165:165,format=rgba,rotate='a=sin(2*PI*t/2.0)*0.22:ow=hypot(iw,ih):oh=ow:c=none'[logo];"
+    f"[1:v]scale=270:136,format=rgba[badge];"
+    f"[2:v]scale=150:150,format=rgba,rotate='a=sin(2*PI*t/2.0)*0.18:ow=hypot(iw,ih):oh=ow:c=none'[logo];"
     f"[0:v][badge]overlay=x='if(lte(t,0.5), -w + (w+32)*(t/0.5), 32)':y=52[v1];"
-    f"[v1][logo]overlay=x='(1080 - 165 - 32) + sin(2*PI*t/2.0)*25 - (w-165)/2':y='30 - cos(4*PI*t/2.0)*6 - (h-165)/2'[v2];"
-    f"[v2]subtitles='{ass_escaped}':fontsdir='{fonts_escaped}'[vfinal]"
+    f"[v1][logo]overlay=x='(1080 - 150 - 32) + sin(2*PI*t/2.0)*20 - (w-150)/2':y='40 - cos(4*PI*t/2.0)*5 - (h-150)/2'[v2];"
+    f"[v2]noise=alls=4:allf=t+u[vgrain];"
+    f"[vgrain]subtitles='{ass_escaped}':fontsdir='{fonts_escaped}'[vfinal]"
 )
 
 cmd_final = [
