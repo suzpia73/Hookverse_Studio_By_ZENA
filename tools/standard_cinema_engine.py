@@ -207,14 +207,14 @@ fonts_escaped = fonts_dir.replace("\\", "/").replace(":", "\\:")
 
 # 오버레이 필터:
 # [오빠의 긴급 수정 지침 100% 무결점 반영]:
-# 1) 좌측 상단 배지: [배경 셔터 플래시 + 15타공 롤링 + 실오라기 + 스크래치 + 순차점등 모션 비디오] 루프 합성 (270x136, X=32, Y=52)
+# 1) 좌측 상단 배지: [배경 셔터 플래시 + 15타공 롤링 + 실오라기 + 스크래치 + 순차점등 모션 비디오] 좌->우 슬라이딩 인(0~0.5s) 후 안착 루프 (270x136, X=32, Y=52)
 # 2) 우측 상단 엠블럼: 배경 투명도의 기존 636x636 정원 엠블럼 안팎 투명화 적용, 1:1 완벽 정원 고정 (160x160, X=888, Y=40, 회전/흔들림 0%)
 # 3) 노이즈: 35mm 영화 필름 그레인 4%
 # 4) 자막: 절대 1~2줄 엄수 + [작은 점 낙하 바운스 안착 모션]
 filter_complex_final = (
     f"[1:v]scale=270:136,format=rgba[badge];"
     f"[2:v]scale=160:160,format=rgba[logo];"
-    f"[0:v][badge]overlay=x=32:y=52[v1];"
+    f"[0:v][badge]overlay=x='if(lte(t,0.5), -w + (w+32)*(t/0.5), 32)':y=52[v1];"
     f"[v1][logo]overlay=x=888:y=40[v2];"
     f"[v2]noise=alls=4:allf=t+u[vgrain];"
     f"[vgrain]subtitles='{ass_escaped}':fontsdir='{fonts_escaped}'[vfinal]"
@@ -265,6 +265,7 @@ else:
 # ==========================================
 snap_dir = os.path.join(WORKSPACE, "assets", "images", "review")
 snaps = [
+    ("snap_badge_slide_0_2s.jpg", "00:00:00.200"),
     ("snap_master_c01_02s.jpg", "00:00:02"),
     ("snap_master_c01_04s.jpg", "00:00:04"),
     ("snap_master_c02_13s.jpg", "00:00:13"),
