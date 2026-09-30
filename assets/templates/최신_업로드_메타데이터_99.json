@@ -1,40 +1,60 @@
 {
+  "project": "IMF 2화: 추격과 비밀 통화",
+  "generated_at": "2026-09-30T19:12:00+09:00",
+  "status": "99_PERCENT_READY_FOR_PUBLISH",
+  "video_asset": {
+    "file_path": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\assets\\videos\\IMF2화_추격과비밀통화_4컷_마스터완성본.mp4",
+    "resolution": "1080x1920 (9:16 Shorts)",
+    "duration_sec": 45.46,
+    "size_mb": 10.45
+  },
+  "branding_assets": {
+    "channel_banner_qhd": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\assets\\HOOKVERSE_공식_3대_브랜딩_완제품\\01_유튜브_공식채널배너_2560x1440_QHD마스터.png",
+    "profile_emblem_hq": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\assets\\HOOKVERSE_공식_3대_브랜딩_완제품\\03_공식원형앰블럼_636x636_투명HQ.png",
+    "video_watermark": "d:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\assets\\HOOKVERSE_공식_3대_브랜딩_완제품\\03_공식원형앰블럼_636x636_투명HQ.png"
+  },
   "snippet": {
-    "title": "만약 1997년 IMF 부도 전날 밤, 조흥은행 지하 금고가 털렸다면? | Hookverse #Shorts",
-    "description": "1997년 11월 20일 자정, 명동의 시계탑이 멈춘 순간.\n대한민국 부도 직전, 조흥은행 지하 금고를 비운 자들의 마지막 흔적.\n금고 장부에 남겨진 의문의 붉은 서명, 'NEURA'.\n\n🎬 HOOKVERSE STUDIO (@hookverse_studio)\n• 공식 채널: @hookverse_studio\n• 버추얼 뮤즈: 뉴라 (NEURA)\n• 장르: 타임슬립 / 70% 역사 팩트 앵커링 & 30% What-If 블라인드 스팟 서스펜스\n\n#WhatIf #TimeTravel #KCulture #KContent #타임슬립 #대체역사 #Shorts #쇼츠 #hookverse_studio",
+    "title": "1997년 자정, 내 스마트폰에 울린 충격적인 통화의 정체 #Shorts #IMF #타임슬립",
+    "description": "“만약 1997년의 국가 부도가, 누군가에 의해 완벽하게 조작된 거라면?”\n\n자정 00시 정각, 멈춰 선 조흥은행 시계탑 아래에서 시작된 사냥꾼들의 포위망.\n통신마저 먹통인 1997년 서울 한복판, 배터리는 단 1%...!\n희미하게 빛나는 공중전화 부스로 뛰어들어 수화기를 낚아챘을 때,\n수화기 너머에서 들려온 건 얼어붙을 듯 차가운 내 목소리였다.\n\n“...수화기 내려놔. 금고를 연 건, 바로 너잖아?”\n\n━━━━━━━━━━━━━━━━━━━━\n🎬 Hookverse Studio 공식 시네마틱 What-If 시리즈\n✦ Production: KAIRA | Hookverse Studio (@hookverse_studio)\n✦ Virtual Muse: 뉴라 (NEURA, 19yo)\n✦ Episode: EP.02 추격과 비밀 통화\n✦ Next Episode: EP.03 조흥은행 지하 금고의 진실 (커밍순!)\n━━━━━━━━━━━━━━━━━━━━\n\n#Shorts #쇼츠 #IMF #1997 #타임슬립 #WhatIf #만약에 #대체역사 #미스터리 #SF스릴러 #뉴라 #NEURA #HookverseStudio #훅버스스튜디오",
     "tags": [
       "Hookverse Studio",
-      "hookverse_studio",
+      "훅버스스튜디오",
       "뉴라",
       "NEURA",
-      "What If",
-      "Time Travel",
-      "Alternative History",
-      "Mystery Shorts",
-      "Sci-Fi",
-      "Cinematic",
-      "K-Culture",
-      "K-Content",
-      "Korean Mythology",
-      "K-Drama Vibes",
-      "K-Webtoon",
-      "K-스토리",
+      "What if",
+      "만약에",
+      "타임슬립",
+      "대체역사",
+      "시간여행",
       "1997",
       "IMF",
-      "외환위기",
+      "국가부도",
       "조흥은행",
-      "역사미스터리",
-      "만약에",
-      "쇼츠"
+      "시계탑",
+      "공중전화부스",
+      "시네마틱",
+      "숏폼스릴러",
+      "반전스토리",
+      "Shorts"
     ],
     "categoryId": "24",
     "defaultLanguage": "ko",
     "defaultAudioLanguage": "ko"
   },
-  "status": {
+  "status_settings": {
     "privacyStatus": "unlisted",
     "selfDeclaredMadeForKids": false,
+    "containsSyntheticMedia": true,
     "embeddable": true,
     "license": "youtube"
+  },
+  "checklist_99": {
+    "title_set": true,
+    "description_set": true,
+    "tags_2track_set": true,
+    "category_entertainment": true,
+    "not_made_for_kids": true,
+    "ai_generated_label_checked": true,
+    "ready_for_publish_click": true
   }
 }
