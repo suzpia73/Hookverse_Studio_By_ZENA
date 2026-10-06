@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hookverse Studio — 차세대 시네마틱 관제탑 (Control Room V3)</title>
-  <meta name="description" content="KAIRA AI 1인 기업 Hookverse Studio 실시간 시네마틱 총괄 관제 대시보드">
+  <title>Hookverse Studio — 100vh 시네마틱 관제탑 (Control Room V5)</title>
+  <meta name="description" content="KAIRA AI 1인 기업 Hookverse Studio 실시간 100vh 무스크롤 시네마틱 총괄 관제탑">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -43,172 +43,101 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    body {
+    html, body {
+      height: 100%;
+      overflow: hidden;
       background-color: var(--bg-base);
       color: var(--text-white);
       font-family: var(--font-body);
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
+      line-height: 1.5;
       background-image: 
         radial-gradient(circle at 15% 10%, rgba(192, 132, 252, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 85% 15%, rgba(238, 211, 127, 0.08) 0%, transparent 45%),
         radial-gradient(circle at 50% 90%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
     }
 
+    /* Custom Sleek Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(12, 14, 20, 0.6);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(238, 211, 127, 0.25);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(238, 211, 127, 0.55);
+    }
+
+    /* 100vh Root Wrapper */
     .wrapper {
-      max-width: 1540px;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-width: 1720px;
       margin: 0 auto;
-      padding: 24px 32px 60px;
+      padding: 10px 20px 10px;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
-    /* Top Social & Channel Hub Bar */
-    .top-hub-bar {
+    /* ============================================================
+       TOP MASTER COMMAND HEADER (COMPACT 2-TIER)
+       ============================================================ */
+    .master-header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: rgba(12, 14, 20, 0.85);
-      backdrop-filter: blur(14px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      margin-bottom: 20px;
-      font-size: 13px;
-    }
-
-    .hub-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text-muted);
-    }
-
-    .live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 10px;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      border-radius: 9999px;
-      color: var(--neon-emerald);
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 0.5px;
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--neon-emerald);
-      box-shadow: 0 0 10px var(--neon-emerald);
-      animation: pulse 1.6s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    .hub-links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .hub-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--text-muted);
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      transition: all 0.2s ease;
-    }
-
-    .hub-btn:hover {
-      color: var(--text-white);
-      border-color: var(--border-medium);
-      transform: translateY(-2px);
-    }
-
-    .hub-btn.yt:hover { border-color: #ef4444; color: #fca5a5; box-shadow: 0 0 12px rgba(239, 68, 68, 0.3); }
-    .hub-btn.studio:hover { border-color: #f97316; color: #fdba74; box-shadow: 0 0 12px rgba(249, 115, 22, 0.3); }
-    .hub-btn.insta:hover { border-color: #ec4899; color: #f472b6; box-shadow: 0 0 12px rgba(236, 72, 153, 0.3); }
-    .hub-btn.threads:hover { border-color: #ffffff; color: #ffffff; box-shadow: 0 0 12px rgba(255, 255, 255, 0.3); }
-    .hub-btn.opal:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: 0 0 12px rgba(34, 211, 238, 0.3); }
-    .hub-btn.github:hover { border-color: var(--gold-primary); color: var(--gold-primary); box-shadow: 0 0 12px rgba(238, 211, 127, 0.3); }
-
-    .hub-icon {
-      width: 15px;
-      height: 15px;
-      display: inline-block;
-      vertical-align: middle;
+      flex-direction: column;
+      gap: 8px;
       flex-shrink: 0;
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
-    .hub-btn:hover .hub-icon {
-      transform: scale(1.18);
-    }
-    .hub-btn.yt:hover .hub-icon { filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.8)); }
-    .hub-btn.studio:hover .hub-icon { filter: drop-shadow(0 0 6px rgba(255, 78, 69, 0.8)); }
-    .hub-btn.insta:hover .hub-icon { filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.8)); }
-    .hub-btn.threads:hover .hub-icon { filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8)); }
-    .hub-btn.opal:hover .hub-icon { filter: drop-shadow(0 0 6px rgba(66, 133, 244, 0.8)); }
-    .hub-btn.github:hover .hub-icon { filter: drop-shadow(0 0 6px rgba(238, 211, 127, 0.8)); }
-
-    /* Header */
-    header {
+    /* Top Row: Brand & Live Status + Social Hub Buttons */
+    .header-top-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0 24px;
-      border-bottom: 1px solid var(--border-subtle);
-      margin-bottom: 24px;
+      gap: 16px;
     }
 
-    .brand-hero {
+    .brand-group {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 14px;
     }
 
     .brand-emblem {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 2px solid var(--gold-primary);
-      box-shadow: 0 0 24px var(--gold-glow);
-      transition: transform 0.3s ease;
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0 0 8px var(--gold-glow));
+      transition: transform 0.3s ease, filter 0.3s ease;
       cursor: pointer;
+      flex-shrink: 0;
     }
-
     .brand-emblem:hover {
-      transform: scale(1.08) rotate(6deg);
+      transform: scale(1.12) rotate(6deg);
+      filter: drop-shadow(0 0 16px var(--gold-primary));
     }
 
+    /* HOOKVERSE STUDIO Animated Brand */
     .brand-title-anim {
       font-family: var(--font-display);
-      font-size: 30px;
+      font-size: 22px;
       font-weight: 900;
       letter-spacing: 1.2px;
-      line-height: 1.1;
+      line-height: 1;
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       user-select: none;
       perspective: 1000px;
     }
 
-    /* 1. HOOKVERSE: 지저분한 그림자 0%! 맑고 선명한 [남보라 ➔ 적보라] 가로 그라데이션 & 순차 360° 도미노 스핀 */
     .word-hookverse {
       display: inline-flex;
       align-items: center;
@@ -218,44 +147,33 @@
     .char-spin {
       display: inline-block;
       font-weight: 900;
-      /* 가로 90도: 남보라(#4338ca) ➔ 바이올렛(#8b5cf6) ➔ 적보라(#db2777, #e11d48) */
       background-image: linear-gradient(90deg, #4338ca 0%, #6366f1 20%, #8b5cf6 45%, #c026d3 75%, #db2777 90%, #e11d48 100%);
       background-size: 900% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      /* 지저분한 다중 겹침 그림자 완전 제거! 맑고 깨끗한 단일 그림자 */
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
       transform-style: preserve-3d;
       will-change: transform;
       animation: spinDomino 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
     }
 
-    /* 가로 그라데이션 위치 오프셋 매핑 & 0.12초 릴레이 딜레이 */
-    .c-h  { background-position: 0% 50%;   animation-delay: 0.00s; } /* H: 깊은 남보라 */
-    .c-o1 { background-position: 12% 50%;  animation-delay: 0.12s; } /* O */
-    .c-o2 { background-position: 25% 50%;  animation-delay: 0.24s; } /* O: 인디고 바이올렛 */
-    .c-k  { background-position: 37% 50%;  animation-delay: 0.36s; } /* K */
-    .c-v  { background-position: 50% 50%;  animation-delay: 0.48s; } /* V: 퍼플 바이올렛 */
-    .c-e1 { background-position: 62% 50%;  animation-delay: 0.60s; } /* E */
-    .c-r  { background-position: 75% 50%;  animation-delay: 0.72s; } /* R: 딥 마젠타 */
-    .c-s  { background-position: 87% 50%;  animation-delay: 0.84s; } /* S */
-    .c-e2 { background-position: 100% 50%; animation-delay: 0.96s; } /* E: 화사한 적보라 */
+    .c-h  { background-position: 0% 50%;   animation-delay: 0.00s; }
+    .c-o1 { background-position: 12% 50%;  animation-delay: 0.12s; }
+    .c-o2 { background-position: 25% 50%;  animation-delay: 0.24s; }
+    .c-k  { background-position: 37% 50%;  animation-delay: 0.36s; }
+    .c-v  { background-position: 50% 50%;  animation-delay: 0.48s; }
+    .c-e1 { background-position: 62% 50%;  animation-delay: 0.60s; }
+    .c-r  { background-position: 75% 50%;  animation-delay: 0.72s; }
+    .c-s  { background-position: 87% 50%;  animation-delay: 0.84s; }
+    .c-e2 { background-position: 100% 50%; animation-delay: 0.96s; }
 
-    /* 한 자씩 360도 깨끗하게 회전하는 키프레임 */
     @keyframes spinDomino {
-      0% {
-        transform: rotateY(0deg);
-      }
-      16% {
-        transform: rotateY(360deg);
-      }
-      100% {
-        transform: rotateY(360deg);
-      }
+      0%   { transform: rotateY(0deg); }
+      16%  { transform: rotateY(360deg); }
+      100% { transform: rotateY(360deg); }
     }
 
-    /* 2. STUDIO: 맑고 쨍한 황금색 그라데이션 */
     .word-studio-wrap {
       position: relative;
       display: inline-flex;
@@ -266,7 +184,7 @@
       display: inline-block;
       font-family: var(--font-display);
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       background: linear-gradient(180deg, #FFFBEB 0%, #FDE047 35%, #EAB308 70%, #B45309 100%);
       -webkit-background-clip: text;
       background-clip: text;
@@ -276,24 +194,15 @@
     }
 
     @keyframes studioGlow {
-      0%, 25% {
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
-      }
-      32% {
-        filter: drop-shadow(0 0 12px #FDE047) drop-shadow(0 0 20px #EAB308);
-      }
-      45%, 100% {
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
-      }
+      0%, 25% { filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); }
+      32%     { filter: drop-shadow(0 0 10px #FDE047) drop-shadow(0 0 18px #EAB308); }
+      45%, 100% { filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)); }
     }
 
-    /* 3. 사각 다이아몬드 별 효과 (오빠 만족 사양 4종) */
+    /* 9-Diamond Star Cluster */
     .fx-layer {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
       z-index: 10;
     }
@@ -302,435 +211,847 @@
       position: absolute;
       opacity: 0;
       transform: scale(0) rotate(0deg);
-      filter: drop-shadow(0 0 4px #FFFFFF) drop-shadow(0 0 10px #FDE047);
+      filter: drop-shadow(0 0 4px #FFFFFF) drop-shadow(0 0 8px #FDE047);
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
       animation-iteration-count: infinite;
     }
 
-    .st-hero  { top: -28px; right: -24px; width: 44px; height: 44px; animation-name: popHero; }
-    .st-left  { top: -20px; left: -22px;  width: 32px; height: 32px; animation-name: popLeft; }
-    .st-right { bottom: -20px; right: -16px; width: 26px; height: 26px; animation-name: popRight; }
-    .st-bottom{ bottom: -18px; left: 12px;  width: 20px; height: 20px; animation-name: popBottom; }
-    /* 오빠 요청: STUDIO 중간 위쪽/아래쪽 중간 크기 & 작은 크기 별빛 */
-    .st-top-mid { top: -22px; left: 45%;   width: 24px; height: 24px; animation-name: popTopMid; }
-    .st-top-sm  { top: -14px; left: 68%;   width: 15px; height: 15px; animation-name: popTopSm; }
-    .st-bot-mid { bottom: -19px; left: 52%; width: 21px; height: 21px; animation-name: popBotMid; }
-    .st-bot-sm  { bottom: -14px; left: 33%; width: 14px; height: 14px; animation-name: popBotSm; }
-    .st-mid-spark{ top: -10px;  left: 20%;   width: 13px; height: 13px; animation-name: popMidSpark; }
+    .st-hero  { top: -20px; right: -18px; width: 34px; height: 34px; animation-name: popHero; }
+    .st-left  { top: -14px; left: -16px;  width: 24px; height: 24px; animation-name: popLeft; }
+    .st-right { bottom: -14px; right: -12px; width: 20px; height: 20px; animation-name: popRight; }
+    .st-bottom{ bottom: -12px; left: 10px;  width: 16px; height: 16px; animation-name: popBottom; }
+    .st-top-mid { top: -16px; left: 45%;   width: 18px; height: 18px; animation-name: popTopMid; }
+    .st-top-sm  { top: -10px; left: 68%;   width: 12px; height: 12px; animation-name: popTopSm; }
+    .st-bot-mid { bottom: -14px; left: 52%; width: 16px; height: 16px; animation-name: popBotMid; }
+    .st-bot-sm  { bottom: -10px; left: 33%; width: 11px; height: 11px; animation-name: popBotSm; }
+    .st-mid-spark{ top: -8px;   left: 20%;  width: 10px; height: 10px; animation-name: popMidSpark; }
 
     @keyframes popHero {
       0%, 28% { opacity: 0; transform: scale(0) rotate(0deg); }
-      33% { opacity: 1; transform: scale(1.4) rotate(45deg); }
+      33% { opacity: 1; transform: scale(1.3) rotate(45deg); }
       46% { opacity: 1; transform: scale(1.0) rotate(90deg); }
       58% { opacity: 0; transform: scale(0.2) rotate(140deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popLeft {
       0%, 29% { opacity: 0; transform: scale(0) rotate(0deg); }
-      34% { opacity: 1; transform: scale(1.3) rotate(-30deg); }
+      34% { opacity: 1; transform: scale(1.2) rotate(-30deg); }
       47% { opacity: 1; transform: scale(0.9) rotate(30deg); }
       57% { opacity: 0; transform: scale(0.2) rotate(80deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popRight {
       0%, 31% { opacity: 0; transform: scale(0) rotate(0deg); }
-      36% { opacity: 1; transform: scale(1.3) rotate(30deg); }
+      36% { opacity: 1; transform: scale(1.2) rotate(30deg); }
       48% { opacity: 1; transform: scale(0.9) rotate(70deg); }
       58% { opacity: 0; transform: scale(0.2) rotate(110deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popBottom {
       0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
-      35% { opacity: 1; transform: scale(1.2) rotate(-45deg); }
-      47% { opacity: 1; transform: scale(0.9) rotate(15deg); }
+      35% { opacity: 1; transform: scale(1.1) rotate(-45deg); }
+      47% { opacity: 1; transform: scale(0.85) rotate(15deg); }
       56% { opacity: 0; transform: scale(0.2) rotate(60deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popTopMid {
       0%, 29% { opacity: 0; transform: scale(0) rotate(0deg); }
-      34% { opacity: 1; transform: scale(1.35) rotate(35deg); }
-      47% { opacity: 1; transform: scale(1.0) rotate(75deg); }
+      34% { opacity: 1; transform: scale(1.25) rotate(35deg); }
+      47% { opacity: 1; transform: scale(0.95) rotate(75deg); }
       57% { opacity: 0; transform: scale(0.2) rotate(120deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popTopSm {
       0%, 32% { opacity: 0; transform: scale(0) rotate(0deg); }
-      37% { opacity: 1; transform: scale(1.3) rotate(-20deg); }
-      49% { opacity: 1; transform: scale(0.95) rotate(40deg); }
+      37% { opacity: 1; transform: scale(1.2) rotate(-20deg); }
+      49% { opacity: 1; transform: scale(0.9) rotate(40deg); }
       59% { opacity: 0; transform: scale(0.2) rotate(90deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popBotMid {
       0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
-      35% { opacity: 1; transform: scale(1.35) rotate(-40deg); }
-      48% { opacity: 1; transform: scale(1.0) rotate(20deg); }
+      35% { opacity: 1; transform: scale(1.25) rotate(-40deg); }
+      48% { opacity: 1; transform: scale(0.95) rotate(20deg); }
       58% { opacity: 0; transform: scale(0.2) rotate(80deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popBotSm {
       0%, 31% { opacity: 0; transform: scale(0) rotate(0deg); }
-      36% { opacity: 1; transform: scale(1.25) rotate(30deg); }
-      48% { opacity: 1; transform: scale(0.9) rotate(80deg); }
+      36% { opacity: 1; transform: scale(1.15) rotate(30deg); }
+      48% { opacity: 1; transform: scale(0.85) rotate(80deg); }
       57% { opacity: 0; transform: scale(0.2) rotate(130deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popMidSpark {
       0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
-      35% { opacity: 1; transform: scale(1.3) rotate(45deg); }
-      47% { opacity: 1; transform: scale(0.95) rotate(90deg); }
+      35% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+      47% { opacity: 1; transform: scale(0.9) rotate(90deg); }
       56% { opacity: 0; transform: scale(0.2) rotate(140deg); }
       100% { opacity: 0; transform: scale(0); }
     }
 
-    .brand-info p {
-      font-size: 13px;
-      color: var(--text-muted);
+    .brand-meta-tags {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 4px;
+      gap: 8px;
     }
 
-    .badge-chip {
-      background: rgba(238, 211, 127, 0.15);
-      border: 1px solid rgba(238, 211, 127, 0.4);
-      color: var(--gold-primary);
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 9999px;
+      color: var(--neon-emerald);
       font-weight: 700;
+      font-size: 11px;
     }
-
-    .header-ctrls {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--neon-emerald);
+      box-shadow: 0 0 8px var(--neon-emerald);
+      animation: pulse 1.6s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     .time-hud {
-      text-align: right;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
       font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
     }
+    .time-val { font-size: 13px; font-weight: 700; color: var(--gold-primary); }
 
-    .time-val { font-size: 18px; font-weight: 700; color: var(--gold-primary); }
-    .date-val { font-size: 11px; color: var(--text-dim); }
-
-    .btn-refresh {
-      background: var(--bg-card);
-      border: 1px solid var(--border-medium);
-      color: var(--text-white);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
+    /* Social Hub Buttons (Compact) */
+    .hub-links {
+      display: flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s;
+      flex-wrap: wrap;
+    }
+    .hub-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .hub-btn:hover {
+      color: var(--text-white);
+      border-color: var(--border-medium);
+      transform: translateY(-1px);
+    }
+    .hub-btn.yt:hover { border-color: #ef4444; color: #fca5a5; box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+    .hub-btn.studio:hover { border-color: #f97316; color: #fdba74; box-shadow: 0 0 10px rgba(249, 115, 22, 0.3); }
+    .hub-btn.insta:hover { border-color: #ec4899; color: #f472b6; box-shadow: 0 0 10px rgba(236, 72, 153, 0.3); }
+    .hub-btn.threads:hover { border-color: #ffffff; color: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+    .hub-btn.opal:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: 0 0 10px rgba(34, 211, 238, 0.3); }
+    .hub-btn.github:hover { border-color: var(--gold-primary); color: var(--gold-primary); box-shadow: 0 0 10px rgba(238, 211, 127, 0.3); }
+
+    .hub-icon {
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+    }
+    .hub-btn:hover .hub-icon { transform: scale(1.15); }
+    .hub-btn.yt:hover .hub-icon { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8)); }
+    .hub-btn.studio:hover .hub-icon { filter: drop-shadow(0 0 5px rgba(255, 78, 69, 0.8)); }
+    .hub-btn.insta:hover .hub-icon { filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.8)); }
+    .hub-btn.threads:hover .hub-icon { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); }
+    .hub-btn.opal:hover .hub-icon { filter: drop-shadow(0 0 5px rgba(66, 133, 244, 0.8)); }
+    .hub-btn.github:hover .hub-icon { filter: drop-shadow(0 0 5px rgba(238, 211, 127, 0.8)); }
+
+    /* Row 2: Unified Nav Bar + Collapsible Brief Toggle */
+    .header-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
 
-    .btn-refresh:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 16px var(--gold-glow);
-    }
-
-    /* Navigation Bar / Layout Switcher */
     .nav-bar {
       display: flex;
-      gap: 8px;
-      margin-bottom: 28px;
-      padding: 6px;
+      gap: 6px;
+      padding: 4px;
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      overflow-x: auto;
+      border-radius: 10px;
+      flex-grow: 1;
     }
 
     .nav-tab {
       flex: 1;
-      padding: 12px 18px;
+      padding: 7px 14px;
       background: transparent;
       border: none;
       color: var(--text-muted);
       font-family: var(--font-display);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       transition: all 0.2s ease;
       white-space: nowrap;
     }
-
     .nav-tab:hover {
       color: var(--text-white);
       background: rgba(255, 255, 255, 0.04);
     }
-
     .nav-tab.active {
       color: var(--gold-primary);
       background: var(--bg-card);
       border: 1px solid var(--border-gold);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(238, 211, 127, 0.1);
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(238, 211, 127, 0.1);
     }
 
-    /* HUD Pre-Briefing Card (Zena's 3-Line Rule) */
-    .hud-briefing-card {
-      background: linear-gradient(135deg, rgba(24, 29, 42, 0.95), rgba(12, 14, 20, 0.98));
+    /* Brief Toggle Button */
+    .brief-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      background: rgba(238, 211, 127, 0.1);
       border: 1px solid rgba(238, 211, 127, 0.35);
-      border-left: 4px solid var(--gold-primary);
-      border-radius: 14px;
-      padding: 20px 24px;
-      margin-bottom: 28px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-      position: relative;
+      border-radius: 8px;
+      color: var(--gold-primary);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brief-toggle-btn:hover {
+      background: rgba(238, 211, 127, 0.2);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px var(--gold-glow);
     }
 
-    .briefing-tag {
+    /* Refresh Button */
+    .btn-refresh {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      border-radius: 8px;
+      color: var(--text-white);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-refresh:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px var(--gold-glow);
+      color: var(--gold-primary);
+    }
+
+    /* Collapsible Mission Brief Drawer (Overlay/Dropdown) */
+    .brief-drawer {
+      display: none;
+      background: rgba(12, 14, 20, 0.98);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--gold-glow);
+      backdrop-filter: blur(16px);
+      position: absolute;
+      top: 86px;
+      left: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: fadeIn 0.2s ease;
+    }
+    .brief-drawer.open {
+      display: block;
+    }
+    .brief-drawer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px) {
+      .brief-drawer-grid { grid-template-columns: 1fr; }
+    }
+    .brief-card-col {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+    .brief-card-label {
       font-size: 11px;
+      color: var(--gold-primary);
+      font-weight: 800;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .brief-card-val {
+      font-size: 12px;
+      color: #e2e8f0;
+      line-height: 1.45;
+    }
+
+    /* ============================================================
+       WORKSPACE CONTAINER (100% REMAINING HEIGHT, NO PAGE SCROLL)
+       ============================================================ */
+    .workspace-container {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .view-content {
+      height: 100%;
+      min-height: 0;
+      display: none;
+      overflow: hidden;
+    }
+    .view-content.active {
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       TAB 2: 시네마 스튜디오 (100vh 2-COLUMN SPLIT STUDIO)
+       ============================================================ */
+    .studio-layout {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 14px;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar: Episode Shelf */
+    .studio-sidebar {
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .sidebar-title {
+      font-size: 13px;
+      font-weight: 800;
+      font-family: var(--font-display);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sidebar-badge {
+      font-size: 10px;
+      color: var(--neon-emerald);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-weight: 700;
+    }
+
+    .episode-reel-list {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-right: 4px;
+    }
+
+    .ep-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+    .ep-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 14px var(--gold-glow);
+    }
+    .ep-card.active {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 20px rgba(238, 211, 127, 0.3);
+      background: linear-gradient(180deg, rgba(238, 211, 127, 0.08) 0%, var(--bg-card) 100%);
+    }
+
+    .ep-card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      height: 108px;
+      overflow: hidden;
+      background: #000;
+    }
+    .ep-card-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .ep-card:hover .ep-card-thumb-wrap img {
+      transform: scale(1.05);
+    }
+
+    .ep-card-badge {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      backdrop-filter: blur(8px);
+    }
+    .badge-latest { background: rgba(238, 211, 127, 0.92); color: #000; }
+    .badge-archive { background: rgba(16, 185, 129, 0.88); color: #000; }
+    .badge-upcoming { background: rgba(192, 132, 252, 0.88); color: #000; }
+
+    .ep-card-duration {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    .ep-card-playing-indicator {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(244, 63, 94, 0.95);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.6);
+    }
+    .ep-card.active .ep-card-playing-indicator {
+      display: inline-flex;
+    }
+
+    .ep-card-body {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ep-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.3;
+    }
+    .ep-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .ep-card-views {
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+
+    /* Right Main Stage */
+    .studio-main-stage {
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 12px 16px;
+      overflow: hidden;
+    }
+
+    /* Stage Header & Actions Bar */
+    .stage-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .stage-left-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .active-ep-pill {
+      font-size: 13px;
       font-weight: 800;
       color: var(--gold-primary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .briefing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
+    /* Sub-view Switcher Tabs */
+    .subview-switcher {
+      display: flex;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 3px;
     }
-
-    .brief-col {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 12px 16px;
+    .subview-btn {
+      padding: 5px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
     }
-
-    .brief-label {
-      font-size: 11px;
-      color: var(--text-dim);
-      font-weight: 600;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
-
-    .brief-val {
-      font-size: 13px;
+    .subview-btn:hover {
       color: var(--text-white);
+    }
+    .subview-btn.active {
+      color: var(--gold-primary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .stage-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-cinema-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-medium);
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-cinema-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+      transform: translateY(-1px);
+    }
+    .btn-cinema-action.primary {
+      background: var(--gold-primary);
+      color: #000;
+      border-color: var(--gold-primary);
+    }
+    .btn-cinema-action.primary:hover {
+      background: #ffe39a;
+      box-shadow: 0 0 14px var(--gold-glow);
+      color: #000;
+    }
+
+    /* Stage Dynamic Content Area */
+    .stage-content-area {
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      position: relative;
+      margin-top: 10px;
+    }
+
+    /* Sub-View A: Workstation (Video + Screenplay/Specs) */
+    .subview-workstation {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .stage-video-box {
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border-radius: 10px;
+      border: 1px solid var(--border-medium);
+      overflow: hidden;
+      padding: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    #stage-main-video {
+      height: 100%;
+      max-height: calc(100vh - 195px);
+      width: auto;
+      max-width: 360px;
+      aspect-ratio: 9/16;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .stage-meta-col {
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .ep-title-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .ep-fullname {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-display);
+    }
+
+    .screenplay-panel {
+      background: var(--bg-card);
+      padding: 14px 16px;
+      border-radius: 8px;
+      border-left: 3px solid var(--neon-cyan);
+      flex-shrink: 0;
+    }
+    .screenplay-header {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--neon-cyan);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .screenplay-text {
+      font-size: 13px;
+      color: #e2e8f0;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .audio-player-panel {
+      background: var(--bg-card);
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .audio-player-panel audio {
+      flex: 1;
+      height: 34px;
+    }
+
+    .specs-panel {
+      background: var(--bg-card);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold-primary);
+      font-size: 12px;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
-    /* Views container */
-    .view-content {
+    /* Sub-View B: 4-Cut Master Stills Gallery */
+    .subview-stills {
+      height: 100%;
+      min-height: 0;
       display: none;
-    }
-
-    .view-content.active {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* 5-Step Pipeline Rail */
-    .pipeline-rail {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    @media (max-width: 1100px) {
-      .pipeline-rail { grid-template-columns: 1fr; }
-    }
-
-    .step-node {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 18px;
-      position: relative;
-      transition: all 0.2s;
-    }
-
-    .step-node.completed {
-      border-color: rgba(16, 185, 129, 0.4);
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-card) 100%);
-    }
-
-    .step-node.active-stage {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 20px var(--gold-glow);
-      background: linear-gradient(180deg, rgba(238, 211, 127, 0.1) 0%, var(--bg-card) 100%);
-    }
-
-    .step-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .step-num {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--gold-primary);
-    }
-
-    .step-badge {
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 9999px;
-    }
-
-    .badge-done { background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); }
-    .badge-active { background: rgba(238, 211, 127, 0.2); color: var(--gold-primary); animation: pulse 1.5s infinite; }
-    .badge-pending { background: rgba(100, 116, 139, 0.2); color: var(--text-dim); }
-
-    .step-title {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--text-white);
-    }
-
-    .step-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    /* Grid Layouts */
-    .grid-2col {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    @media (max-width: 1024px) {
-      .grid-2col { grid-template-columns: 1fr; }
-    }
-
-    .panel {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 24px;
-      position: relative;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border-subtle);
-      margin-bottom: 20px;
-    }
-
-    .panel-title {
-      font-family: var(--font-display);
-      font-size: 17px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 10px;
-      color: var(--text-white);
+      overflow: hidden;
     }
 
-    /* 4-Cut Master Still Cards */
-    .stills-gallery {
+    .stills-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .stills-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-display);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stills-grid-container {
+      flex: 1;
+      min-height: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .stills-gallery { grid-template-columns: repeat(2, 1fr); }
+      gap: 12px;
+      align-items: stretch;
+      overflow-y: auto;
+      padding-right: 4px;
     }
 
     .still-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
       cursor: pointer;
-      position: relative;
+      transition: all 0.25s ease;
+      height: 100%;
     }
-
     .still-card:hover {
-      transform: translateY(-4px);
       border-color: var(--border-gold);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 16px var(--gold-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px var(--gold-glow);
     }
-
     .still-thumb-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 9 / 16;
+      flex: 1;
+      min-height: 160px;
       background: #000;
       overflow: hidden;
     }
-
     .still-thumb-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.3s ease;
     }
-
     .still-card:hover .still-thumb-wrap img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
-
     .cut-time-tag {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 6px;
+      left: 6px;
       background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid var(--border-gold);
       color: var(--gold-primary);
-      font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
-      padding: 3px 8px;
+      padding: 2px 6px;
       border-radius: 4px;
+      font-family: var(--font-mono);
     }
-
     .still-meta {
-      padding: 12px;
+      padding: 10px 12px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-subtle);
+      flex-shrink: 0;
     }
-
     .cut-name {
       font-size: 13px;
       font-weight: 700;
-      color: var(--text-white);
-      margin-bottom: 4px;
+      color: #fff;
+      margin-bottom: 2px;
     }
-
     .cut-dialogue {
       font-size: 11px;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       line-clamp: 2;
@@ -738,67 +1059,90 @@
       overflow: hidden;
     }
 
-    /* Player Panel & Audio Station */
-    .player-wrap {
+    /* ============================================================
+       TAB 1: 실시간 관제탑 (INTERNAL SCROLL, NO WINDOW SCROLL)
+       ============================================================ */
+    .control-tab-scroll {
+      height: 100%;
+      min-height: 0;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
+      padding-right: 6px;
     }
 
-    .audio-player-box {
+    .pipeline-rail {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .step-node {
       background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: all 0.2s;
+    }
+    .step-node.completed {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-card) 100%);
+    }
+    .step-node.active-stage {
+      border-color: var(--border-gold);
+      box-shadow: 0 0 16px var(--gold-glow);
+      background: linear-gradient(180deg, rgba(238, 211, 127, 0.1) 0%, var(--bg-card) 100%);
+    }
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold-primary);
+    }
+    .badge-done { background: rgba(16, 185, 129, 0.2); color: var(--neon-emerald); padding: 1px 6px; border-radius: 9999px; font-size: 10px; font-weight: 700; }
+    .badge-active { background: rgba(238, 211, 127, 0.25); color: var(--gold-primary); padding: 1px 6px; border-radius: 9999px; font-size: 10px; font-weight: 700; }
+    .step-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .step-desc { font-size: 11px; color: var(--text-muted); line-height: 1.35; }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .panel {
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 16px;
     }
-
-    .audio-header {
+    .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
-      font-size: 13px;
+    }
+    .panel-title {
+      font-size: 14px;
       font-weight: 700;
-      color: var(--neon-purple);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    audio {
-      width: 100%;
-      height: 38px;
-      border-radius: 8px;
-    }
-
-    /* Branding Showcase Layout */
-    .branding-showcase-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-    }
-
-    @media (max-width: 900px) {
-      .branding-showcase-grid { grid-template-columns: 1fr; }
-    }
-
-    .banner-preview-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .banner-img-container {
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-medium);
-      margin-bottom: 12px;
-      background: #000;
-    }
-
-    .banner-img-container img {
-      width: 100%;
-      display: block;
+    /* Other views internal scroll */
+    .tab-scroll-container {
+      height: 100%;
+      min-height: 0;
+      overflow-y: auto;
+      padding-right: 6px;
     }
 
     /* Modal for Image Preview */
@@ -806,43 +1150,53 @@
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.9);
       backdrop-filter: blur(16px);
       z-index: 9999;
       justify-content: center;
       align-items: center;
       padding: 24px;
     }
-
     .modal-overlay.active {
       display: flex;
       animation: fadeIn 0.2s ease;
     }
-
     .modal-content {
       max-width: 900px;
       max-height: 90vh;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-gold);
-      border-radius: 16px;
-      padding: 24px;
+      background: transparent;
+      border: none;
+      padding: 10px;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: none;
     }
-
     .modal-img {
-      max-height: 70vh;
+      max-height: 75vh;
       max-width: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
       object-fit: contain;
+      filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 24px var(--gold-glow));
     }
-
+    #modal-caption {
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #f1f5f9;
+      text-align: center;
+      background: rgba(12, 14, 20, 0.85);
+      padding: 6px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(238, 211, 127, 0.3);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
     .modal-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 14px;
+      right: 14px;
       background: rgba(255, 255, 255, 0.1);
       border: none;
       color: #fff;
@@ -855,284 +1209,9 @@
       align-items: center;
       justify-content: center;
     }
-
     .modal-close:hover {
       background: var(--neon-raspberry);
     }
-
-    /* Fleet Cards */
-    .fleet-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .fleet-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 18px;
-      transition: all 0.2s;
-    }
-
-    .fleet-card:hover {
-      border-color: var(--border-medium);
-      transform: translateY(-2px);
-    }
-
-    .fleet-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-
-    .fleet-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-
-    .fleet-name { font-size: 14px; font-weight: 700; color: var(--text-white); }
-    .fleet-role { font-size: 11px; color: var(--text-dim); }
-
-    /* Episode Reel Shelf & Thumbnail Cards */
-    .episode-shelf {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .ep-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ep-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-gold);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--gold-glow);
-    }
-
-    .ep-card.active {
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 25px rgba(238, 211, 127, 0.35);
-      background: linear-gradient(180deg, rgba(238, 211, 127, 0.08) 0%, var(--bg-surface) 100%);
-    }
-
-    .ep-card-thumb-wrap {
-      position: relative;
-      width: 100%;
-      height: 160px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .ep-card-thumb-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .ep-card:hover .ep-card-thumb-wrap img {
-      transform: scale(1.06);
-    }
-
-    .ep-card-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 6px;
-      backdrop-filter: blur(8px);
-      letter-spacing: 0.5px;
-    }
-
-    .badge-latest { background: rgba(238, 211, 127, 0.9); color: #000; }
-    .badge-archive { background: rgba(16, 185, 129, 0.85); color: #000; }
-    .badge-upcoming { background: rgba(192, 132, 252, 0.85); color: #000; }
-
-    .ep-card-duration {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 11px;
-      font-family: var(--font-mono);
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .ep-card-playing-indicator {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(244, 63, 94, 0.9);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 9999px;
-      display: none;
-      align-items: center;
-      gap: 5px;
-      box-shadow: 0 0 12px rgba(244, 63, 94, 0.6);
-    }
-
-    .ep-card.active .ep-card-playing-indicator {
-      display: inline-flex;
-    }
-
-    .ep-card-body {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex-grow: 1;
-    }
-
-    .ep-card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-white);
-      line-height: 1.3;
-    }
-
-    .ep-card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: auto;
-      padding-top: 8px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .ep-card-views {
-      font-weight: 700;
-      color: var(--gold-primary);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* Action Buttons & Toolbar */
-    .cinema-action-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 14px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    .action-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-cinema-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-white);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-medium);
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-cinema-action:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--gold-primary);
-      color: var(--gold-primary);
-      transform: translateY(-2px);
-    }
-
-    .btn-cinema-action.primary {
-      background: var(--gold-primary);
-      color: #000;
-      border-color: var(--gold-primary);
-    }
-
-    .btn-cinema-action.primary:hover {
-      background: #ffe39a;
-      box-shadow: 0 0 15px var(--gold-glow);
-      color: #000;
-    }
-
-    /* Toast Notification */
-    .toast-container {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      pointer-events: none;
-    }
-
-    .toast-msg {
-      background: rgba(12, 14, 20, 0.95);
-      border: 1px solid var(--gold-primary);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--gold-glow);
-      backdrop-filter: blur(12px);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1), toastOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) 2.7s forwards;
-      pointer-events: auto;
-    }
-
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateY(20px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @keyframes toastOut {
-      from { opacity: 1; transform: translateY(0) scale(1); }
-      to { opacity: 0; transform: translateY(-10px) scale(0.95); }
-    }
-
-    /* Modal Navigation Buttons */
     .modal-nav-btn {
       position: absolute;
       top: 50%;
@@ -1140,116 +1219,139 @@
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #fff;
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 18px;
       cursor: pointer;
       transition: all 0.2s;
     }
-
     .modal-nav-btn:hover {
       background: var(--gold-primary);
       color: #000;
-      border-color: var(--gold-primary);
+      box-shadow: 0 0 14px var(--gold-glow);
     }
+    .modal-nav-prev { left: 14px; }
+    .modal-nav-next { right: 14px; }
 
-    .modal-nav-prev { left: -60px; }
-    .modal-nav-next { right: -60px; }
-
-    @media (max-width: 768px) {
-      .modal-nav-prev { left: 10px; }
-      .modal-nav-next { right: 10px; }
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
     }
-
-    /* Footer */
-    footer {
-      margin-top: 50px;
-      text-align: center;
+    .toast-msg {
+      background: rgba(12, 14, 20, 0.95);
+      border: 1px solid var(--gold-primary);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
       font-size: 12px;
-      color: var(--text-dim);
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 24px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 14px var(--gold-glow);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1), toastOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) 2.7s forwards;
+      pointer-events: auto;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes toastOut {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to   { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    }
+
+    /* Fleet & Vault & Branding Layouts */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .fleet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px;
+      transition: all 0.2s;
+    }
+    .fleet-card:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-2px);
+    }
+    .fleet-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .fleet-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .fleet-name { font-size: 13px; font-weight: 700; color: var(--text-white); }
+    .fleet-role { font-size: 11px; color: var(--text-dim); }
+
+    .branding-showcase-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+    }
+    .banner-preview-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .banner-img-container {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-medium);
+      margin-bottom: 10px;
+      background: #000;
+    }
+    .banner-img-container img {
+      width: 100%;
+      display: block;
     }
   </style>
 </head>
 <body>
 
   <div class="wrapper">
-    <!-- Top Hub Bar: External Links to Socials & Tools -->
-    <div class="top-hub-bar">
-      <div class="hub-left">
-        <span class="live-badge"><span class="live-dot"></span>LIVE CONTROL ROOM</span>
-        <span>KAIRA 1인 기업 완전 자율화 관제 시스템</span>
-      </div>
-      <div class="hub-links">
-        <a href="https://www.youtube.com/@hookverse_studio" target="_blank" rel="noopener noreferrer" class="hub-btn yt" id="link-yt-channel">
-          <svg class="hub-icon yt-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000"/>
-            <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/>
-          </svg>
-          유튜브 채널
-        </a>
-        <a href="https://studio.youtube.com" target="_blank" rel="noopener noreferrer" class="hub-btn studio" id="link-yt-studio">
-          <svg class="hub-icon studio-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.25c-.53 0-1.03.28-1.3.74l-.6 1.04a7.92 7.92 0 0 0-1.74.72l-1.14-.38a1.5 1.5 0 0 0-1.75.76l-1.5 2.6a1.5 1.5 0 0 0 .45 1.86l.96.72a7.88 7.88 0 0 0 0 1.96l-.96.72a1.5 1.5 0 0 0-.45 1.86l1.5 2.6c.38.65 1.18.96 1.75.76l1.14-.38c.55.3 1.14.54 1.74.72l.6 1.04c.27.46.77.74 1.3.74h3c.53 0 1.03-.28 1.3-.74l.6-1.04c.6-.18 1.19-.42 1.74-.72l1.14.38c.57.2 1.37-.11 1.75-.76l1.5-2.6a1.5 1.5 0 0 0-.45-1.86l-.96-.72a7.88 7.88 0 0 0 0-1.96l.96-.72a1.5 1.5 0 0 0 .45-1.86l-1.5-2.6a1.5 1.5 0 0 0-1.75-.76l-1.14.38a7.92 7.92 0 0 0-1.74-.72l-.6-1.04a1.5 1.5 0 0 0-1.3-.74h-3z" fill="#FF4E45"/>
-            <path d="M10.25 9.25l4.5 2.75-4.5 2.75V9.25z" fill="#FFFFFF"/>
-          </svg>
-          유튜브 스튜디오
-        </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="hub-btn insta" id="link-insta">
-          <svg class="hub-icon insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="instaGrad" cx="30%" cy="105%" r="105%">
-                <stop offset="0%" stop-color="#FFD600"/>
-                <stop offset="20%" stop-color="#FF0100"/>
-                <stop offset="50%" stop-color="#D800B9"/>
-                <stop offset="100%" stop-color="#7000FF"/>
-              </radialGradient>
-            </defs>
-            <rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#instaGrad)"/>
-            <circle cx="12" cy="12" r="4.2" stroke="#FFFFFF" stroke-width="1.8"/>
-            <circle cx="17.2" cy="6.8" r="1.1" fill="#FFFFFF"/>
-          </svg>
-          인스타그램
-        </a>
-        <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer" class="hub-btn threads" id="link-threads">
-          <svg class="hub-icon threads-icon" viewBox="0 0 16 16" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/>
-          </svg>
-          쓰레드
-        </a>
-        <a href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener noreferrer" class="hub-btn opal" id="link-flow">
-          <svg class="hub-icon flow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="flowStarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#22d3ee"/>
-                <stop offset="50%" stop-color="#818cf8"/>
-                <stop offset="100%" stop-color="#c084fc"/>
-              </linearGradient>
-            </defs>
-            <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z" fill="url(#flowStarGrad)"/>
-            <path d="M19.5 2.5C19.5 4.157 18.157 5.5 16.5 5.5C18.157 5.5 19.5 6.843 19.5 8.5C19.5 6.843 20.843 5.5 22.5 5.5C20.843 5.5 19.5 4.157 19.5 2.5Z" fill="#22d3ee"/>
-          </svg>
-          Google Flow
-        </a>
-        <a href="https://github.com/suzpia73/Hookverse_Studio_By_ZENA" target="_blank" rel="noopener noreferrer" class="hub-btn github" id="link-github">
-          <svg class="hub-icon github-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-          GitHub 본진
-        </a>
-      </div>
-    </div>
-
-    <!-- Header Section -->
-    <header>
-      <div class="brand-hero">
-        <img src="../assets/HOOKVERSE_공식_3대_브랜딩_완제품/03_공식원형앰블럼_636x636_투명HQ.png" alt="Hookverse Studio Emblem" class="brand-emblem" id="brand-emblem-img" onclick="openModal('../assets/HOOKVERSE_공식_3대_브랜딩_완제품/03_공식원형앰블럼_636x636_투명HQ.png', '공식 원형 앰블럼 (636x636 투명 HQ)')">
-        <div class="brand-info">
+    
+    <!-- ============================================================
+         TOP MASTER COMMAND HEADER (COMPACT 2-TIER)
+         ============================================================ -->
+    <header class="master-header">
+      
+      <!-- Row 1: Brand Logo + Status + Social Shortcut Links -->
+      <div class="header-top-row">
+        
+        <!-- Left: Brand Emblem + HOOKVERSE STUDIO + Live & Clock -->
+        <div class="brand-group">
+          <img src="../assets/images/hookverse_studio_logo_transparent.png" alt="Hookverse Emblem" class="brand-emblem" id="brand-emblem-img" onclick="openModal('../assets/images/hookverse_studio_logo_transparent.png', '공식 원형 앰블럼 (안팎 100% 투명 누끼 마스터)')">
+          
           <h1 class="brand-title-anim" aria-label="HOOKVERSE STUDIO">
             <span class="word-hookverse">
               <span class="char-spin c-h">H</span>
@@ -1266,416 +1368,462 @@
               <span class="word-studio">STUDIO</span>
 
               <div class="fx-layer">
-                <!-- 1. 메인 외곽 4각 별 4개 -->
                 <svg class="dia-star st-hero" viewBox="0 0 32 32">
                   <polygon points="16,0 18,12 32,16 18,20 16,32 14,20 0,16 14,12" fill="#FFFFFF"/>
                   <polygon points="16,4 18.5,13 28,16 18.5,19 16,28 13.5,19 4,16 13.5,13" fill="#FDE047"/>
                   <circle cx="16" cy="16" r="3.5" fill="#FFFFFF"/>
                 </svg>
-
                 <svg class="dia-star st-left" viewBox="0 0 24 24">
                   <polygon points="12,0 14.5,9.5 24,12 14.5,14.5 12,24 9.5,14.5 0,12 9.5,9.5" fill="#FFFFFF"/>
                   <polygon points="12,3.5 13.8,10.2 20.5,12 13.8,13.8 12,20.5 10.2,13.8 3.5,12 10.2,10.2" fill="#FACC15"/>
                 </svg>
-
                 <svg class="dia-star st-right" viewBox="0 0 24 24">
                   <polygon points="12,0 14,9.5 24,12 14,14.5 12,24 10,14.5 0,12 10,9.5" fill="#FFFFFF"/>
                   <polygon points="12,4.5 13.5,10.2 19.5,12 13.5,13.8 12,19.5 10.5,13.8 4.5,12 10.5,10.2" fill="#FEF08A"/>
                 </svg>
-
                 <svg class="dia-star st-bottom" viewBox="0 0 20 20">
                   <polygon points="10,0 12.2,7.8 20,10 12.2,12.2 10,20 7.8,12.2 0,10 7.8,7.8" fill="#FFFFFF"/>
                   <circle cx="10" cy="10" r="2.2" fill="#FDE047"/>
                 </svg>
-
-                <!-- 2. 오빠 요청: STUDIO 중간 위쪽 & 아래쪽 중간/작은 크기 별빛 -->
-                <!-- [중간 위쪽] 22px 중간 크기 다이아몬드 별 -->
                 <svg class="dia-star st-top-mid" viewBox="0 0 24 24">
                   <polygon points="12,0 14.5,9.5 24,12 14.5,14.5 12,24 9.5,14.5 0,12 9.5,9.5" fill="#FFFFFF"/>
                   <polygon points="12,3.5 13.8,10.2 20.5,12 13.8,13.8 12,20.5 10.2,13.8 3.5,12 10.2,10.2" fill="#FDE047"/>
                   <circle cx="12" cy="12" r="2.8" fill="#FFFFFF"/>
                 </svg>
-
-                <!-- [중간 위쪽] 13px 작은 크기 다이아몬드 별 -->
                 <svg class="dia-star st-top-sm" viewBox="0 0 16 16">
                   <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
                   <circle cx="8" cy="8" r="1.8" fill="#FDE047"/>
                 </svg>
-
-                <!-- [중간 아래쪽] 19px 중간 크기 다이아몬드 별 -->
                 <svg class="dia-star st-bot-mid" viewBox="0 0 20 20">
                   <polygon points="10,0 12.2,7.8 20,10 12.2,12.2 10,20 7.8,12.2 0,10 7.8,7.8" fill="#FFFFFF"/>
                   <polygon points="10,3 11.8,8.2 17,10 11.8,11.8 10,17 8.2,11.8 3,10 8.2,8.2" fill="#FACC15"/>
                   <circle cx="10" cy="10" r="2.5" fill="#FFFFFF"/>
                 </svg>
-
-                <!-- [중간 아래쪽] 12px 작은 크기 다이아몬드 별 -->
                 <svg class="dia-star st-bot-sm" viewBox="0 0 16 16">
                   <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
                   <circle cx="8" cy="8" r="1.8" fill="#FEF08A"/>
                 </svg>
-
-                <!-- [스파클 포인트] 11px 작은 젬 -->
                 <svg class="dia-star st-mid-spark" viewBox="0 0 16 16">
                   <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
-                  <circle cx="8" cy="8" r="1.6" fill="#FFFFFF"/>
+                  <circle cx="8" cy="8" r="1.5" fill="#FFFFFF"/>
                 </svg>
               </div>
             </span>
           </h1>
-          <p>
-            <span class="badge-chip">@hookverse_studio</span>
-            <span>최고사령관 오빠 & 부회장 제나 1인 총괄 사령부</span>
-            <span>· Control Room V3</span>
-          </p>
+
+          <div class="brand-meta-tags">
+            <span class="live-badge"><span class="live-dot"></span> LIVE 100vh</span>
+            <div class="time-hud">
+              <span class="time-val" id="hud-clock">--:--:--</span>
+              <span id="hud-date" style="display: none;"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 6 Official Brand SVG Shortcuts -->
+        <div class="hub-links">
+          <a href="https://www.youtube.com/@hookverse_studio" target="_blank" rel="noopener noreferrer" class="hub-btn yt" id="link-yt">
+            <svg class="hub-icon yt-icon" viewBox="0 0 24 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            유튜브 채널
+          </a>
+          <a href="https://studio.youtube.com/channel/UC-official" target="_blank" rel="noopener noreferrer" class="hub-btn studio" id="link-studio">
+            <svg class="hub-icon studio-icon" viewBox="0 0 24 24" fill="#FF4E45" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L3.5 6.9v9.8L12 21.6l8.5-4.9V6.9L12 2zm-1.8 13.5v-7l6 3.5-6 3.5z"/>
+            </svg>
+            스튜디오
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="hub-btn insta" id="link-insta">
+            <svg class="hub-icon insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="instaGrad" cx="30%" cy="105%" r="105%">
+                  <stop offset="0%" stop-color="#FFD600"/>
+                  <stop offset="20%" stop-color="#FF0100"/>
+                  <stop offset="50%" stop-color="#D800B9"/>
+                  <stop offset="100%" stop-color="#7000FF"/>
+                </radialGradient>
+              </defs>
+              <rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#instaGrad)"/>
+              <circle cx="12" cy="12" r="4.2" stroke="#FFFFFF" stroke-width="1.8"/>
+              <circle cx="17.2" cy="6.8" r="1.1" fill="#FFFFFF"/>
+            </svg>
+            인스타그램
+          </a>
+          <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer" class="hub-btn threads" id="link-threads">
+            <svg class="hub-icon threads-icon" viewBox="0 0 16 16" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/>
+            </svg>
+            쓰레드
+          </a>
+          <a href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener noreferrer" class="hub-btn opal" id="link-flow">
+            <svg class="hub-icon flow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="flowStarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22d3ee"/>
+                  <stop offset="50%" stop-color="#818cf8"/>
+                  <stop offset="100%" stop-color="#c084fc"/>
+                </linearGradient>
+              </defs>
+              <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z" fill="url(#flowStarGrad)"/>
+              <path d="M19.5 2.5C19.5 4.157 18.157 5.5 16.5 5.5C18.157 5.5 19.5 6.843 19.5 8.5C19.5 6.843 20.843 5.5 22.5 5.5C20.843 5.5 19.5 4.157 19.5 2.5Z" fill="#22d3ee"/>
+            </svg>
+            Google Flow
+          </a>
+          <a href="https://github.com/suzpia73/Hookverse_Studio_By_ZENA" target="_blank" rel="noopener noreferrer" class="hub-btn github" id="link-github">
+            <svg class="hub-icon github-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            GitHub 본진
+          </a>
         </div>
       </div>
-      <div class="header-ctrls">
-        <div class="time-hud">
-          <div class="time-val" id="hud-clock">12:00:00</div>
-          <div class="date-val" id="hud-date">2026-09-27 (일)</div>
+
+      <!-- Row 2: Navigation Tabs + Collapsible Brief Toggle -->
+      <div class="header-nav-row">
+        <nav class="nav-bar" id="main-nav-tabs">
+          <button class="nav-tab active" onclick="switchTab('tab-control')" id="tab-btn-control">
+            <span>🚦</span> 실시간 관제탑
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-cinema')" id="tab-btn-cinema">
+            <span>🎬</span> 시네마 스튜디오 (누적 아카이브)
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-branding')" id="tab-btn-branding">
+            <span>👑</span> 3대 공식 브랜딩 자산
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-fleet')" id="tab-btn-fleet">
+            <span>🤖</span> 10대 에이전트 함대
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-vault')" id="tab-btn-vault">
+            <span>🔒</span> 제나 영구 기억 금고
+          </button>
+        </nav>
+
+        <div class="header-nav-ctrls" style="display: flex; gap: 8px; align-items: center; flex-shrink: 0;">
+          <button class="btn-refresh" onclick="location.reload()" title="관제탑 실시간 새로고침">
+            <span>🔄</span> 새로고침
+          </button>
+          <button class="brief-toggle-btn" id="btn-toggle-brief" onclick="toggleMissionBrief()">
+            <span>📋</span> 미션 브리프 [보기/접기]
+          </button>
         </div>
-        <button class="btn-refresh" onclick="location.reload()" id="btn-manual-refresh">
-          <span>🔄</span> 새로고침
-        </button>
+      </div>
+
+      <!-- Collapsible Mission Brief Drawer (Dropdown) -->
+      <div class="brief-drawer" id="mission-brief-drawer">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <div style="font-size: 13px; font-weight: 800; color: var(--gold-primary); display: flex; align-items: center; gap: 6px;">
+            <span>⚡</span> ZENA 3-LINE HUD MISSION BRIEFING
+          </div>
+          <button onclick="toggleMissionBrief()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">✕</button>
+        </div>
+        <div class="brief-drawer-grid">
+          <div class="brief-card-col">
+            <div class="brief-card-label">① 작업 목적</div>
+            <div class="brief-card-val"><strong>[STEP 05 가동]</strong> IMF 2화 유튜브 발사(120회 달성) 완료 ➡️ 100vh 무스크롤 아카이브 연동 & 전사 마스터 체크리스트 클린 리셋 ➡️ EP3 6대 노드 설계 착수</div>
+          </div>
+          <div class="brief-card-col">
+            <div class="brief-card-label">② 투입 재료</div>
+            <div class="brief-card-val">EP.02 마스터(10.48MB) + EP.01 마스터(25.66MB) 0 Byte 스트리밍 연동 + Google Opal 6대 노드 V2.0 + 실시간 120회 분석 지표</div>
+          </div>
+          <div class="brief-card-col">
+            <div class="brief-card-label">③ 완료 후 산출물</div>
+            <div class="brief-card-val">관제탑 100vh 스튜디오 무스크롤 100% 동기화 ➡️ 1997 중앙 금융 본점 지하 비밀 외환 금고 잠입 4컷 대본 & 감정 오디오 설계</div>
+          </div>
+        </div>
       </div>
     </header>
 
-    <!-- Zena's Realtime 3-Line HUD Pre-Briefing Card -->
-    <div class="hud-briefing-card" id="hud-pre-briefing">
-      <div class="briefing-tag">
-        <span>⚡</span> 제나 헌법 제33조 실시간 3줄 사전 브리핑 HUD (현재 준비 공정)
-      </div>
-      <div class="briefing-grid">
-        <div class="brief-col">
-          <div class="brief-label">① 작업 목적</div>
-          <div class="brief-val"><strong>[STEP 05 가동]</strong> IMF 2화 유튜브 발사(일부공개 120회 달성) 완료 ➡️ 관제탑 최신순(EP2/EP1) 누적 아카이브 연동 & 전사 마스터 체크리스트 클린 리셋 ➡️ EP3 6대 노드 설계 착수</div>
-        </div>
-        <div class="brief-col">
-          <div class="brief-label">② 투입 재료</div>
-          <div class="brief-val">EP.02 마스터(10.48MB) + EP.01 마스터(25.66MB) 0 Byte 스트리밍 연동 + Google Opal 6대 노드 V2.0 + 실시간 120회 분석 지표</div>
-        </div>
-        <div class="brief-col">
-          <div class="brief-label">③ 완료 후 산출물</div>
-          <div class="brief-val">관제탑 최신순 스트리밍 아카이브 100% 동기화 ➡️ 1997 중앙 금융 본점 지하 비밀 외환 금고 잠입 4컷 대본 & 감정 오디오 설계</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Navigation Bar / Layout Tabs -->
-    <nav class="nav-bar" id="main-nav-tabs">
-      <button class="nav-tab active" onclick="switchTab('tab-control')" id="tab-btn-control">
-        <span>🚦</span> 실시간 관제탑
-      </button>
-      <button class="nav-tab" onclick="switchTab('tab-cinema')" id="tab-btn-cinema">
-        <span>🎬</span> 시네마 스튜디오 (누적 아카이브)
-      </button>
-      <button class="nav-tab" onclick="switchTab('tab-branding')" id="tab-btn-branding">
-        <span>👑</span> 3대 공식 브랜딩 자산
-      </button>
-      <button class="nav-tab" onclick="switchTab('tab-fleet')" id="tab-btn-fleet">
-        <span>🤖</span> 10대 에이전트 함대
-      </button>
-      <button class="nav-tab" onclick="switchTab('tab-vault')" id="tab-btn-vault">
-        <span>🔒</span> 제나 영구 기억 금고
-      </button>
-    </nav>
-
-    <!-- VIEW 1: 실시간 관제탑 (Mission Control) -->
-    <div id="tab-control" class="view-content active">
-      <!-- 5-Step Pipeline Rail -->
-      <div class="pipeline-rail">
-        <div class="step-node completed">
-          <div class="step-header">
-            <span class="step-num">STEP 01</span>
-            <span class="step-badge badge-done">완료 100% ✅</span>
-          </div>
-          <div class="step-title">스틸컷 & 필름그레인 검증</div>
-          <div class="step-desc">Cut 01~04 고화질 실사 화각 일관성 및 35mm 영화 필름 그레인(3~5%) 검증 완료</div>
-        </div>
-
-        <div class="step-node completed">
-          <div class="step-header">
-            <span class="step-num">STEP 02</span>
-            <span class="step-badge badge-done">완료 100% ✅</span>
-          </div>
-          <div class="step-title">IMF 2화 9대 헌법 정밀 리렌더링</div>
-          <div class="step-desc">49.35s 카이라 1인칭 생체 나레이션 + 1~2줄 교보손글씨 자막 + 1:1 정원 앰블럼 고정 완결 (8.94MB)</div>
-        </div>
-
-        <div class="step-node completed">
-          <div class="step-header">
-            <span class="step-num">STEP 03</span>
-            <span class="step-badge badge-done">완료 100% ✅</span>
-          </div>
-          <div class="step-title">유튜브 스튜디오 99% 완결</div>
-          <div class="step-desc">제목 '수화기 너머의 한마디...', 3층 설명란, 6대 정예 태그, AI 라벨링 세팅 완료</div>
-        </div>
-
-        <div class="step-node completed">
-          <div class="step-header">
-            <span class="step-num">STEP 04</span>
-            <span class="step-badge badge-done">발사 완료 ✅</span>
-          </div>
-          <div class="step-title">오빠 1% 최종 발사</div>
-          <div class="step-desc">유튜브 채널 @hookverse_studio 일부 공개 발사 완료 (실시간 120회 달성, +176% 성장! 🔥)</div>
-        </div>
-
-        <div class="step-node active-stage">
-          <div class="step-header">
-            <span class="step-num">STEP 05</span>
-            <span class="step-badge badge-active">진행 중 ⚡</span>
-          </div>
-          <div class="step-title">마스터 체크리스트 리셋 & EP3 착수</div>
-          <div class="step-desc">누적 체크리스트 [한 것 vs 안 한 것] 전수 정돈 ➡️ Google Opal 6대 노드 기반 EP3 4컷 마스터 설계 착수</div>
-        </div>
-      </div>
-
-      <!-- Live KPI Grid -->
-      <div class="grid-2col">
-        <div class="panel">
-          <div class="panel-header">
-            <div class="panel-title"><span>📊</span> KAIRA 1인 기업 핵심 지표 (KPIs)</div>
-            <span style="font-size: 12px; color: var(--gold-primary);">자율 공장 가동률 100%</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-            <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border-left: 3px solid var(--gold-primary);">
-              <div style="font-size: 11px; color: var(--text-dim);">시청 비율 (몰입도)</div>
-              <div style="font-size: 26px; font-weight: 800; color: #fff; font-family: var(--font-display);">85.7%</div>
-              <div style="font-size: 11px; color: var(--neon-emerald);">기준치 60% 압도 초격차</div>
-            </div>
-            <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border-left: 3px solid var(--neon-purple);">
-              <div style="font-size: 11px; color: var(--text-dim);">평균 시청 시간 (루프)</div>
-              <div style="font-size: 26px; font-weight: 800; color: #fff; font-family: var(--font-display);">636%</div>
-              <div style="font-size: 11px; color: var(--neon-purple);">25초 영상 6.3회 반복 시청</div>
-            </div>
-            <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border-left: 3px solid var(--neon-cyan);">
-              <div style="font-size: 11px; color: var(--text-dim);">바이럴 공유 유입률</div>
-              <div style="font-size: 26px; font-weight: 800; color: #fff; font-family: var(--font-display);">65.0%</div>
-              <div style="font-size: 11px; color: var(--neon-cyan);">카카오톡 & 메시지 직통</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-header">
-            <div class="panel-title"><span>🔊</span> 공식 마스터 음성 스테이션</div>
-            <span style="font-size: 11px; color: var(--text-muted);">45.46s 마스터</span>
-          </div>
-          <div class="audio-player-box">
-            <div class="audio-header">
-              <span>카이라(KAIRA) 공식 브랜드 나레이션 보이스</span>
-              <span class="badge-chip">공식 시네마 보이스</span>
-            </div>
-            <audio controls preload="metadata" id="main-audio-player">
-              <source src="../assets/audio/IMF2화_추격과비밀통화_4컷_마스터음성.mp3" type="audio/mpeg">
-              오디오 재생을 지원하지 않는 브라우저입니다.
-            </audio>
-            <div style="margin-top: 10px; font-size: 11px; color: var(--text-muted); line-height: 1.4;">
-              • 자정 카운트다운 ➡️ 빗속 질주 ➡️ 공중전화 진입 ➡️ 충격 반전 결말 복원!
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live Cinema Preview Spotlight (EP.02 Quick Hub) -->
-      <div class="panel" style="margin-top: 24px; border-color: var(--border-gold); background: linear-gradient(180deg, rgba(238, 211, 127, 0.04) 0%, var(--bg-surface) 100%);">
-        <div class="panel-header">
-          <div class="panel-title">
-            <span>🎬</span> 최신작 숏폼 스포트라이트 (EP.02 추격과 비밀 통화 · 120회 시청)
-          </div>
-          <button class="btn-refresh" onclick="switchTab('tab-cinema')" style="cursor: pointer; background: var(--gold-primary); color: #000; font-weight: 800; font-size: 12px; padding: 6px 14px; border-radius: 6px;">
-            <span>🎞️</span> 시네마 스튜디오 전체 릴 열기 ➔
-          </button>
-        </div>
-        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 20px; align-items: center;">
-          <div style="background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--border-medium);">
-            <video controls preload="metadata" style="width: 100%; height: auto; display: block;" poster="../assets/images/review/snap_master_c01_02s.jpg">
-              <source src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--text-muted);">
-            <div style="font-size: 16px; font-weight: 700; color: #fff;">
-              "우산도 없이 쏟아지는 폭우 속... 저 골목 끝 공중전화 부스로 몸을 던졌어!"
-            </div>
-            <p>
-              오빠께서 지시하신 <strong>모션 배지 · 1:1 정원 투명 앰블럼 · 1~2줄 칼싱크 자막 · 카이라 생체 보이스</strong> 4대 시네마틱 헌법이 100% 무결점으로 결속된 마스터본입니다.
-            </p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;">
-              <button class="btn-cinema-action" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep02');">
-                <span>🔍</span> EP.02 4컷 스틸 & 대본 보기
-              </button>
-              <button class="btn-cinema-action" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep01');">
-                <span>⏮️</span> EP.01 국가부도의 날 전야 (이전 작품 보기)
-              </button>
-              <a href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
-                <span>⬇️</span> 0 Byte 다운로드 (10.48 MB)
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIEW 2: 시네마 스튜디오 (누적 아카이브 & 동적 스위칭) -->
-    <div id="tab-cinema" class="view-content">
+    <!-- ============================================================
+         WORKSPACE CONTAINER (FLEX: 1, 100% HEIGHT, ZERO WINDOW SCROLL)
+         ============================================================ -->
+    <main class="workspace-container">
       
-      <!-- Section Header -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
-        <div>
-          <h2 style="font-size: 20px; font-weight: 800; font-family: var(--font-display); color: #fff; display: flex; align-items: center; gap: 8px;">
-            <span>🎞️</span> 에피소드 마스터 아카이브 릴 (Episode Master Reel)
-          </h2>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
-            썸네일을 클릭하면 대시보드 메인 레이아웃에 해당 에피소드의 영상 · 4컷 스틸 · 대본이 0 Byte로 즉각 전환됩니다.
-          </p>
-        </div>
-        <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--neon-emerald); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 5px 12px; border-radius: 9999px;">
-          <span>⚡</span> 0 Byte 무손실 로컬 스트리밍 연결됨
-        </div>
-      </div>
-
-      <!-- Episode Thumbnail Reel Shelf -->
-      <div class="episode-shelf" id="ep-shelf">
-        <!-- Card 1: EP.02 (Latest) -->
-        <div class="ep-card active" id="card-ep02" onclick="selectEpisodeArchive('ep02')">
-          <div class="ep-card-thumb-wrap">
-            <span class="ep-card-badge badge-latest">🔥 최신작 · 120회</span>
-            <span class="ep-card-duration">00:49</span>
-            <span class="ep-card-playing-indicator"><span>🔴</span> PLAYING</span>
-            <img src="../assets/images/review/snap_master_c01_02s.jpg" alt="EP.02 썸네일">
-          </div>
-          <div class="ep-card-body">
-            <div class="ep-card-title">EP.02 추격과 비밀 통화</div>
-            <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
-              자정 카운트다운 ➡️ 빗속 질주 ➡️ 공중전화 충격 반전
-            </div>
-            <div class="ep-card-meta">
-              <span class="ep-card-views"><span>👁️</span> 120회 시청 (+176%)</span>
-              <span style="color: var(--neon-emerald); font-weight: 700;">일부 공개 완료 ✅</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: EP.01 (Pilot) -->
-        <div class="ep-card" id="card-ep01" onclick="selectEpisodeArchive('ep01')">
-          <div class="ep-card-thumb-wrap">
-            <span class="ep-card-badge badge-archive">🎬 파일럿 · 68회</span>
-            <span class="ep-card-duration">00:24</span>
-            <span class="ep-card-playing-indicator"><span>🔴</span> PLAYING</span>
-            <img src="../assets/images/IMF1화/neura_cut3_thumbnail_1789109819463.jpg" alt="EP.01 썸네일">
-          </div>
-          <div class="ep-card-body">
-            <div class="ep-card-title">EP.01 국가부도의 날 전야</div>
-            <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
-              1997년 11월 20일 자정, 시공간 균열 불시착
-            </div>
-            <div class="ep-card-meta">
-              <span class="ep-card-views"><span>👁️</span> 68회 시청</span>
-              <span style="color: var(--gold-primary); font-weight: 700;">시리즈 첫 발사 ✅</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: EP.03 (Upcoming / Pre-Production) -->
-        <div class="ep-card" id="card-ep03" onclick="selectEpisodeArchive('ep03')" style="opacity: 0.85;">
-          <div class="ep-card-thumb-wrap" style="background: linear-gradient(135deg, #12151e 0%, #1e2434 100%); display: flex; align-items: center; justify-content: center;">
-            <span class="ep-card-badge badge-upcoming">⚙️ 6대 노드 가동 중</span>
-            <span class="ep-card-duration">00:30 (예정)</span>
-            <span class="ep-card-playing-indicator"><span>🔴</span> SELECTED</span>
-            <div style="text-align: center; color: var(--gold-primary);">
-              <div style="font-size: 32px; margin-bottom: 4px;">🏦</div>
-              <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px;">PRE-PRODUCTION</div>
-            </div>
-          </div>
-          <div class="ep-card-body">
-            <div class="ep-card-title">EP.03 지하 비밀 외환 금고 잠입</div>
-            <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
-              1997 자정, 중앙 금융 본점 지하 금고 앞의 운명적 대치
-            </div>
-            <div class="ep-card-meta">
-              <span style="color: var(--neon-purple); font-weight: 700;"><span>🧬</span> Opal V2 노드 설계 착수</span>
-              <span style="color: var(--text-dim);">COMING SOON</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Toolbar for Selected Episode -->
-      <div class="cinema-action-bar">
-        <div class="action-group">
-          <span style="font-size: 13px; font-weight: 800; color: var(--gold-primary); display: flex; align-items: center; gap: 6px;">
-            <span>🎬</span> <span id="active-ep-tag">EP.02 활성화됨</span>
-          </span>
-          <span style="color: var(--border-medium);">|</span>
-          <button class="btn-cinema-action" onclick="copyEpisodeScript()" id="btn-copy-script">
-            <span>📋</span> 대본 원클릭 복사
-          </button>
-          <button class="btn-cinema-action" onclick="copyYoutubeMeta()" id="btn-copy-meta">
-            <span>🔗</span> 유튜브 메타(제목·태그) 복사
-          </button>
-        </div>
-        <div class="action-group">
-          <a id="btn-download-video" href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
-            <span>⬇️</span> 0 Byte 비디오 다운로드
-          </a>
-          <a id="btn-yt-link" href="https://youtube.com/shorts/h_9qfiVv72w" target="_blank" rel="noopener noreferrer" class="btn-cinema-action">
-            <span>📺</span> 유튜브 숏폼 바로보기
-          </a>
-        </div>
-      </div>
-
-      <!-- Main Interactive Cinema Stage (Single Dynamic Layout) -->
-      <div id="cinema-stage" class="cinema-stage-box">
-        
-        <!-- Top: 4-Cut Master Still Gallery -->
-        <div class="panel" style="margin-bottom: 24px;">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span>🖼️</span> <span id="stage-gallery-title">IMF 2화 4컷 마스터 실사 스틸 갤러리</span>
-            </div>
-            <span style="font-size: 12px; color: var(--gold-primary);" id="stage-anchor-badge">G3 Master Face Anchor Lock 100% 무결점</span>
-          </div>
-
-          <div class="stills-gallery" id="stage-stills-gallery">
-            <!-- Dynamic 4 Stills Injected by JS -->
-          </div>
-        </div>
-
-        <!-- Bottom: Master Video Player & Screenplay / Audio Station -->
-        <div class="panel" style="border-color: var(--border-gold);">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span>🏆</span> <span id="stage-player-title">IMF 2화 최종 숏폼 마스터 비디오 플레이어 (1080×1920 세로)</span>
-            </div>
-            <span class="badge-chip" id="stage-player-badge" style="background: var(--neon-emerald); color: #000; font-weight: 700;">
-              모션배지·투명앰블럼·1~2줄 완결본 (10.48 MB)
-            </span>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 360px 1fr; gap: 24px; align-items: start;" id="stage-player-grid">
-            
-            <!-- Video Player Column -->
-            <div style="background: #000; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-medium); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-              <video id="stage-main-video" controls preload="metadata" style="width: 100%; height: auto; display: block;" poster="../assets/images/review/snap_master_c01_02s.jpg">
-                <source id="stage-video-source" src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
-                브라우저가 비디오 재생을 지원하지 않습니다.
-              </video>
-            </div>
-
-            <!-- Meta & Script Column -->
-            <div style="display: flex; flex-direction: column; gap: 16px; color: var(--text-muted); font-size: 13px; line-height: 1.6;">
-              <div style="font-size: 18px; font-weight: 800; color: #fff; font-family: var(--font-display);" id="stage-ep-fullname">
-                🎬 IMF 2화: 전날 밤의 비밀 — "추격과 비밀 통화"
+      <!-- ==========================================================
+           TAB 1: 실시간 관제탑 (Mission Control)
+           ========================================================== -->
+      <div id="tab-control" class="view-content active">
+        <div class="control-tab-scroll">
+          
+          <!-- 5-Step Pipeline Rail -->
+          <div class="pipeline-rail">
+            <div class="step-node completed">
+              <div class="step-header">
+                <span class="step-num">STEP 01</span>
+                <span class="badge-done">완료 100% ✅</span>
               </div>
-              
-              <!-- Screenplay Box -->
-              <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border-left: 3px solid var(--neon-cyan);">
-                <div style="font-size: 12px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 6px; display: flex; justify-content: space-between;">
-                  <span>🎙️ 카이라(KAIRA) 공식 1인칭 생체 나레이션 대본</span>
-                  <span id="stage-audio-duration">49.35초 마스터</span>
+              <div class="step-title">스틸컷 & 필름그레인 검증</div>
+              <div class="step-desc">Cut 01~04 고화질 실사 화각 일관성 및 35mm 영화 필름 그레인(3~5%) 검증 완료</div>
+            </div>
+
+            <div class="step-node completed">
+              <div class="step-header">
+                <span class="step-num">STEP 02</span>
+                <span class="badge-done">완료 100% ✅</span>
+              </div>
+              <div class="step-title">IMF 2화 9대 헌법 정밀 리렌더링</div>
+              <div class="step-desc">49.35s 카이라 1인칭 생체 나레이션 + 1~2줄 교보손글씨 자막 + 1:1 정원 앰블럼 고정 완결 (8.94MB)</div>
+            </div>
+
+            <div class="step-node completed">
+              <div class="step-header">
+                <span class="step-num">STEP 03</span>
+                <span class="badge-done">완료 100% ✅</span>
+              </div>
+              <div class="step-title">유튜브 스튜디오 99% 완결</div>
+              <div class="step-desc">제목 '수화기 너머의 한마디...', 3층 설명란, 6대 정예 태그, AI 라벨링 세팅 완료</div>
+            </div>
+
+            <div class="step-node completed">
+              <div class="step-header">
+                <span class="step-num">STEP 04</span>
+                <span class="badge-done">발사 완료 ✅</span>
+              </div>
+              <div class="step-title">오빠 1% 최종 발사</div>
+              <div class="step-desc">유튜브 채널 @hookverse_studio 일부 공개 발사 완료 (실시간 120회 달성, +176% 성장! 🔥)</div>
+            </div>
+
+            <div class="step-node active-stage">
+              <div class="step-header">
+                <span class="step-num">STEP 05</span>
+                <span class="badge-active">진행 중 ⚡</span>
+              </div>
+              <div class="step-title">100vh 스튜디오 고도화 & EP3 착수</div>
+              <div class="step-desc">스크롤 0% 100vh 관제탑 혁신 ➡️ Google Opal 6대 노드 기반 EP3 4컷 마스터 설계 착수</div>
+            </div>
+          </div>
+
+          <!-- Live KPI Grid -->
+          <div class="grid-2col">
+            <div class="panel">
+              <div class="panel-header">
+                <div class="panel-title"><span>📊</span> KAIRA 1인 기업 핵심 지표 (KPIs)</div>
+                <span style="font-size: 11px; color: var(--gold-primary);">자율 공장 가동률 100%</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                <div style="background: var(--bg-card); padding: 12px; border-radius: 8px; border-left: 3px solid var(--gold-primary);">
+                  <div style="font-size: 11px; color: var(--text-dim);">시청 비율 (몰입도)</div>
+                  <div style="font-size: 22px; font-weight: 800; color: #fff; font-family: var(--font-display);">85.7%</div>
+                  <div style="font-size: 10px; color: var(--neon-emerald);">기준치 60% 압도 초격차</div>
                 </div>
-                <div id="stage-screenplay-text" style="font-size: 13px; color: #e2e8f0; line-height: 1.6; white-space: pre-line;">
+                <div style="background: var(--bg-card); padding: 12px; border-radius: 8px; border-left: 3px solid var(--neon-purple);">
+                  <div style="font-size: 11px; color: var(--text-dim);">평균 시청 시간 (루프)</div>
+                  <div style="font-size: 22px; font-weight: 800; color: #fff; font-family: var(--font-display);">636%</div>
+                  <div style="font-size: 10px; color: var(--neon-purple);">25초 영상 6.3회 반복</div>
+                </div>
+                <div style="background: var(--bg-card); padding: 12px; border-radius: 8px; border-left: 3px solid var(--neon-cyan);">
+                  <div style="font-size: 11px; color: var(--text-dim);">바이럴 공유 유입률</div>
+                  <div style="font-size: 22px; font-weight: 800; color: #fff; font-family: var(--font-display);">65.0%</div>
+                  <div style="font-size: 10px; color: var(--neon-cyan);">메시지 직통 확산</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div class="panel-title"><span>🔊</span> 공식 마스터 음성 스테이션</div>
+                <span style="font-size: 11px; color: var(--text-muted);">45.46s 마스터</span>
+              </div>
+              <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 14px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; font-weight: 700; color: var(--neon-purple);">
+                  <span>카이라(KAIRA) 공식 브랜드 나레이션 보이스</span>
+                  <span class="badge-chip">공식 시네마 보이스</span>
+                </div>
+                <audio controls preload="metadata" style="width: 100%; height: 34px;">
+                  <source src="../assets/audio/IMF2화_추격과비밀통화_4컷_마스터음성.mp3" type="audio/mpeg">
+                </audio>
+                <div style="margin-top: 8px; font-size: 11px; color: var(--text-muted);">
+                  • 자정 카운트다운 ➡️ 빗속 질주 ➡️ 공중전화 진입 ➡️ 충격 반전 결말 복원!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Latest Spotlight Preview Card -->
+          <div class="panel" style="border-color: var(--border-gold); background: linear-gradient(180deg, rgba(238, 211, 127, 0.04) 0%, var(--bg-surface) 100%);">
+            <div class="panel-header">
+              <div class="panel-title">
+                <span>🎬</span> 최신작 숏폼 스포트라이트 (EP.02 추격과 비밀 통화 · 120회 시청)
+              </div>
+              <button class="btn-cinema-action primary" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep02');">
+                <span>🎞️</span> 100vh 시네마 스튜디오 열기 ➔
+              </button>
+            </div>
+            <div style="display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: center;">
+              <div style="background: #000; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-medium); max-height: 240px; display: flex; align-items: center; justify-content: center;">
+                <video controls preload="metadata" style="max-height: 240px; width: auto; max-width: 100%; object-fit: contain;" poster="../assets/images/review/snap_master_c01_02s.jpg">
+                  <source src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: var(--text-muted);">
+                <div style="font-size: 15px; font-weight: 700; color: #fff;">
+                  "우산도 없이 쏟아지는 폭우 속... 저 골목 끝 공중전화 부스로 몸을 던졌어!"
+                </div>
+                <p>
+                  오빠께서 지시하신 <strong>모션 배지 · 1:1 정원 투명 앰블럼 · 1~2줄 칼싱크 자막 · 카이라 생체 보이스</strong> 4대 시네마틱 헌법이 100% 무결점으로 결속된 마스터본입니다.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+                  <button class="btn-cinema-action" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep02'); switchStageSubView('stills');">
+                    <span>🔍</span> EP.02 4컷 스틸 갤러리 보기
+                  </button>
+                  <button class="btn-cinema-action" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep01');">
+                    <span>⏮️</span> EP.01 국가부도의 날 전야 (이전 작품)
+                  </button>
+                  <a href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
+                    <span>⬇️</span> 0 Byte 다운로드 (10.48 MB)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==========================================================
+           TAB 2: 시네마 스튜디오 (100vh 2-COLUMN SPLIT STUDIO)
+           ========================================================== -->
+      <div id="tab-cinema" class="view-content">
+        <div class="studio-layout">
+          
+          <!-- LEFT COLUMN: EPISODE ARCHIVE REEL SHELF (INDEPENDENT SCROLL) -->
+          <aside class="studio-sidebar">
+            <div class="sidebar-header">
+              <div class="sidebar-title">
+                <span>🎞️</span> 에피소드 아카이브 릴
+              </div>
+              <span class="sidebar-badge">⚡ 0 Byte 로컬</span>
+            </div>
+
+            <!-- Scrollable Episode Cards Container (Scales to 100+ episodes without page scroll!) -->
+            <div class="episode-reel-list" id="ep-shelf">
+              
+              <!-- EP.02 Card -->
+              <div class="ep-card active" id="card-ep02" onclick="selectEpisodeArchive('ep02')">
+                <div class="ep-card-thumb-wrap">
+                  <span class="ep-card-badge badge-latest">🔥 최신작 · 120회</span>
+                  <span class="ep-card-duration">00:49</span>
+                  <span class="ep-card-playing-indicator"><span>🔴</span> PLAYING</span>
+                  <img src="../assets/images/review/snap_master_c01_02s.jpg" alt="EP.02 썸네일">
+                </div>
+                <div class="ep-card-body">
+                  <div class="ep-card-title">EP.02 추격과 비밀 통화</div>
+                  <div class="ep-card-meta">
+                    <span class="ep-card-views">120회 시청 (+176%)</span>
+                    <span style="color: var(--neon-emerald); font-weight: 700;">일부 공개 ✅</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- EP.01 Card -->
+              <div class="ep-card" id="card-ep01" onclick="selectEpisodeArchive('ep01')">
+                <div class="ep-card-thumb-wrap">
+                  <span class="ep-card-badge badge-archive">🎬 파일럿 · 68회</span>
+                  <span class="ep-card-duration">00:24</span>
+                  <span class="ep-card-playing-indicator"><span>🔴</span> PLAYING</span>
+                  <img src="../assets/images/IMF1화/neura_cut3_thumbnail_1789109819463.jpg" alt="EP.01 썸네일">
+                </div>
+                <div class="ep-card-body">
+                  <div class="ep-card-title">EP.01 국가부도의 날 전야</div>
+                  <div class="ep-card-meta">
+                    <span class="ep-card-views">68회 시청</span>
+                    <span style="color: var(--gold-primary); font-weight: 700;">시리즈 첫 발사 ✅</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- EP.03 Card -->
+              <div class="ep-card" id="card-ep03" onclick="selectEpisodeArchive('ep03')">
+                <div class="ep-card-thumb-wrap" style="background: linear-gradient(135deg, #12151e 0%, #1e2434 100%); display: flex; align-items: center; justify-content: center;">
+                  <span class="ep-card-badge badge-upcoming">⚙️ Opal 6대 노드</span>
+                  <span class="ep-card-duration">00:30 (예정)</span>
+                  <span class="ep-card-playing-indicator"><span>🔴</span> SELECTED</span>
+                  <div style="text-align: center; color: var(--gold-primary);">
+                    <div style="font-size: 24px;">🏦</div>
+                    <div style="font-size: 9px; font-weight: 800; letter-spacing: 0.5px;">PRE-PRODUCTION</div>
+                  </div>
+                </div>
+                <div class="ep-card-body">
+                  <div class="ep-card-title">EP.03 지하 비밀 외환 금고 잠입</div>
+                  <div class="ep-card-meta">
+                    <span style="color: var(--neon-purple); font-weight: 700;">Opal V2 노드 설계</span>
+                    <span style="color: var(--text-dim);">COMING SOON</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </aside>
+
+          <!-- RIGHT MAIN STAGE (ZERO SCROLL WORKSTATION & SUB-TAB SWITCHING) -->
+          <main class="studio-main-stage">
+            
+            <!-- Stage Top Action Bar -->
+            <div class="stage-action-bar">
+              <div class="stage-left-actions">
+                <span class="active-ep-pill">
+                  <span>🎬</span> <span id="active-ep-tag">EP.02 활성화됨</span>
+                </span>
+                <button class="btn-cinema-action" onclick="copyEpisodeScript()" id="btn-copy-script">
+                  <span>📋</span> 대본 복사
+                </button>
+                <button class="btn-cinema-action" onclick="copyYoutubeMeta()" id="btn-copy-meta">
+                  <span>🔗</span> 유튜브 메타 복사
+                </button>
+              </div>
+
+              <!-- Sub-View Switcher (1-Click Toggle: Video/Script vs 4-Cut Stills) -->
+              <div class="subview-switcher">
+                <button class="subview-btn active" id="subbtn-workstation" onclick="switchStageSubView('workstation')">
+                  <span>🎬</span> 영상 & 생체 대본
+                </button>
+                <button class="subview-btn" id="subbtn-stills" onclick="switchStageSubView('stills')">
+                  <span>🖼️</span> 4컷 마스터 실사 스틸
+                </button>
+              </div>
+
+              <div class="stage-right-actions">
+                <a id="btn-download-video" href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
+                  <span>⬇️</span> 0 Byte 다운로드
+                </a>
+                <a id="btn-yt-link" href="https://youtube.com/shorts/h_9qfiVv72w" target="_blank" rel="noopener noreferrer" class="btn-cinema-action">
+                  <span>📺</span> 숏폼 보기
+                </a>
+              </div>
+            </div>
+
+            <!-- Dynamic Content Area -->
+            <div class="stage-content-area">
+              
+              <!-- SUB-VIEW 1: Video Workstation (Video + Screenplay/Specs) -->
+              <div class="subview-workstation" id="subview-workstation">
+                
+                <!-- Video Player Box -->
+                <div class="stage-video-box">
+                  <video id="stage-main-video" controls preload="metadata" poster="../assets/images/review/snap_master_c01_02s.jpg">
+                    <source id="stage-video-source" src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
+                    브라우저가 비디오 재생을 지원하지 않습니다.
+                  </video>
+                </div>
+
+                <!-- Meta & Screenplay Column (Internal Scroll) -->
+                <div class="stage-meta-col">
+                  <div class="ep-title-header">
+                    <div class="ep-fullname" id="stage-ep-fullname">
+                      🎬 IMF 2화: 전날 밤의 비밀 — "추격과 비밀 통화"
+                    </div>
+                    <span class="badge-chip" id="stage-player-badge" style="background: var(--neon-emerald); color: #000; font-weight: 700;">
+                      완결본 (10.48 MB)
+                    </span>
+                  </div>
+
+                  <!-- Screenplay Box -->
+                  <div class="screenplay-panel">
+                    <div class="screenplay-header">
+                      <span>🎙️ 카이라(KAIRA) 공식 1인칭 생체 나레이션 대본</span>
+                      <span id="stage-audio-duration">49.35초 마스터</span>
+                    </div>
+                    <div class="screenplay-text" id="stage-screenplay-text">
 "...하지만 이미 놈들이 움직였습니다.
 자정 00시 정각, 기어이 카운트다운이 시작됐어.
 우산도 없이 쏟아지는 폭우 속을 미친 듯이 뛰는데...
@@ -1684,219 +1832,249 @@
 저 골목 끝, 희미하게 빛나는 공중전화 부스로 몸을 던졌어!
 ...수화기 내려놔.
 금고를 연 건, 바로 너잖아?"
+                    </div>
+                  </div>
+
+                  <!-- Audio Station -->
+                  <div class="audio-player-panel" id="stage-audio-wrap">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--gold-primary); display: flex; align-items: center; gap: 5px; white-space: nowrap;">
+                      <span>🔊</span> 오디오 트랙:
+                    </span>
+                    <audio controls preload="metadata" id="stage-audio-player">
+                      <source id="stage-audio-source" src="../assets/audio/IMF2화_추격과비밀통화_4컷_마스터음성.mp3" type="audio/mpeg">
+                    </audio>
+                  </div>
+
+                  <!-- Production Specs Box -->
+                  <div class="specs-panel" id="stage-specs-box">
+                    <strong style="color: var(--gold-primary);">⚡ 탑재된 핵심 시네마틱 스펙 (오빠 지침 100% 무결점 완결):</strong><br>
+                    • <strong>좌상단 배지</strong>: 270×136 15타공 롤링 + 셔터 플래시 + 순차점등 <strong>생체 모션 비디오 루프 장착</strong><br>
+                    • <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 636x636 정원 앰블럼 <strong>1:1 정원 고정 안착 (그네타기 스윙)</strong><br>
+                    • <strong>자막</strong>: 3~4줄 원천 박멸! <strong>절대 1줄 또는 딱 2줄 엄수</strong> + <strong>[작은 점 낙하 바운스 안착 모션]</strong><br>
+                    • <strong>질감</strong>: 35mm 영화 필름 그레인(3~5%) 노이즈 오버레이<br>
+                    • <strong>나레이션</strong>: 49.35초 <strong>카이라(KAIRA) 공식 브랜드 1인칭 생체 긴박 연기 보이스</strong> 밀리초 칼싱크!
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- SUB-VIEW 2: 4-Cut Master Stills Gallery -->
+              <div class="subview-stills" id="subview-stills">
+                <div class="stills-header">
+                  <div class="stills-title">
+                    <span>🖼️</span> <span id="stage-gallery-title">IMF 2화 4컷 마스터 실사 스틸 갤러리</span>
+                  </div>
+                  <span style="font-size: 11px; color: var(--gold-primary);" id="stage-anchor-badge">G3 Master Face Anchor Lock 100% 무결점</span>
+                </div>
+
+                <!-- 4 Stills Grid -->
+                <div class="stills-grid-container" id="stage-stills-gallery">
+                  <!-- Dynamically Injected by JS -->
                 </div>
               </div>
 
-              <!-- Production Specs Box -->
-              <div style="background: var(--bg-card); padding: 14px; border-radius: 8px; border-left: 3px solid var(--gold-primary);" id="stage-specs-box">
-                <strong style="color: var(--gold-primary);">⚡ 탑재된 핵심 시네마틱 스펙 (오빠 지침 100% 무결점 완결):</strong><br>
-                • <strong>좌상단 배지</strong>: 270×136 15타공 롤링 + 셔터 플래시 + 순차점등 <strong>생체 모션 비디오 루프 장착</strong><br>
-                • <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 기존 636x636 정원 엠블럼 <strong>1:1 정원 고정 안착 (그네타기 스윙)</strong><br>
-                • <strong>자막</strong>: 3~4줄 원천 박멸! <strong>절대 1줄 또는 딱 2줄 엄수</strong> + <strong>[작은 점 낙하 바운스 안착 모션]</strong><br>
-                • <strong>질감</strong>: 35mm 영화 필름 그레인(3~5%) 노이즈 오버레이<br>
-                • <strong>나레이션</strong>: 49.35초 <strong>카이라(KAIRA) 공식 브랜드 1인칭 생체 긴박 연기 보이스</strong> 밀리초 칼싱크!
+            </div>
+          </main>
+
+        </div>
+      </div>
+
+      <!-- ==========================================================
+           TAB 3: 3대 공식 브랜딩 자산 (Brand Showcase)
+           ========================================================== -->
+      <div id="tab-branding" class="view-content">
+        <div class="tab-scroll-container">
+          <div class="branding-showcase-grid">
+            <div class="banner-preview-box">
+              <div class="panel-header">
+                <div class="panel-title"><span>👑</span> 유튜브 공식 채널 배너 (2560×1440 QHD 마스터)</div>
+                <span class="badge-chip">오빠 100% 확정</span>
+              </div>
+              <div class="banner-img-container">
+                <img src="../assets/HOOKVERSE_공식_3대_브랜딩_완제품/01_유튜브_공식채널배너_2560x1440_QHD마스터.png" alt="YouTube Channel Banner" onclick="openModal(this.src, '유튜브 공식 채널 배너 마스터 (2560x1440 QHD)')" style="cursor: pointer;">
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+                • 35mm 필름 상하 39타공 (양끝단 50% 반쪽 타공 등간격 40.68px)<br>
+                • 뉴라 바스트 실루엣 100% 무손실 + 좌우 350px 칼대칭 (수학적 오차 0px)<br>
+                • 따뜻한 앰버 브라운 빈티지 가죽 질감 & 아날로그 필름 노이즈 황금 밸런스 완결!
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div class="panel" style="padding: 14px;">
+                <div class="panel-header" style="margin-bottom: 8px;">
+                  <div class="panel-title" style="font-size: 13px;"><span>🎞️</span> 좌상단 270px 공식 배지</div>
+                  <span class="badge-chip">15타공 순차점등</span>
+                </div>
+                <div style="text-align: center; background: #000; padding: 10px; border-radius: 8px; border: 1px solid var(--border-medium); margin-bottom: 8px;">
+                  <img src="../assets/HOOKVERSE_공식_3대_브랜딩_완제품/02_좌상단시네마틱배지_270px_공식스틸.png" alt="Badge Still" style="max-width: 100%; height: auto; cursor: pointer;" onclick="openModal(this.src, '좌상단 시네마틱 270px 공식 배지')">
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">
+                  • 상하 15타공 심리스 롤링 + 3D 크롬 HOOKVERSE STUDIO 획 순차 네온 점등!
+                </div>
               </div>
 
-              <!-- Dedicated Audio Player for this Episode -->
-              <div style="background: var(--bg-card); padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 14px;">
-                <span style="font-size: 12px; font-weight: 700; color: var(--gold-primary); display: flex; align-items: center; gap: 6px;">
-                  <span>🔊</span> 오디오 트랙:
-                </span>
-                <audio controls preload="metadata" id="stage-audio-player" style="flex-grow: 1; height: 36px;">
-                  <source id="stage-audio-source" src="../assets/audio/IMF2화_추격과비밀통화_4컷_마스터음성.mp3" type="audio/mpeg">
-                  브라우저가 오디오 재생을 지원하지 않습니다.
-                </audio>
+              <div class="panel" style="padding: 14px;">
+                <div class="panel-header" style="margin-bottom: 8px;">
+                  <div class="panel-title" style="font-size: 13px;"><span>💎</span> 공식 3D 크롬 원형 앰블럼</div>
+                  <span class="badge-chip">636×636 HQ 투명</span>
+                </div>
+                <div style="text-align: center; background: radial-gradient(circle, rgba(238,211,127,0.15) 0%, transparent 70%); padding: 12px; border-radius: 8px; border: 1px solid var(--border-medium); margin-bottom: 8px;">
+                  <img src="../assets/images/hookverse_studio_logo_transparent.png" alt="Emblem" style="width: 90px; height: 90px; cursor: pointer;" onclick="openModal(this.src, '공식 브랜드 원형 앰블럼 (안팎 100% 투명 누끼 마스터)')">
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">
+                  • 유튜브/인스타/틱톡 원형 프로필 100% 최적화 마스터
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- VIEW 3: 3대 공식 브랜딩 자산 (Brand Showcase) -->
-    <div id="tab-branding" class="view-content">
-      <div class="branding-showcase-grid">
-        <!-- Banner Showcase -->
-        <div class="banner-preview-box">
-          <div class="panel-header">
-            <div class="panel-title"><span>👑</span> 유튜브 공식 채널 배너 (2560×1440 QHD 마스터)</div>
-            <span class="badge-chip">오빠 100% 확정</span>
-          </div>
-          <div class="banner-img-container">
-            <img src="../assets/HOOKVERSE_공식_3대_브랜딩_완제품/01_유튜브_공식채널배너_2560x1440_QHD마스터.png" alt="YouTube Channel Banner" onclick="openModal(this.src, '유튜브 공식 채널 배너 마스터 (2560x1440 QHD)')" style="cursor: pointer;">
-          </div>
-          <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
-            • 35mm 필름 상하 39타공 (양끝단 50% 반쪽 타공 등간격 40.68px)<br>
-            • 뉴라 바스트 실루엣 100% 무손실 + 좌우 350px 칼대칭 (수학적 오차 0px)<br>
-            • 따뜻한 앰버 브라운 빈티지 가죽 질감 & 아날로그 필름 노이즈 황금 밸런스 완결!
+      <!-- ==========================================================
+           TAB 4: 10대 에이전트 함대 (Fleet Console)
+           ========================================================== -->
+      <div id="tab-fleet" class="view-content">
+        <div class="tab-scroll-container">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>🤖</span> KAIRA 10대 정예 에이전트 함대 콘솔</div>
+              <span style="font-size: 11px; color: var(--neon-emerald);">ALL GREEN · 자율도 LEVEL 3</span>
+            </div>
+            <div class="fleet-grid">
+              <div class="fleet-card">
+                <div class="fleet-header">
+                  <div class="fleet-icon">👑</div>
+                  <div>
+                    <div class="fleet-name">CEO 레오 (Leo)</div>
+                    <div class="fleet-role">총괄 지휘 & 오케스트레이션</div>
+                  </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">미션 하달, 품질 감사, ACCG 게이트 통제</div>
+              </div>
+
+              <div class="fleet-card">
+                <div class="fleet-header">
+                  <div class="fleet-icon">✍️</div>
+                  <div>
+                    <div class="fleet-name">작가 (Writer)</div>
+                    <div class="fleet-role">100만 바이럴 숏폼 대본</div>
+                  </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">1인칭 생체 호흡 나레이션, 30초 4컷 그리드 창작</div>
+              </div>
+
+              <div class="fleet-card">
+                <div class="fleet-header">
+                  <div class="fleet-icon">🎨</div>
+                  <div>
+                    <div class="fleet-name">디자이너 (Designer)</div>
+                    <div class="fleet-role">초정밀 실사 비주얼 프롬프트</div>
+                  </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">G3 Master Face Anchor Lock, 9:16 세로 규격</div>
+              </div>
+
+              <div class="fleet-card">
+                <div class="fleet-header">
+                  <div class="fleet-icon">🔍</div>
+                  <div>
+                    <div class="fleet-name">리서처 (Researcher)</div>
+                    <div class="fleet-role">크로스 플랫폼 트렌드 레이더</div>
+                  </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">구글/유튜브 급상승 시그널 분석, What-If 발굴</div>
+              </div>
+
+              <div class="fleet-card">
+                <div class="fleet-header">
+                  <div class="fleet-icon">🎬</div>
+                  <div>
+                    <div class="fleet-name">편집자 (Editor)</div>
+                    <div class="fleet-role">시네마틱 영상 합성 & Vrew/CapCut</div>
+                  </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">35mm 필름 그레인 오버레이, 칼싱크 자막 결합</div>
+              </div>
+
+              <div class="fleet-card">
+                <div class="fleet-header">
+                  <div class="fleet-icon">🛡️</div>
+                  <div>
+                    <div class="fleet-name">워치독 (Watchdog)</div>
+                    <div class="fleet-role">15분 지능형 시스템 감시관</div>
+                  </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">도구 실행 감시, 메모리 누수 방지, 무한루프 차단</div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Badge & Emblem Showcase -->
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <!-- Badge -->
-          <div class="panel" style="padding: 18px;">
-            <div class="panel-header" style="margin-bottom: 12px; padding-bottom: 10px;">
-              <div class="panel-title" style="font-size: 15px;"><span>🎞️</span> 좌상단 270px 공식 배지</div>
-              <span class="badge-chip">15타공 순차점등</span>
+      <!-- ==========================================================
+           TAB 5: 제나 영구 기억 금고 (Vault & Laws)
+           ========================================================== -->
+      <div id="tab-vault" class="view-content">
+        <div class="tab-scroll-container">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title"><span>🔒</span> 5대 단일 진실 공급원 (SSOT) & 영구 금고 허브</div>
+              <span style="font-size: 11px; color: var(--gold-primary);">SSOT V2.0 동기화됨</span>
             </div>
-            <div style="text-align: center; background: #000; padding: 12px; border-radius: 8px; border: 1px solid var(--border-medium); margin-bottom: 10px;">
-              <img src="../assets/HOOKVERSE_공식_3대_브랜딩_완제품/02_좌상단시네마틱배지_270px_공식스틸.png" alt="Badge Still" style="max-width: 100%; height: auto; cursor: pointer;" onclick="openModal(this.src, '좌상단 시네마틱 270px 공식 배지')">
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">
-              • 상하 15타공 심리스 롤링 + 3D 크롬 HOOKVERSE STUDIO 획 순차 네온 점등!
-            </div>
-          </div>
-
-          <!-- Emblem -->
-          <div class="panel" style="padding: 18px;">
-            <div class="panel-header" style="margin-bottom: 12px; padding-bottom: 10px;">
-              <div class="panel-title" style="font-size: 15px;"><span>💎</span> 공식 3D 크롬 원형 앰블럼</div>
-              <span class="badge-chip">636×636 HQ 투명</span>
-            </div>
-            <div style="text-align: center; background: radial-gradient(circle, rgba(238,211,127,0.1) 0%, #000 70%); padding: 16px; border-radius: 8px; border: 1px solid var(--border-medium); margin-bottom: 10px;">
-              <img src="../assets/HOOKVERSE_공식_3대_브랜딩_완제품/03_공식원형앰블럼_636x636_투명HQ.png" alt="Emblem" style="width: 110px; height: 110px; cursor: pointer;" onclick="openModal(this.src, '공식 브랜드 원형 앰블럼 (636x636 투명 HQ)')">
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">
-              • 유튜브/인스타/틱톡 원형 프로필 100% 최적화 마스터
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+              <div style="background: var(--bg-card); padding: 14px; border-radius: 10px; border-left: 3px solid var(--gold-primary);">
+                <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">🏛️ 거버넌스 헌법</div>
+                <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 6px;">AGENTS.md (제1조 ~ 제32조)</div>
+                <div style="font-size: 11px; color: var(--text-dim);">전사 32대 총괄 사규, 크레딧 승인, 핫싱크, 체크리스트 관리 원칙</div>
+              </div>
+              <div style="background: var(--bg-card); padding: 14px; border-radius: 10px; border-left: 3px solid var(--neon-cyan);">
+                <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">🧠 엔지니어링 금고</div>
+                <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 6px;">hookverse_system/SKILL.md</div>
+                <div style="font-size: 11px; color: var(--text-dim);">6대 외부 API 역사, 404/400 디버깅, DOM 제어 레일, 렌더링 엔진</div>
+              </div>
+              <div style="background: var(--bg-card); padding: 14px; border-radius: 10px; border-left: 3px solid var(--neon-emerald);">
+                <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">📋 실시간 현황 & 마스터 체크리스트</div>
+                <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 6px;">_STATUS.md</div>
+                <div style="font-size: 11px; color: var(--text-dim);">직전 세션 실시간 작업 내역, 영구 누적 체크리스트 및 완료 아카이브</div>
+              </div>
+              <div style="background: var(--bg-card); padding: 14px; border-radius: 10px; border-left: 3px solid var(--neon-purple);">
+                <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">🎬 만능 콘텐츠 수학 공식</div>
+                <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 6px;">HOOKVERSE_UNIVERSAL_CONTENT_FORMULA.md</div>
+                <div style="font-size: 11px; color: var(--text-dim);">100만 뷰 APVD 140% 무한루프 방정식, 30초 4컷 타임라인, 프롬프트 엔진</div>
+              </div>
+              <div style="background: var(--bg-card); padding: 14px; border-radius: 10px; border-left: 3px solid #f97316;">
+                <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">🤝 전사 합의 결정문</div>
+                <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 6px;">_company/_shared/decisions.md</div>
+                <div style="font-size: 11px; color: var(--text-dim);">오빠와 제나의 역대 모든 실시간 협의 & 합의 결정문 영구 보존</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- VIEW 4: 10대 에이전트 함대 (Fleet Console) -->
-    <div id="tab-fleet" class="view-content">
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title"><span>🤖</span> KAIRA 10대 정예 에이전트 함대 콘솔</div>
-          <span style="font-size: 12px; color: var(--neon-emerald);">ALL GREEN · 자율도 LEVEL 3</span>
-        </div>
-
-        <div class="fleet-grid">
-          <div class="fleet-card">
-            <div class="fleet-header">
-              <div class="fleet-icon">👑</div>
-              <div>
-                <div class="fleet-name">CEO 레오 (Leo)</div>
-                <div class="fleet-role">총괄 지휘 & 오케스트레이션</div>
-              </div>
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">미션 하달, 품질 감사, ACCG 게이트 통제</div>
-          </div>
-
-          <div class="fleet-card">
-            <div class="fleet-header">
-              <div class="fleet-icon">✍️</div>
-              <div>
-                <div class="fleet-name">작가 (Writer)</div>
-                <div class="fleet-role">100만 바이럴 숏폼 대본</div>
-              </div>
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">1인칭 생체 호흡 나레이션, 30초 4컷 그리드 창작</div>
-          </div>
-
-          <div class="fleet-card">
-            <div class="fleet-header">
-              <div class="fleet-icon">🎨</div>
-              <div>
-                <div class="fleet-name">디자이너 (Designer)</div>
-                <div class="fleet-role">초정밀 실사 비주얼 프롬프트</div>
-              </div>
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">G3 Master Face Anchor Lock, 9:16 세로 규격</div>
-          </div>
-
-          <div class="fleet-card">
-            <div class="fleet-header">
-              <div class="fleet-icon">🔍</div>
-              <div>
-                <div class="fleet-name">리서처 (Researcher)</div>
-                <div class="fleet-role">크로스 플랫폼 트렌드 레이더</div>
-              </div>
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">구글/유튜브 급상승 시그널 분석, What-If 발굴</div>
-          </div>
-
-          <div class="fleet-card">
-            <div class="fleet-header">
-              <div class="fleet-icon">🎬</div>
-              <div>
-                <div class="fleet-name">편집자 (Editor)</div>
-                <div class="fleet-role">시네마틱 영상 합성 & Vrew/CapCut</div>
-              </div>
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">35mm 필름 그레인 오버레이, 칼싱크 자막 결합</div>
-          </div>
-
-          <div class="fleet-card">
-            <div class="fleet-header">
-              <div class="fleet-icon">🛡️</div>
-              <div>
-                <div class="fleet-name">워치독 (Watchdog)</div>
-                <div class="fleet-role">15분 지능형 시스템 감시관</div>
-              </div>
-            </div>
-            <div style="font-size: 11px; color: var(--text-muted);">도구 실행 감시, 메모리 누수 방지, 무한루프 차단</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIEW 5: 제나 영구 기억 금고 (Vault & Laws) -->
-    <div id="tab-vault" class="view-content">
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title"><span>🔒</span> 5대 단일 진실 공급원 (SSOT) & 영구 금고 허브</div>
-          <span style="font-size: 12px; color: var(--gold-primary);">제나 헌법 제32조 핵심축 영구 보관</span>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
-          <div style="background: var(--bg-card); padding: 18px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <div style="font-weight: 700; color: var(--gold-primary); margin-bottom: 6px;">🏛️ 거버넌스 헌법 (`AGENTS.md`)</div>
-            <div style="font-size: 12px; color: var(--text-muted);">• 제1조 ~ 제33조 절대 헌법<br>• 제31조: 구글독스 오빠 독점 통제<br>• 제32조: 핵심축 영구 금고 보관<br>• 제33조: SUBMIT 전 3줄 사전 브리핑 의무</div>
-          </div>
-
-          <div style="background: var(--bg-card); padding: 18px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <div style="font-weight: 700; color: var(--neon-purple); margin-bottom: 6px;">🧠 엔지니어링 바이블 (`SKILL.md`)</div>
-            <div style="font-size: 12px; color: var(--text-muted);">• 섹션 1 ~ 섹션 64 디버깅/연동 노하우<br>• 구글 Flow 2K 무인 다운로드 메커니즘<br>• 브루(Vrew) 4대 카메라 모션 FX 레일</div>
-          </div>
-
-          <div style="background: var(--bg-card); padding: 18px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <div style="font-weight: 700; color: var(--neon-cyan); margin-bottom: 6px;">📋 활성 상태 파일 (`_STATUS.md`)</div>
-            <div style="font-size: 12px; color: var(--text-muted);">• 2026-09-27 오늘의 5대 집중 공정<br>• 토큰 낭비 0% 초슬림 115줄 최적화<br>• 실시간 공정 완료 `- [x]` 핫싱크</div>
-          </div>
-
-          <div style="background: var(--bg-card); padding: 18px; border-radius: 12px; border: 1px solid var(--border-subtle);">
-            <div style="font-weight: 700; color: var(--neon-emerald); margin-bottom: 6px;">📦 비밀금고 상태 아카이브</div>
-            <div style="font-size: 12px; color: var(--text-muted);">• `_제나비밀금고/STATUS_HISTORY_ARCHIVE_2026-09-16.md`<br>• 9월 10~16일 개발 역사 1바이트 무손실 100% 보존</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toast-container" class="toast-container"></div>
-
-    <!-- Image Modal with 4-Cut Slider Navigation -->
-    <div class="modal-overlay" id="image-modal" onclick="closeModal()">
-      <div class="modal-content" onclick="event.stopPropagation()" style="position: relative;">
-        <button class="modal-close" onclick="closeModal()">✕</button>
-        <button class="modal-nav-btn modal-nav-prev" onclick="navigateModal(-1)" title="이전 컷 (← 키)">◀</button>
-        <button class="modal-nav-btn modal-nav-next" onclick="navigateModal(1)" title="다음 컷 (→ 키)">▶</button>
-        <img src="" alt="Preview" class="modal-img" id="modal-img-src">
-        <div id="modal-caption" style="margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--gold-primary); text-align: center;"></div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <p>Hookverse Studio Control Room V3 · Designed & Automated by ZENA with Love for Oppa · 2026</p>
-    </footer>
+    </main>
   </div>
 
+  <!-- Modal Viewer for Stills / Images -->
+  <div class="modal-overlay" id="image-modal" onclick="if(event.target===this)closeModal()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-nav-btn modal-nav-prev" onclick="navigateModal(-1)">❮</button>
+    <button class="modal-nav-btn modal-nav-next" onclick="navigateModal(1)">❯</button>
+    <div class="modal-content">
+      <img id="modal-img-src" src="" alt="확대 미리보기" class="modal-img">
+      <div id="modal-caption" style="margin-top: 10px; font-size: 12px; color: var(--text-muted); text-align: center;"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ============================================================
+       APPLICATION SCRIPT (DATA & INTERACTION CONTROLLER)
+       ============================================================ -->
   <script>
-    // EPISODE MASTER DATABASE
+    // 1. Episode Master Archive Data
     const EPISODES = {
       'ep02': {
         id: 'ep02',
@@ -1905,7 +2083,7 @@
         fullname: '🎬 IMF 2화: 전날 밤의 비밀 — "추격과 비밀 통화"',
         tag: 'EP.02 활성화됨 (최신작 · 120회)',
         duration: '00:49 (49.35s 마스터)',
-        views: '120회 (+176%)',
+        views: '120회 시청 (+176%)',
         badge: '모션배지·투명앰블럼·1~2줄 완결본 (10.48 MB)',
         videoSrc: '../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4',
         posterSrc: '../assets/images/review/snap_master_c01_02s.jpg',
@@ -1922,27 +2100,27 @@
 저 골목 끝, 희미하게 빛나는 공중전화 부스로 몸을 던졌어!
 ...수화기 내려놔.
 금고를 연 건, 바로 너잖아?"`,
-        ytTitle: '1997년 자정, 공중전화 부스에서 울린 충격의 한마디 #shorts #타임슬립 #만약에',
-        ytDesc: `1997년 IMF 전야, 쏟아지는 폭우 속에서 의문의 요원들에게 쫓기던 뉴라.
-골목 끝 공중전화 부스로 피신해 울리는 수화기를 들었을 때...
-수화기 너머에서 들려온 경악의 진실!
+        ytTitle: '수화기 너머의 한마디... 1997년 자정, 공중전화에서 걸려온 내 목소리 #shorts #타임슬립 #스릴러',
+        ytDesc: `1997년 자정, 과거로 떨어진 뉴라를 쫓는 검은 우산의 사냥꾼들.
+통신마저 먹통인 폭우 속 골목,
+마지막 희망으로 달려간 공중전화 부스에서 충격적인 진실이 밝혀진다!
 
-🎬 제작: Hookverse Studio (@hookverse_studio)
-🧬 세계관: 타임슬립 / What-If 평행세계 스릴러
-👑 캐릭터: 버추얼 뮤즈 뉴라(NEURA)`,
-        ytTags: '#Hookverse #뉴라 #타임슬립 #WhatIf #1997 #쇼츠 #미스터리',
+🎬 기획/제작: Hookverse Studio (@hookverse_studio)
+🧬 공식 버추얼 뮤즈: 뉴라 (NEURA)
+⚡ IMF 3부작 시리즈 2화 완결본`,
+        ytTags: '#Hookverse #뉴라 #타임슬립 #1997IMF #반전스릴러 #shorts',
         specsHtml: `<strong style="color: var(--gold-primary);">⚡ 탑재된 핵심 시네마틱 스펙 (오빠 지침 100% 무결점 완결):</strong><br>
 • <strong>좌상단 배지</strong>: 270×136 15타공 롤링 + 셔터 플래시 + 순차점등 <strong>생체 모션 비디오 루프 장착</strong><br>
-• <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 기존 636x636 정원 엠블럼 <strong>1:1 정원 고정 안착 (그네타기 스윙)</strong><br>
+• <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 636x636 정원 앰블럼 <strong>1:1 정원 고정 안착 (그네타기 스윙)</strong><br>
 • <strong>자막</strong>: 3~4줄 원천 박멸! <strong>절대 1줄 또는 딱 2줄 엄수</strong> + <strong>[작은 점 낙하 바운스 안착 모션]</strong><br>
 • <strong>질감</strong>: 35mm 영화 필름 그레인(3~5%) 노이즈 오버레이<br>
 • <strong>나레이션</strong>: 49.35초 <strong>카이라(KAIRA) 공식 브랜드 1인칭 생체 긴박 연기 보이스</strong> 밀리초 칼싱크!`,
         stills: [
           {
-            tag: '00:00 - 07.50s',
+            tag: '00.00 - 07.50s',
             src: '../assets/images/IMF2화_마스터4컷_스틸/01_Cut01_시계탑훅_사냥꾼포위경계_마스터.png',
-            name: 'Cut 01 · 시계탑 경계',
-            caption: 'Cut 01: 자정 시계탑 훅 & 사냥꾼 포위 경계 (00:00~07.50s)',
+            name: 'Cut 01 · 자정 시계탑 빗속 경계',
+            caption: 'Cut 01: 자정 00:00:00 석조 시계탑 아래 빗속 경계 (00.00~07.50s)',
             dialogue: '"...하지만 이미 놈들이 움직였습니다. 자정 00시 정각, 기어이 카운트다운이 시작됐어."'
           },
           {
@@ -2075,30 +2253,30 @@
         stills: [
           {
             tag: 'EP.03 Cut 01 (기획)',
-            src: '../assets/images/review/snap_master_c01_02s.jpg',
+            src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 640' width='100%' height='100%'><rect width='360' height='640' fill='%23080c14'/><circle cx='180' cy='270' r='80' fill='none' stroke='%23c084fc' stroke-dasharray='8 6' stroke-width='3'/><path d='M180 190v160M100 270h160M124 214l112 112M124 326l112-112' stroke='%23c084fc' stroke-width='2.5'/><text x='180' y='410' fill='%23c084fc' font-family='sans-serif' font-size='16' font-weight='bold' text-anchor='middle'>CUT 01 · 지하 환풍구 잠입</text><text x='180' y='440' fill='%2394a3b8' font-family='sans-serif' font-size='12' text-anchor='middle'>Google Opal 6대 노드 설계 중</text><rect x='105' y='465' width='150' height='30' rx='6' fill='rgba(192,132,252,0.15)' stroke='%23c084fc' stroke-width='1'/><text x='180' y='485' fill='%23eed37f' font-family='monospace' font-size='11' font-weight='bold' text-anchor='middle'>PRE-PRODUCTION</text></svg>",
             name: 'Cut 01 · 지하 환풍구',
-            caption: 'Cut 01: 지하 비밀 외환 금고 환풍구 잠입 (설계 중)',
+            caption: 'Cut 01: 지하 비밀 외환 금고 환풍구 잠입 (Opal 노드 설계 중)',
             dialogue: '"놈들이 말한 금고... 그 지하로 내려가는 유일한 통로였어."'
           },
           {
             tag: 'EP.03 Cut 02 (기획)',
-            src: '../assets/images/review/snap_master_c02_09s.jpg',
+            src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 640' width='100%' height='100%'><rect width='360' height='640' fill='%23080c14'/><circle cx='180' cy='270' r='90' fill='none' stroke='%2322d3ee' stroke-width='4'/><circle cx='180' cy='270' r='60' fill='none' stroke='%2322d3ee' stroke-dasharray='6 4' stroke-width='2'/><circle cx='180' cy='270' r='30' fill='rgba(34,211,238,0.15)' stroke='%2322d3ee' stroke-width='3'/><path d='M180 180v40M180 320v40M90 270h40M230 270h40' stroke='%2322d3ee' stroke-width='3'/><text x='180' y='410' fill='%2322d3ee' font-family='sans-serif' font-size='16' font-weight='bold' text-anchor='middle'>CUT 02 · 티타늄 다이얼 철문</text><text x='180' y='440' fill='%2394a3b8' font-family='sans-serif' font-size='12' text-anchor='middle'>3미터 두께 비밀 금고 대치</text><rect x='105' y='465' width='150' height='30' rx='6' fill='rgba(34,211,238,0.15)' stroke='%2322d3ee' stroke-width='1'/><text x='180' y='485' fill='%23eed37f' font-family='monospace' font-size='11' font-weight='bold' text-anchor='middle'>PRE-PRODUCTION</text></svg>",
             name: 'Cut 02 · 티타늄 철문',
-            caption: 'Cut 02: 육중한 원형 티타늄 다이얼 철문 앞 (설계 중)',
+            caption: 'Cut 02: 육중한 원형 티타늄 다이얼 철문 앞 (Opal 노드 설계 중)',
             dialogue: '"숫자 다이얼이 돌아가고 있어. 누군가 방금 전 여길 열었다는 뜻이야."'
           },
           {
             tag: 'EP.03 Cut 03 (기획)',
-            src: '../assets/images/review/snap_master_c03_18s.jpg',
+            src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 640' width='100%' height='100%'><rect width='360' height='640' fill='%23080c14'/><polygon points='120,260 240,260 220,300 140,300' fill='rgba(238,211,127,0.2)' stroke='%23eed37f' stroke-width='2'/><polygon points='140,220 220,220 205,250 155,250' fill='rgba(238,211,127,0.3)' stroke='%23eed37f' stroke-width='2'/><text x='180' y='290' fill='%23eed37f' font-family='sans-serif' font-size='32' text-anchor='middle'>🏦</text><text x='180' y='410' fill='%23eed37f' font-family='sans-serif' font-size='16' font-weight='bold' text-anchor='middle'>CUT 03 · 텅 빈 외환 금고</text><text x='180' y='440' fill='%2394a3b8' font-family='sans-serif' font-size='12' text-anchor='middle'>증발한 300억 달러의 음모</text><rect x='105' y='465' width='150' height='30' rx='6' fill='rgba(238,211,127,0.15)' stroke='%23eed37f' stroke-width='1'/><text x='180' y='485' fill='%23eed37f' font-family='monospace' font-size='11' font-weight='bold' text-anchor='middle'>PRE-PRODUCTION</text></svg>",
             name: 'Cut 03 · 텅 빈 금고',
-            caption: 'Cut 03: 흩어진 금괴와 조작된 장부 (설계 중)',
+            caption: 'Cut 03: 흩어진 금괴와 조작된 장부 (Opal 노드 설계 중)',
             dialogue: '"장부상에 있어야 할 300억 달러는... 이미 어디론가 사라졌어!"'
           },
           {
             tag: 'EP.03 Cut 04 (기획)',
-            src: '../assets/images/review/snap_master_c04_26s.jpg',
+            src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 640' width='100%' height='100%'><rect width='360' height='640' fill='%23080c14'/><rect x='120' y='190' width='120' height='150' rx='8' fill='none' stroke='%23f43f5e' stroke-width='3'/><path d='M120 190l120 150M240 190L120 340' stroke='rgba(244,63,94,0.3)' stroke-width='2'/><circle cx='180' cy='265' r='20' fill='%23f43f5e'/><text x='180' y='274' fill='%23fff' font-family='sans-serif' font-size='20' font-weight='bold' text-anchor='middle'>!</text><text x='180' y='410' fill='%23f43f5e' font-family='sans-serif' font-size='16' font-weight='bold' text-anchor='middle'>CUT 04 · 철문 폐쇄 함정</text><text x='180' y='440' fill='%2394a3b8' font-family='sans-serif' font-size='12' text-anchor='middle'>충격 반전 140% 클리프행어</text><rect x='105' y='465' width='150' height='30' rx='6' fill='rgba(244,63,94,0.15)' stroke='%23f43f5e' stroke-width='1'/><text x='180' y='485' fill='%23eed37f' font-family='monospace' font-size='11' font-weight='bold' text-anchor='middle'>PRE-PRODUCTION</text></svg>",
             name: 'Cut 04 · 철문 폐쇄 반전',
-            caption: 'Cut 04: 등 뒤에서 쾅 닫히는 철문 & 클리프행어 (설계 중)',
+            caption: 'Cut 04: 등 뒤에서 쾅 닫히는 철문 & 클리프행어 (Opal 노드 설계 중)',
             dialogue: '"...함정이었어. 넌 애초에 여길 열기 위해 불려온 거야."'
           }
         ]
@@ -2106,10 +2284,11 @@
     };
 
     let currentEpisodeId = 'ep02';
+    let currentStageSubView = 'workstation'; // 'workstation' | 'stills'
     let modalStills = [];
     let modalCurrentIdx = 0;
 
-    // Tab Switcher Logic
+    // 2. Tab Switcher Logic
     function switchTab(tabId) {
       document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
@@ -2128,7 +2307,36 @@
       if (activeBtn) activeBtn.classList.add('active');
     }
 
-    // Dynamic Episode Archive Switcher (Interactive Stage)
+    // 3. Stage Sub-view Switcher (Workstation vs 4-Cut Stills)
+    function switchStageSubView(mode) {
+      currentStageSubView = mode;
+      const wsEl = document.getElementById('subview-workstation');
+      const stEl = document.getElementById('subview-stills');
+      const btnWs = document.getElementById('subbtn-workstation');
+      const btnSt = document.getElementById('subbtn-stills');
+
+      if (mode === 'stills') {
+        if (wsEl) wsEl.style.display = 'none';
+        if (stEl) stEl.style.display = 'flex';
+        if (btnWs) btnWs.classList.remove('active');
+        if (btnSt) btnSt.classList.add('active');
+      } else {
+        if (wsEl) wsEl.style.display = 'grid';
+        if (stEl) stEl.style.display = 'none';
+        if (btnWs) btnWs.classList.add('active');
+        if (btnSt) btnSt.classList.remove('active');
+      }
+    }
+
+    // 4. Mission Brief Drawer Toggle
+    function toggleMissionBrief() {
+      const drawer = document.getElementById('mission-brief-drawer');
+      if (drawer) {
+        drawer.classList.toggle('open');
+      }
+    }
+
+    // 5. Dynamic Episode Switcher
     function selectEpisodeArchive(epId) {
       const ep = EPISODES[epId];
       if (!ep) return;
@@ -2149,7 +2357,7 @@
           dlBtn.href = ep.videoSrc;
           dlBtn.download = ep.downloadName;
           dlBtn.style.display = 'inline-flex';
-          dlBtn.innerHTML = `<span>⬇️</span> 0 Byte 비디오 다운로드 (${ep.downloadSize})`;
+          dlBtn.innerHTML = `<span>⬇️</span> 0 Byte 다운로드 (${ep.downloadSize})`;
         } else {
           dlBtn.style.display = 'none';
         }
@@ -2190,12 +2398,6 @@
       }
 
       // Update Video Player & Source
-      const playerTitle = document.getElementById('stage-player-title');
-      if (playerTitle) playerTitle.innerText = `${ep.num} 최종 숏폼 마스터 비디오 플레이어 (${ep.title})`;
-
-      const playerBadge = document.getElementById('stage-player-badge');
-      if (playerBadge) playerBadge.innerText = ep.badge;
-
       const vid = document.getElementById('stage-main-video');
       const vSrc = document.getElementById('stage-video-source');
       if (vid && vSrc) {
@@ -2215,6 +2417,9 @@
       const epFullname = document.getElementById('stage-ep-fullname');
       if (epFullname) epFullname.innerText = ep.fullname;
 
+      const playerBadge = document.getElementById('stage-player-badge');
+      if (playerBadge) playerBadge.innerText = ep.badge;
+
       const audioDur = document.getElementById('stage-audio-duration');
       if (audioDur) audioDur.innerText = ep.duration;
 
@@ -2225,34 +2430,35 @@
       if (specsBox) specsBox.innerHTML = ep.specsHtml;
 
       // Update Audio Player
+      const aWrap = document.getElementById('stage-audio-wrap');
       const aPlayer = document.getElementById('stage-audio-player');
       const aSrc = document.getElementById('stage-audio-source');
-      if (aPlayer && aSrc) {
+      if (aPlayer && aSrc && aWrap) {
         aPlayer.pause();
         if (ep.audioSrc) {
           aSrc.src = ep.audioSrc;
           aPlayer.load();
-          aPlayer.parentElement.style.display = 'flex';
+          aWrap.style.display = 'flex';
         } else {
-          aPlayer.parentElement.style.display = 'none';
+          aWrap.style.display = 'none';
         }
       }
 
-      showToast(`🎬 ${ep.num} ${ep.title} 레이아웃으로 전환되었습니다! ✨`);
+      showToast(`🎬 ${ep.num} ${ep.title} 100vh 스튜디오 동기화 완료! ✨`);
     }
 
-    // Copy Screenplay to Clipboard
+    // 6. Copy Screenplay to Clipboard
     function copyEpisodeScript() {
       const ep = EPISODES[currentEpisodeId];
       if (!ep) return;
       navigator.clipboard.writeText(ep.scriptText).then(() => {
-        showToast(`📋 ${ep.num} 나레이션 대본이 클립보드에 복사되었습니다!`);
+        showToast(`📋 ${ep.num} 나레이션 대본이 복사되었습니다!`);
       }).catch(() => {
         showToast(`⚠️ 대본 복사 중 오류가 발생했습니다.`);
       });
     }
 
-    // Copy YouTube Meta (Title, Description, Tags) to Clipboard
+    // 7. Copy YouTube Meta (Title, Description, Tags) to Clipboard
     function copyYoutubeMeta() {
       const ep = EPISODES[currentEpisodeId];
       if (!ep) return;
@@ -2264,7 +2470,7 @@
       });
     }
 
-    // Toast Notification System
+    // 8. Toast Notification System
     function showToast(msg) {
       const container = document.getElementById('toast-container');
       if (!container) return;
@@ -2277,7 +2483,7 @@
       }, 3000);
     }
 
-    // Modal Viewer with Navigation
+    // 9. Modal Viewer with Navigation
     function openEpisodeModal(idx) {
       if (!modalStills || !modalStills[idx]) return;
       modalCurrentIdx = idx;
@@ -2319,7 +2525,7 @@
       if (modal) modal.classList.remove('active');
     }
 
-    // Realtime Clock HUD
+    // 10. Realtime Clock HUD
     function updateClock() {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
@@ -2339,14 +2545,18 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Keyboard Shortcuts (ESC, Left, Right Arrow)
+    // 11. Keyboard Shortcuts (ESC, Left, Right Arrow)
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        closeModal();
+        const drawer = document.getElementById('mission-brief-drawer');
+        if (drawer && drawer.classList.contains('open')) drawer.classList.remove('open');
+      }
       if (e.key === 'ArrowLeft') navigateModal(-1);
       if (e.key === 'ArrowRight') navigateModal(1);
     });
 
-    // Initialize Default Episode (EP.02)
+    // 12. Initialize Default Episode (EP.02)
     window.addEventListener('DOMContentLoaded', () => {
       selectEpisodeArchive('ep02');
     });
