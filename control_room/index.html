@@ -204,93 +204,58 @@
       display: inline-flex;
       align-items: center;
       gap: 14px;
-      perspective: 1200px;
       user-select: none;
+      perspective: 1000px;
     }
 
-    /* 1. HOOKVERSE: 눈부신 네온 바이올렛 ➔ 마젠타 5단 3D 익스트루전 & 순차 도미노 스핀 */
+    /* 1. HOOKVERSE: 지저분한 그림자 0%! 맑고 선명한 [남보라 ➔ 적보라] 가로 그라데이션 & 순차 360° 도미노 스핀 */
     .word-hookverse {
       display: inline-flex;
       align-items: center;
-      transform-style: preserve-3d;
+      gap: 1px;
     }
 
     .char-spin {
       display: inline-block;
-      position: relative;
-      background: linear-gradient(180deg, #FFFFFF 0%, #E9D5FF 20%, #A855F7 50%, #C026D3 80%, #EC4899 100%);
+      font-weight: 900;
+      /* 가로 90도: 남보라(#4338ca) ➔ 바이올렛(#8b5cf6) ➔ 적보라(#db2777, #e11d48) */
+      background-image: linear-gradient(90deg, #4338ca 0%, #6366f1 20%, #8b5cf6 45%, #c026d3 75%, #db2777 90%, #e11d48 100%);
+      background-size: 900% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 1px 0 #9333EA)
-              drop-shadow(0 2px 0 #7E22CE)
-              drop-shadow(0 3px 0 #6B21A8)
-              drop-shadow(0 4px 0 #581C87)
-              drop-shadow(0 5px 0 #3B0764)
-              drop-shadow(0 8px 12px rgba(0, 0, 0, 0.95));
-      transform-origin: center center;
+      /* 지저분한 다중 겹침 그림자 완전 제거! 맑고 깨끗한 단일 그림자 */
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
       transform-style: preserve-3d;
-      will-change: transform, filter;
+      will-change: transform;
+      animation: spinDomino 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
     }
 
-    /* 5.5초 마스터 루프: H부터 E까지 1.8초 동안 물 흐르듯 순차 360° 도미노 3D 회전 */
-    .c-h { animation: spinH 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-o1{ animation: spinO1 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-o2{ animation: spinO2 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-k { animation: spinK 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-v { animation: spinV 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-e1{ animation: spinE1 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-r { animation: spinR 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-s { animation: spinS 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
-    .c-e2{ animation: spinE2 5.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+    /* 가로 그라데이션 위치 오프셋 매핑 & 0.12초 릴레이 딜레이 */
+    .c-h  { background-position: 0% 50%;   animation-delay: 0.00s; } /* H: 깊은 남보라 */
+    .c-o1 { background-position: 12% 50%;  animation-delay: 0.12s; } /* O */
+    .c-o2 { background-position: 25% 50%;  animation-delay: 0.24s; } /* O: 인디고 바이올렛 */
+    .c-k  { background-position: 37% 50%;  animation-delay: 0.36s; } /* K */
+    .c-v  { background-position: 50% 50%;  animation-delay: 0.48s; } /* V: 퍼플 바이올렛 */
+    .c-e1 { background-position: 62% 50%;  animation-delay: 0.60s; } /* E */
+    .c-r  { background-position: 75% 50%;  animation-delay: 0.72s; } /* R: 딥 마젠타 */
+    .c-s  { background-position: 87% 50%;  animation-delay: 0.84s; } /* S */
+    .c-e2 { background-position: 100% 50%; animation-delay: 0.96s; } /* E: 화사한 적보라 */
 
-    @keyframes spinH {
-      0% { transform: rotateY(0deg) scale(1); }
-      4% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      8%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinO1 {
-      0%, 3% { transform: rotateY(0deg) scale(1); }
-      7% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      11%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinO2 {
-      0%, 6% { transform: rotateY(0deg) scale(1); }
-      10% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      14%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinK {
-      0%, 9% { transform: rotateY(0deg) scale(1); }
-      13% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      17%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinV {
-      0%, 12% { transform: rotateY(0deg) scale(1); }
-      16% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      20%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinE1 {
-      0%, 15% { transform: rotateY(0deg) scale(1); }
-      19% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      23%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinR {
-      0%, 18% { transform: rotateY(0deg) scale(1); }
-      22% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      26%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinS {
-      0%, 21% { transform: rotateY(0deg) scale(1); }
-      25% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      29%, 100% { transform: rotateY(360deg) scale(1); }
-    }
-    @keyframes spinE2 {
-      0%, 24% { transform: rotateY(0deg) scale(1); }
-      28% { transform: rotateY(180deg) scale(1.3); filter: drop-shadow(0 0 20px #FF00A0) brightness(1.8); }
-      32%, 100% { transform: rotateY(360deg) scale(1); }
+    /* 한 자씩 360도 깨끗하게 회전하는 키프레임 */
+    @keyframes spinDomino {
+      0% {
+        transform: rotateY(0deg);
+      }
+      16% {
+        transform: rotateY(360deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
     }
 
-    /* 2. STUDIO: 24K 임페리얼 골드 5단 3D 익스트루전 & 슈퍼노바 플래시 */
+    /* 2. STUDIO: 맑고 쨍한 황금색 그라데이션 */
     .word-studio-wrap {
       position: relative;
       display: inline-flex;
@@ -302,50 +267,27 @@
       font-family: var(--font-display);
       font-weight: 900;
       letter-spacing: 2px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FEF08A 22%, #FACC15 50%, #EAB308 75%, #B45309 100%);
+      background: linear-gradient(180deg, #FFFBEB 0%, #FDE047 35%, #EAB308 70%, #B45309 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 1px 0 #FDE047)
-              drop-shadow(0 2px 0 #EAB308)
-              drop-shadow(0 3px 0 #CA8A04)
-              drop-shadow(0 4px 0 #A16207)
-              drop-shadow(0 5px 0 #713f12)
-              drop-shadow(0 8px 12px rgba(0, 0, 0, 0.95));
-      animation: studioGleamMaster 5.5s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+      animation: studioGlow 4.5s ease-in-out infinite;
     }
 
-    @keyframes studioGleamMaster {
-      0%, 31% {
-        filter: drop-shadow(0 1px 0 #FDE047)
-                drop-shadow(0 2px 0 #EAB308)
-                drop-shadow(0 3px 0 #CA8A04)
-                drop-shadow(0 4px 0 #A16207)
-                drop-shadow(0 5px 0 #713f12)
-                drop-shadow(0 8px 12px rgba(0, 0, 0, 0.95));
+    @keyframes studioGlow {
+      0%, 25% {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
       }
-      35% {
-        filter: drop-shadow(0 1px 0 #FFFFFF)
-                drop-shadow(0 0 12px #FFFFFF)
-                drop-shadow(0 0 24px #FDE047)
-                brightness(1.55);
+      32% {
+        filter: drop-shadow(0 0 12px #FDE047) drop-shadow(0 0 20px #EAB308);
       }
-      48% {
-        filter: drop-shadow(0 1px 0 #FFFFFF)
-                drop-shadow(0 0 8px #FDE047)
-                brightness(1.3);
-      }
-      65%, 100% {
-        filter: drop-shadow(0 1px 0 #FDE047)
-                drop-shadow(0 2px 0 #EAB308)
-                drop-shadow(0 3px 0 #CA8A04)
-                drop-shadow(0 4px 0 #A16207)
-                drop-shadow(0 5px 0 #713f12)
-                drop-shadow(0 8px 12px rgba(0, 0, 0, 0.95));
+      45%, 100% {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
       }
     }
 
-    /* 3. 4각 다이아몬드 별빛 5종 (33%~65% = 1.8초 동안 화려한 트윙클 쇼!) */
+    /* 3. 사각 다이아몬드 별 효과 (오빠 만족 사양 4종) */
     .fx-layer {
       position: absolute;
       top: 0;
@@ -353,118 +295,51 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 100;
+      z-index: 10;
     }
 
     .dia-star {
       position: absolute;
       opacity: 0;
       transform: scale(0) rotate(0deg);
-      filter: drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 12px #FDE047) drop-shadow(0 0 20px #EAB308);
-      animation-duration: 5.5s;
+      filter: drop-shadow(0 0 4px #FFFFFF) drop-shadow(0 0 10px #FDE047);
+      animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
       animation-iteration-count: infinite;
     }
 
-    .st-hero  { top: -38px; right: -36px; width: 64px; height: 64px; animation-name: starAnimHero; }
-    .st-left  { top: -28px; left: -32px;  width: 48px; height: 48px; animation-name: starAnimLeft; }
-    .st-right { bottom: -28px; right: -24px; width: 38px; height: 38px; animation-name: starAnimRight; }
-    .st-bottom{ bottom: -24px; left: 16px; width: 28px; height: 28px; animation-name: starAnimBottom; }
-    .st-center{ top: -22px; left: 52%; width: 22px; height: 22px; animation-name: starAnimCenter; }
+    .st-hero  { top: -28px; right: -24px; width: 44px; height: 44px; animation-name: popHero; }
+    .st-left  { top: -20px; left: -22px;  width: 32px; height: 32px; animation-name: popLeft; }
+    .st-right { bottom: -20px; right: -16px; width: 26px; height: 26px; animation-name: popRight; }
+    .st-bottom{ bottom: -18px; left: 12px;  width: 20px; height: 20px; animation-name: popBottom; }
 
-    @keyframes starAnimHero {
+    @keyframes popHero {
+      0%, 28% { opacity: 0; transform: scale(0) rotate(0deg); }
+      34% { opacity: 1; transform: scale(1.4) rotate(45deg); }
+      42% { opacity: 1; transform: scale(1.0) rotate(90deg); }
+      52% { opacity: 0; transform: scale(0.2) rotate(140deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popLeft {
+      0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
+      36% { opacity: 1; transform: scale(1.3) rotate(-30deg); }
+      43% { opacity: 1; transform: scale(0.9) rotate(30deg); }
+      51% { opacity: 0; transform: scale(0.2) rotate(80deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popRight {
       0%, 32% { opacity: 0; transform: scale(0) rotate(0deg); }
-      36% { opacity: 1; transform: scale(1.6) rotate(45deg); }
-      42% { opacity: 1; transform: scale(1.1) rotate(90deg); filter: drop-shadow(0 0 8px #FFF) drop-shadow(0 0 16px #FDE047); }
-      50% { opacity: 1; transform: scale(1.3) rotate(135deg); filter: drop-shadow(0 0 10px #FFF) drop-shadow(0 0 22px #FDE047); }
-      58% { opacity: 1; transform: scale(1.0) rotate(180deg); }
-      64% { opacity: 0; transform: scale(0.2) rotate(225deg); }
+      38% { opacity: 1; transform: scale(1.3) rotate(30deg); }
+      44% { opacity: 1; transform: scale(0.9) rotate(70deg); }
+      52% { opacity: 0; transform: scale(0.2) rotate(110deg); }
       100% { opacity: 0; transform: scale(0); }
     }
-    @keyframes starAnimLeft {
-      0%, 34% { opacity: 0; transform: scale(0) rotate(0deg); }
-      38% { opacity: 1; transform: scale(1.5) rotate(-30deg); }
-      45% { opacity: 1; transform: scale(1.0) rotate(30deg); }
-      52% { opacity: 1; transform: scale(1.25) rotate(75deg); }
-      59% { opacity: 1; transform: scale(0.95) rotate(120deg); }
-      63% { opacity: 0; transform: scale(0.2) rotate(160deg); }
+    @keyframes popBottom {
+      0%, 31% { opacity: 0; transform: scale(0) rotate(0deg); }
+      37% { opacity: 1; transform: scale(1.2) rotate(-45deg); }
+      43% { opacity: 1; transform: scale(0.9) rotate(15deg); }
+      50% { opacity: 0; transform: scale(0.2) rotate(60deg); }
       100% { opacity: 0; transform: scale(0); }
-    }
-    @keyframes starAnimRight {
-      0%, 35% { opacity: 0; transform: scale(0) rotate(0deg); }
-      39% { opacity: 1; transform: scale(1.5) rotate(30deg); }
-      46% { opacity: 1; transform: scale(1.0) rotate(80deg); }
-      53% { opacity: 1; transform: scale(1.2) rotate(130deg); }
-      60% { opacity: 1; transform: scale(0.9) rotate(180deg); }
-      64% { opacity: 0; transform: scale(0.2) rotate(210deg); }
-      100% { opacity: 0; transform: scale(0); }
-    }
-    @keyframes starAnimBottom {
-      0%, 35% { opacity: 0; transform: scale(0) rotate(0deg); }
-      40% { opacity: 1; transform: scale(1.4) rotate(-45deg); }
-      47% { opacity: 1; transform: scale(1.0) rotate(15deg); }
-      54% { opacity: 1; transform: scale(1.2) rotate(60deg); }
-      61% { opacity: 0; transform: scale(0.2) rotate(90deg); }
-      100% { opacity: 0; transform: scale(0); }
-    }
-    @keyframes starAnimCenter {
-      0%, 36% { opacity: 0; transform: scale(0) rotate(0deg); }
-      41% { opacity: 1; transform: scale(1.6) rotate(60deg); }
-      48% { opacity: 1; transform: scale(1.0) rotate(120deg); }
-      55% { opacity: 1; transform: scale(1.3) rotate(180deg); }
-      62% { opacity: 0; transform: scale(0.2) rotate(240deg); }
-      100% { opacity: 0; transform: scale(0); }
-    }
-
-    /* 4. 미세 금가루 샤워 12개 (33%~63% 촤르르 방사 비산!) */
-    .gold-dust {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      opacity: 0;
-      pointer-events: none;
-      filter: drop-shadow(0 0 3px #FDE047);
-      animation: dustShowerMaster 5.5s cubic-bezier(0.12, 0.9, 0.25, 1) infinite;
-    }
-
-    .d1  { width: 14px; height: 14px; --tx: -85px;  --ty: -65px; --r: 180deg; }
-    .d2  { width: 16px; height: 16px; --tx: -45px;  --ty: -90px; --r: 270deg; }
-    .d3  { width: 11px; height: 11px; --tx: 35px;   --ty: -95px; --r: 90deg;  }
-    .d4  { width: 15px; height: 15px; --tx: 90px;   --ty: -70px; --r: 220deg; }
-    .d5  { width: 12px; height: 12px; --tx: 110px;  --ty: -20px; --r: 310deg; }
-    .d6  { width: 16px; height: 16px; --tx: 105px;  --ty: 45px;  --r: 150deg; }
-    .d7  { width: 11px; height: 11px; --tx: 65px;   --ty: 80px;  --r: 240deg; }
-    .d8  { width: 15px; height: 15px; --tx: 15px;   --ty: 90px;  --r: 80deg;  }
-    .d9  { width: 12px; height: 12px; --tx: -55px;  --ty: 85px;  --r: 190deg; }
-    .d10 { width: 16px; height: 16px; --tx: -100px; --ty: 50px;  --r: 330deg; }
-    .d11 { width: 11px; height: 11px; --tx: -110px; --ty: -15px; --r: 110deg; }
-    .d12 { width: 14px; height: 14px; --tx: -90px;  --ty: -55px; --r: 260deg; }
-
-    @keyframes dustShowerMaster {
-      0%, 32% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0) rotate(0deg);
-      }
-      36% {
-        opacity: 1;
-        transform: translate(calc(-50% + var(--tx) * 0.4), calc(-50% + var(--ty) * 0.4)) scale(1.6) rotate(calc(var(--r) * 0.5));
-      }
-      45% {
-        opacity: 1;
-        transform: translate(calc(-50% + var(--tx) * 0.8), calc(-50% + var(--ty) * 0.8)) scale(1.1) rotate(var(--r));
-      }
-      55% {
-        opacity: 0.9;
-        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.9) rotate(calc(var(--r) * 1.3));
-      }
-      63% {
-        opacity: 0;
-        transform: translate(calc(-50% + var(--tx) * 1.2), calc(-50% + var(--ty) * 1.2 + 10px)) scale(0.1) rotate(calc(var(--r) * 1.6));
-      }
-      100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0);
-      }
     }
 
     .brand-info p {
@@ -1350,53 +1225,27 @@
               <span class="word-studio">STUDIO</span>
 
               <div class="fx-layer">
-                <!-- [별빛 1] 초특대 64px 슈퍼노바 렌즈 플레어 다이아몬드 -->
+                <!-- 사각 다이아몬드 별 4개 -->
                 <svg class="dia-star st-hero" viewBox="0 0 32 32">
                   <polygon points="16,0 18,12 32,16 18,20 16,32 14,20 0,16 14,12" fill="#FFFFFF"/>
                   <polygon points="16,4 18.5,13 28,16 18.5,19 16,28 13.5,19 4,16 13.5,13" fill="#FDE047"/>
-                  <circle cx="16" cy="16" r="4.5" fill="#FFFFFF"/>
-                  <circle cx="16" cy="16" r="2.8" fill="#F59E0B"/>
+                  <circle cx="16" cy="16" r="3.5" fill="#FFFFFF"/>
                 </svg>
 
-                <!-- [별빛 2] 대형 48px 4-Point 샤프 다이아몬드 -->
                 <svg class="dia-star st-left" viewBox="0 0 24 24">
                   <polygon points="12,0 14.5,9.5 24,12 14.5,14.5 12,24 9.5,14.5 0,12 9.5,9.5" fill="#FFFFFF"/>
                   <polygon points="12,3.5 13.8,10.2 20.5,12 13.8,13.8 12,20.5 10.2,13.8 3.5,12 10.2,10.2" fill="#FACC15"/>
-                  <circle cx="12" cy="12" r="3" fill="#FFFFFF"/>
                 </svg>
 
-                <!-- [별빛 3] 중형 38px 크로스 글린트 다이아몬드 -->
                 <svg class="dia-star st-right" viewBox="0 0 24 24">
                   <polygon points="12,0 14,9.5 24,12 14,14.5 12,24 10,14.5 0,12 10,9.5" fill="#FFFFFF"/>
                   <polygon points="12,4.5 13.5,10.2 19.5,12 13.5,13.8 12,19.5 10.5,13.8 4.5,12 10.5,10.2" fill="#FEF08A"/>
-                  <circle cx="12" cy="12" r="3" fill="#EAB308"/>
                 </svg>
 
-                <!-- [별빛 4] 28px 샤프 스타 -->
                 <svg class="dia-star st-bottom" viewBox="0 0 20 20">
                   <polygon points="10,0 12.2,7.8 20,10 12.2,12.2 10,20 7.8,12.2 0,10 7.8,7.8" fill="#FFFFFF"/>
-                  <circle cx="10" cy="10" r="2.6" fill="#FDE047"/>
+                  <circle cx="10" cy="10" r="2.2" fill="#FDE047"/>
                 </svg>
-
-                <!-- [별빛 5] 22px 센터 트윙클 젬 -->
-                <svg class="dia-star st-center" viewBox="0 0 16 16">
-                  <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
-                  <circle cx="8" cy="8" r="2.2" fill="#F59E0B"/>
-                </svg>
-
-                <!-- [금가루 12개] 촤르르 사방팔방 비산하는 벡터 파티클 -->
-                <svg class="gold-dust d1" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#FFFFFF"/></svg>
-                <svg class="gold-dust d2" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#FDE047"/></svg>
-                <svg class="gold-dust d3" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="#FFFFFF"/></svg>
-                <svg class="gold-dust d4" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#F59E0B"/></svg>
-                <svg class="gold-dust d5" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5" fill="#FDE047"/></svg>
-                <svg class="gold-dust d6" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#FFFFFF"/></svg>
-                <svg class="gold-dust d7" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="#FEF08A"/></svg>
-                <svg class="gold-dust d8" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#FDE047"/></svg>
-                <svg class="gold-dust d9" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#FFFFFF"/></svg>
-                <svg class="gold-dust d10" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.5" fill="#F59E0B"/></svg>
-                <svg class="gold-dust d11" viewBox="0 0 16 16"><polygon points="8,0 10.5,5.5 16,8 10.5,10.5 8,16 5.5,10.5 0,8 5.5,5.5" fill="#FDE047"/></svg>
-                <svg class="gold-dust d12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="#FFFFFF"/></svg>
               </div>
             </span>
           </h1>
