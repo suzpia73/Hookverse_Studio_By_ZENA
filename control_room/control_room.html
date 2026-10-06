@@ -312,33 +312,74 @@
     .st-left  { top: -20px; left: -22px;  width: 32px; height: 32px; animation-name: popLeft; }
     .st-right { bottom: -20px; right: -16px; width: 26px; height: 26px; animation-name: popRight; }
     .st-bottom{ bottom: -18px; left: 12px;  width: 20px; height: 20px; animation-name: popBottom; }
+    /* 오빠 요청: STUDIO 중간 위쪽/아래쪽 중간 크기 & 작은 크기 별빛 */
+    .st-top-mid { top: -22px; left: 45%;   width: 24px; height: 24px; animation-name: popTopMid; }
+    .st-top-sm  { top: -14px; left: 68%;   width: 15px; height: 15px; animation-name: popTopSm; }
+    .st-bot-mid { bottom: -19px; left: 52%; width: 21px; height: 21px; animation-name: popBotMid; }
+    .st-bot-sm  { bottom: -14px; left: 33%; width: 14px; height: 14px; animation-name: popBotSm; }
+    .st-mid-spark{ top: -10px;  left: 20%;   width: 13px; height: 13px; animation-name: popMidSpark; }
 
     @keyframes popHero {
       0%, 28% { opacity: 0; transform: scale(0) rotate(0deg); }
-      34% { opacity: 1; transform: scale(1.4) rotate(45deg); }
-      42% { opacity: 1; transform: scale(1.0) rotate(90deg); }
-      52% { opacity: 0; transform: scale(0.2) rotate(140deg); }
+      33% { opacity: 1; transform: scale(1.4) rotate(45deg); }
+      46% { opacity: 1; transform: scale(1.0) rotate(90deg); }
+      58% { opacity: 0; transform: scale(0.2) rotate(140deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popLeft {
-      0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
-      36% { opacity: 1; transform: scale(1.3) rotate(-30deg); }
-      43% { opacity: 1; transform: scale(0.9) rotate(30deg); }
-      51% { opacity: 0; transform: scale(0.2) rotate(80deg); }
+      0%, 29% { opacity: 0; transform: scale(0) rotate(0deg); }
+      34% { opacity: 1; transform: scale(1.3) rotate(-30deg); }
+      47% { opacity: 1; transform: scale(0.9) rotate(30deg); }
+      57% { opacity: 0; transform: scale(0.2) rotate(80deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popRight {
-      0%, 32% { opacity: 0; transform: scale(0) rotate(0deg); }
-      38% { opacity: 1; transform: scale(1.3) rotate(30deg); }
-      44% { opacity: 1; transform: scale(0.9) rotate(70deg); }
-      52% { opacity: 0; transform: scale(0.2) rotate(110deg); }
+      0%, 31% { opacity: 0; transform: scale(0) rotate(0deg); }
+      36% { opacity: 1; transform: scale(1.3) rotate(30deg); }
+      48% { opacity: 1; transform: scale(0.9) rotate(70deg); }
+      58% { opacity: 0; transform: scale(0.2) rotate(110deg); }
       100% { opacity: 0; transform: scale(0); }
     }
     @keyframes popBottom {
+      0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
+      35% { opacity: 1; transform: scale(1.2) rotate(-45deg); }
+      47% { opacity: 1; transform: scale(0.9) rotate(15deg); }
+      56% { opacity: 0; transform: scale(0.2) rotate(60deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popTopMid {
+      0%, 29% { opacity: 0; transform: scale(0) rotate(0deg); }
+      34% { opacity: 1; transform: scale(1.35) rotate(35deg); }
+      47% { opacity: 1; transform: scale(1.0) rotate(75deg); }
+      57% { opacity: 0; transform: scale(0.2) rotate(120deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popTopSm {
+      0%, 32% { opacity: 0; transform: scale(0) rotate(0deg); }
+      37% { opacity: 1; transform: scale(1.3) rotate(-20deg); }
+      49% { opacity: 1; transform: scale(0.95) rotate(40deg); }
+      59% { opacity: 0; transform: scale(0.2) rotate(90deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popBotMid {
+      0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
+      35% { opacity: 1; transform: scale(1.35) rotate(-40deg); }
+      48% { opacity: 1; transform: scale(1.0) rotate(20deg); }
+      58% { opacity: 0; transform: scale(0.2) rotate(80deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popBotSm {
       0%, 31% { opacity: 0; transform: scale(0) rotate(0deg); }
-      37% { opacity: 1; transform: scale(1.2) rotate(-45deg); }
-      43% { opacity: 1; transform: scale(0.9) rotate(15deg); }
-      50% { opacity: 0; transform: scale(0.2) rotate(60deg); }
+      36% { opacity: 1; transform: scale(1.25) rotate(30deg); }
+      48% { opacity: 1; transform: scale(0.9) rotate(80deg); }
+      57% { opacity: 0; transform: scale(0.2) rotate(130deg); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+    @keyframes popMidSpark {
+      0%, 30% { opacity: 0; transform: scale(0) rotate(0deg); }
+      35% { opacity: 1; transform: scale(1.3) rotate(45deg); }
+      47% { opacity: 1; transform: scale(0.95) rotate(90deg); }
+      56% { opacity: 0; transform: scale(0.2) rotate(140deg); }
       100% { opacity: 0; transform: scale(0); }
     }
 
@@ -1225,7 +1266,7 @@
               <span class="word-studio">STUDIO</span>
 
               <div class="fx-layer">
-                <!-- 사각 다이아몬드 별 4개 -->
+                <!-- 1. 메인 외곽 4각 별 4개 -->
                 <svg class="dia-star st-hero" viewBox="0 0 32 32">
                   <polygon points="16,0 18,12 32,16 18,20 16,32 14,20 0,16 14,12" fill="#FFFFFF"/>
                   <polygon points="16,4 18.5,13 28,16 18.5,19 16,28 13.5,19 4,16 13.5,13" fill="#FDE047"/>
@@ -1245,6 +1286,39 @@
                 <svg class="dia-star st-bottom" viewBox="0 0 20 20">
                   <polygon points="10,0 12.2,7.8 20,10 12.2,12.2 10,20 7.8,12.2 0,10 7.8,7.8" fill="#FFFFFF"/>
                   <circle cx="10" cy="10" r="2.2" fill="#FDE047"/>
+                </svg>
+
+                <!-- 2. 오빠 요청: STUDIO 중간 위쪽 & 아래쪽 중간/작은 크기 별빛 -->
+                <!-- [중간 위쪽] 22px 중간 크기 다이아몬드 별 -->
+                <svg class="dia-star st-top-mid" viewBox="0 0 24 24">
+                  <polygon points="12,0 14.5,9.5 24,12 14.5,14.5 12,24 9.5,14.5 0,12 9.5,9.5" fill="#FFFFFF"/>
+                  <polygon points="12,3.5 13.8,10.2 20.5,12 13.8,13.8 12,20.5 10.2,13.8 3.5,12 10.2,10.2" fill="#FDE047"/>
+                  <circle cx="12" cy="12" r="2.8" fill="#FFFFFF"/>
+                </svg>
+
+                <!-- [중간 위쪽] 13px 작은 크기 다이아몬드 별 -->
+                <svg class="dia-star st-top-sm" viewBox="0 0 16 16">
+                  <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
+                  <circle cx="8" cy="8" r="1.8" fill="#FDE047"/>
+                </svg>
+
+                <!-- [중간 아래쪽] 19px 중간 크기 다이아몬드 별 -->
+                <svg class="dia-star st-bot-mid" viewBox="0 0 20 20">
+                  <polygon points="10,0 12.2,7.8 20,10 12.2,12.2 10,20 7.8,12.2 0,10 7.8,7.8" fill="#FFFFFF"/>
+                  <polygon points="10,3 11.8,8.2 17,10 11.8,11.8 10,17 8.2,11.8 3,10 8.2,8.2" fill="#FACC15"/>
+                  <circle cx="10" cy="10" r="2.5" fill="#FFFFFF"/>
+                </svg>
+
+                <!-- [중간 아래쪽] 12px 작은 크기 다이아몬드 별 -->
+                <svg class="dia-star st-bot-sm" viewBox="0 0 16 16">
+                  <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
+                  <circle cx="8" cy="8" r="1.8" fill="#FEF08A"/>
+                </svg>
+
+                <!-- [스파클 포인트] 11px 작은 젬 -->
+                <svg class="dia-star st-mid-spark" viewBox="0 0 16 16">
+                  <polygon points="8,0 10,6 16,8 10,10 8,16 6,10 0,8 6,6" fill="#FFFFFF"/>
+                  <circle cx="8" cy="8" r="1.6" fill="#FFFFFF"/>
                 </svg>
               </div>
             </span>
