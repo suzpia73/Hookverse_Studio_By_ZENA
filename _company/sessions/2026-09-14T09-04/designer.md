@@ -1,4 +1,4 @@
-# 🎨 Designer — 4단 실사 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 물리 실행
+﻿# 🎨 Designer — 4단 실사 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 물리 실행
 
 ```json
 {
@@ -19,7 +19,7 @@
     {
       "description": "IMF 전날 밤의 비밀 프롬프트 작성 (Hookverse Studio)",
       "actions": [
-        {"command": "<run_command>py -3 _company/_agents/designer/tools/prompt_gen.py \"IMF2화_자정의조흥은행\" \"35mm\" \"야간_시네마틱\" },", 
+        {"command": "<run_command>py -3 _company/_agents/designer/tools/prompt_gen.py \"IMF2화_자정의중앙 금융 금고\" \"35mm\" \"야간_시네마틱\" },", 
         "task": "Designer: Hookverse Studio에 대한 프롬프트 작성 및 실행",
         "details": {
           "notes": "Hookverse Studio와 Designer는 이 부분에서 교류를 통해 핵심 스토리를 정확하게 파악해야 합니다."
@@ -30,7 +30,7 @@
     },  {
         "description": "IMF 전날 밤의 비밀 프롬프트 실제 파일 생성 (Hookverse Studio)",
         "actions": [
-          {"command": "<run_command>py -3 _company/_agents/designer/tools/prompt_gen.py \"IMF2화_자정의조흥은행\" \"35mm\" "}, 
+          {"command": "<run_command>py -3 _company/_agents/designer/tools/prompt_gen.py \"IMF2화_자정의중앙 금융 금고\" \"35mm\" "}, 
           "task": "Designer: Hookverse Studio에 대한 프롬프트 생성 및 실제 파일 저장",
         "details": {
           "notes": "Hookverse Studio와 Designer는 이 부분에서 교류를 통해 핵심 스토리를 정확하게 파악해야 합니다."

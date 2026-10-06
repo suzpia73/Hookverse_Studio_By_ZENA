@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import re
 import subprocess
@@ -49,7 +49,7 @@ def dispatch(command: str):
     elif any(k in cmd_lower for k in ["디자이너", "프롬프트", "그림", "이미지", "designer", "컷", "실사"]):
         print("🤖 [Designer 에이전트 호출] ➡️ G3 실사 프롬프트 생성 도구 가동 중...")
         match = re.search(r"['\"](.*?)['\"]", command)
-        title = match.group(1) if match else "IMF2화_자정의조흥은행"
+        title = match.group(1) if match else "IMF2화_자정의중앙 금융 금고"
         
         prompt_tool = os.path.join(BASE_DIR, "_company", "_agents", "designer", "tools", "prompt_gen.py")
         res = subprocess.run([PYTHON_EXE, prompt_tool, title], capture_output=True, text=True)

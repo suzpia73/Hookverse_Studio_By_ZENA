@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import argparse
 import subprocess
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 ---
 
 ## 📸 8단 실사 컷 연계 (G3 앵커 락 & 소품 연속성 100% 준수)
-- 씬 1 (35mm Wide): 조흥은행 폴리스 라인 및 취재진 롱샷
+- 씬 1 (35mm Wide): 중앙 금융 금고 폴리스 라인 및 취재진 롱샷
 - 씬 2 (50mm Bust): 텅 빈 금고를 바라보며 경악하는 수사관 POV
 - 씬 3 (85mm Macro): 바닥에 놓인 장부 위 붉은 잉크 'NEURA' 서명 클로즈업
 - 씬 4 (50mm Medium): 무전기 들고 긴급 수배령 내리는 요원 바스트

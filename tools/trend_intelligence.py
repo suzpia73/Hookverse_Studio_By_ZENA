@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Hookverse Studio - 크로스 플랫폼 트렌드 인텔리전스 레이더 (v3.0 Final)
 - 오빠의 헌법: '카테고리 범위 지정 + 구글/유튜브/뉴스/SNS 크로스 플랫폼 공통 인기 키워드 교차 검증'
@@ -200,7 +200,7 @@ def generate_what_if_story(keyword, category, title):
         return {
             "track": "Track A (단막극 시네마틱 소설 실사)",
             "anchor": "1997년 IMF 외환위기 비자금과 타임슬립 수호자 뉴라",
-            "hook": f"만약 이번 {keyword} 사태의 뿌리가 1997년 조흥은행 지하 금고 비자금 장부와 직결되어 있다면?",
+            "hook": f"만약 이번 {keyword} 사태의 뿌리가 1997년 지하 비밀 외환 금고 비자금 장부와 직결되어 있다면?",
             "visual": "1997년 자정 서울 명동 비 내리는 골목, 블랙 트렌치코트의 뉴라가 서류 가방을 쥐고 있는 35mm 시네마틱 실사 컷"
         }
     elif category == "SCI_TECH_FUTURE" or "AI" in title or "우주" in title:

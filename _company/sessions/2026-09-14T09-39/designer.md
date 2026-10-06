@@ -1,8 +1,8 @@
-# 🎨 Designer — 1997년 명동 환전 골목: 뉴라를 중심으로 씬별 실사 영문 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 물리 실행
+﻿# 🎨 Designer — 1997년 명동 환전 골목: 뉴라를 중심으로 씬별 실사 영문 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 물리 실행
 
 ## 1997년 명동 환전 골목: 뉴라 씬별 실사 영문 프롬프트
 
-**[CEO 지시]** 🎬  뉴라 (NEURA)을 중심으로, 1997년 명동 환전 골목의 세련된 시네마틱적 헌법(85mm 렌즈, 뉴라 매력점, 조흥은행 고증).
+**[CEO 지시]** 🎬  뉴라 (NEURA)을 중심으로, 1997년 명동 환전 골목의 세련된 시네마틱적 헌법(85mm 렌즈, 뉴라 매력점, 중앙 금융 금고 고증).
 
 ### 1. 씬 1:  자정의 아름다움 (0~3초)
 **한국어 연출:** 밤하늘이 검은 하루를 상징하는 명동 환전 골목. 어둠 속에서 뉴라가 조심스럽게 걸으며...
@@ -40,7 +40,7 @@ Timelapse sequence of the woman walking towards a bright future. Cinematic shot 
 
 
 
-### <run_command>py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱</run_command>
+### <run_command>py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱</run_command>
 
 
 ---
@@ -57,7 +57,7 @@ This prompt will guide the designer to create a realistic and engaging scene.
 ---
 ## 🛠️ 도구 실행 결과 (시스템 자동 실행)
 
-### 🔧 실행: `py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱`
+### 🔧 실행: `py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱`
 ```
 C:\Users\june2\AppData\Local\Programs\Python\Python314\python.exe: can't open file 'd:\\HOOKVERSE-SYSTEM\\HOOKVERSE_STUDIO_V2\\_company\\_agents\\designer\\tools\\_company\\_agents\\designer\\tools\\prompt_gen.py': [Errno 2] No such file or directory
 ```

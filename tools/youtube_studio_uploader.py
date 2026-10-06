@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Hookverse Studio - 유튜브 스튜디오 99% 자동 업로드 배선 엔진 (YouTube Studio Uploader)
 - 헌법 제13조 [마이 제나 99% 사전 완결 & 오빠 1% 최종 발사 헌법] 구현
@@ -74,12 +74,12 @@ def refresh_access_token():
 def prepare_youtube_metadata(title=None, description=None, tags=None):
     """제나의 99% 사전 메타데이터 자동 조립"""
     if not title:
-        title = "만약 1997년 IMF 부도 전날 밤, 조흥은행 지하 금고가 털렸다면? | Hookverse #Shorts"
+        title = "만약 1997년 IMF 부도 전날 밤, 지하 비밀 외환 금고가 털렸다면? | Hookverse #Shorts"
         
     if not description:
         description = (
             "1997년 11월 20일 자정, 명동의 시계탑이 멈춘 순간.\n"
-            "대한민국 부도 직전, 조흥은행 지하 금고를 비운 자들의 마지막 흔적.\n"
+            "대한민국 부도 직전, 지하 비밀 외환 금고를 비운 자들의 마지막 흔적.\n"
             "금고 장부에 남겨진 의문의 붉은 서명, 'NEURA'.\n\n"
             "🎬 Hookverse Studio 시네마틱 단막극 소설 시리즈\n"
             "• 기획/연출: Hookverse Studio\n"
@@ -148,5 +148,5 @@ def upload_video_99_percent(video_path, custom_title=None):
     return True
 
 if __name__ == "__main__":
-    sample_video = os.path.join(BASE_DIR, "assets", "videos", "IMF2화_조흥은행금고일치_가변싱크_완성본.mp4")
+    sample_video = os.path.join(BASE_DIR, "assets", "videos", "IMF2화_지하_비밀_외환_금고일치_가변싱크_완성본.mp4")
     upload_video_99_percent(sample_video)

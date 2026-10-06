@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 video_assembler.py — Hookverse Studio 자동 비디오 조립 렌더러 v1.0
 역할: 성우 나레이션 음성(MP3)과 4장의 컷 이미지를 결합하여
@@ -60,7 +60,7 @@ def get_audio_duration(ffmpeg_exe: str, audio_path: str) -> float:
 def assemble_shorts(
     audio_path: str,
     image_paths: list,
-    output_filename: str = "IMF2화_자정의조흥은행_최종완성본.mp4",
+    output_filename: str = "IMF2화_자정의중앙 금융 금고_최종완성본.mp4",
     custom_durations: list = None,
     width: int = 1080,
     height: int = 1920,
@@ -150,14 +150,14 @@ if __name__ == "__main__":
     parser.add_argument("--audio", "-a", default=None)
     # 2화 8씬 정밀 SRT 칼싱크 기본 타임코드: 6.2s, 5.3s, 5.3s, 5.3s, 5.2s, 5.7s, 5.5s, 6.74s (총 45.24s)
     DEFAULT_IMF2_DURATIONS = [6.2, 5.3, 5.3, 5.3, 5.2, 5.7, 5.5, 6.74]
-    parser.add_argument("--output", "-o", default="IMF2화_조흥은행금고일치_0.1초칼싱크_교체완성본.mp4")
+    parser.add_argument("--output", "-o", default="IMF2화_지하_비밀_외환_금고일치_0.1초칼싱크_교체완성본.mp4")
     parser.add_argument("--durations", "-d", nargs="+", type=float, default=DEFAULT_IMF2_DURATIONS, help="씬별 가변 듀레이션(초) 리스트")
     args = parser.parse_args()
     
     # 기본 오디오
     target_audio = args.audio
     if not target_audio or not os.path.exists(target_audio):
-        target_audio = os.path.join(AUDIO_DIR, "IMF2화_자정의조흥은행_30초대본_성우음성.mp3")
+        target_audio = os.path.join(AUDIO_DIR, "IMF2화_자정의중앙 금융 금고_30초대본_성우음성.mp3")
         
     # 2화 이미지 수집
     ep02_img_dir = os.path.join(IMAGES_DIR, "IMF2화")

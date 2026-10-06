@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Hookverse Studio - 캡컷(CapCut) PC 실물 프로젝트 자동 생성기 (CapCut Draft Generator)
 - 오빠 PC의 실제 캡컷 드래프트 폴더(%LOCALAPPDATA%/CapCut/User Data/Projects/com.lveditor.draft/) 자동 감지
@@ -59,12 +59,12 @@ def create_capcut_project(project_name="Hookverse_IMF2화_시네마틱", duratio
     os.makedirs(resources_dir, exist_ok=True)
 
     # 자막 및 오디오 복사
-    sample_srt = os.path.join(BASE_DIR, "assets", "subtitles", "IMF2화_자정의조흥은행_칼싱크자막.srt")
+    sample_srt = os.path.join(BASE_DIR, "assets", "subtitles", "IMF2화_자정의중앙 금융 금고_칼싱크자막.srt")
     if os.path.exists(sample_srt):
         shutil.copy2(sample_srt, os.path.join(resources_dir, "subtitles.srt"))
         print(f"✅ [2/4] SRT 칼싱크 자막 리소스 안착 완료")
 
-    sample_audio = os.path.join(BASE_DIR, "assets", "audio", "IMF2화_자정의조흥은행_30초대본_성우음성.mp3")
+    sample_audio = os.path.join(BASE_DIR, "assets", "audio", "IMF2화_자정의중앙 금융 금고_30초대본_성우음성.mp3")
     if os.path.exists(sample_audio):
         shutil.copy2(sample_audio, os.path.join(resources_dir, "voice_over.mp3"))
         print(f"✅ [3/4] 성우 음성 MP3 리소스 안착 완료")

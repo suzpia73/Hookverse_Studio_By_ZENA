@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 stock_video_fetcher.py — Hookverse Studio 무료 스톡 영상 자동 다운로드 모듈 v1.0
 영감: GPT PARK 채널 'ShortsSmith' 파이프라인 (2026-09-21 내재화)
@@ -189,7 +189,7 @@ def fetch_stock_videos_for_scene(
 
     Args:
         keyword   : 검색 키워드 (영문 권장, 예: "1997 Seoul rain street night")
-        scene_name: 저장 폴더명 (예: "씬1_조흥은행")
+        scene_name: 저장 폴더명 (예: "씬1_중앙 금융 금고")
         count     : 다운로드할 영상 수 (기본 2개)
         output_dir: 저장 경로 (None이면 assets/bgvideos/씬이름/)
 
@@ -227,7 +227,7 @@ def fetch_stock_videos_for_scene(
 
 # Hookverse IMF 2화 8씬 배경 영상 키워드 사전 (씬 → 영문 검색어)
 SCENE_KEYWORD_MAP = {
-    "씬1_조흥은행거리": "1997 Seoul Korea night street rain neon",
+    "씬1_중앙 금융 금고거리": "1997 Seoul Korea night street rain neon",
     "씬2_뉴라질주": "woman running night rain city 1990s",
     "씬3_스마트폰화면": "smartphone screen glowing dark close up",
     "씬4_공중전화부스": "phone booth night rain Korea retro",

@@ -1,4 +1,4 @@
-# 🎨 Hookverse Studio 1997 외환위기 3화: 유령을 쫓는 자들 8씬 시네마틱 프롬프트 팩
+﻿# 🎨 Hookverse Studio 1997 외환위기 3화: 유령을 쫓는 자들 8씬 시네마틱 프롬프트 팩
 
 ---
 
@@ -21,7 +21,7 @@
 ### - 씬 3 (11:50 ~ 16:80) | [다가오는 유령들의 그림자]
 > **카메라 프레이밍**: 85mm Macro Extreme Close-up (핵심 소품 접사)  
 ```text
-85mm macro extreme close-up shot, focus on ultra-detailed water droplets glistening on a taut black umbrella surface in heavy rain. Reflected on the wet curved umbrella surface and water puddles is a glowing vintage Korean neon sign reading "조흥은행" and blurry sinister silhouettes of men in dark black suits holding umbrellas approaching through night mist. High contrast, atmospheric thriller, cold color palette, sharp depth of field, tactile wet textures, photo realistic, --ar 9:16 --v 6.0
+85mm macro extreme close-up shot, focus on ultra-detailed water droplets glistening on a taut black umbrella surface in heavy rain. Reflected on the wet curved umbrella surface and water puddles is a glowing vintage Korean neon sign reading "중앙 금융 금고" and blurry sinister silhouettes of men in dark black suits holding umbrellas approaching through night mist. High contrast, atmospheric thriller, cold color palette, sharp depth of field, tactile wet textures, photo realistic, --ar 9:16 --v 6.0
 ```
 
 ---

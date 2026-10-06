@@ -1,4 +1,4 @@
-[Google Veo Cinematic Prompt - Scene 1]
+﻿[Google Veo Cinematic Prompt - Scene 1]
 Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 1997년 11월 20일 자정, 명동의 시계탑이 멈춘 순간.. Optics: 35mm anamorphic wide lens, f/2.8, Midnight Seoul rain reflections, neon glow, moody mist. Camera Motion: Slow aerial push-in, cinematic vertical framing, 24fps. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
 [Gemini Omni Conversational Edit Directive]: Change background clock to show exactly 00:00 midnight
 
@@ -15,7 +15,7 @@ Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. NEURA, young
 [Gemini Omni Conversational Edit Directive]: Ensure retro Korean button payphone model from 1997
 
 [Google Veo Cinematic Prompt - Scene 5]
-Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 그 시각, 조흥은행 지하 금고의 육중한 철문이 열려 있었습니다.. Optics: 24mm wide angle lens, low angle looking up, Cold emergency tungsten overhead lamps, eerie shadows. Camera Motion: Slow mechanical reveal dolly shot. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
+Prompt: High-end cinematic movie still, vertical 9:16 aspect ratio. Scene Context: 1997 Seoul Chohung Bank IMF. Action/Visual: 그 시각, 지하 비밀 외환 금고의 육중한 철문이 열려 있었습니다.. Optics: 24mm wide angle lens, low angle looking up, Cold emergency tungsten overhead lamps, eerie shadows. Camera Motion: Slow mechanical reveal dolly shot. Quality: Photorealistic 8K, 35mm Kodak Portra film grain, MasterClass aesthetic, no plastic AI skin.
 [Gemini Omni Conversational Edit Directive]: Heavy vault door cracked open with broken official seal
 
 [Google Veo Cinematic Prompt - Scene 6]

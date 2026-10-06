@@ -14,7 +14,7 @@ Style: ShortsAlert,Malgun Gothic,60,&H003333FF,&H000000FF,&H00000000,&H80000000,
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:03.80,ShortsYellow,,0,0,260,,하지만 이미 놈들이 움직였습니다.
 Dialogue: 0,0:00:03.80,0:00:06.50,ShortsWhite,,0,0,260,,1997년 11월 21일 자정,
-Dialogue: 0,0:00:06.50,0:00:08.80,ShortsWhite,,0,0,260,,조흥은행 시계탑이 멈춘 순간.
+Dialogue: 0,0:00:06.50,0:00:08.80,ShortsWhite,,0,0,260,,석조 시계탑이 멈춘 순간.
 Dialogue: 0,0:00:08.80,0:00:13.20,ShortsYellow,,0,0,260,,어둠 속에서 좁혀오는 검은 양복들.
 Dialogue: 0,0:00:13.20,0:00:18.60,ShortsWhite,,0,0,260,,그녀는 빗속 골목으로 질주했습니다.
 Dialogue: 0,0:00:18.60,0:00:22.80,ShortsAlert,,0,0,260,,공중전화 부스. 배터리는 단 1%...

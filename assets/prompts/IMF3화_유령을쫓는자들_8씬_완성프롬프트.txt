@@ -1,10 +1,10 @@
-# 🎨 Hookverse Studio IMF3화_유령을쫓는자들 8씬 시네마틱 프롬프트 팩
+﻿# 🎨 Hookverse Studio IMF3화_유령을쫓는자들 8씬 시네마틱 프롬프트 팩
 - 규격: 9:16 Vertical (1080x1920 Full HD), 35mm / 50mm / 85mm Cine Lens
 - 룩앤필: 1997 Vintage Seoul Noir, Kodak Portra 400 Film Grain, David Fincher Suspense Mood
 
 ---
 
-## 씬 1 (00:00~06:20) | 조흥은행 앞 경찰 통제선과 취재진
+## 씬 1 (00:00~06:20) | 중앙 금융 금고 앞 경찰 통제선과 취재진
 A cinematic vertical 9:16 hyperrealistic photograph of 1997 Seoul Myeongdong street at cold dawn (06:00 AM). Police yellow tape blocking the entrance of Chohung Bank. Vintage reporters holding bulky 1990s TV cameras with flashing flashbulbs. Heavy cold morning mist, wet asphalt. 35mm cine lens, deep atmospheric perspective, Kodak Portra 400 grain, 8k, 9:16.
 
 ---

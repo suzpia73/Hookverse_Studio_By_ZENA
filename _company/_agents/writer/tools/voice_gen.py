@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 voice_gen.py — J멘토식 $0원 초고품질 한국어 성우 음성 생성 엔진 v1.0
 역할: 30초 대본 마크다운 파일에서 성우 나레이션 멘트만 추출하여
@@ -99,7 +99,7 @@ def generate_voice(script_input: str, voice_name: str = DEFAULT_VOICE, output_na
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Hookverse $0 Neural Voice Generator (edge-tts)")
-    parser.add_argument("script", nargs="?", default="IMF2화_자정의조흥은행_30초대본")
+    parser.add_argument("script", nargs="?", default="IMF2화_자정의중앙 금융 금고_30초대본")
     parser.add_argument("--voice", "-v", choices=["sunhi", "injoon", "hyunsu"], default="sunhi")
     parser.add_argument("--output", "-o", default=None)
     args = parser.parse_args()
@@ -118,7 +118,7 @@ if __name__ == "__main__":
         if os.path.exists(candidate):
             target = candidate
         else:
-            candidate2 = os.path.join(SCRIPTS_DIR, "IMF2화_자정의조흥은행_30초대본.md")
+            candidate2 = os.path.join(SCRIPTS_DIR, "IMF2화_자정의중앙 금융 금고_30초대본.md")
             if os.path.exists(candidate2):
                 target = candidate2
                 

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Hookverse Studio - 캡컷(CapCut) & Vrew 자동 편집 브릿지 엔진 (Editor & Developer 전용 도구)
 - 45초 가변 타임라인(8씬) 규격을 Vrew 및 캡컷(CapCut) 편집 프로젝트로 원클릭 변환
@@ -70,9 +70,9 @@ SCENE_METADATA = [
     },
     {
         "scene": 5,
-        "title": "조흥은행 지하 금고 철문",
+        "title": "지하 비밀 외환 금고 철문",
         "narration": "그녀는 차갑게 젖은 수화기를 들고 단 한 마디를 남깁니다.",
-        "script_keywords": ["수화기", "지하 금고", "철문", "조흥은행"],
+        "script_keywords": ["수화기", "지하 금고", "철문", "중앙 금융 금고"],
         "visual_objects": ["지하 금고 육중한 철문", "비밀 번호 다이얼", "어둠"],
         "highlight_words": ["지하 금고", "단 한 마디"],
         "sfx": "heavy_vault_metal_creak.mp3",
@@ -82,8 +82,8 @@ SCENE_METADATA = [
     {
         "scene": 6,
         "title": "금고 장부 붉은 서명",
-        "narration": "'자정에 조흥은행 지하 금고가 열린다. 지금 달러를 전부 빼내.'",
-        "script_keywords": ["조흥은행", "지하 금고", "달러", "비밀 장부"],
+        "narration": "'자정에 지하 비밀 외환 금고가 열린다. 지금 달러를 전부 빼내.'",
+        "script_keywords": ["중앙 금융 금고", "지하 금고", "달러", "비밀 장부"],
         "visual_objects": ["비밀 금고 장부", "붉은 서명", "달러 다발"],
         "highlight_words": ["20조 원", "달러"],
         "sfx": "suspense_drone_bass.mp3",
@@ -126,7 +126,7 @@ def verify_audio_visual_match(scene_meta):
             mismatches.append(s["scene"])
     return score, mismatches
 
-def build_project_bridge(durations=None, project_name="IMF2화_자정의조흥은행"):
+def build_project_bridge(durations=None, project_name="IMF2화_자정의중앙 금융 금고"):
     if durations is None:
         durations = DEFAULT_SCENE_DURATIONS
         
@@ -156,8 +156,8 @@ def build_project_bridge(durations=None, project_name="IMF2화_자정의조흥�
             "end_time": round(current_time + dur, 2),
             "duration": dur,
             "video_asset": f"assets/images/IMF2화/IMF전날밤의비밀_ep02_cut{i+1:02d}.jpg",
-            "audio_asset": "assets/audio/IMF2화_자정의조흥은행_30초대본_성우음성.mp3",
-            "subtitle_asset": "assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt",
+            "audio_asset": "assets/audio/IMF2화_자정의중앙 금융 금고_30초대본_성우음성.mp3",
+            "subtitle_asset": "assets/subtitles/IMF2화_자정의중앙 금융 금고_칼싱크자막.srt",
             "sfx_effect": meta["sfx"],
             "camera_motion": meta["motion"],
             "capcut_transition": meta["transition"],
@@ -192,7 +192,7 @@ def build_project_bridge(durations=None, project_name="IMF2화_자정의조흥�
         "cinematic_layout_spec": {
             "top_left_badge": {
                 "category_tag": "WHAT-IF | 02화",
-                "title": "자정의 조흥은행",
+                "title": "자정의 중앙 금융 금고",
                 "box_style": "Glassmorphism RoyalNavy (rgba(15, 23, 42, 0.88))",
                 "border": "1px solid rgba(212, 175, 55, 0.4)",
                 "x_percent": 6.0,

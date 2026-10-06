@@ -1,4 +1,4 @@
-import os
+﻿import os
 import re
 import asyncio
 import edge_tts
@@ -11,7 +11,7 @@ ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
 # 대본 분할
 part1_text = (
     "1997년 11월 20일 자정, 국가 부도를 선언하기 딱 9시간 전. "
-    "멈춰버린 명동 조흥은행 시계탑 아래 한 여자가 서 있었습니다. "
+    "멈춰버린 명동 석조 시계탑 아래 한 여자가 서 있었습니다. "
     "흠뻑 젖은 트렌치코트의 그녀는 빗속을 뚫고 공중전화로 뛰어들었습니다. "
     "그녀의 눈빛은 무언가를 알고 있는 듯 흔들렸습니다. "
     "수화기 너머로 그녀가 남긴 마지막 말... "
@@ -20,7 +20,7 @@ part1_text = (
 
 part2_text = (
     "다음 날 아침, 한국 경제는 무너졌습니다. "
-    "조흥은행 지하 금고 장부에 남겨진 서명, 뉴라. "
+    "지하 비밀 외환 금고 장부에 남겨진 서명, 뉴라. "
     "1997년 대한민국엔 존재하지 않던 이름이었습니다. "
     "만약 당신의 지갑 속에 오래된 100달러 지폐가 있다면, "
     "지금 그 일련번호를 확인하세요. "
@@ -30,7 +30,7 @@ part2_text = (
 temp_p1 = os.path.join(WORKSPACE, "assets", "audio", "temp_part1.mp3")
 temp_p2 = os.path.join(WORKSPACE, "assets", "audio", "temp_part2.mp3")
 temp_silence = os.path.join(WORKSPACE, "assets", "audio", "temp_silence.mp3")
-final_audio = os.path.join(WORKSPACE, "assets", "audio", "IMF2화_자정의조흥은행_30초대본_성우음성.mp3")
+final_audio = os.path.join(WORKSPACE, "assets", "audio", "IMF2화_자정의중앙 금융 금고_30초대본_성우음성.mp3")
 concat_list = os.path.join(WORKSPACE, "assets", "audio", "concat_list.txt")
 
 async def generate():

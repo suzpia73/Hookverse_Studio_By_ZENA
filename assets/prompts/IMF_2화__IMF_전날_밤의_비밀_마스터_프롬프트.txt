@@ -1,5 +1,5 @@
-### [Cut 01: 자정의 조흥은행 시계탑 후킹]
-- 연출 의도: 1997년 11월 20일 자정, 조흥은행 본점 시계탑(00:00) 아래 45도 뒤돌아보는 뉴라. 흠뻑 젖은 머릿결, 단추 풀린 블랙 트렌치코트 속 골드 드레스 바스트 라인과 긴 다리.
+﻿### [Cut 01: 자정의 석조 시계탑 후킹]
+- 연출 의도: 1997년 11월 20일 자정, 중앙 금융 본점 시계탑(00:00) 아래 45도 뒤돌아보는 뉴라. 흠뻑 젖은 머릿결, 단추 풀린 블랙 트렌치코트 속 골드 드레스 바스트 라인과 긴 다리.
 - Prompt: Cinematic 35mm low-angle shot of 24-year-old Korean virtual muse Neura standing in heavy torrential rain in 1997 midnight Seoul financial district. In the background, the iconic Korean retro stone bank building with a vintage illuminated clock tower striking exactly 00:00 midnight. Neura is drenched wet from head to toe, soaked wavy black hair clinging to her pale skin, feline cat-eyes, subtle beauty mark near eye. She turns her head back 45 degrees over her shoulder with an alarmed, intense gaze. She wears an open unbuttoned wet black leather trench coat revealing an elegant champagne gold satin slip dress with glamorous bust volume, slender waist, long slender legs. Raindrops glistening on skin and coat, cinematic neon green and amber city rim lighting, hyper-realistic, Kodak Vision3 500T 5219, photorealistic, 8k --ar 9:16 --style raw --v 6.1
 - Negative: umbrella, futuristic hologram, modern cars, low quality, cartoon, flat chest, short legs, dry hair
 

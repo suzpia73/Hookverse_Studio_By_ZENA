@@ -1,4 +1,4 @@
-# 📋 작업 브리프
+﻿# 📋 작업 브리프
 
 **원 명령:** CEO! 2호 쇼츠 'IMF 전날 밤의 비밀' 제작 미션을 하달한다.
 
@@ -15,4 +15,4 @@
 
 ## 분배
 - **✍️ Writer**: IMF 전날 밤의 비밀 30초 대본 작성 및 py -3 _company/_agents/writer/tools/short_script.py "IMF전날밤의비밀" "타임슬립" 물리 실행
-- **🎨 Designer**: 4단 실사 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 물리 실행
+- **🎨 Designer**: 4단 실사 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 물리 실행

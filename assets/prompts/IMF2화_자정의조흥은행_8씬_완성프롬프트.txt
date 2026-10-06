@@ -1,13 +1,13 @@
-# 🎨 Hookverse Studio 2화 'IMF 전날 밤의 비밀' 8씬 완벽 시네마틱 프롬프트 팩
+﻿# 🎨 Hookverse Studio 2화 'IMF 전날 밤의 비밀' 8씬 완벽 시네마틱 프롬프트 팩
 - 프로젝트: KAIRA 공식 2호 쇼츠 (44.5초 가변 싱크 에디션)
 - 규격: 9:16 Vertical (1080x1920 Full HD), 35mm / 85mm Cine Lens
 - 룩앤필: 1997 Vintage Seoul Noir, Kodak Portra 400 Film Grain, Dual Color Temperature
 
 ---
 
-## 씬 1 (00:00~06:20) | 조흥은행 자정 시계탑 와이드 롱샷
+## 씬 1 (00:00~06:20) | 중앙 금융 금고 자정 시계탑 와이드 롱샷
 - 앵글: 35mm Wide Long Shot (공간감과 시대 분위기 압도)
-- 내용: 1997년 11월 21일 비 내리는 자정의 명동 거리. 조흥은행 구형 세로 간판과 자정 정각(00:00)을 가리키는 거대한 시계탑.
+- 내용: 1997년 11월 21일 비 내리는 자정의 명동 거리. 중앙 금융 금고 구형 세로 간판과 자정 정각(00:00)을 가리키는 거대한 시계탑.
 ```text
 A cinematic vertical 9:16 hyperrealistic photograph of 1997 vintage Seoul Myeongdong street at midnight (00:00). Heavy cold rain falling through vintage warm tungsten streetlights. In the background, the authentic 1997 vintage Korean Chohung Bank building with its retro vertical signage and a prominent clock tower reading exactly 00:00 midnight. Wet reflective asphalt road reflecting green and warm neon reflections. Wide angle 35mm cine lens, deep atmospheric perspective, authentic 1990s Korean city atmosphere, Kodak Portra 400 film grain, 8k resolution, photorealistic masterwork, 9:16 aspect ratio.
 ```
@@ -41,9 +41,9 @@ A cinematic vertical 9:16 medium close-up POV shot of Neura inside a dimly lit 1
 
 ---
 
-## 씬 5 (22:10~27:30) | 조흥은행 지하 금고 철문 오픈 로우앵글
+## 씬 5 (22:10~27:30) | 지하 비밀 외환 금고 철문 오픈 로우앵글
 - 앵글: 28mm Low-Angle Long Shot (압도적 중압감)
-- 내용: 1.5초의 서스펜스 침묵 후 육중한 조흥은행 지하 대형 금고 철문이 서서히 열리는 장면. 거대한 원형 회전식 핸들과 리벳 못, 차가운 철제 금고 틈 사이로 흘러나오는 서늘한 흰색 연무(냉기).
+- 내용: 1.5초의 서스펜스 침묵 후 육중한 중앙 금융 금고 지하 대형 금고 철문이 서서히 열리는 장면. 거대한 원형 회전식 핸들과 리벳 못, 차가운 철제 금고 틈 사이로 흘러나오는 서늘한 흰색 연무(냉기).
 ```text
 A dramatic cinematic vertical 9:16 low-angle long shot of a massive underground bank vault door slowly cracking open in 1997 Seoul. The heavy industrial steel door of Chohung Bank underground vault, featuring a giant retro circular locking wheel, massive steel bolts, and brushed metal textures. As it opens slightly, a stream of cold white mist and mysterious pale fluorescent light spills across the wet dark concrete floor. Low angle perspective emphasizing the colossal scale and tension. 28mm wide cine lens, David Fincher neo-noir thriller lighting, deep shadows, 8k photorealism, 9:16.
 ```

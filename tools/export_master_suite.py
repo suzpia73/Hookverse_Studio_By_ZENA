@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Hookverse Studio - 올인원 마스터 실행 팩 & 연동 백과사전 생성기 (Master Suite Exporter)
 - 오빠가 외부 툴이나 API 세부 설정을 일일이 기억하지 않아도,
@@ -63,7 +63,7 @@ def export_master_suite():
    - SEO 14대 정예 해시태그 및 검색 태그
    - 체크리스트 (아동용 아님, AI 라벨링 체크)
 
-[이번 작업 주제]: 1997년 IMF 자정의 조흥은행 지하 금고와 사라진 달러 가방
+[이번 작업 주제]: 1997년 IMF 자정의 지하 비밀 외환 금고와 사라진 달러 가방
 ```
 
 ---
@@ -91,7 +91,7 @@ def export_master_suite():
 ### 2. Vrew (브루)
 - **규격**: 1080x1920 세로 숏폼 / 30fps
 - **자막 서식**: `Pretendard ExtraBold` / 폰트 크기 `300pt` / 텍스트 `#FFFFFF` / 테두리 네온 퍼플 `#A855F7` (두께 18px)
-- **SRT 자막 파일**: `assets/subtitles/IMF2화_자정의조흥은행_칼싱크자막.srt`
+- **SRT 자막 파일**: `assets/subtitles/IMF2화_자정의중앙 금융 금고_칼싱크자막.srt`
 
 ---
 

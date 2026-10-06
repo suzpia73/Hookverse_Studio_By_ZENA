@@ -1,76 +1,83 @@
 {
-  "name": "Hookverse Studio What-If Cinematic Pipeline",
-  "description": "Google Opal 호환 5단계 에이전트 비주얼 노드 워크플로우",
-  "version": "1.0.0",
+  "name": "Hookverse Studio What-If 6-Node Cinematic Pipeline",
+  "description": "Google Opal 호환 6대 마스터 에이전트 비주얼 노드 워크플로우 (V2.0)",
+  "version": "2.0.0",
+  "updated_at": "2026-10-06",
   "nodes": [
     {
-      "id": "node_01_input_trend",
+      "id": "node_01_input_grounding",
       "type": "Input",
-      "label": "트렌드 & 역사 키워드 입력",
-      "description": "구글 트렌드 실시간 검색어 또는 5,000년 역사 What-If 앵커 주제 주입",
+      "label": "What-If 역사 & 미스터리 기획 노드",
+      "description": "역사적 사건 + 미래 유물(스마트폰/비밀문서) 결합 & 실존 상표/기업명 0% 필터링",
       "config": {
         "source": "daily_trends.json",
-        "default_value": "1997년 IMF 자정의 조흥은행 비밀 금고"
+        "default_value": "1997년 IMF 자정의 중앙 금융 본점 지하 비밀 외환 금고",
+        "fact_filter": "No commercial brand names allowed"
       },
-      "outputs": ["node_02_search_factcheck"]
+      "outputs": ["node_02_script_grid"]
     },
     {
-      "id": "node_02_search_factcheck",
-      "type": "Tool",
-      "label": "Google Search 시대/역사 팩트체크",
-      "description": "역사적 사실, 은행 명칭(조흥은행), 시대 소품(버튼식 공중전화), 날짜 타임스탬프 검증",
-      "config": {
-        "engine": "Google Search Grounding",
-        "filter": "1997 historical accuracy"
-      },
-      "outputs": ["node_03_writer_script"]
-    },
-    {
-      "id": "node_03_writer_script",
+      "id": "node_02_script_grid",
       "type": "Generate",
-      "label": "Gemini 3.8 Flash 대본 생성 (작가)",
-      "description": "미스터비스트 3초 후킹 공식 + 5-in-1 바이럴 스토리텔링 45초 순수 나레이션 생성",
+      "label": "30초 4컷 알고리즘 대본 노드",
+      "description": "28~30초 4컷 타임코드 그리드 (0초 훅 ➔ 긴장 ➔ 질주 ➔ 140% 무한루프 클리프행어)",
       "config": {
         "model": "gemini-3.8-flash",
-        "system_prompt": "거장_연출_및_후킹_바이블.md",
-        "legal_guardrail": "tools/legal_guardrail.py"
+        "cuts_count": 4,
+        "timeline_seconds": [7.0, 8.0, 7.0, 8.0],
+        "system_rule": "docs/HOOKVERSE_UNIVERSAL_CONTENT_FORMULA.md"
       },
-      "outputs": ["node_04_designer_veo_prompt", "node_05_audio_synthesis"]
+      "outputs": ["node_03_visual_gen", "node_04_dynamic_audio"]
     },
     {
-      "id": "node_04_designer_veo_prompt",
+      "id": "node_03_visual_gen",
       "type": "Generate",
-      "label": "Google Veo 시네마틱 프롬프트 팩 (디자이너)",
-      "description": "G3 안면 앵커락(NEURA) + 35mm 로저 디킨스 렌즈/조명 + Veo 카메라 디렉션 생성",
+      "label": "G3 실사 비주얼 렌더 노드",
+      "description": "G3 앵커 실물 2중 결속 (크롭샷 + 화각 1:1 일치 앵커) & 9:16 초고화질 스틸컷",
       "config": {
-        "target_engine": "Google Veo / VideoFX / Gemini Omni",
-        "anchor_lock": "NEURA, signature beauty mark under left eye and mouth corner",
-        "optical_spec": "35mm anamorphic, slow dolly in, 8k cinematic"
+        "target_engine": "Nano Banana 2 / Google Veo",
+        "anchor_folder": "assets/G3캐릭터앵커LOCK/",
+        "framing_rule": "1:1 Framing Match (Crop + Upper/Mid/Full)",
+        "aspect_ratio": "9:16"
       },
-      "outputs": ["node_06_video_assembly"]
+      "outputs": ["node_05_cinema_assembly"]
     },
     {
-      "id": "node_05_audio_synthesis",
+      "id": "node_04_dynamic_audio",
       "type": "Tool",
-      "label": "고품질 성우 음성 합성 (edge-tts)",
-      "description": "45초 무손실 뉴럴 성우 오디오 및 1:1 칼싱크 SRT 자막 동시 출력",
+      "label": "감정 연기 오디오 노드",
+      "description": "대사별 감정 연기 분리 (긴박한 외침 속도+18% ➔ 반전 서늘한 저음 속도-12%)",
       "config": {
-        "voice": "ko-KR-SunHiNeural",
-        "rate": "+0%",
-        "output_format": "audio-24khz-48kbitrate-mono-mp3"
+        "default_engine": "edge-tts",
+        "pro_engine": "ElevenLabs / Typecast",
+        "format": "mp3",
+        "subtitle_format": "srt_kal_sync"
       },
-      "outputs": ["node_06_video_assembly"]
+      "outputs": ["node_05_cinema_assembly"]
     },
     {
-      "id": "node_06_video_assembly",
-      "type": "Output",
-      "label": "시네마틱 비디오 자동 조립 & 배포 (코다리 & PD)",
-      "description": "가변 싱크 렌더링 ➡️ Vrew / 캡컷 템플릿 연동 ➡️ YouTube 자동 업로드",
+      "id": "node_05_cinema_assembly",
+      "type": "Tool",
+      "label": "표준 시네마틱 결합 노드",
+      "description": "270px 15타공 배지 + 우상단 1:1 크리스탈 앰블럼(스윙) + 교보손글씨 바운스 자막 렌더링",
       "config": {
-        "render_tool": "video_assembler.py",
-        "output_resolution": "1080x1920",
-        "fps": 30,
-        "platform": "YouTube Shorts"
+        "engine": "tools/standard_cinema_engine.py",
+        "resolution": "1080x1920",
+        "badge": "assets/HOOKVERSE_공식_3대_브랜딩_완제품/02_좌상단모션배지_270x136_완제품.mp4",
+        "emblem": "assets/HOOKVERSE_공식_3대_브랜딩_완제품/03_공식원형앰블럼_636x636_투명HQ.png",
+        "font": "KyoboHandwriting2019.ttf"
+      },
+      "outputs": ["node_06_sovereign_launch"]
+    },
+    {
+      "id": "node_06_sovereign_launch",
+      "type": "Output",
+      "label": "99:1 무결점 발사 노드",
+      "description": "YouTube Studio @hookverse_studio 99% 사전 세팅 ➔ 최고사령관 오빠 1% 최종 딸깍!",
+      "config": {
+        "channel": "@hookverse_studio",
+        "metadata_standard": "docs/HOOKVERSE_YOUTUBE_ALGORITHM_METADATA_STANDARD.md",
+        "final_approval_gate": "Sovereign Commander Approval Required"
       },
       "outputs": []
     }

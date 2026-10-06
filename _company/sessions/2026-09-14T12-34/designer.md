@@ -1,11 +1,11 @@
-# 🎨 Designer — Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 실행
+﻿# 🎨 Designer — Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 실행
 
-## CEO 지침  : IMF2화 - 자정의 조흥은행 (실사 영문 프롬프트)
+## CEO 지침  : IMF2화 - 자정의 중앙 금융 금고 (실사 영문 프롬프트)
 
 **1. Scene 1-4 실사 영문 프롬프트 작성:** 🎨 Designer에게 부르기. 
 
 ```python
-prompt_gen("IMF2화_자정조흥은행", "35mm", "야간_시네마틱")
+prompt_gen("IMF2화_자정중앙 금융 금고", "35mm", "야간_시네마틱")
 ```
 
 
@@ -16,7 +16,7 @@ prompt_gen("IMF2화_자정조흥은행", "35mm", "야간_시네마틱")
 
 
 ```python
-short_script("IMF2화_자정조흥은행", "한국어 연출 지문") 
+short_script("IMF2화_자정중앙 금융 금고", "한국어 연출 지문") 
 ```
 
 
@@ -28,7 +28,7 @@ short_script("IMF2화_자정조흥은행", "한국어 연출 지문")
 
 
 ```python
-prompt_gen("IMF2화_자정조흥은행", "35mm", "야간_시네마틱") 
+prompt_gen("IMF2화_자정중앙 금융 금고", "35mm", "야간_시네마틱") 
 ```
 
 **4.  실사 프롬프트 완성 & 작가 부탁:** <run_command> 맨 끝에 `[run_command]` 태그로 short_script 도구 반드시 실행하라.

@@ -1,4 +1,4 @@
-[Google Veo Prompt - Scene 1 (35mm Photorealistic Film Cinema)]
+﻿[Google Veo Prompt - Scene 1 (35mm Photorealistic Film Cinema)]
 Prompt: NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair. Action/Story: 1997년 11월 20일 자정, 명동의 시계탑이 멈춘 순간.. Visual Style: 35mm Photorealistic Film Cinema, Midnight Seoul rain reflections, neon glow, moody mist. Camera: Slow aerial push-in, cinematic vertical framing, 24fps.
 [Gemini Omni Edit Directive]: Change background clock to show exactly 00:00 midnight
 
@@ -15,7 +15,7 @@ Prompt: NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature di
 [Gemini Omni Edit Directive]: Ensure retro Korean button payphone model from 1997
 
 [Google Veo Prompt - Scene 5 (35mm Photorealistic Film Cinema)]
-Prompt: NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair. Action/Story: 그 시각, 조흥은행 지하 금고의 육중한 철문이 열려 있었습니다.. Visual Style: 35mm Photorealistic Film Cinema, Cold emergency tungsten overhead lamps, eerie shadows. Camera: Slow mechanical reveal dolly shot.
+Prompt: NEURA, young Korean woman in her early 20s, sharp cat-eyes, signature distinct beauty mark under her left eye, small beauty mark near corner of mouth, natural micro-skin texture, subtle pores, natural skin sheen, long dark wavy hair. Action/Story: 그 시각, 지하 비밀 외환 금고의 육중한 철문이 열려 있었습니다.. Visual Style: 35mm Photorealistic Film Cinema, Cold emergency tungsten overhead lamps, eerie shadows. Camera: Slow mechanical reveal dolly shot.
 [Gemini Omni Edit Directive]: Heavy vault door cracked open with broken official seal
 
 [Google Veo Prompt - Scene 6 (35mm Photorealistic Film Cinema)]

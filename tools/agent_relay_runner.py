@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Hookverse Studio - 4인 정예 에이전트 무인 바통 터치 릴레이 엔진 (Relay Runner)
 - 오케스트레이션: CEO 레오 총괄 지휘
@@ -60,7 +60,7 @@ def run_relay_pipeline(track="A", topic=None, fast_track=False):
             except Exception as e:
                 print(f"⚠️ 트렌드 파일 로드 경고: {e}")
         if not selected_topic:
-            selected_topic = "1997년 IMF 자정의 조흥은행 지하 금고와 미래 자금"
+            selected_topic = "1997년 IMF 자정의 지하 비밀 외환 금고와 미래 자금"
             
     print(f"✅ 확정 소재: \"{selected_topic}\"")
 
@@ -77,7 +77,7 @@ def run_relay_pipeline(track="A", topic=None, fast_track=False):
             "차디찬 빗속 공중전화 부스에 한 여자가 서 있습니다.",
             "스마트폰 화면에 뜬 긴급 속보, 대한민국 부도 D-1.",
             "수화기 너머로는 알 수 없는 기계음만 흘러나옵니다.",
-            "그 시각, 조흥은행 지하 금고의 육중한 철문이 열려 있었습니다.",
+            "그 시각, 지하 비밀 외환 금고의 육중한 철문이 열려 있었습니다.",
             "텅 빈 금고 바닥, 찢겨진 장부 위에 남겨진 붉은 서명, 뉴라.",
             "어둠 속으로 사라지는 트렌치코트의 그림자.",
             "그녀의 손에 들린 가방 속엔 미래를 바꿀 비밀 자금이 채워져 있었습니다."

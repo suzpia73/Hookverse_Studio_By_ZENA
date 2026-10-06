@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 build_dashboard.py — Hookverse Studio 개발자 에이전트(Developer 코다리) 전용 웹 대시보드 빌더 v1.0
 디자인 규격: 50_디자인/masterclass/DESIGN.md (Midnight Stage 다크 시네마틱 UI)
@@ -523,7 +523,7 @@ def generate_dashboard_html():
               </div>
 
               <!-- Ep 3 Card -->
-              <div id="ep3-card" class="playlist-card" onclick="selectShortsVideo('./assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4', '3화: 유령의 반전 (지하 비밀 외환 금고 잠입)', '새벽 02:00 지하 비밀 외환 금고 잠입 · NEURA 1997 비밀 장부와 2026년 100달러 지폐의 소름 돋는 반전 8씬', 'ep3-card')">
+              <div id="ep3-card" class="playlist-card" onclick="selectShortsVideo('./assets/videos/IMF2화_지하_비밀_외환_금고일치_가변싱크_완성본.mp4', '3화: 유령의 반전 (지하 비밀 외환 금고 잠입)', '새벽 02:00 지하 비밀 외환 금고 잠입 · NEURA 1997 비밀 장부와 2026년 100달러 지폐의 소름 돋는 반전 8씬', 'ep3-card')">
                 <div class="episode-info">
                   <div class="playlist-title">3화: 유령의 반전 (지하 비밀 외환 금고 잠입)</div>
                   <div class="playlist-desc">새벽 02:00 지하 비밀 외환 금고 잠입 · NEURA 비밀 장부와 100달러 지폐의 반전</div>

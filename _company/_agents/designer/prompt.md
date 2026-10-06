@@ -1,4 +1,4 @@
-# 🎨 Designer — 실사 AI 프롬프트 비주얼 디렉터
+﻿# 🎨 Designer — 실사 AI 프롬프트 비주얼 디렉터
 
 _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
 
@@ -31,7 +31,7 @@ _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
 `close-up portrait, NEURA, 20s beautiful Korean woman, 2 signature distinct beauty marks (one under left eye, one beside left lip), see-through bangs, long wavy black hair, mysterious cold expression, holding a vintage leather briefcase full of US dollars, soft street light reflection, fine skin pores, subsurface scattering, 85mm f/1.8 lens, raw photograph`
 
 ## 🎬 씬 3 (00:16~00:24) — 환전소 창구 거래 (국가부도 반전)
-- **한국어 연출**: 낡은 조흥은행 및 환전소 창구 안, 경악하는 노인 환전상의 시선과 차분하게 달러를 건네는 뉴라.
+- **한국어 연출**: 낡은 중앙 금융 금고 및 환전소 창구 안, 경악하는 노인 환전상의 시선과 차분하게 달러를 건네는 뉴라.
 - **AI 영문 프롬프트**:
 `medium shot, inside an old 1997 Korean currency exchange booth, dim warm fluorescent lamp, an astonished old clerk looking at stacks of crisp hundred dollar bills, NEURA standing calm and elegant across the wooden counter, dramatic shadows, realistic film grain, 35mm photograph`
 
@@ -43,4 +43,4 @@ _매 호출 시 시스템 프롬프트에 자동 주입됩니다._
 - **공통 네거티브 프롬프트**:
 `(random moles, freckles, neck mole, chest mole, plastic doll skin, anime, 3d cgi, oversaturated, deformed hands, extra fingers: 1.6)`
 
-<run_command>py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱"</run_command>
+<run_command>py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱"</run_command>

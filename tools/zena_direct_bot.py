@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 zena_direct_bot.py — Hookverse Studio 오빠 전속 제나 1:1 직통 비서봇 v2.0 (완전 독립형)
 설계 원칙:
@@ -194,10 +194,10 @@ def run_render():
     script = os.path.join(WORKSPACE, "tools", "video_assembler.py")
     if not os.path.exists(script):
         return "❌ `video_assembler.py` 스크립트를 찾을 수 없습니다."
-    cmd = [sys.executable, script, "--output", "IMF2화_조흥은행금고일치_가변싱크_완성본.mp4", "--durations", "6.2", "5.3", "5.3", "5.3", "5.2", "5.5", "5.7", "6.74"]
+    cmd = [sys.executable, script, "--output", "IMF2화_지하_비밀_외환_금고일치_가변싱크_완성본.mp4", "--durations", "6.2", "5.3", "5.3", "5.3", "5.2", "5.5", "5.7", "6.74"]
     res = subprocess.run(cmd, cwd=WORKSPACE, capture_output=True, text=True, errors="ignore", timeout=180)
     if res.returncode == 0:
-        return "🎉 *오빠! 2화 45.24초 가변 싱크 비디오 렌더링 성공!*\n`assets/videos/IMF2화_조흥은행금고일치_가변싱크_완성본.mp4` 안착 완료!"
+        return "🎉 *오빠! 2화 45.24초 가변 싱크 비디오 렌더링 성공!*\n`assets/videos/IMF2화_지하_비밀_외환_금고일치_가변싱크_완성본.mp4` 안착 완료!"
     return f"⚠️ 렌더링 중 오류 발생:\n{res.stderr[-300:]}"
 
 def run_relay(track="A", topic=None):

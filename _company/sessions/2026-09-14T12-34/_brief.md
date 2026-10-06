@@ -1,4 +1,4 @@
-# 📋 작업 브리프
+﻿# 📋 작업 브리프
 
 **원 명령:** CEO! 2호 쇼츠 'IMF 전날 밤의 비밀' 100점 완제품 프로덕션 파이프라인 가동하라.
 [작업 표준서 엄수]:
@@ -11,4 +11,4 @@
 
 ## 분배
 - **✍️ Writer**: 2호 쇼츠 'IMF 전날 밤의 비밀' (30초) - 한국어 대본 작성: 작가로 부르기.   py -3 _company/_agents/writer/tools/short_script.py "IMF전날밤의비밀" "타임슬립" 실행
-- **🎨 Designer**: Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 실행
+- **🎨 Designer**: Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 실행

@@ -1,8 +1,8 @@
-# 🎨 Hookverse Studio 4단 실사 프롬프트 — 2026-09-14T13-42
+﻿# 🎨 Hookverse Studio 4단 실사 프롬프트 — 2026-09-14T13-42
 
 > 추출 일시: 2026-09-14 23:02:54
 
-# 🎨 Designer — Scene 1-4 시네마틱 프롬프트 (한국어 연출 + 영문 프롬프트) 작성 및  py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정조흥은행"
+# 🎨 Designer — Scene 1-4 시네마틱 프롬프트 (한국어 연출 + 영문 프롬프트) 작성 및  py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정중앙 금융 금고"
 
 ##  🎬 Scene 1 (00:00~00:03) - Midnight Myeongdong Alley
 
@@ -20,7 +20,7 @@
 
 ##  🎬 Scene 3 (00:16~00:24) - Exchange Booth & Money Deal
 
-- **Korean Script:** 낡은 조흥은행 및 환전소 창구 안, 경악하는 노인 환전상의 시선과 차분하게 달러를 건네는 뉴라.
+- **Korean Script:** 낡은 중앙 금융 금고 및 환전소 창구 안, 경악하는 노인 환전상의 시선과 차분하게 달러를 건네는 뉴라.
 - **Prompt:**
 `medium shot, inside an old 1997 Korean currency exchange booth, dim warm fluorescent lamp, an astonished o
 

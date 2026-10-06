@@ -1,4 +1,4 @@
-# 📝 CEO 종합 보고서
+﻿# 📝 CEO 종합 보고서
 
 ## 🗂 작업 라운드 — 누가 뭐 했나
 
@@ -9,7 +9,7 @@
 > 📝 산출물 길이: 946자
 
 ### 🎨 Designer _(Lead Designer)_
-> 📋 **지시**: 4단 실사 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 물리 실행
+> 📋 **지시**: 4단 실사 프롬프트 작성 및 py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 물리 실행
 > 🔧 **도구 실행**: _(없음 — LLM 추론만)_
 > 💡 **핵심 산출**: "stage": "planning",
 > 📝 산출물 길이: 2700자

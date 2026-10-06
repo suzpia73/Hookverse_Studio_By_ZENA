@@ -707,6 +707,269 @@
     .fleet-name { font-size: 14px; font-weight: 700; color: var(--text-white); }
     .fleet-role { font-size: 11px; color: var(--text-dim); }
 
+    /* Episode Reel Shelf & Thumbnail Cards */
+    .episode-shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .ep-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ep-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--gold-glow);
+    }
+
+    .ep-card.active {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 25px rgba(238, 211, 127, 0.35);
+      background: linear-gradient(180deg, rgba(238, 211, 127, 0.08) 0%, var(--bg-surface) 100%);
+    }
+
+    .ep-card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      height: 160px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .ep-card-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .ep-card:hover .ep-card-thumb-wrap img {
+      transform: scale(1.06);
+    }
+
+    .ep-card-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.5px;
+    }
+
+    .badge-latest { background: rgba(238, 211, 127, 0.9); color: #000; }
+    .badge-archive { background: rgba(16, 185, 129, 0.85); color: #000; }
+    .badge-upcoming { background: rgba(192, 132, 252, 0.85); color: #000; }
+
+    .ep-card-duration {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .ep-card-playing-indicator {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(244, 63, 94, 0.9);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      display: none;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 0 12px rgba(244, 63, 94, 0.6);
+    }
+
+    .ep-card.active .ep-card-playing-indicator {
+      display: inline-flex;
+    }
+
+    .ep-card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+
+    .ep-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.3;
+    }
+
+    .ep-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ep-card-views {
+      font-weight: 700;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Action Buttons & Toolbar */
+    .cinema-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cinema-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-medium);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-cinema-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-cinema-action.primary {
+      background: var(--gold-primary);
+      color: #000;
+      border-color: var(--gold-primary);
+    }
+
+    .btn-cinema-action.primary:hover {
+      background: #ffe39a;
+      box-shadow: 0 0 15px var(--gold-glow);
+      color: #000;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .toast-msg {
+      background: rgba(12, 14, 20, 0.95);
+      border: 1px solid var(--gold-primary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--gold-glow);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1), toastOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) 2.7s forwards;
+      pointer-events: auto;
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes toastOut {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    }
+
+    /* Modal Navigation Buttons */
+    .modal-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-nav-btn:hover {
+      background: var(--gold-primary);
+      color: #000;
+      border-color: var(--gold-primary);
+    }
+
+    .modal-nav-prev { left: -60px; }
+    .modal-nav-next { right: -60px; }
+
+    @media (max-width: 768px) {
+      .modal-nav-prev { left: 10px; }
+      .modal-nav-next { right: 10px; }
+    }
+
     /* Footer */
     footer {
       margin-top: 50px;
@@ -781,15 +1044,15 @@
       <div class="briefing-grid">
         <div class="brief-col">
           <div class="brief-label">① 작업 목적</div>
-          <div class="brief-val"><strong>[19번 - STEP 03]</strong> 유튜브 스튜디오 공식 채널 99% 사전 완결 & 검색어 2트랙(채널 대분류 vs 쇼츠별 세부 태그) 분리 기입 및 브랜딩 3종 세팅</div>
+          <div class="brief-val"><strong>[STEP 05 가동]</strong> IMF 2화 유튜브 발사(일부공개 120회 달성) 완료 ➡️ 관제탑 최신순(EP2/EP1) 누적 아카이브 연동 & 전사 마스터 체크리스트 클린 리셋 ➡️ EP3 6대 노드 설계 착수</div>
         </div>
         <div class="brief-col">
           <div class="brief-label">② 투입 재료</div>
-          <div class="brief-val">QHD 배너(2560x1440) + 636px 앰블럼 + 워터마크 + 트랙1 채널 키워드 12종 + 트랙2 쇼츠 태그 9종 + 완제품 비디오(7.95MB)</div>
+          <div class="brief-val">EP.02 마스터(10.48MB) + EP.01 마스터(25.66MB) 0 Byte 스트리밍 연동 + Google Opal 6대 노드 V2.0 + 실시간 120회 분석 지표</div>
         </div>
         <div class="brief-col">
           <div class="brief-label">③ 완료 후 산출물</div>
-          <div class="brief-val">유튜브 스튜디오 99% 완결 세팅 ➡️ 최고사령관 오빠의 [1% 최종 발사(Publish)] 대기 완료</div>
+          <div class="brief-val">관제탑 최신순 스트리밍 아카이브 100% 동기화 ➡️ 1997 중앙 금융 본점 지하 비밀 외환 금고 잠입 4컷 대본 & 감정 오디오 설계</div>
         </div>
       </div>
     </div>
@@ -800,7 +1063,7 @@
         <span>🚦</span> 실시간 관제탑
       </button>
       <button class="nav-tab" onclick="switchTab('tab-cinema')" id="tab-btn-cinema">
-        <span>🎬</span> IMF 2화 시네마 스튜디오
+        <span>🎬</span> 시네마 스튜디오 (누적 아카이브)
       </button>
       <button class="nav-tab" onclick="switchTab('tab-branding')" id="tab-btn-branding">
         <span>👑</span> 3대 공식 브랜딩 자산
@@ -835,31 +1098,31 @@
           <div class="step-desc">49.35s 카이라 1인칭 생체 나레이션 + 1~2줄 교보손글씨 자막 + 1:1 정원 앰블럼 고정 완결 (8.94MB)</div>
         </div>
 
-        <div class="step-node active-stage">
+        <div class="step-node completed">
           <div class="step-header">
             <span class="step-num">STEP 03</span>
-            <span class="step-badge badge-active">진행 대기 ⚡</span>
+            <span class="step-badge badge-done">완료 100% ✅</span>
           </div>
           <div class="step-title">유튜브 스튜디오 99% 완결</div>
-          <div class="step-desc">채널 검색어 vs 쇼츠별 태그 2트랙 분리 기입 및 배너/프로필 앰블럼 등록</div>
+          <div class="step-desc">제목 '수화기 너머의 한마디...', 3층 설명란, 6대 정예 태그, AI 라벨링 세팅 완료</div>
         </div>
 
-        <div class="step-node">
+        <div class="step-node completed">
           <div class="step-header">
             <span class="step-num">STEP 04</span>
-            <span class="step-badge badge-pending">대기 중</span>
+            <span class="step-badge badge-done">발사 완료 ✅</span>
           </div>
           <div class="step-title">오빠 1% 최종 발사</div>
-          <div class="step-desc">최고사령관 오빠의 최종 확인 및 승인 후 [게시 (Publish)] 딸깍 발사</div>
+          <div class="step-desc">유튜브 채널 @hookverse_studio 일부 공개 발사 완료 (실시간 120회 달성, +176% 성장! 🔥)</div>
         </div>
 
-        <div class="step-node">
+        <div class="step-node active-stage">
           <div class="step-header">
             <span class="step-num">STEP 05</span>
-            <span class="step-badge badge-pending">대기 중</span>
+            <span class="step-badge badge-active">진행 중 ⚡</span>
           </div>
-          <div class="step-title">마스터 체크리스트 리셋</div>
-          <div class="step-desc">누적 체크리스트 [한 것 vs 안 한 것] 전수 점검 및 차세대 로드맵 순번 재정렬</div>
+          <div class="step-title">마스터 체크리스트 리셋 & EP3 착수</div>
+          <div class="step-desc">누적 체크리스트 [한 것 vs 안 한 것] 전수 정돈 ➡️ Google Opal 6대 노드 기반 EP3 4컷 마스터 설계 착수</div>
         </div>
       </div>
 
@@ -909,96 +1172,236 @@
           </div>
         </div>
       </div>
+
+      <!-- Live Cinema Preview Spotlight (EP.02 Quick Hub) -->
+      <div class="panel" style="margin-top: 24px; border-color: var(--border-gold); background: linear-gradient(180deg, rgba(238, 211, 127, 0.04) 0%, var(--bg-surface) 100%);">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🎬</span> 최신작 숏폼 스포트라이트 (EP.02 추격과 비밀 통화 · 120회 시청)
+          </div>
+          <button class="btn-refresh" onclick="switchTab('tab-cinema')" style="cursor: pointer; background: var(--gold-primary); color: #000; font-weight: 800; font-size: 12px; padding: 6px 14px; border-radius: 6px;">
+            <span>🎞️</span> 시네마 스튜디오 전체 릴 열기 ➔
+          </button>
+        </div>
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 20px; align-items: center;">
+          <div style="background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--border-medium);">
+            <video controls preload="metadata" style="width: 100%; height: auto; display: block;" poster="../assets/images/review/snap_master_c01_02s.jpg">
+              <source src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--text-muted);">
+            <div style="font-size: 16px; font-weight: 700; color: #fff;">
+              "우산도 없이 쏟아지는 폭우 속... 저 골목 끝 공중전화 부스로 몸을 던졌어!"
+            </div>
+            <p>
+              오빠께서 지시하신 <strong>모션 배지 · 1:1 정원 투명 앰블럼 · 1~2줄 칼싱크 자막 · 카이라 생체 보이스</strong> 4대 시네마틱 헌법이 100% 무결점으로 결속된 마스터본입니다.
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;">
+              <button class="btn-cinema-action" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep02');">
+                <span>🔍</span> EP.02 4컷 스틸 & 대본 보기
+              </button>
+              <button class="btn-cinema-action" onclick="switchTab('tab-cinema'); selectEpisodeArchive('ep01');">
+                <span>⏮️</span> EP.01 국가부도의 날 전야 (이전 작품 보기)
+              </button>
+              <a href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
+                <span>⬇️</span> 0 Byte 다운로드 (10.48 MB)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- VIEW 2: IMF 2화 시네마 스튜디오 (Cinema Studio) -->
+    <!-- VIEW 2: 시네마 스튜디오 (누적 아카이브 & 동적 스위칭) -->
     <div id="tab-cinema" class="view-content">
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title"><span>🎬</span> IMF 2화 4컷 마스터 실사 스틸 갤러리 (클릭 시 확대)</div>
-          <span style="font-size: 12px; color: var(--gold-primary);">G3 Master Face Anchor Lock 100% 무결점</span>
+      
+      <!-- Section Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h2 style="font-size: 20px; font-weight: 800; font-family: var(--font-display); color: #fff; display: flex; align-items: center; gap: 8px;">
+            <span>🎞️</span> 에피소드 마스터 아카이브 릴 (Episode Master Reel)
+          </h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+            썸네일을 클릭하면 대시보드 메인 레이아웃에 해당 에피소드의 영상 · 4컷 스틸 · 대본이 0 Byte로 즉각 전환됩니다.
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--neon-emerald); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 5px 12px; border-radius: 9999px;">
+          <span>⚡</span> 0 Byte 무손실 로컬 스트리밍 연결됨
+        </div>
+      </div>
+
+      <!-- Episode Thumbnail Reel Shelf -->
+      <div class="episode-shelf" id="ep-shelf">
+        <!-- Card 1: EP.02 (Latest) -->
+        <div class="ep-card active" id="card-ep02" onclick="selectEpisodeArchive('ep02')">
+          <div class="ep-card-thumb-wrap">
+            <span class="ep-card-badge badge-latest">🔥 최신작 · 120회</span>
+            <span class="ep-card-duration">00:49</span>
+            <span class="ep-card-playing-indicator"><span>🔴</span> PLAYING</span>
+            <img src="../assets/images/review/snap_master_c01_02s.jpg" alt="EP.02 썸네일">
+          </div>
+          <div class="ep-card-body">
+            <div class="ep-card-title">EP.02 추격과 비밀 통화</div>
+            <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+              자정 카운트다운 ➡️ 빗속 질주 ➡️ 공중전화 충격 반전
+            </div>
+            <div class="ep-card-meta">
+              <span class="ep-card-views"><span>👁️</span> 120회 시청 (+176%)</span>
+              <span style="color: var(--neon-emerald); font-weight: 700;">일부 공개 완료 ✅</span>
+            </div>
+          </div>
         </div>
 
-        <div class="stills-gallery">
-          <!-- Cut 01 -->
-          <div class="still-card" onclick="openModal('../assets/images/IMF2화_마스터4컷_스틸/01_Cut01_시계탑훅_사냥꾼포위경계_마스터.png', 'Cut 01: 자정 시계탑 훅 & 사냥꾼 포위 경계 (00:00~07.50s)')">
-            <div class="still-thumb-wrap">
-              <span class="cut-time-tag">00:00 - 07.50s</span>
-              <img src="../assets/images/IMF2화_마스터4컷_스틸/01_Cut01_시계탑훅_사냥꾼포위경계_마스터.png" alt="Cut 01">
+        <!-- Card 2: EP.01 (Pilot) -->
+        <div class="ep-card" id="card-ep01" onclick="selectEpisodeArchive('ep01')">
+          <div class="ep-card-thumb-wrap">
+            <span class="ep-card-badge badge-archive">🎬 파일럿 · 68회</span>
+            <span class="ep-card-duration">00:24</span>
+            <span class="ep-card-playing-indicator"><span>🔴</span> PLAYING</span>
+            <img src="../assets/images/IMF1화/neura_cut3_thumbnail_1789109819463.jpg" alt="EP.01 썸네일">
+          </div>
+          <div class="ep-card-body">
+            <div class="ep-card-title">EP.01 국가부도의 날 전야</div>
+            <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+              1997년 11월 20일 자정, 시공간 균열 불시착
             </div>
-            <div class="still-meta">
-              <div class="cut-name">Cut 01 · 시계탑 경계</div>
-              <div class="cut-dialogue">"...하지만 이미 놈들이 움직였습니다. 자정 00시 정각, 기어이 카운트다운이 시작됐어."</div>
+            <div class="ep-card-meta">
+              <span class="ep-card-views"><span>👁️</span> 68회 시청</span>
+              <span style="color: var(--gold-primary); font-weight: 700;">시리즈 첫 발사 ✅</span>
             </div>
           </div>
+        </div>
 
-          <!-- Cut 02 -->
-          <div class="still-card" onclick="openModal('../assets/images/IMF2화_마스터4컷_스틸/02_Cut02_사냥꾼따돌림_모퉁이턴질주_마스터.png', 'Cut 02: 사냥꾼 따돌림 모퉁이 턴 질주 액션 (07.50~15.00s)')">
-            <div class="still-thumb-wrap">
-              <span class="cut-time-tag">07.50 - 15.00s</span>
-              <img src="../assets/images/IMF2화_마스터4컷_스틸/02_Cut02_사냥꾼따돌림_모퉁이턴질주_마스터.png" alt="Cut 02">
-            </div>
-            <div class="still-meta">
-              <div class="cut-name">Cut 02 · 모퉁이 턴 질주</div>
-              <div class="cut-dialogue">"우산도 없이 쏟아지는 폭우 속을 미친 듯이 뛰는데... 저 뒤편 검은 우산의 사냥꾼들!"</div>
+        <!-- Card 3: EP.03 (Upcoming / Pre-Production) -->
+        <div class="ep-card" id="card-ep03" onclick="selectEpisodeArchive('ep03')" style="opacity: 0.85;">
+          <div class="ep-card-thumb-wrap" style="background: linear-gradient(135deg, #12151e 0%, #1e2434 100%); display: flex; align-items: center; justify-content: center;">
+            <span class="ep-card-badge badge-upcoming">⚙️ 6대 노드 가동 중</span>
+            <span class="ep-card-duration">00:30 (예정)</span>
+            <span class="ep-card-playing-indicator"><span>🔴</span> SELECTED</span>
+            <div style="text-align: center; color: var(--gold-primary);">
+              <div style="font-size: 32px; margin-bottom: 4px;">🏦</div>
+              <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px;">PRE-PRODUCTION</div>
             </div>
           </div>
-
-          <!-- Cut 03 -->
-          <div class="still-card" onclick="openModal('../assets/images/IMF2화_마스터4컷_스틸/03_Cut03_공중전화부스진입_탈출액션_마스터.png', 'Cut 03: 공중전화 부스 돌입 전력 진입 (15.00~22.50s)')">
-            <div class="still-thumb-wrap">
-              <span class="cut-time-tag">15.00 - 22.50s</span>
-              <img src="../assets/images/IMF2화_마스터4컷_스틸/03_Cut03_공중전화부스진입_탈출액션_마스터.png" alt="Cut 03">
+          <div class="ep-card-body">
+            <div class="ep-card-title">EP.03 지하 비밀 외환 금고 잠입</div>
+            <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+              1997 자정, 중앙 금융 본점 지하 금고 앞의 운명적 대치
             </div>
-            <div class="still-meta">
-              <div class="cut-name">Cut 03 · 공중전화 돌입</div>
-              <div class="cut-dialogue">"통신마저 먹통인 1997년. 저 골목 끝, 희미하게 빛나는 공중전화 부스로 몸을 던졌어!"</div>
-            </div>
-          </div>
-
-          <!-- Cut 04 -->
-          <div class="still-card" onclick="openModal('../assets/images/IMF2화_마스터4컷_스틸/04_Cut04_공중전화은색수화기_충격반전클리프행어_마스터.png', 'Cut 04: 은색 수화기 충격 반전 클리프행어 (22.50~30.00s)')">
-            <div class="still-thumb-wrap">
-              <span class="cut-time-tag">22.50 - 30.00s</span>
-              <img src="../assets/images/IMF2화_마스터4컷_스틸/04_Cut04_공중전화은색수화기_충격반전클리프행어_마스터.png" alt="Cut 04">
-            </div>
-            <div class="still-meta">
-              <div class="cut-name">Cut 04 · 충격 반전 훅</div>
-              <div class="cut-dialogue">"...수화기 내려놔. 금고를 연 건, 바로 너잖아?" (경악 클리프행어)</div>
+            <div class="ep-card-meta">
+              <span style="color: var(--neon-purple); font-weight: 700;"><span>🧬</span> Opal V2 노드 설계 착수</span>
+              <span style="color: var(--text-dim);">COMING SOON</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Master Rendered Video Player Panel -->
-      <div class="panel" style="margin-top: 24px; border-color: var(--border-gold);">
-        <div class="panel-header">
-          <div class="panel-title"><span>🏆</span> IMF 2화 최종 숏폼 마스터 비디오 플레이어 (1080×1920 세로)</div>
-          <span class="badge-chip" style="background: var(--neon-emerald); color: #000; font-weight: 700;">모션배지·투명앰블럼·1~2줄 완결본 (10.48 MB)</span>
+      <!-- Action Toolbar for Selected Episode -->
+      <div class="cinema-action-bar">
+        <div class="action-group">
+          <span style="font-size: 13px; font-weight: 800; color: var(--gold-primary); display: flex; align-items: center; gap: 6px;">
+            <span>🎬</span> <span id="active-ep-tag">EP.02 활성화됨</span>
+          </span>
+          <span style="color: var(--border-medium);">|</span>
+          <button class="btn-cinema-action" onclick="copyEpisodeScript()" id="btn-copy-script">
+            <span>📋</span> 대본 원클릭 복사
+          </button>
+          <button class="btn-cinema-action" onclick="copyYoutubeMeta()" id="btn-copy-meta">
+            <span>🔗</span> 유튜브 메타(제목·태그) 복사
+          </button>
         </div>
-        <div style="display: grid; grid-template-columns: 360px 1fr; gap: 24px; align-items: start;">
-          <div style="background: #000; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-medium); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <video controls preload="metadata" style="width: 100%; height: auto; display: block;" poster="../assets/images/review/snap_master_c01_02s.jpg">
-              <source src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
-              브라우저가 비디오 재생을 지원하지 않습니다.
-            </video>
+        <div class="action-group">
+          <a id="btn-download-video" href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
+            <span>⬇️</span> 0 Byte 비디오 다운로드
+          </a>
+          <a id="btn-yt-link" href="https://youtube.com/shorts/h_9qfiVv72w" target="_blank" rel="noopener noreferrer" class="btn-cinema-action">
+            <span>📺</span> 유튜브 숏폼 바로보기
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Interactive Cinema Stage (Single Dynamic Layout) -->
+      <div id="cinema-stage" class="cinema-stage-box">
+        
+        <!-- Top: 4-Cut Master Still Gallery -->
+        <div class="panel" style="margin-bottom: 24px;">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span>🖼️</span> <span id="stage-gallery-title">IMF 2화 4컷 마스터 실사 스틸 갤러리</span>
+            </div>
+            <span style="font-size: 12px; color: var(--gold-primary);" id="stage-anchor-badge">G3 Master Face Anchor Lock 100% 무결점</span>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 14px; color: var(--text-muted); font-size: 13px; line-height: 1.6;">
-            <div style="font-size: 16px; font-weight: 700; color: #fff; font-family: var(--font-display);">
-              🎬 IMF 2화: 전날 밤의 비밀 — "추격과 비밀 통화"
+
+          <div class="stills-gallery" id="stage-stills-gallery">
+            <!-- Dynamic 4 Stills Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Bottom: Master Video Player & Screenplay / Audio Station -->
+        <div class="panel" style="border-color: var(--border-gold);">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span>🏆</span> <span id="stage-player-title">IMF 2화 최종 숏폼 마스터 비디오 플레이어 (1080×1920 세로)</span>
             </div>
-            <div style="background: var(--bg-card); padding: 14px; border-radius: 8px; border-left: 3px solid var(--gold-primary);">
-              <strong style="color: var(--gold-primary);">⚡ 탑재된 핵심 시네마틱 스펙 (오빠 지침 100% 무결점 완결):</strong><br>
-              • <strong>좌상단 배지</strong>: 270×136 15타공 롤링 + 셔터 플래시 + 실오라기/스크래치 + 순차점등 <strong>생체 모션 비디오 루프 장착</strong><br>
-              • <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 기존 636x636 정원 엠블럼 <strong>1:1 정원 고정 안착 (찌그러짐/흔들림 0%)</strong><br>
-              • <strong>자막</strong>: 3~4줄 원천 박멸! <strong>절대 1줄 또는 딱 2줄 엄수</strong> + <strong>[작은 점 낙하 바운스 안착 모션]</strong><br>
-              • <strong>질감</strong>: 35mm 영화 필름 그레인(3~5%) 노이즈 오버레이<br>
-              • <strong>나레이션</strong>: 49.35초 <strong>카이라(KAIRA) 공식 브랜드 1인칭 생체 긴박 연기 보이스</strong> 밀리초 칼싱크!
+            <span class="badge-chip" id="stage-player-badge" style="background: var(--neon-emerald); color: #000; font-weight: 700;">
+              모션배지·투명앰블럼·1~2줄 완결본 (10.48 MB)
+            </span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 360px 1fr; gap: 24px; align-items: start;" id="stage-player-grid">
+            
+            <!-- Video Player Column -->
+            <div style="background: #000; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-medium); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+              <video id="stage-main-video" controls preload="metadata" style="width: 100%; height: auto; display: block;" poster="../assets/images/review/snap_master_c01_02s.jpg">
+                <source id="stage-video-source" src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
+                브라우저가 비디오 재생을 지원하지 않습니다.
+              </video>
             </div>
-            <div style="display: flex; gap: 10px; margin-top: 10px;">
-              <a href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-refresh" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                <span>⬇️</span> MP4 비디오 파일 다운로드 (10.48 MB)
-              </a>
+
+            <!-- Meta & Script Column -->
+            <div style="display: flex; flex-direction: column; gap: 16px; color: var(--text-muted); font-size: 13px; line-height: 1.6;">
+              <div style="font-size: 18px; font-weight: 800; color: #fff; font-family: var(--font-display);" id="stage-ep-fullname">
+                🎬 IMF 2화: 전날 밤의 비밀 — "추격과 비밀 통화"
+              </div>
+              
+              <!-- Screenplay Box -->
+              <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border-left: 3px solid var(--neon-cyan);">
+                <div style="font-size: 12px; font-weight: 800; color: var(--neon-cyan); margin-bottom: 6px; display: flex; justify-content: space-between;">
+                  <span>🎙️ 카이라(KAIRA) 공식 1인칭 생체 나레이션 대본</span>
+                  <span id="stage-audio-duration">49.35초 마스터</span>
+                </div>
+                <div id="stage-screenplay-text" style="font-size: 13px; color: #e2e8f0; line-height: 1.6; white-space: pre-line;">
+"...하지만 이미 놈들이 움직였습니다.
+자정 00시 정각, 기어이 카운트다운이 시작됐어.
+우산도 없이 쏟아지는 폭우 속을 미친 듯이 뛰는데...
+저 뒤편 검은 우산의 사냥꾼들!
+통신마저 먹통인 1997년.
+저 골목 끝, 희미하게 빛나는 공중전화 부스로 몸을 던졌어!
+...수화기 내려놔.
+금고를 연 건, 바로 너잖아?"
+                </div>
+              </div>
+
+              <!-- Production Specs Box -->
+              <div style="background: var(--bg-card); padding: 14px; border-radius: 8px; border-left: 3px solid var(--gold-primary);" id="stage-specs-box">
+                <strong style="color: var(--gold-primary);">⚡ 탑재된 핵심 시네마틱 스펙 (오빠 지침 100% 무결점 완결):</strong><br>
+                • <strong>좌상단 배지</strong>: 270×136 15타공 롤링 + 셔터 플래시 + 순차점등 <strong>생체 모션 비디오 루프 장착</strong><br>
+                • <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 기존 636x636 정원 엠블럼 <strong>1:1 정원 고정 안착 (그네타기 스윙)</strong><br>
+                • <strong>자막</strong>: 3~4줄 원천 박멸! <strong>절대 1줄 또는 딱 2줄 엄수</strong> + <strong>[작은 점 낙하 바운스 안착 모션]</strong><br>
+                • <strong>질감</strong>: 35mm 영화 필름 그레인(3~5%) 노이즈 오버레이<br>
+                • <strong>나레이션</strong>: 49.35초 <strong>카이라(KAIRA) 공식 브랜드 1인칭 생체 긴박 연기 보이스</strong> 밀리초 칼싱크!
+              </div>
+
+              <!-- Dedicated Audio Player for this Episode -->
+              <div style="background: var(--bg-card); padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--gold-primary); display: flex; align-items: center; gap: 6px;">
+                  <span>🔊</span> 오디오 트랙:
+                </span>
+                <audio controls preload="metadata" id="stage-audio-player" style="flex-grow: 1; height: 36px;">
+                  <source id="stage-audio-source" src="../assets/audio/IMF2화_추격과비밀통화_4컷_마스터음성.mp3" type="audio/mpeg">
+                  브라우저가 오디오 재생을 지원하지 않습니다.
+                </audio>
+              </div>
             </div>
           </div>
         </div>
@@ -1167,12 +1570,17 @@
       </div>
     </div>
 
-    <!-- Image Modal -->
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Image Modal with 4-Cut Slider Navigation -->
     <div class="modal-overlay" id="image-modal" onclick="closeModal()">
-      <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-content" onclick="event.stopPropagation()" style="position: relative;">
         <button class="modal-close" onclick="closeModal()">✕</button>
+        <button class="modal-nav-btn modal-nav-prev" onclick="navigateModal(-1)" title="이전 컷 (← 키)">◀</button>
+        <button class="modal-nav-btn modal-nav-next" onclick="navigateModal(1)" title="다음 컷 (→ 키)">▶</button>
         <img src="" alt="Preview" class="modal-img" id="modal-img-src">
-        <div id="modal-caption" style="margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--gold-primary);"></div>
+        <div id="modal-caption" style="margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--gold-primary); text-align: center;"></div>
       </div>
     </div>
 
@@ -1183,6 +1591,219 @@
   </div>
 
   <script>
+    // EPISODE MASTER DATABASE
+    const EPISODES = {
+      'ep02': {
+        id: 'ep02',
+        num: 'EP.02',
+        title: '추격과 비밀 통화',
+        fullname: '🎬 IMF 2화: 전날 밤의 비밀 — "추격과 비밀 통화"',
+        tag: 'EP.02 활성화됨 (최신작 · 120회)',
+        duration: '00:49 (49.35s 마스터)',
+        views: '120회 (+176%)',
+        badge: '모션배지·투명앰블럼·1~2줄 완결본 (10.48 MB)',
+        videoSrc: '../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4',
+        posterSrc: '../assets/images/review/snap_master_c01_02s.jpg',
+        audioSrc: '../assets/audio/IMF2화_추격과비밀통화_4컷_마스터음성.mp3',
+        downloadName: 'IMF2화_추격과비밀통화_4컷_마스터완성본.mp4',
+        downloadSize: '10.48 MB',
+        ytUrl: 'https://youtube.com/shorts/h_9qfiVv72w',
+        anchorBadge: 'G3 Master Face Anchor Lock 100% 무결점',
+        scriptText: `"...하지만 이미 놈들이 움직였습니다.
+자정 00시 정각, 기어이 카운트다운이 시작됐어.
+우산도 없이 쏟아지는 폭우 속을 미친 듯이 뛰는데...
+저 뒤편 검은 우산의 사냥꾼들!
+통신마저 먹통인 1997년.
+저 골목 끝, 희미하게 빛나는 공중전화 부스로 몸을 던졌어!
+...수화기 내려놔.
+금고를 연 건, 바로 너잖아?"`,
+        ytTitle: '1997년 자정, 공중전화 부스에서 울린 충격의 한마디 #shorts #타임슬립 #만약에',
+        ytDesc: `1997년 IMF 전야, 쏟아지는 폭우 속에서 의문의 요원들에게 쫓기던 뉴라.
+골목 끝 공중전화 부스로 피신해 울리는 수화기를 들었을 때...
+수화기 너머에서 들려온 경악의 진실!
+
+🎬 제작: Hookverse Studio (@hookverse_studio)
+🧬 세계관: 타임슬립 / What-If 평행세계 스릴러
+👑 캐릭터: 버추얼 뮤즈 뉴라(NEURA)`,
+        ytTags: '#Hookverse #뉴라 #타임슬립 #WhatIf #1997 #쇼츠 #미스터리',
+        specsHtml: `<strong style="color: var(--gold-primary);">⚡ 탑재된 핵심 시네마틱 스펙 (오빠 지침 100% 무결점 완결):</strong><br>
+• <strong>좌상단 배지</strong>: 270×136 15타공 롤링 + 셔터 플래시 + 순차점등 <strong>생체 모션 비디오 루프 장착</strong><br>
+• <strong>우상단 앰블럼</strong>: 안팎 100% 투명화 기존 636x636 정원 엠블럼 <strong>1:1 정원 고정 안착 (그네타기 스윙)</strong><br>
+• <strong>자막</strong>: 3~4줄 원천 박멸! <strong>절대 1줄 또는 딱 2줄 엄수</strong> + <strong>[작은 점 낙하 바운스 안착 모션]</strong><br>
+• <strong>질감</strong>: 35mm 영화 필름 그레인(3~5%) 노이즈 오버레이<br>
+• <strong>나레이션</strong>: 49.35초 <strong>카이라(KAIRA) 공식 브랜드 1인칭 생체 긴박 연기 보이스</strong> 밀리초 칼싱크!`,
+        stills: [
+          {
+            tag: '00:00 - 07.50s',
+            src: '../assets/images/IMF2화_마스터4컷_스틸/01_Cut01_시계탑훅_사냥꾼포위경계_마스터.png',
+            name: 'Cut 01 · 시계탑 경계',
+            caption: 'Cut 01: 자정 시계탑 훅 & 사냥꾼 포위 경계 (00:00~07.50s)',
+            dialogue: '"...하지만 이미 놈들이 움직였습니다. 자정 00시 정각, 기어이 카운트다운이 시작됐어."'
+          },
+          {
+            tag: '07.50 - 15.00s',
+            src: '../assets/images/IMF2화_마스터4컷_스틸/02_Cut02_사냥꾼따돌림_모퉁이턴질주_마스터.png',
+            name: 'Cut 02 · 모퉁이 턴 질주',
+            caption: 'Cut 02: 사냥꾼 따돌림 모퉁이 턴 질주 액션 (07.50~15.00s)',
+            dialogue: '"우산도 없이 쏟아지는 폭우 속을 미친 듯이 뛰는데... 저 뒤편 검은 우산의 사냥꾼들!"'
+          },
+          {
+            tag: '15.00 - 22.50s',
+            src: '../assets/images/IMF2화_마스터4컷_스틸/03_Cut03_공중전화부스진입_탈출액션_마스터.png',
+            name: 'Cut 03 · 공중전화 돌입',
+            caption: 'Cut 03: 공중전화 부스 돌입 전력 진입 (15.00~22.50s)',
+            dialogue: '"통신마저 먹통인 1997년. 저 골목 끝, 희미하게 빛나는 공중전화 부스로 몸을 던졌어!"'
+          },
+          {
+            tag: '22.50 - 30.00s',
+            src: '../assets/images/IMF2화_마스터4컷_스틸/04_Cut04_공중전화은색수화기_충격반전클리프행어_마스터.png',
+            name: 'Cut 04 · 충격 반전 훅',
+            caption: 'Cut 04: 은색 수화기 충격 반전 클리프행어 (22.50~30.00s)',
+            dialogue: '"...수화기 내려놔. 금고를 연 건, 바로 너잖아?" (경악 클리프행어)'
+          }
+        ]
+      },
+
+      'ep01': {
+        id: 'ep01',
+        num: 'EP.01',
+        title: '국가부도의 날 전야',
+        fullname: '🎬 IMF 1화: 국가부도의 날 전야 — 첫 쇼츠 파일럿',
+        tag: 'EP.01 활성화됨 (파일럿 · 68회)',
+        duration: '00:24 (24.00s 완성본)',
+        views: '68회 달성',
+        badge: '시리즈 첫 발사 완성본 (25.66 MB)',
+        videoSrc: '../assets/videos/EP-1화_국가부도_첫쇼츠.mp4',
+        posterSrc: '../assets/images/IMF1화/neura_cut3_thumbnail_1789109819463.jpg',
+        audioSrc: '',
+        downloadName: 'EP-1화_국가부도_첫쇼츠.mp4',
+        downloadSize: '25.66 MB',
+        ytUrl: 'https://youtube.com/shorts/h_9qfiVv72w',
+        anchorBadge: 'Hookverse Studio 1호 시제품 아카이브',
+        scriptText: `"1997년 11월 20일, 대한민국 경제의 시계가 멈추기 직전.
+시공간의 균열을 넘어 1997년 한복판에 불시착한 뉴라.
+치솟는 환율과 붕괴하는 경제 지표, 조작된 위기의 흔적.
+자정까지 남은 시간은 단 9시간...
+악몽이 시작되려 하고 있었다."`,
+        ytTitle: '1997년 IMF 전날 밤, 스마트폰을 들고 불시착한 소녀 #shorts #타임슬립 #스릴러',
+        ytDesc: `1997년 국가부도의 날 전야, 
+과거로 시간 이동한 뉴라의 첫 번째 생존기!
+
+🎬 제작: Hookverse Studio (@hookverse_studio)
+🧬 첫 번째 파일럿 쇼츠`,
+        ytTags: '#Hookverse #국가부도 #IMF #타임슬립 #WhatIf #뉴라',
+        specsHtml: `<strong style="color: var(--neon-cyan);">⚡ IMF 1화 파일럿 시네마틱 스펙:</strong><br>
+• <strong>발행 결과</strong>: 실시간 조회수 68회 기록 (파일럿 검증 통과)<br>
+• <strong>서사</strong>: 1997년 11월 20일 자정 카운트다운의 서막<br>
+• <strong>특징</strong>: Hookverse Studio 첫 번째 What-If 시네마틱 파일럿 에피소드<br>
+• <strong>의의</strong>: 1호 시제품 성공을 바탕으로 2화 120회(+176%) 성장의 발판 마련!`,
+        stills: [
+          {
+            tag: 'EP.01 Cut 01',
+            src: '../assets/images/IMF1화/imf_1997_newspaper_cut0.jpg',
+            name: 'Cut 01 · 국가부도 전야',
+            caption: 'Cut 01: 1997 신문 헤드라인 & 위기의 서막',
+            dialogue: '"1997년 11월, 대한민국 역사상 가장 어두운 밤이 시작되었습니다."'
+          },
+          {
+            tag: 'EP.01 Cut 02',
+            src: '../assets/images/IMF1화/neura_1997_imf_cut1_1789108002049.jpg',
+            name: 'Cut 02 · 시간의 균열',
+            caption: 'Cut 02: 1997 거리 불시착 뉴라',
+            dialogue: '"시공간의 균열을 넘어 1997년 한복판에 불시착한 뉴라."'
+          },
+          {
+            tag: 'EP.01 Cut 03',
+            src: '../assets/images/IMF1화/neura_cut2_chart_1789108640665.jpg',
+            name: 'Cut 03 · 환율 폭등',
+            caption: 'Cut 03: 폭등하는 환율과 차트',
+            dialogue: '"치솟는 환율과 붕괴하는 경제 지표, 조작된 위기의 흔적."'
+          },
+          {
+            tag: 'EP.01 Cut 04',
+            src: '../assets/images/IMF1화/neura_cut3_thumbnail_1789109819463.jpg',
+            name: 'Cut 04 · 클리프행어',
+            caption: 'Cut 04: 카운트다운의 시작',
+            dialogue: '"자정까지 남은 시간은 단 9시간... 악몽이 시작되려 하고 있었다."'
+          }
+        ]
+      },
+
+      'ep03': {
+        id: 'ep03',
+        num: 'EP.03',
+        title: '지하 비밀 외환 금고 잠입',
+        fullname: '🎬 IMF 3화: 지하 비밀 외환 금고 잠입 (PRE-PRODUCTION)',
+        tag: 'EP.03 사전 설계 착수 중 (Google Opal 6대 노드)',
+        duration: '00:30 (예정)',
+        views: '기획 중',
+        badge: 'Opal V2 6대 마스터 노드 가동 중 ⚙️',
+        videoSrc: '',
+        posterSrc: '../assets/images/review/snap_master_c01_02s.jpg',
+        audioSrc: '',
+        downloadName: '',
+        downloadSize: '',
+        ytUrl: '',
+        anchorBadge: 'G3 7대 화각 앵커락 & 중앙 금융 금고 세트',
+        scriptText: `[Cut 01: 자정 00:00, 중앙 금융 본점 지하 환풍구 잠입]
+"놈들이 말한 금고... 그 지하로 내려가는 유일한 통로였어."
+
+[Cut 02: 3미터 두께 티타늄 원형 다이얼 철문 앞]
+"숫자 다이얼이 돌아가고 있어. 누군가 방금 전 여길 열었다는 뜻이야."
+
+[Cut 03: 텅 빈 금고 안, 바닥에 흩어진 금괴와 서류]
+"장부상에 있어야 할 300억 달러는... 이미 어디론가 사라졌어!"
+
+[Cut 04: 등 뒤에서 철문이 쾅 닫히며 들려오는 발소리]
+"...함정이었어. 넌 애초에 여길 열기 위해 불려온 거야."`,
+        ytTitle: '1997년 사라진 외환 금고의 진실 #shorts #타임슬립 #Hookverse',
+        ytDesc: `1997 자정, 중앙 금융 본점 지하 비밀 외환 금고.
+그곳에서 밝혀지는 충격적인 평행세계의 음모!`,
+        ytTags: '#Hookverse #외환금고 #타임슬립 #WhatIf #EP3',
+        specsHtml: `<strong style="color: var(--neon-purple);">🧬 EP.03 Opal 6대 노드 프로덕션 계획:</strong><br>
+• <strong>Node 01 트렌드/소재</strong>: 1997 국가부도 외환 보유고 증발 음모론 What-If<br>
+• <strong>Node 02 대본/보이스</strong>: 할리우드 성우급 감정 연기 긴박 대본<br>
+• <strong>Node 03 앵커락 프롬프트</strong>: 지하 금고 조명, 티타늄 다이얼, 뉴라 젖은 트렌치코트<br>
+• <strong>Node 04 이미지 생성</strong>: Google Flow Nano Banana 2 (9:16 세로)<br>
+• <strong>Node 05 영상 모션</strong>: Omni 1.1 / CapCut 60% : Vrew 40% 하이브리드<br>
+• <strong>Node 06 배포 차림상</strong>: 유튜브 99% 사전 세팅 및 오빠 1% 최종 발사!`,
+        stills: [
+          {
+            tag: 'EP.03 Cut 01 (기획)',
+            src: '../assets/images/review/snap_master_c01_02s.jpg',
+            name: 'Cut 01 · 지하 환풍구',
+            caption: 'Cut 01: 지하 비밀 외환 금고 환풍구 잠입 (설계 중)',
+            dialogue: '"놈들이 말한 금고... 그 지하로 내려가는 유일한 통로였어."'
+          },
+          {
+            tag: 'EP.03 Cut 02 (기획)',
+            src: '../assets/images/review/snap_master_c02_09s.jpg',
+            name: 'Cut 02 · 티타늄 철문',
+            caption: 'Cut 02: 육중한 원형 티타늄 다이얼 철문 앞 (설계 중)',
+            dialogue: '"숫자 다이얼이 돌아가고 있어. 누군가 방금 전 여길 열었다는 뜻이야."'
+          },
+          {
+            tag: 'EP.03 Cut 03 (기획)',
+            src: '../assets/images/review/snap_master_c03_18s.jpg',
+            name: 'Cut 03 · 텅 빈 금고',
+            caption: 'Cut 03: 흩어진 금괴와 조작된 장부 (설계 중)',
+            dialogue: '"장부상에 있어야 할 300억 달러는... 이미 어디론가 사라졌어!"'
+          },
+          {
+            tag: 'EP.03 Cut 04 (기획)',
+            src: '../assets/images/review/snap_master_c04_26s.jpg',
+            name: 'Cut 04 · 철문 폐쇄 반전',
+            caption: 'Cut 04: 등 뒤에서 쾅 닫히는 철문 & 클리프행어 (설계 중)',
+            dialogue: '"...함정이었어. 넌 애초에 여길 열기 위해 불려온 거야."'
+          }
+        ]
+      }
+    };
+
+    let currentEpisodeId = 'ep02';
+    let modalStills = [];
+    let modalCurrentIdx = 0;
+
     // Tab Switcher Logic
     function switchTab(tabId) {
       document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
@@ -1202,18 +1823,195 @@
       if (activeBtn) activeBtn.classList.add('active');
     }
 
-    // Modal Viewer
+    // Dynamic Episode Archive Switcher (Interactive Stage)
+    function selectEpisodeArchive(epId) {
+      const ep = EPISODES[epId];
+      if (!ep) return;
+      currentEpisodeId = epId;
+
+      // Update Card Active States
+      document.querySelectorAll('.ep-card').forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById(`card-${epId}`);
+      if (activeCard) activeCard.classList.add('active');
+
+      // Update Action Bar
+      const epTag = document.getElementById('active-ep-tag');
+      if (epTag) epTag.innerText = ep.tag;
+
+      const dlBtn = document.getElementById('btn-download-video');
+      if (dlBtn) {
+        if (ep.videoSrc) {
+          dlBtn.href = ep.videoSrc;
+          dlBtn.download = ep.downloadName;
+          dlBtn.style.display = 'inline-flex';
+          dlBtn.innerHTML = `<span>⬇️</span> 0 Byte 비디오 다운로드 (${ep.downloadSize})`;
+        } else {
+          dlBtn.style.display = 'none';
+        }
+      }
+
+      const ytBtn = document.getElementById('btn-yt-link');
+      if (ytBtn) {
+        if (ep.ytUrl) {
+          ytBtn.href = ep.ytUrl;
+          ytBtn.style.display = 'inline-flex';
+        } else {
+          ytBtn.style.display = 'none';
+        }
+      }
+
+      // Update 4-Cut Gallery
+      const galleryTitle = document.getElementById('stage-gallery-title');
+      if (galleryTitle) galleryTitle.innerText = `${ep.num} 4컷 마스터 실사 스틸 갤러리 (${ep.title})`;
+
+      const anchorBadge = document.getElementById('stage-anchor-badge');
+      if (anchorBadge) anchorBadge.innerText = ep.anchorBadge;
+
+      const galleryEl = document.getElementById('stage-stills-gallery');
+      if (galleryEl) {
+        modalStills = ep.stills;
+        galleryEl.innerHTML = ep.stills.map((cut, idx) => `
+          <div class="still-card" onclick="openEpisodeModal(${idx})">
+            <div class="still-thumb-wrap">
+              <span class="cut-time-tag">${cut.tag}</span>
+              <img src="${cut.src}" alt="${cut.name}">
+            </div>
+            <div class="still-meta">
+              <div class="cut-name">${cut.name}</div>
+              <div class="cut-dialogue">${cut.dialogue}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Update Video Player & Source
+      const playerTitle = document.getElementById('stage-player-title');
+      if (playerTitle) playerTitle.innerText = `${ep.num} 최종 숏폼 마스터 비디오 플레이어 (${ep.title})`;
+
+      const playerBadge = document.getElementById('stage-player-badge');
+      if (playerBadge) playerBadge.innerText = ep.badge;
+
+      const vid = document.getElementById('stage-main-video');
+      const vSrc = document.getElementById('stage-video-source');
+      if (vid && vSrc) {
+        vid.pause();
+        if (ep.videoSrc) {
+          vSrc.src = ep.videoSrc;
+          vid.poster = ep.posterSrc;
+          vid.load();
+          vid.style.display = 'block';
+        } else {
+          vSrc.src = '';
+          vid.style.display = 'none';
+        }
+      }
+
+      // Update Screenplay & Meta
+      const epFullname = document.getElementById('stage-ep-fullname');
+      if (epFullname) epFullname.innerText = ep.fullname;
+
+      const audioDur = document.getElementById('stage-audio-duration');
+      if (audioDur) audioDur.innerText = ep.duration;
+
+      const scriptEl = document.getElementById('stage-screenplay-text');
+      if (scriptEl) scriptEl.innerText = ep.scriptText;
+
+      const specsBox = document.getElementById('stage-specs-box');
+      if (specsBox) specsBox.innerHTML = ep.specsHtml;
+
+      // Update Audio Player
+      const aPlayer = document.getElementById('stage-audio-player');
+      const aSrc = document.getElementById('stage-audio-source');
+      if (aPlayer && aSrc) {
+        aPlayer.pause();
+        if (ep.audioSrc) {
+          aSrc.src = ep.audioSrc;
+          aPlayer.load();
+          aPlayer.parentElement.style.display = 'flex';
+        } else {
+          aPlayer.parentElement.style.display = 'none';
+        }
+      }
+
+      showToast(`🎬 ${ep.num} ${ep.title} 레이아웃으로 전환되었습니다! ✨`);
+    }
+
+    // Copy Screenplay to Clipboard
+    function copyEpisodeScript() {
+      const ep = EPISODES[currentEpisodeId];
+      if (!ep) return;
+      navigator.clipboard.writeText(ep.scriptText).then(() => {
+        showToast(`📋 ${ep.num} 나레이션 대본이 클립보드에 복사되었습니다!`);
+      }).catch(() => {
+        showToast(`⚠️ 대본 복사 중 오류가 발생했습니다.`);
+      });
+    }
+
+    // Copy YouTube Meta (Title, Description, Tags) to Clipboard
+    function copyYoutubeMeta() {
+      const ep = EPISODES[currentEpisodeId];
+      if (!ep) return;
+      const fullMeta = `[제목]\n${ep.ytTitle}\n\n[설명란]\n${ep.ytDesc}\n\n[태그]\n${ep.ytTags}`;
+      navigator.clipboard.writeText(fullMeta).then(() => {
+        showToast(`🔗 ${ep.num} 유튜브 메타(제목·설명·태그)가 복사되었습니다!`);
+      }).catch(() => {
+        showToast(`⚠️ 메타데이터 복사 중 오류가 발생했습니다.`);
+      });
+    }
+
+    // Toast Notification System
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const toast = document.createElement('div');
+      toast.className = 'toast-msg';
+      toast.innerHTML = `<span>✨</span> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        if (toast.parentElement) toast.parentElement.removeChild(toast);
+      }, 3000);
+    }
+
+    // Modal Viewer with Navigation
+    function openEpisodeModal(idx) {
+      if (!modalStills || !modalStills[idx]) return;
+      modalCurrentIdx = idx;
+      updateModalView();
+      const modal = document.getElementById('image-modal');
+      if (modal) modal.classList.add('active');
+    }
+
     function openModal(imgSrc, caption) {
       const modal = document.getElementById('image-modal');
       const img = document.getElementById('modal-img-src');
       const cap = document.getElementById('modal-caption');
       img.src = imgSrc;
       cap.innerText = caption || '미리보기';
+      document.querySelector('.modal-nav-prev').style.display = 'none';
+      document.querySelector('.modal-nav-next').style.display = 'none';
       modal.classList.add('active');
     }
 
+    function updateModalView() {
+      const cut = modalStills[modalCurrentIdx];
+      if (!cut) return;
+      const img = document.getElementById('modal-img-src');
+      const cap = document.getElementById('modal-caption');
+      img.src = cut.src;
+      cap.innerText = `[${modalCurrentIdx + 1}/4] ${cut.caption} — ${cut.dialogue}`;
+      document.querySelector('.modal-nav-prev').style.display = 'flex';
+      document.querySelector('.modal-nav-next').style.display = 'flex';
+    }
+
+    function navigateModal(direction) {
+      if (!modalStills || modalStills.length === 0) return;
+      modalCurrentIdx = (modalCurrentIdx + direction + modalStills.length) % modalStills.length;
+      updateModalView();
+    }
+
     function closeModal() {
-      document.getElementById('image-modal').classList.remove('active');
+      const modal = document.getElementById('image-modal');
+      if (modal) modal.classList.remove('active');
     }
 
     // Realtime Clock HUD
@@ -1236,9 +2034,16 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // ESC key closes modal
+    // Keyboard Shortcuts (ESC, Left, Right Arrow)
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') navigateModal(-1);
+      if (e.key === 'ArrowRight') navigateModal(1);
+    });
+
+    // Initialize Default Episode (EP.02)
+    window.addEventListener('DOMContentLoaded', () => {
+      selectEpisodeArchive('ep02');
     });
   </script>
 </body>

@@ -1,4 +1,4 @@
-# 📋 통합 스케줄
+﻿# 📋 통합 스케줄
 _업데이트: 2026. 9. 14. 오후 10:58:30_
 
 ## 📅 사람 일정 (Google Calendar)
@@ -13,8 +13,8 @@ _업데이트: 2026. 9. 14. 오후 10:58:30_
 - [2026-09-11] 이미지 및 컨셉 디자인, 컨텐츠 컨셉, 롤플레이, 믹싱, 협력 등 Instagram 채널 콘텐츠 계획 → 산출물 sessions/2026-09-11T03-07/instagram.md
 ### 🎨 Designer
 - [2026-09-14] Scene 1~4, 35mm/85mm 실사 프롬프트 완성 → 산출물 sessions/2026-09-14T11-57/designer.md
-- [2026-09-14] Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의조흥은행" "35mm" "야간_시네마틱" 실행 → 산출물 sessions/2026-09-14T12-34/designer.md
-- [2026-09-14] Scene 1-4 시네마틱 프롬프트 (한국어 연출 + 영문 프롬프트) 작성 및  py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정조흥은행" → 산출물 sessions/2026-09-14T13-42/designer.md
+- [2026-09-14] Scene 1~4 실사 영문 프롬프트 완성: 디자이너에게 부르기.   py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정의중앙 금융 금고" "35mm" "야간_시네마틱" 실행 → 산출물 sessions/2026-09-14T12-34/designer.md
+- [2026-09-14] Scene 1-4 시네마틱 프롬프트 (한국어 연출 + 영문 프롬프트) 작성 및  py -3 _company/_agents/designer/tools/prompt_gen.py "IMF2화_자정중앙 금융 금고" → 산출물 sessions/2026-09-14T13-42/designer.md
 ### 💻 코다리
 - [2026-09-13] [A.U 히든 커맨드: 💻 코다리 에이전트가 방금 '병아리게임 샘플팩' 템플릿 팩 주입받았습니다. 코드 boilerplate 1개 파일 + README. 매트릭스 톤으로 한 줄. "💻 코다리, 병아리게임 샘플팩 템플릿 1개 파일 장착. 다음 작업에 자동 활용." 부가 설명 X.] → 산출물 sessions/2026-09-13T10-35/developer.md
 - [2026-09-13] [A.U 히든 커맨드: 💻 코다리 에이전트가 방금 '네온서바이버 샘플팩 (PayPal 통합)' 템플릿 팩 주입받았습니다. 코드 boilerplate 1개 파일 + README. 매트릭스 톤으로 한 줄. "💻 코다리, 네온서바이버 샘플팩 (PayPal 통합) 템플릿 1개 파일 장착. 다음 작업에 자동 활용." 부가 설명 X.] → 산출물 sessions/2026-09-13T10-44/developer.md
@@ -32,7 +32,7 @@ _업데이트: 2026. 9. 14. 오후 10:58:30_
 ### ✍️ Writer
 - [2026-09-14] IMF 전날 밤의 비밀 (30초 실전 대본) 작성 → 산출물 sessions/2026-09-14T11-57/writer.md
 - [2026-09-14] 2호 쇼츠 'IMF 전날 밤의 비밀' (30초) - 한국어 대본 작성: 작가로 부르기.   py -3 _company/_agents/writer/tools/short_script.py "IMF전날밤의비밀" "타임슬립" 실행 → 산출물 sessions/2026-09-14T12-34/writer.md
-- [2026-09-14] IMF 2화 '자정조흥은행' - 30초 스토리텔링 대본 (한국어 연출 지문) 생성 및 py -3 _company/_agents/writer/tools/short_script.py "IMF전날밤의비밀" → 산출물 sessions/2026-09-14T13-42/writer.md
+- [2026-09-14] IMF 2화 '자정중앙 금융 금고' - 30초 스토리텔링 대본 (한국어 연출 지문) 생성 및 py -3 _company/_agents/writer/tools/short_script.py "IMF전날밤의비밀" → 산출물 sessions/2026-09-14T13-42/writer.md
 ### 🔍 Researcher
 - [2026-09-13] 오늘 의사결정과 24시간 내 메모리, 회계, 비즈니스 목표에 대한 연관성 → 산출물 sessions/2026-09-13T07-18/researcher.md
 - [2026-09-13] 2026 알고리즘 해킹에 대한 비밀번호 및 관련 정보를 찾아내기 → 산출물 sessions/2026-09-13T10-13/researcher.md

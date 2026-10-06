@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 from datetime import datetime
 
@@ -27,7 +27,7 @@ def scan_trends(keyword="IMF 1997 타임슬립", platform="YouTube Shorts"):
 
 ## 🏷️ 2. 추천 해시태그 & 검색어 팩트셋
 - `#HookverseStudio`, `#타임슬립`, `#1997IMF`, `#국가부도`, `#만약에`, `#shorts`
-- 검색 연관 키워드: 1997년 11월 21일, 조흥은행, 한국통신 공중전화, 환율 폭등
+- 검색 연관 키워드: 1997년 11월 21일, 중앙 금융 금고, 한국통신 공중전화, 환율 폭등
 
 ## 🎯 3. 다음 에이전트 연계 액션
 - ✍️ **Writer**: 위 분석 키워드를 바탕으로 3화 시나리오 대본 파일 생성 투입.
