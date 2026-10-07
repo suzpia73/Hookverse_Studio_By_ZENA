@@ -4171,19 +4171,37 @@
     }
 
     // 9-B. Admin Security Interceptor ("🔒 관리자 전용 보안 구역입니다")
-    // [방법 2: Vercel 배포 주소 (*.vercel.app)] ➔ 가족/외부 접속 시 유튜브 외 5개 버튼 차단 및 보안 모달 표출
-    // [방법 1: GitHub Pages (*.github.io) & 로컬 PC] ➔ 오빠 전용 관리자 환경이므로 6대 버튼 모두 100% 정상 작동!
+    // [만능 하이브리드 지원]: 
+    // 1) 깃허브 공개 시 (GitHub Pages: *.github.io) ➔ 오빠 전용 관리자 모드로 6대 버튼 100% 정상 작동!
+    // 2) 깃허브 비공개 시 (Vercel: *.vercel.app) ➔ 기본 가족 보안 모드 (유튜브 외 차단)
+    // 3) Vercel 환경이라도 오빠 폰에서 ?admin=true 로 1번만 접속하면 관리자로 영구 기억되어 6대 버튼 100% 정상 작동!
+    // 4) 로컬 PC 환경 ➔ 100% 정상 작동!
     function handleAdminSecurity(e, name, url) {
-      const isVercel = window.location.hostname.includes('vercel.app');
-      if (isVercel) {
-        if (e) e.preventDefault();
-        const modal = document.getElementById('admin-security-modal');
-        const targetEl = document.getElementById('admin-sec-target-name');
-        if (targetEl) targetEl.innerText = `[${name}] 접근 제한`;
-        if (modal) modal.classList.add('active');
+      const isGithubPages = window.location.hostname.includes('github.io');
+      const isLocal = window.location.protocol === 'file:' || 
+                      window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1';
+      const urlParams = new URLSearchParams(window.location.search);
+      const hasAdminParam = urlParams.get('admin') === 'true' || urlParams.get('admin') === '1';
+
+      if (hasAdminParam) {
+        localStorage.setItem('kaira_admin_mode', 'true');
+      }
+      const isSavedAdmin = localStorage.getItem('kaira_admin_mode') === 'true';
+
+      const isAdmin = isGithubPages || isLocal || hasAdminParam || isSavedAdmin;
+
+      // 관리자 권한이면 6대 버튼 모두 100% 정상 이동 (새 창)
+      if (isAdmin) {
         return;
       }
-      // GitHub Pages 및 로컬 PC 환경에서는 100% 정상 이동 (새 창)
+
+      // 일반 가족/외부 접속자라면 차단 팝업 표출
+      if (e) e.preventDefault();
+      const modal = document.getElementById('admin-security-modal');
+      const targetEl = document.getElementById('admin-sec-target-name');
+      if (targetEl) targetEl.innerText = `[${name}] 접근 제한`;
+      if (modal) modal.classList.add('active');
     }
 
     function closeAdminSecurity() {
