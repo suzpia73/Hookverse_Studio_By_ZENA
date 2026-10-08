@@ -23,7 +23,7 @@ for y in range(th):
     for x in range(tw):
         pixel = text_crop.getpixel((x, y))
         if isinstance(pixel, (tuple, list)) and len(pixel) >= 3:
-            r, g, b = int(pixel[0]), int(pixel[1]), int(pixel[2])
+            r, g, b = pixel[0], pixel[1], pixel[2]
         else:
             continue
         bright = max(r, g, b)
