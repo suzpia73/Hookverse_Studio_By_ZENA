@@ -13,6 +13,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Hookverse Studio">
   <meta name="theme-color" content="#040507">
+  <!-- Mobile Cache Buster: Always fetch latest version -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -2280,9 +2284,11 @@
       }
 
       .brand-meta-tags {
-        display: inline-flex !important;
+        display: flex !important;
+        width: 100% !important;
         align-items: center !important;
-        gap: 6px !important;
+        gap: 8px !important;
+        margin-top: 4px !important;
         margin-left: 0 !important;
         flex-shrink: 0 !important;
       }
