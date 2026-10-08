@@ -18,12 +18,14 @@ crop_area = (20, 310, 1010, 755)
 text_crop = text_orig.crop(crop_area)
 tw, th = text_crop.size
 
-clean_text = Image.new("RGBA", (tw, tw), (0, 0, 0, 0)) # clean buffer
 clean_text = Image.new("RGBA", (tw, th), (0, 0, 0, 0))
 for y in range(th):
     for x in range(tw):
         pixel = text_crop.getpixel((x, y))
-        r, g, b = pixel[0], pixel[1], pixel[2]
+        if isinstance(pixel, (tuple, list)) and len(pixel) >= 3:
+            r, g, b = int(pixel[0]), int(pixel[1]), int(pixel[2])
+        else:
+            continue
         bright = max(r, g, b)
         sat = bright - min(r, g, b)
         if bright < 22:
