@@ -2003,7 +2003,8 @@
     }
 
     /* Fleet & Vault & Branding Layouts */
-    .fleet-grid {
+    .fleet-grid,
+    .vault-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 14px;
@@ -2180,6 +2181,29 @@
       }
     }
 
+    /* 💖 KAIRA Living Shimmer & Radiant Ambient Pulse */
+    @keyframes crShimmer {
+      0% {
+        background-position: 0% center;
+        filter: drop-shadow(0 0 3px rgba(238, 211, 127, 0.5));
+      }
+
+      33% {
+        background-position: 66% center;
+        filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.85));
+      }
+
+      66% {
+        background-position: 133% center;
+        filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.85));
+      }
+
+      100% {
+        background-position: 200% center;
+        filter: drop-shadow(0 0 3px rgba(238, 211, 127, 0.5));
+      }
+    }
+
     .footer-right {
       display: flex;
       align-items: center;
@@ -2197,18 +2221,20 @@
       font-weight: 800;
       font-size: 13.5px;
       letter-spacing: 1.8px;
-      background: linear-gradient(90deg, #eed37f 0%, #f43f5e 50%, #c084fc 100%);
+      background: linear-gradient(90deg, #eed37f 0%, #f43f5e 33%, #c084fc 66%, #eed37f 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: crShimmer 5s linear infinite;
+      animation: crShimmer 4s linear infinite;
       cursor: pointer;
-      transition: filter 0.25s ease;
+      display: inline-block;
+      transition: filter 0.25s ease, transform 0.2s ease;
     }
 
     .kaira-brand:hover {
-      filter: drop-shadow(0 0 10px rgba(238, 211, 127, 0.9));
+      filter: drop-shadow(0 0 12px rgba(238, 211, 127, 0.95)) drop-shadow(0 0 20px rgba(244, 63, 94, 0.85));
+      transform: scale(1.06);
     }
 
     /* ============================================================
@@ -2357,27 +2383,223 @@
         padding: 12px 14px !important;
       }
 
+      /* ========================================================
+         TAB 2: 시네마 스튜디오 모바일 1열 완전 최적화 (우측 짤림 0% 박멸)
+         ======================================================== */
       .studio-layout {
         grid-template-columns: 1fr !important;
         height: auto !important;
         overflow: visible !important;
         width: 100% !important;
+        gap: 14px !important;
       }
 
       .studio-sidebar {
         height: auto !important;
-        max-height: 280px !important;
+        max-height: 250px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .studio-main-stage {
+        height: auto !important;
+        overflow: visible !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px !important;
+      }
+
+      .stage-action-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .stage-left-actions {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+      }
+
+      .subview-switcher {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+      }
+
+      .subview-btn {
+        flex: 1 !important;
+        justify-content: center !important;
+        padding: 7px 8px !important;
+        font-size: 12px !important;
+      }
+
+      .stage-right-actions {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        gap: 6px !important;
+        box-sizing: border-box !important;
+      }
+
+      .stage-right-actions .btn-cinema-action {
+        flex: 1 !important;
+        justify-content: center !important;
+      }
+
+      .stage-content-area {
+        height: auto !important;
+        overflow: visible !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+      }
+
+      /* 🎬 워크스테이션 모바일 1열 세로 스택 (비디오 상단 + 대본/스펙 하단 100% 폭 활용) */
+      .subview-workstation {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+        height: auto !important;
+        width: 100% !important;
+        overflow: visible !important;
+      }
+
+      .stage-video-box {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 380px !important;
+        justify-content: center !important;
+        padding: 6px !important;
+        box-sizing: border-box !important;
+      }
+
+      #stage-main-video {
+        max-height: 340px !important;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      .stage-meta-col {
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding-right: 0 !important;
+        gap: 12px !important;
+        box-sizing: border-box !important;
+      }
+
+      .ep-title-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
         width: 100% !important;
       }
 
-      .studio-stage {
+      .ep-fullname {
+        font-size: 15px !important;
+        word-break: keep-all !important;
+        line-height: 1.4 !important;
+      }
+
+      .screenplay-panel {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 12px 14px !important;
+      }
+
+      .screenplay-text {
+        font-size: 13.5px !important;
+        line-height: 1.6 !important;
+        word-break: keep-all !important;
+        white-space: pre-wrap !important;
+      }
+
+      .audio-player-panel {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+      }
+
+      .audio-player-panel audio {
+        width: 100% !important;
+      }
+
+      .specs-panel {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        word-break: keep-all !important;
+      }
+
+      /* 🖼️ 4컷 실사 스틸 갤러리 모바일 1열 */
+      .stage-grid-4cut {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        height: auto !important;
+        width: 100% !important;
+      }
+
+      .subview-stills {
         height: auto !important;
         overflow: visible !important;
         width: 100% !important;
       }
 
-      .stage-grid-4cut {
+      .still-card {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .still-thumb-wrap {
+        height: 240px !important;
+      }
+
+      /* ========================================================
+         TAB 3, 4, 5 모바일 1열 정렬 & 우측 짤림 방지
+         ======================================================== */
+      .branding-showcase-grid {
         grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        width: 100% !important;
+      }
+
+      .banner-preview-box {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .fleet-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        width: 100% !important;
+      }
+
+      .fleet-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .vault-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        width: 100% !important;
+      }
+
+      .tab-scroll-container {
+        height: auto !important;
+        overflow-y: visible !important;
+        padding-right: 0 !important;
+        width: 100% !important;
       }
 
       .master-footer {
@@ -3750,7 +3972,7 @@
               <div class="panel-title"><span>🔒</span> 5대 단일 진실 공급원 (SSOT) & 영구 금고 허브</div>
               <span style="font-size: 11px; color: var(--gold-primary);">SSOT V2.0 동기화됨</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+            <div class="vault-grid">
               <div
                 style="background: var(--bg-card); padding: 14px; border-radius: 10px; border-left: 3px solid var(--gold-primary);">
                 <div style="font-size: 14.5px; font-weight: 700; color: #fff; margin-bottom: 4px;">🏛️ 거버넌스 헌법</div>
