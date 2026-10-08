@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -2243,10 +2243,16 @@
     }
 
     /* ============================================================
-       MOBILE RESPONSIVE SUITE (SMARTPHONE APP-LIKE OPTIMIZATION)
-       [모바일 세로 + 모바일 가로(Landscape) 완벽 포괄 100% 무결점]
+       RESPONSIVE ARCHITECTURE: PORTRAIT & LANDSCAPE STRICT ISOLATION
+       [가로화면 1줄 유지 vs 세로화면 우측짤림 0% & 2X2 한화면 쏙]
        ============================================================ */
-    @media (max-width: 980px), (orientation: landscape) and (max-height: 600px) {
+
+    /* ------------------------------------------------------------
+       [1] 스마트폰 세로 모드 전용 (Mobile Portrait Mode Only)
+       - 가로화면에는 절대 적용되지 않음 (orientation: portrait 엄수)
+       - 우측 짤림 0% 영구 박멸 & 4컷 마스터 2 X 2 한 화면 쏙 최적화
+       ------------------------------------------------------------ */
+    @media (max-width: 768px) and (orientation: portrait), (max-width: 580px) and (orientation: portrait) {
 
       html,
       body {
@@ -2268,18 +2274,19 @@
         box-sizing: border-box !important;
       }
 
+      /* 헤더 세로 모드 정렬 */
       .header-top-row {
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 10px !important;
+        gap: 8px !important;
         width: 100% !important;
       }
 
       .brand-group {
         display: flex !important;
-        flex-wrap: wrap !important;
-        align-items: center !important;
-        gap: 8px 12px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
         width: 100% !important;
       }
 
@@ -2287,8 +2294,8 @@
         display: flex !important;
         width: 100% !important;
         align-items: center !important;
-        gap: 8px !important;
-        margin-top: 4px !important;
+        gap: 6px !important;
+        margin-top: 2px !important;
         margin-left: 0 !important;
         flex-shrink: 0 !important;
       }
@@ -2303,21 +2310,13 @@
         padding: 2px 6px !important;
       }
 
+      /* 외부 링크 바로가기 가로 스와이프 릴 */
       .header-shortcuts {
         width: 100% !important;
         overflow-x: auto !important;
         white-space: nowrap !important;
         padding-bottom: 4px !important;
         -webkit-overflow-scrolling: touch !important;
-        box-sizing: border-box !important;
-      }
-
-      .nav-bar {
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        -webkit-overflow-scrolling: touch !important;
-        padding-bottom: 4px !important;
-        width: 100% !important;
         box-sizing: border-box !important;
       }
 
@@ -2328,32 +2327,35 @@
         width: 100% !important;
       }
 
+      /* 메인 탭 네비게이션 가로 스와이프 릴 */
+      .nav-bar {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 4px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
       .header-nav-ctrls {
         display: flex !important;
         justify-content: flex-end !important;
         gap: 6px !important;
-      }
-
-      .workspace-container {
-        height: auto !important;
-        overflow: visible !important;
         width: 100% !important;
       }
 
-      .view-content {
-        height: auto !important;
-        overflow: visible !important;
-        width: 100% !important;
-      }
-
+      .workspace-container,
+      .view-content,
       .control-tab-scroll {
-        overflow-y: visible !important;
         height: auto !important;
-        padding-right: 0 !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
         width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
       }
 
-      /* 🌟 5대 파이프라인 모바일 세로 1열 완벽 해제 (우측 짤림 0% 박멸!) */
+      /* 🌟 5대 파이프라인 모바일 세로 정렬 */
       .pipeline-rail {
         display: flex !important;
         flex-direction: column !important;
@@ -2385,28 +2387,29 @@
         width: 100% !important;
       }
 
-      /* 📊 KPI 지표 모바일 최적화 */
+      /* 📊 KPI 지표 모바일 2열 정렬 */
       .kpi-metrics-grid {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
         width: 100% !important;
       }
 
-      /* 🎬 숏폼 스포트라이트 모바일 1열 최적화 (비디오 중앙 + 하단 텍스트 및 버튼) */
+      /* 🎬 숏폼 스포트라이트 모바일 세로 1열 */
       .spotlight-grid {
         grid-template-columns: 1fr !important;
-        gap: 14px !important;
+        gap: 12px !important;
         width: 100% !important;
       }
 
       .spotlight-video-wrap {
         width: 100% !important;
-        max-height: 320px !important;
+        max-height: 280px !important;
+        display: flex !important;
         justify-content: center !important;
       }
 
       .spotlight-video-wrap video {
-        max-height: 300px !important;
+        max-height: 260px !important;
         width: auto !important;
         max-width: 100% !important;
       }
@@ -2420,13 +2423,13 @@
       .panel-header {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 10px !important;
+        gap: 8px !important;
         width: 100% !important;
       }
 
       .panel-title {
-        font-size: 14px !important;
-        line-height: 1.45 !important;
+        font-size: 13.5px !important;
+        line-height: 1.4 !important;
         word-break: keep-all !important;
         width: 100% !important;
       }
@@ -2436,20 +2439,20 @@
         width: 100% !important;
         justify-content: center !important;
         box-sizing: border-box !important;
-        padding: 9px 12px !important;
-        font-size: 13px !important;
+        padding: 8px 10px !important;
+        font-size: 12.5px !important;
         text-align: center !important;
       }
 
       .spotlight-header {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 10px !important;
+        gap: 8px !important;
       }
 
       .spotlight-header .panel-title {
-        font-size: 14.5px !important;
-        line-height: 1.45 !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
         word-break: keep-all !important;
         width: 100% !important;
         text-align: left !important;
@@ -2460,20 +2463,22 @@
         width: 100% !important;
         justify-content: center !important;
         box-sizing: border-box !important;
-        padding: 9px 12px !important;
-        font-size: 13px !important;
+        padding: 8px 10px !important;
+        font-size: 12.5px !important;
         text-align: center !important;
       }
 
       /* ========================================================
-         TAB 2: 시네마 스튜디오 모바일 1열 완전 최적화 (우측 짤림 0% 박멸)
+         TAB 2: 시네마 스튜디오 모바일 세로 최적화 (우측 짤림 0% 영구 박멸)
          ======================================================== */
       .studio-layout {
         grid-template-columns: 1fr !important;
         height: auto !important;
         overflow: visible !important;
         width: 100% !important;
-        gap: 14px !important;
+        max-width: 100% !important;
+        gap: 12px !important;
+        box-sizing: border-box !important;
       }
 
       .studio-sidebar {
@@ -2481,10 +2486,12 @@
         max-height: none !important;
         overflow: visible !important;
         width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
         padding: 10px !important;
       }
 
+      /* 에피소드 릴: 모바일 쾌적 가로 스와이프 */
       .episode-reel-list {
         display: flex !important;
         flex-direction: row !important;
@@ -2492,32 +2499,33 @@
         overflow-y: hidden !important;
         touch-action: pan-x !important;
         overscroll-behavior-x: contain !important;
-        overscroll-behavior-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
-        gap: 12px !important;
+        gap: 10px !important;
         padding: 4px 2px 10px 2px !important;
         width: 100% !important;
         max-height: none !important;
       }
 
       .ep-card {
-        flex: 0 0 200px !important;
-        width: 200px !important;
+        flex: 0 0 170px !important;
+        width: 170px !important;
         box-sizing: border-box !important;
       }
 
       .ep-card-thumb-wrap {
-        height: 85px !important;
+        height: 80px !important;
       }
 
       .studio-main-stage {
         height: auto !important;
         overflow: visible !important;
         width: 100% !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
         padding: 10px !important;
       }
 
+      /* 스테이지 상단 액션 바: 세로 3행 균등 배치 (화면 밖 짤림 0%) */
       .stage-action-bar {
         display: flex !important;
         flex-direction: column !important;
@@ -2526,58 +2534,70 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        padding-bottom: 8px !important;
       }
 
       .stage-left-actions {
         width: 100% !important;
         max-width: 100% !important;
         display: flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
         flex-wrap: wrap !important;
         gap: 6px !important;
         box-sizing: border-box !important;
       }
 
+      .active-ep-pill {
+        width: 100% !important;
+        font-size: 13px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .stage-left-actions .btn-cinema-action {
+        flex: 1 1 calc(50% - 4px) !important;
+        justify-content: center !important;
+        font-size: 11.5px !important;
+        padding: 7px 6px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+      }
+
+      /* 탭 전환 스위처: 5:5 완벽 균등 분할 */
       .subview-switcher {
         width: 100% !important;
         max-width: 100% !important;
         display: flex !important;
-        justify-content: space-between !important;
         box-sizing: border-box !important;
         gap: 4px !important;
       }
 
       .subview-btn {
-        flex: 1 !important;
+        flex: 1 1 50% !important;
         justify-content: center !important;
-        padding: 7px 6px !important;
+        padding: 7px 4px !important;
         font-size: 11.5px !important;
         min-width: 0 !important;
-        white-space: normal !important;
+        white-space: nowrap !important;
         text-align: center !important;
       }
 
+      /* 다운로드 & 숏폼 보기: 5:5 완벽 균등 분할 */
       .stage-right-actions {
         width: 100% !important;
         max-width: 100% !important;
         display: flex !important;
-        justify-content: space-between !important;
-        flex-wrap: wrap !important;
         gap: 6px !important;
         box-sizing: border-box !important;
       }
 
-      .stage-right-actions .btn-cinema-action,
-      .stage-left-actions .btn-cinema-action {
-        flex: 1 1 auto !important;
+      .stage-right-actions .btn-cinema-action {
+        flex: 1 1 calc(50% - 4px) !important;
         justify-content: center !important;
-        white-space: normal !important;
-        min-width: 0 !important;
         font-size: 11.5px !important;
-        padding: 6px 8px !important;
+        padding: 7px 6px !important;
         text-align: center !important;
         box-sizing: border-box !important;
+        min-width: 0 !important;
       }
 
       .stage-content-area {
@@ -2586,14 +2606,14 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        margin-top: 10px !important;
+        margin-top: 8px !important;
       }
 
-      /* 🎬 워크스테이션 모바일 1열 세로 스택 (비디오 상단 + 대본/스펙 하단 100% 폭 활용) */
+      /* 🎬 워크스테이션: 비디오 상단 + 대본 하단 100% 폭 */
       .subview-workstation {
         display: flex !important;
         flex-direction: column !important;
-        gap: 14px !important;
+        gap: 12px !important;
         height: auto !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -2605,77 +2625,36 @@
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        max-height: 380px !important;
-        justify-content: center !important;
-        padding: 6px !important;
         box-sizing: border-box !important;
       }
 
-      #stage-main-video {
-        max-height: 340px !important;
-        width: auto !important;
-        max-width: 100% !important;
-        height: auto !important;
-      }
-
-      .stage-meta-col {
+      .stage-video-box video {
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        overflow: visible !important;
-        padding-right: 0 !important;
-        gap: 12px !important;
-        box-sizing: border-box !important;
+        max-height: 280px !important;
+        object-fit: contain !important;
       }
 
-      .ep-title-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 6px !important;
+      .stage-script-box {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-      }
-
-      .ep-fullname {
-        font-size: 14.5px !important;
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
-        line-height: 1.4 !important;
-        max-width: 100% !important;
-      }
-
-      .audio-player-panel {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        display: flex !important;
         flex-direction: column !important;
-        align-items: stretch !important;
         gap: 8px !important;
-        padding: 10px 10px !important;
-        background: var(--bg-card) !important;
-        border: 1px solid var(--border-medium) !important;
-        border-radius: 8px !important;
       }
 
-      .audio-player-panel audio {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 44px !important;
-        height: 44px !important;
-        display: block !important;
-        box-sizing: border-box !important;
-      }
-
-      .screenplay-panel {
+      .script-panel {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        padding: 12px 14px !important;
+        padding: 10px !important;
       }
 
-      .screenplay-text {
-        font-size: 13px !important;
+      .script-content {
+        max-height: 180px !important;
+        font-size: 12px !important;
         line-height: 1.6 !important;
         word-break: break-word !important;
         overflow-wrap: break-word !important;
@@ -2687,31 +2666,13 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        font-size: 12px !important;
-        line-height: 1.55 !important;
+        font-size: 11.5px !important;
+        line-height: 1.5 !important;
         word-break: break-word !important;
         overflow-wrap: break-word !important;
       }
 
-      /* 🖼️ 4컷 실사 스틸 갤러리 모바일 2열 완벽 칼배치 (우측 짤림 0% 영구 박멸!) */
-      .stills-grid-container {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
-        padding-right: 0 !important;
-      }
-
-      .stage-grid-4cut {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        height: auto !important;
-        width: 100% !important;
-      }
-
+      /* 🖼️ 4컷 실사 스틸 갤러리 2 X 2 모바일 완벽 최적화 (오빠 100% 요청: 한 화면에 4컷 쏙 & 우측 짤림 0%!) */
       .subview-stills {
         height: auto !important;
         overflow: visible !important;
@@ -2723,41 +2684,60 @@
       .stills-header {
         width: 100% !important;
         flex-wrap: wrap !important;
-        gap: 6px !important;
+        gap: 4px !important;
         box-sizing: border-box !important;
+        margin-bottom: 6px !important;
       }
 
       .stills-title {
-        font-size: 13px !important;
+        font-size: 12.5px !important;
         word-break: break-word !important;
         max-width: 100% !important;
       }
 
+      .stills-grid-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+        padding-right: 0 !important;
+      }
+
       .still-card {
         width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
         height: auto !important;
         box-sizing: border-box !important;
+        border-radius: 8px !important;
       }
 
       .still-thumb-wrap {
-        height: 190px !important;
+        height: 125px !important;
+        min-height: 0 !important;
         width: 100% !important;
       }
 
       .still-meta {
-        padding: 8px 10px !important;
+        padding: 5px 6px !important;
         box-sizing: border-box !important;
       }
 
       .cut-name {
-        font-size: 12px !important;
-        line-height: 1.3 !important;
-        word-break: keep-all !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        line-height: 1.25 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
       }
 
       .cut-dialogue {
-        font-size: 11px !important;
-        line-height: 1.35 !important;
+        font-size: 10px !important;
+        line-height: 1.3 !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
         line-clamp: 2 !important;
@@ -2766,35 +2746,19 @@
         word-break: break-word !important;
       }
 
-      /* ========================================================
-         TAB 3, 4, 5 모바일 1열 정렬 & 우측 짤림 방지
-         ======================================================== */
-      .branding-showcase-grid {
-        grid-template-columns: 1fr !important;
-        gap: 14px !important;
-        width: 100% !important;
-      }
-
-      .banner-preview-box {
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-
-      .fleet-grid {
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
-        width: 100% !important;
-      }
-
-      .fleet-card {
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-
+      /* TAB 3, 4, 5 모바일 1열 정렬 */
+      .branding-showcase-grid,
+      .fleet-grid,
       .vault-grid {
         grid-template-columns: 1fr !important;
         gap: 10px !important;
         width: 100% !important;
+      }
+
+      .banner-preview-box,
+      .fleet-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .tab-scroll-container {
@@ -2814,6 +2778,118 @@
       }
     }
 
+    /* ------------------------------------------------------------
+       [2] 가로화면 & 와이드 데스크톱 보장 (Landscape & Wide Desktop)
+       - 가로화면에서는 원래대로 한 줄! (오빠 100% 요청사항)
+       - LIVE 100vh 시간: HOOKVERSE STUDIO 옆 한 줄(같은 행)에 나란히!
+       - 4컷 마스터 실사 스틸 갤러리: 1줄에 4컷(4열) 시원하게 복원!
+       - 숏폼 스포트라이트 헤더 & 시네마 스튜디오 2열 좌우 분할 유지!
+       ------------------------------------------------------------ */
+    @media (orientation: landscape), (min-width: 769px) {
+
+      /* 🌟 [가로화면 보장 1] HOOKVERSE STUDIO 옆에 LIVE 100vh 시간 태그 한 줄 나란히! */
+      .header-top-row {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+
+      .brand-group {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: auto !important;
+      }
+
+      .brand-meta-tags {
+        display: inline-flex !important;
+        width: auto !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        flex-shrink: 0 !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+
+      /* 🌟 [가로화면 보장 2] 4컷 마스터 실사 스틸 갤러리: 1줄에 4컷(4열) 시원하게! */
+      .stills-grid-container {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow-y: auto !important;
+      }
+
+      .still-card {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .still-thumb-wrap {
+        width: 100% !important;
+        flex: 1 !important;
+        min-height: 160px !important;
+        height: auto !important;
+      }
+
+      /* 🌟 [가로화면 보장 3] 숏폼 스포트라이트 헤더 1줄 양끝 배치 */
+      .spotlight-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+
+      .spotlight-header button,
+      .spotlight-header .btn-cinema-action {
+        width: auto !important;
+      }
+
+      .spotlight-grid {
+        display: grid !important;
+        grid-template-columns: 240px 1fr !important;
+        gap: 18px !important;
+      }
+
+      /* 🌟 [가로화면 보장 4] 시네마 스튜디오 2열 좌우 분할 (좌측 릴 + 우측 워크스테이션) */
+      .studio-layout {
+        display: grid !important;
+        grid-template-columns: 300px 1fr !important;
+        gap: 14px !important;
+        height: 100% !important;
+      }
+
+      .episode-reel-list {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: 100% !important;
+      }
+
+      .ep-card {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+      }
+
+      .subview-workstation {
+        display: grid !important;
+        grid-template-columns: 320px 1fr !important;
+        gap: 16px !important;
+        height: 100% !important;
+      }
+
+      .stage-action-bar {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+    }
     /* ============================================================
        ADMIN SECURITY MODAL ("🔒 관리자 전용 보안 구역입니다")
        ============================================================ */
