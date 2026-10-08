@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -1596,6 +1596,14 @@
       overflow: hidden;
     }
 
+    /* Subview Force State Enforcers (Overrides any media query !important) */
+    .subview-workstation.subview-off {
+      display: none !important;
+    }
+    .subview-stills.subview-on {
+      display: flex !important;
+    }
+
     .stills-header {
       display: flex;
       justify-content: space-between;
@@ -2243,16 +2251,18 @@
     }
 
     /* ============================================================
-       RESPONSIVE ARCHITECTURE: PORTRAIT & LANDSCAPE STRICT ISOLATION
-       [가로화면 1줄 유지 vs 세로화면 우측짤림 0% & 2X2 한화면 쏙]
+       RESPONSIVE ARCHITECTURE: 3-TIER STRICT ISOLATION SUITE
+       [1] 모바일 세로 (폭 <= 768px): 우측 짤림 0% & 2X2 한화면 쏙
+       [2] 모바일 가로 (높이 <= 550px): 가로/세로 자유 스크롤 해제
+       [3] PC 데스크톱 (폭 >= 769px & 높이 >= 551px): 100vh 무스크롤 유지
        ============================================================ */
 
     /* ------------------------------------------------------------
-       [1] 스마트폰 세로 모드 전용 (Mobile Portrait Mode Only)
-       - 가로화면에는 절대 적용되지 않음 (orientation: portrait 엄수)
-       - 우측 짤림 0% 영구 박멸 & 4컷 마스터 2 X 2 한 화면 쏙 최적화
+       [1] 스마트폰/태블릿 세로 모드 (폭 768px 이하)
+       - 가로화면에 절대 간섭하지 않음
+       - 우측 짤림 0% 영구 박멸 & 4컷 2 X 2 한 화면 쏙 완벽 배치
        ------------------------------------------------------------ */
-    @media (max-width: 768px) and (orientation: portrait), (max-width: 580px) and (orientation: portrait) {
+    @media (max-width: 768px) {
 
       html,
       body {
@@ -2268,18 +2278,19 @@
         min-height: 100vh;
         overflow-x: hidden !important;
         overflow-y: visible !important;
-        padding: 8px 10px 40px 10px !important;
+        padding: 6px 8px 36px 8px !important;
         width: 100% !important;
         max-width: 100vw !important;
         box-sizing: border-box !important;
       }
 
-      /* 헤더 세로 모드 정렬 */
+      /* 헤더 세로 모드 */
       .header-top-row {
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .brand-group {
@@ -2295,22 +2306,16 @@
         width: 100% !important;
         align-items: center !important;
         gap: 6px !important;
-        margin-top: 2px !important;
-        margin-left: 0 !important;
-        flex-shrink: 0 !important;
+        margin: 0 !important;
       }
 
-      .live-badge {
-        font-size: 11px !important;
-        padding: 2px 7px !important;
-      }
-
+      .live-badge,
       .time-hud {
         font-size: 11px !important;
         padding: 2px 6px !important;
       }
 
-      /* 외부 링크 바로가기 가로 스와이프 릴 */
+      /* 바로가기 버튼 가로 스와이프 */
       .header-shortcuts {
         width: 100% !important;
         overflow-x: auto !important;
@@ -2323,11 +2328,11 @@
       .header-nav-row {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
       }
 
-      /* 메인 탭 네비게이션 가로 스와이프 릴 */
+      /* 네비게이션 탭 가로 스와이프 */
       .nav-bar {
         overflow-x: auto !important;
         white-space: nowrap !important;
@@ -2351,11 +2356,11 @@
         overflow-x: hidden !important;
         overflow-y: visible !important;
         width: 100% !important;
-        max-width: 100vw !important;
+        max-width: 100% !important;
         box-sizing: border-box !important;
       }
 
-      /* 🌟 5대 파이프라인 모바일 세로 정렬 */
+      /* 🌟 5대 파이프라인 세로 스택 */
       .pipeline-rail {
         display: flex !important;
         flex-direction: column !important;
@@ -2370,31 +2375,20 @@
         padding: 10px 12px !important;
       }
 
-      .step-title {
-        font-size: 13.5px !important;
-      }
-
-      .step-desc {
-        font-size: 12px !important;
-        line-height: 1.4 !important;
-        word-break: keep-all;
-      }
-
       .grid-2col,
       .grid-3col {
         grid-template-columns: 1fr !important;
-        gap: 12px !important;
+        gap: 10px !important;
         width: 100% !important;
       }
 
-      /* 📊 KPI 지표 모바일 2열 정렬 */
       .kpi-metrics-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
         width: 100% !important;
       }
 
-      /* 🎬 숏폼 스포트라이트 모바일 세로 1열 */
+      /* 🎬 숏폼 스포트라이트 세로 모드 */
       .spotlight-grid {
         grid-template-columns: 1fr !important;
         gap: 12px !important;
@@ -2403,13 +2397,13 @@
 
       .spotlight-video-wrap {
         width: 100% !important;
-        max-height: 280px !important;
+        max-height: 260px !important;
         display: flex !important;
         justify-content: center !important;
       }
 
       .spotlight-video-wrap video {
-        max-height: 260px !important;
+        max-height: 250px !important;
         width: auto !important;
         max-width: 100% !important;
       }
@@ -2417,17 +2411,19 @@
       .panel {
         width: 100% !important;
         box-sizing: border-box !important;
-        padding: 12px 14px !important;
+        padding: 10px 12px !important;
       }
 
-      .panel-header {
+      .panel-header,
+      .spotlight-header {
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 8px !important;
         width: 100% !important;
       }
 
-      .panel-title {
+      .panel-title,
+      .spotlight-header .panel-title {
         font-size: 13.5px !important;
         line-height: 1.4 !important;
         word-break: keep-all !important;
@@ -2435,49 +2431,28 @@
       }
 
       .panel-header .btn-cinema-action,
-      .panel-header button {
-        width: 100% !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
-        padding: 8px 10px !important;
-        font-size: 12.5px !important;
-        text-align: center !important;
-      }
-
-      .spotlight-header {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 8px !important;
-      }
-
-      .spotlight-header .panel-title {
-        font-size: 14px !important;
-        line-height: 1.4 !important;
-        word-break: keep-all !important;
-        width: 100% !important;
-        text-align: left !important;
-      }
-
+      .panel-header button,
       .spotlight-header button,
       .spotlight-header .btn-cinema-action {
         width: 100% !important;
         justify-content: center !important;
         box-sizing: border-box !important;
         padding: 8px 10px !important;
-        font-size: 12.5px !important;
+        font-size: 12px !important;
         text-align: center !important;
       }
 
       /* ========================================================
-         TAB 2: 시네마 스튜디오 모바일 세로 최적화 (우측 짤림 0% 영구 박멸)
+         TAB 2: 시네마 스튜디오 모바일 세로 (우측 짤림 0% 영구 박멸)
          ======================================================== */
       .studio-layout {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         height: auto !important;
         overflow: visible !important;
         width: 100% !important;
         max-width: 100% !important;
-        gap: 12px !important;
+        gap: 10px !important;
         box-sizing: border-box !important;
       }
 
@@ -2488,32 +2463,31 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        padding: 10px !important;
+        padding: 8px !important;
       }
 
-      /* 에피소드 릴: 모바일 쾌적 가로 스와이프 */
+      /* 에피소드 릴 가로 스와이프 */
       .episode-reel-list {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
         overflow-y: hidden !important;
         touch-action: pan-x !important;
-        overscroll-behavior-x: contain !important;
         -webkit-overflow-scrolling: touch !important;
-        gap: 10px !important;
-        padding: 4px 2px 10px 2px !important;
+        gap: 8px !important;
+        padding: 2px 2px 8px 2px !important;
         width: 100% !important;
-        max-height: none !important;
+        box-sizing: border-box !important;
       }
 
       .ep-card {
-        flex: 0 0 170px !important;
-        width: 170px !important;
+        flex: 0 0 160px !important;
+        width: 160px !important;
         box-sizing: border-box !important;
       }
 
       .ep-card-thumb-wrap {
-        height: 80px !important;
+        height: 75px !important;
       }
 
       .studio-main-stage {
@@ -2522,82 +2496,86 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        padding: 10px !important;
+        padding: 8px !important;
       }
 
-      /* 스테이지 상단 액션 바: 세로 3행 균등 배치 (화면 밖 짤림 0%) */
+      /* 스테이지 상단 액션바: 100% 폭 안에서 2열 짝맞춤 (우측 짤림 0%) */
       .stage-action-bar {
         display: flex !important;
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        padding-bottom: 8px !important;
+        padding-bottom: 6px !important;
+      }
+
+      .active-ep-pill {
+        width: 100% !important;
+        font-size: 12.5px !important;
+        margin-bottom: 2px !important;
+        word-break: keep-all !important;
       }
 
       .stage-left-actions {
         width: 100% !important;
         max-width: 100% !important;
-        display: flex !important;
-        flex-wrap: wrap !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
         gap: 6px !important;
         box-sizing: border-box !important;
       }
 
-      .active-ep-pill {
-        width: 100% !important;
-        font-size: 13px !important;
-        margin-bottom: 2px !important;
-      }
-
       .stage-left-actions .btn-cinema-action {
-        flex: 1 1 calc(50% - 4px) !important;
+        width: 100% !important;
         justify-content: center !important;
-        font-size: 11.5px !important;
-        padding: 7px 6px !important;
+        font-size: 11px !important;
+        padding: 6px 4px !important;
         text-align: center !important;
         box-sizing: border-box !important;
         min-width: 0 !important;
+        white-space: nowrap !important;
       }
 
-      /* 탭 전환 스위처: 5:5 완벽 균등 분할 */
       .subview-switcher {
         width: 100% !important;
         max-width: 100% !important;
-        display: flex !important;
-        box-sizing: border-box !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
         gap: 4px !important;
+        box-sizing: border-box !important;
       }
 
       .subview-btn {
-        flex: 1 1 50% !important;
+        width: 100% !important;
         justify-content: center !important;
-        padding: 7px 4px !important;
-        font-size: 11.5px !important;
+        padding: 6px 4px !important;
+        font-size: 11px !important;
         min-width: 0 !important;
         white-space: nowrap !important;
         text-align: center !important;
+        box-sizing: border-box !important;
       }
 
-      /* 다운로드 & 숏폼 보기: 5:5 완벽 균등 분할 */
       .stage-right-actions {
         width: 100% !important;
         max-width: 100% !important;
-        display: flex !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
         gap: 6px !important;
         box-sizing: border-box !important;
       }
 
       .stage-right-actions .btn-cinema-action {
-        flex: 1 1 calc(50% - 4px) !important;
+        width: 100% !important;
         justify-content: center !important;
-        font-size: 11.5px !important;
-        padding: 7px 6px !important;
+        font-size: 11px !important;
+        padding: 6px 4px !important;
         text-align: center !important;
         box-sizing: border-box !important;
         min-width: 0 !important;
+        white-space: nowrap !important;
       }
 
       .stage-content-area {
@@ -2606,14 +2584,14 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        margin-top: 8px !important;
+        margin-top: 6px !important;
       }
 
-      /* 🎬 워크스테이션: 비디오 상단 + 대본 하단 100% 폭 */
+      /* 🎬 워크스테이션 서브뷰 */
       .subview-workstation {
         display: flex !important;
         flex-direction: column !important;
-        gap: 12px !important;
+        gap: 10px !important;
         height: auto !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -2632,7 +2610,7 @@
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        max-height: 280px !important;
+        max-height: 250px !important;
         object-fit: contain !important;
       }
 
@@ -2640,39 +2618,24 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
       }
 
-      .script-panel {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 10px !important;
-      }
-
-      .script-content {
-        max-height: 180px !important;
-        font-size: 12px !important;
-        line-height: 1.6 !important;
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
-        white-space: pre-wrap !important;
-        max-width: 100% !important;
-      }
-
+      .script-panel,
       .specs-panel {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        padding: 8px 10px !important;
         font-size: 11.5px !important;
-        line-height: 1.5 !important;
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
       }
 
-      /* 🖼️ 4컷 실사 스틸 갤러리 2 X 2 모바일 완벽 최적화 (오빠 100% 요청: 한 화면에 4컷 쏙 & 우측 짤림 0%!) */
+      .script-content {
+        max-height: 160px !important;
+        font-size: 11.5px !important;
+        line-height: 1.55 !important;
+      }
+
+      /* 🖼️ 4컷 실사 스틸 갤러리 2 X 2 모바일 완벽 최적화 (한 화면에 4컷 쏙 & 우측 짤림 0%!) */
       .subview-stills {
         height: auto !important;
         overflow: visible !important;
@@ -2683,26 +2646,29 @@
 
       .stills-header {
         width: 100% !important;
+        display: flex !important;
         flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
         gap: 4px !important;
         box-sizing: border-box !important;
         margin-bottom: 6px !important;
       }
 
       .stills-title {
-        font-size: 12.5px !important;
-        word-break: break-word !important;
+        font-size: 12px !important;
         max-width: 100% !important;
+        word-break: break-word !important;
       }
 
       .stills-grid-container {
         display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 8px !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        overflow-x: hidden !important;
+        overflow: hidden !important;
         padding-right: 0 !important;
       }
 
@@ -2713,21 +2679,29 @@
         height: auto !important;
         box-sizing: border-box !important;
         border-radius: 8px !important;
+        overflow: hidden !important;
       }
 
       .still-thumb-wrap {
-        height: 125px !important;
+        height: 110px !important;
         min-height: 0 !important;
         width: 100% !important;
+        overflow: hidden !important;
+      }
+
+      .still-thumb-wrap img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
       }
 
       .still-meta {
-        padding: 5px 6px !important;
+        padding: 4px 6px !important;
         box-sizing: border-box !important;
       }
 
       .cut-name {
-        font-size: 11px !important;
+        font-size: 10.5px !important;
         font-weight: 700 !important;
         line-height: 1.25 !important;
         white-space: nowrap !important;
@@ -2736,8 +2710,8 @@
       }
 
       .cut-dialogue {
-        font-size: 10px !important;
-        line-height: 1.3 !important;
+        font-size: 9.5px !important;
+        line-height: 1.25 !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
         line-clamp: 2 !important;
@@ -2746,12 +2720,12 @@
         word-break: break-word !important;
       }
 
-      /* TAB 3, 4, 5 모바일 1열 정렬 */
+      /* TAB 3, 4, 5 모바일 */
       .branding-showcase-grid,
       .fleet-grid,
       .vault-grid {
         grid-template-columns: 1fr !important;
-        gap: 10px !important;
+        gap: 8px !important;
         width: 100% !important;
       }
 
@@ -2770,24 +2744,95 @@
 
       .master-footer {
         flex-direction: column !important;
-        gap: 8px !important;
+        gap: 6px !important;
         text-align: center !important;
-        padding: 16px 6px !important;
-        position: relative !important;
+        padding: 14px 6px !important;
         width: 100% !important;
       }
     }
 
     /* ------------------------------------------------------------
-       [2] 가로화면 & 와이드 데스크톱 보장 (Landscape & Wide Desktop)
-       - 가로화면에서는 원래대로 한 줄! (오빠 100% 요청사항)
-       - LIVE 100vh 시간: HOOKVERSE STUDIO 옆 한 줄(같은 행)에 나란히!
-       - 4컷 마스터 실사 스틸 갤러리: 1줄에 4컷(4열) 시원하게 복원!
-       - 숏폼 스포트라이트 헤더 & 시네마 스튜디오 2열 좌우 분할 유지!
+       [2] 스마트폰 가로 모드 (높이 550px 이하 Landscape)
+       - 모바일에서 눕혔을 때 가로/세로 자유 스크롤 100% 해제!
+       - 헤더 1줄 & 4컷 1줄 4열의 와이드함을 스크롤하며 자유롭게 감상!
        ------------------------------------------------------------ */
-    @media (orientation: landscape), (min-width: 769px) {
+    @media (max-height: 550px) and (orientation: landscape) {
 
-      /* 🌟 [가로화면 보장 1] HOOKVERSE STUDIO 옆에 LIVE 100vh 시간 태그 한 줄 나란히! */
+      html,
+      body {
+        height: auto !important;
+        overflow-y: auto !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+      }
+
+      .wrapper {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: visible !important;
+        overflow-x: auto !important;
+        padding: 6px 12px 30px 12px !important;
+        box-sizing: border-box !important;
+      }
+
+      .workspace-container,
+      .view-content,
+      .control-tab-scroll,
+      .studio-layout,
+      .studio-main-stage,
+      .stage-content-area,
+      .subview-workstation,
+      .subview-stills {
+        height: auto !important;
+        overflow-y: visible !important;
+        overflow-x: visible !important;
+      }
+
+      .header-top-row {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+
+      .brand-group {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: auto !important;
+      }
+
+      .brand-meta-tags {
+        display: inline-flex !important;
+        width: auto !important;
+        margin: 0 !important;
+        align-items: center !important;
+        gap: 6px !important;
+      }
+
+      .stills-grid-container {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+        overflow: visible !important;
+      }
+
+      .still-thumb-wrap {
+        height: 140px !important;
+      }
+    }
+
+    /* ------------------------------------------------------------
+       [3] PC 데스크톱 (폭 769px 이상 & 높이 551px 이상)
+       - 오리지널 100vh 무스크롤 관제탑 완벽 가동
+       - LIVE 100vh 시간: HOOKVERSE STUDIO 바로 옆 한 줄 나란히!
+       - 4컷 마스터 스틸 갤러리: 1줄에 4컷(4열) 시원하게 노출!
+       - 시네마 스튜디오 2열(좌측 릴 + 우측 워크스테이션) 스플릿 유지!
+       ------------------------------------------------------------ */
+    @media (min-width: 769px) and (min-height: 551px) {
+
+      /* 🌟 [PC 보장 1] HOOKVERSE STUDIO 옆에 LIVE 100vh 시간 태그 한 줄 나란히! */
       .header-top-row {
         flex-direction: row !important;
         align-items: center !important;
@@ -2813,7 +2858,7 @@
         gap: 8px !important;
       }
 
-      /* 🌟 [가로화면 보장 2] 4컷 마스터 실사 스틸 갤러리: 1줄에 4컷(4열) 시원하게! */
+      /* 🌟 [PC 보장 2] 4컷 마스터 실사 스틸 갤러리: 1줄에 4컷(4열) 시원하게! */
       .stills-grid-container {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
@@ -2835,7 +2880,7 @@
         height: auto !important;
       }
 
-      /* 🌟 [가로화면 보장 3] 숏폼 스포트라이트 헤더 1줄 양끝 배치 */
+      /* 🌟 [PC 보장 3] 숏폼 스포트라이트 헤더 1줄 양끝 배치 */
       .spotlight-header {
         display: flex !important;
         flex-direction: row !important;
@@ -2855,7 +2900,7 @@
         gap: 18px !important;
       }
 
-      /* 🌟 [가로화면 보장 4] 시네마 스튜디오 2열 좌우 분할 (좌측 릴 + 우측 워크스테이션) */
+      /* 🌟 [PC 보장 4] 시네마 스튜디오 2열 좌우 분할 */
       .studio-layout {
         display: grid !important;
         grid-template-columns: 300px 1fr !important;
@@ -2874,13 +2919,6 @@
       .ep-card {
         flex: 0 0 auto !important;
         width: 100% !important;
-      }
-
-      .subview-workstation {
-        display: grid !important;
-        grid-template-columns: 320px 1fr !important;
-        gap: 16px !important;
-        height: 100% !important;
       }
 
       .stage-action-bar {
@@ -4601,7 +4639,7 @@
       if (activeBtn) activeBtn.classList.add('active');
     }
 
-    // 3. Stage Sub-view Switcher (Workstation vs 4-Cut Stills)
+    // 3. Stage Sub-view Switcher (Workstation vs 4-Cut Stills) - 100% Robust Toggle
     function switchStageSubView(mode) {
       currentStageSubView = mode;
       const wsEl = document.getElementById('subview-workstation');
@@ -4610,13 +4648,25 @@
       const btnSt = document.getElementById('subbtn-stills');
 
       if (mode === 'stills') {
-        if (wsEl) wsEl.style.display = 'none';
-        if (stEl) stEl.style.display = 'flex';
+        if (wsEl) {
+          wsEl.classList.add('subview-off');
+          wsEl.style.setProperty('display', 'none', 'important');
+        }
+        if (stEl) {
+          stEl.classList.add('subview-on');
+          stEl.style.setProperty('display', 'flex', 'important');
+        }
         if (btnWs) btnWs.classList.remove('active');
         if (btnSt) btnSt.classList.add('active');
       } else {
-        if (wsEl) wsEl.style.display = 'grid';
-        if (stEl) stEl.style.display = 'none';
+        if (wsEl) {
+          wsEl.classList.remove('subview-off');
+          wsEl.style.removeProperty('display');
+        }
+        if (stEl) {
+          stEl.classList.remove('subview-on');
+          stEl.style.setProperty('display', 'none', 'important');
+        }
         if (btnWs) btnWs.classList.add('active');
         if (btnSt) btnSt.classList.remove('active');
       }
