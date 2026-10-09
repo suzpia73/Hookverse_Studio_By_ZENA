@@ -2,6 +2,25 @@
 
 _자가학습이 자동 누적합니다. 잘못된 항목은 직접 삭제하세요._
 
+## [2026-10-09] [푸터 레이아웃 초정밀 맞춤: 세로 총 4줄 중앙정렬 & 가로 KAIRA 우측정렬 + ALL RIGHTS RESERVED 아래 2줄 중앙정렬 완결]
+- **오빠의 훈시 및 핵심 지침**:
+  1. *"가로모드에서 푸터에 KAIRA 글자를 우측 정렬로 해줘요? 가로모드에서 푸터에 ALL RIGHTS RESERVED 글자는 아래로 내려서 2줄로 중앙정렬 해줘요?"*
+  2. *"세로모드에서 푸터에 ALL RIGHTS RESERVED 글자는 아래로 내려서 총 4줄로 중앙정렬 해줘요?"*
+- **제나의 즉각 완결 조치 (`control_room.html` & `index.html` 100% 동시 동기화)**:
+  1. **[세로 모드 푸터 (Portrait)]**:
+     - `© 2026 HOOKVERSE STUDIO.`와 `ALL RIGHTS RESERVED.`를 독립된 span으로 분리.
+     - `ALL RIGHTS RESERVED.`를 아래 줄로 독립시켜 **총 4줄 중앙 정렬 완성**:
+       * 1줄: `● SYSTEM ONLINE · 100vh V5.0`
+       * 2줄: `© 2026 HOOKVERSE STUDIO.`
+       * 3줄: `ALL RIGHTS RESERVED.`
+       * 4줄: `Powered & Designed By KAIRA`
+  2. **[가로 모드 푸터 (Landscape)]**:
+     - 1행: 좌측 `● SYSTEM ONLINE · 100vh V5.0` ---------------- **우측 끝 `Powered & Designed By KAIRA` (KAIRA 우측 정렬!)**
+     - 2행: `© 2026 HOOKVERSE STUDIO. ALL RIGHTS RESERVED.` 가 아래로 내려와서 **전체 너비 중앙 정렬 (총 2줄 완결!)**
+  3. **[실기기 브라우저 서브에이전트 캡처 검증 100% 통과]**:
+     - `footer_portrait_4lines.png`, `footer_landscape_2lines.png` 검증 완료.
+- **사규화**: `_STATUS.md`, `decisions.md` 실시간 핫싱크 완료.
+
 ## [2026-10-09] [헤더 최종 완성: 세로 시계 좌측정렬+황금색 복원 & 가로 바로가기줄 LIVE·시계 우측정렬 & EP3 다운로드·숏폼 버튼 자리 확보 완결]
 - **오빠의 훈시 및 핵심 지침**:
   1. *"세로모드에서 시계만 좌측 정렬해주고요~"*

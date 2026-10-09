@@ -2187,6 +2187,13 @@
       letter-spacing: 1.4px;
     }
 
+    .footer-cr-reserved {
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.4px;
+    }
+
     /* 🌈 7-Color Rainbow Flow (빨강·주황·노랑·초록·파랑·남색·보라) */
     .cr-brand {
       font-weight: 800;
@@ -2922,12 +2929,66 @@
         width: 100% !important;
       }
 
+      /* 🌟 [오빠 지침 반영] 세로 모드 푸터: ALL RIGHTS RESERVED 아래로 내려서 총 4줄 중앙 정렬 완결! */
       .master-footer {
+        display: flex !important;
         flex-direction: column !important;
-        gap: 6px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
         text-align: center !important;
         padding: 14px 6px !important;
         width: 100% !important;
+      }
+
+      /* 1줄: SYSTEM ONLINE */
+      .footer-left {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 11px !important;
+      }
+
+      /* 2줄 & 3줄 컨테이너 */
+      .footer-center {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 3px !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      /* 2줄: © 2026 HOOKVERSE STUDIO. */
+      .footer-cr {
+        display: block !important;
+        font-size: 11.5px !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      /* 3줄: ALL RIGHTS RESERVED. 아래로 내려서 독립 줄! */
+      .footer-cr-reserved {
+        display: block !important;
+        font-size: 10.5px !important;
+        color: #94a3b8 !important;
+        text-align: center !important;
+        letter-spacing: 1.2px !important;
+        width: 100% !important;
+      }
+
+      /* 4줄: Powered & Designed By KAIRA */
+      .footer-right {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 11.5px !important;
+        margin-top: 1px !important;
       }
     }
 
@@ -3292,6 +3353,63 @@
       .still-meta {
         padding: 6px 8px !important;
         box-sizing: border-box !important;
+      }
+
+      /* 🌟 [오빠 지침 반영] 가로 모드 푸터: 
+         - 1행: 좌측 SYSTEM ONLINE / 우측 KAIRA 우측 정렬!
+         - 2행: ALL RIGHTS RESERVED 아래로 내려서 2줄 중앙 정렬 완결! */
+      .master-footer {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 8px 10px !important;
+        gap: 4px !important;
+        width: 100% !important;
+      }
+
+      /* 1행 좌측: SYSTEM ONLINE */
+      .footer-left {
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        font-size: 11px !important;
+      }
+
+      /* 1행 우측: Powered & Designed By KAIRA (우측 정렬!) */
+      .footer-right {
+        order: 2 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        font-size: 11px !important;
+        margin-left: auto !important;
+        text-align: right !important;
+      }
+
+      /* 2행: 아래로 내려서 2줄로 전체 중앙 정렬! */
+      .footer-center {
+        order: 3 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px !important;
+        text-align: center !important;
+        margin-top: 2px !important;
+        font-size: 11.5px !important;
+      }
+
+      .footer-cr {
+        font-size: 11.5px !important;
+      }
+
+      .footer-cr-reserved {
+        font-size: 11px !important;
+        color: #94a3b8 !important;
       }
     }
 
@@ -4863,7 +4981,8 @@
         <span>SYSTEM ONLINE · 100vh V5.0</span>
       </div>
       <div class="footer-center">
-        <span class="footer-cr">© 2026 <strong class="cr-brand">HOOKVERSE STUDIO</strong>. ALL RIGHTS RESERVED.</span>
+        <span class="footer-cr">© 2026 <strong class="cr-brand">HOOKVERSE STUDIO</strong>.</span>
+        <span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
       </div>
       <div class="footer-right">
         <span class="footer-powered">Powered &amp; Designed By <strong class="kaira-brand">KAIRA</strong></span>
