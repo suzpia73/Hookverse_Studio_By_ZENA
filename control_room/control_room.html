@@ -2751,19 +2751,22 @@
         height: auto !important;
         max-height: none !important;
         overflow: visible !important;
+        touch-action: pan-x pan-y !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
         padding: 8px !important;
       }
 
-      /* 에피소드 릴 가로 스와이프 */
+      /* 에피소드 릴 가로 스와이프 & 세로 스크롤 완전 허용 */
       .episode-reel-list {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
-        overflow-y: hidden !important;
-        touch-action: pan-x !important;
+        overflow-y: visible !important;
+        overscroll-behavior: auto !important;
+        overscroll-behavior-y: auto !important;
+        touch-action: pan-x pan-y !important;
         -webkit-overflow-scrolling: touch !important;
         gap: 8px !important;
         padding: 2px 2px 8px 2px !important;
@@ -2775,6 +2778,11 @@
         flex: 0 0 160px !important;
         width: 160px !important;
         box-sizing: border-box !important;
+        touch-action: pan-x pan-y !important;
+      }
+
+      .ep-card * {
+        touch-action: pan-x pan-y !important;
       }
 
       .ep-card-thumb-wrap {
@@ -3448,18 +3456,26 @@
         height: auto !important;
         padding: 6px 10px !important;
         box-sizing: border-box !important;
+        overflow: visible !important;
+        touch-action: pan-x pan-y !important;
       }
 
       .sidebar-header {
         margin-bottom: 4px !important;
         padding-bottom: 4px !important;
+        touch-action: pan-x pan-y !important;
       }
 
+      /* 🌟 [오빠 지침 100% 반영] 사각 패널 모든 영역에서 자유로운 세로 스크롤 보장! */
       .episode-reel-list {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
-        overflow-y: hidden !important;
+        overflow-y: visible !important;
+        overscroll-behavior: auto !important;
+        overscroll-behavior-y: auto !important;
+        touch-action: pan-x pan-y !important;
+        -webkit-overflow-scrolling: touch !important;
         gap: 8px !important;
         padding: 2px 2px 4px 2px !important;
         width: 100% !important;
@@ -3468,6 +3484,11 @@
       .ep-card {
         flex: 0 0 170px !important;
         width: 170px !important;
+        touch-action: pan-x pan-y !important;
+      }
+
+      .ep-card * {
+        touch-action: pan-x pan-y !important;
       }
 
       .ep-card-thumb-wrap {
