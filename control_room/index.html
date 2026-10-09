@@ -2206,6 +2206,13 @@
       text-align: center;
     }
 
+    .footer-cr-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
     .footer-cr-prefix {
       color: #f1f5f9;
       font-size: 12.5px;
@@ -3028,14 +3035,21 @@
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 3px !important;
         width: 100% !important;
         text-align: center !important;
       }
 
+      .footer-cr-box {
+        display: inline-flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        gap: 3px !important;
+      }
+
       .footer-cr-row1,
       .footer-cr-row2 {
-        display: inline-flex !important;
+        display: flex !important;
         align-items: center !important;
         text-align: left !important;
         white-space: nowrap !important;
@@ -3514,15 +3528,22 @@
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        text-align: left !important;
-        gap: 1px !important;
+        text-align: center !important;
         flex: 1.4 1 0 !important;
         min-width: 0 !important;
       }
 
+      .footer-cr-box {
+        display: inline-flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        gap: 1px !important;
+      }
+
       .footer-cr-row1,
       .footer-cr-row2 {
-        display: inline-flex !important;
+        display: flex !important;
         align-items: center !important;
         text-align: left !important;
         white-space: nowrap !important;
@@ -5178,11 +5199,13 @@
         </div>
       </div>
       <div class="footer-center">
-        <div class="footer-l1 footer-cr-row1">
-          <span class="footer-cr-prefix">© 2</span><span class="footer-cr">026 <strong class="cr-brand">HOOKVERSE STUDIO</strong></span>
-        </div>
-        <div class="footer-l2 footer-cr-row2">
-          <span class="footer-cr-spacer">© 2</span><span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
+        <div class="footer-cr-box">
+          <div class="footer-l1 footer-cr-row1">
+            <span class="footer-cr-prefix">© 2</span><span class="footer-cr">026 <strong class="cr-brand">HOOKVERSE STUDIO</strong></span>
+          </div>
+          <div class="footer-l2 footer-cr-row2">
+            <span class="footer-cr-spacer">© 2</span><span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
+          </div>
         </div>
       </div>
       <div class="footer-right">
