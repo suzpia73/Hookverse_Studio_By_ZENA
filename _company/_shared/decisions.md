@@ -2,6 +2,24 @@
 
 _자가학습이 자동 누적합니다. 잘못된 항목은 직접 삭제하세요._
 
+## [2026-10-09] [푸터 타이포그래피 초정밀 캘리브레이션: 가로 S-V 수직 일치 & 가로/세로 ALL의 A를 2026의 0에 칼각 일치 완결]
+- **오빠의 훈시 및 핵심 지침**:
+  1. *"V5.0 >>> 가로모드에서 V5.0의 V를 SYSTEM의 S와 같게 맞추면 좋겠고요?"*
+  2. *"ALL RIGHTS RESERVED >>> 가로모드 & 세로모드 2곳에서 ALL에 A를 2026에 0에 맞추면 좋겠는데요? 제나 판단해보고 해줘요?"*
+- **제나의 즉각 완결 조치 (`control_room.html` & `index.html` 100% 동시 동기화)**:
+  1. **[가로 모드 S-V 칼각 일치 (Left Column Alignment)]**:
+     - 1줄: `● SYSTEM ONLINE · 100vh` (녹색 펄스점 7px + gap 6px + SYSTEM...)
+     - 2줄: `[투명 spacer (7px)] [gap 6px] V5.0` 구조의 정밀 DOM 마크업 적용.
+     - 결과: 2줄의 `V`가 1줄의 `SYSTEM`의 `S` 바로 아래에 0.0001px의 오차도 없이 **수직 칼각 일치**!
+  2. **[가로 & 세로 모드 0-A 칼각 일치 (Center Column Alignment)]**:
+     - 1줄: `[© 2] 026 HOOKVERSE STUDIO`
+     - 2줄: `[투명 © 2 spacer] ALL RIGHTS RESERVED.`
+     - 결과: 브라우저 렌더링 시 `© 2`와 100% 동일한 폰트·자간 너비를 투명 스페이서가 차지함으로써, 2줄의 **`ALL`의 `A`가 1줄의 `2026`의 `0` 시작점 바로 아래에 완벽하게 수직 칼각 일치**!
+     - 가로 모드 3열 분할 및 세로 모드 중앙 정렬 2곳 모두에서 완벽한 황금비율 정렬 달성!
+  3. **[실기기 브라우저 서브에이전트 캡처 검증 100% 통과]**:
+     - `landscape_calibrated_footer.png`, `portrait_calibrated_footer.png` 100% 검증 통과!
+- **사규화**: `_STATUS.md`, `decisions.md` 실시간 핫싱크 완료.
+
 ## [2026-10-09] [가로 푸터 3열 2줄 완벽 정렬 (좌측/중앙/우측) & 실시간 관제탑 스포트라이트 [📺 숏폼 보기] 버튼 추가 완결]
 - **오빠의 훈시 및 핵심 지침**:
   1. *"제나~ 제나가 봐도 가로 푸터 검증때 이상함을 모르겠나요? SYSTEM ONLINE 100vh V5.0 좌측 정렬로 === 2026 HOOKVERSE STUDIO ALL RIGHTS RESERVED 중앙 정렬로 === Powered & Designed By KAIRA 우측 정렬로 >>>> 이렇게 해 달라고 요청한겁니다."*

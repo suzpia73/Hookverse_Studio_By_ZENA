@@ -2168,12 +2168,19 @@
       animation: statusPulse 2.5s ease-in-out infinite;
     }
 
+    .footer-dot-spacer {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      visibility: hidden;
+      flex-shrink: 0;
+    }
+
     .footer-ver-badge {
       font-size: 11px;
       font-weight: 700;
       color: var(--gold-primary);
       letter-spacing: 1.5px;
-      padding-left: 14px;
     }
 
     @keyframes statusPulse {
@@ -2199,11 +2206,28 @@
       text-align: center;
     }
 
+    .footer-cr-prefix {
+      color: #f1f5f9;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 1.4px;
+    }
+
     .footer-cr {
       color: #f1f5f9;
       font-size: 12.5px;
       font-weight: 500;
       letter-spacing: 1.4px;
+    }
+
+    .footer-cr-spacer {
+      display: inline-block;
+      visibility: hidden;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 1.4px;
+      user-select: none;
+      pointer-events: none;
     }
 
     .footer-cr-reserved {
@@ -2963,6 +2987,7 @@
       }
 
       /* 1줄: SYSTEM ONLINE · 100vh V5.0 */
+      /* 1줄: SYSTEM ONLINE · 100vh V5.0 */
       .footer-left {
         display: flex !important;
         flex-direction: row !important;
@@ -2986,6 +3011,10 @@
         padding-left: 0 !important;
       }
 
+      .footer-dot-spacer {
+        display: none !important;
+      }
+
       .footer-left .footer-ver-badge {
         padding-left: 0 !important;
         font-size: 11px !important;
@@ -2993,7 +3022,7 @@
         color: var(--gold-primary) !important;
       }
 
-      /* 2줄 & 3줄 컨테이너 */
+      /* 2줄 & 3줄 컨테이너 (ALL의 A를 2026의 0에 수직 칼각 일치!) */
       .footer-center {
         display: flex !important;
         flex-direction: column !important;
@@ -3004,24 +3033,39 @@
         text-align: center !important;
       }
 
-      /* 2줄: © 2026 HOOKVERSE STUDIO */
-      .footer-center .footer-l1,
-      .footer-cr {
-        display: block !important;
-        font-size: 11.5px !important;
-        text-align: center !important;
-        width: 100% !important;
+      .footer-cr-row1,
+      .footer-cr-row2 {
+        display: inline-flex !important;
+        align-items: center !important;
+        text-align: left !important;
+        white-space: nowrap !important;
       }
 
-      /* 3줄: ALL RIGHTS RESERVED. 아래로 내려서 독립 줄! */
-      .footer-center .footer-l2,
+      /* 2줄: © 2026 HOOKVERSE STUDIO */
+      .footer-cr-prefix {
+        font-size: 11.5px !important;
+        color: #f1f5f9 !important;
+        letter-spacing: 1.2px !important;
+      }
+
+      .footer-cr {
+        font-size: 11.5px !important;
+        letter-spacing: 1.2px !important;
+      }
+
+      /* 3줄: ALL RIGHTS RESERVED. (A가 2026의 0 바로 아래에 칼각 정렬!) */
+      .footer-cr-spacer {
+        display: inline-block !important;
+        visibility: hidden !important;
+        font-size: 11.5px !important;
+        letter-spacing: 1.2px !important;
+        user-select: none !important;
+      }
+
       .footer-cr-reserved {
-        display: block !important;
         font-size: 10.5px !important;
         color: #94a3b8 !important;
-        text-align: center !important;
         letter-spacing: 1.2px !important;
-        width: 100% !important;
       }
 
       /* 4줄: Powered & Designed By KAIRA */
@@ -3423,6 +3467,7 @@
       }
 
       /* [좌측 열] 좌측 정렬 */
+      /* [좌측 열] S와 V 수직 칼각 일치! */
       .footer-left {
         order: 1 !important;
         display: flex !important;
@@ -3436,7 +3481,8 @@
         min-width: 0 !important;
       }
 
-      .footer-left .footer-l1 {
+      .footer-left .footer-l1,
+      .footer-left .footer-l2 {
         display: flex !important;
         align-items: center !important;
         gap: 6px !important;
@@ -3444,11 +3490,12 @@
         white-space: nowrap !important;
       }
 
-      .footer-left .footer-l2 {
-        display: block !important;
-        text-align: left !important;
-        padding-left: 13px !important;
-        line-height: 1.2 !important;
+      .footer-dot-spacer {
+        display: inline-block !important;
+        width: 7px !important;
+        height: 7px !important;
+        visibility: hidden !important;
+        flex-shrink: 0 !important;
       }
 
       .footer-ver-badge {
@@ -3457,48 +3504,54 @@
         color: var(--gold-primary) !important;
         letter-spacing: 1.5px !important;
         text-align: left !important;
+        padding-left: 0 !important;
       }
 
-      /* [중앙 열] 중앙 정렬 */
+      /* [중앙 열] 2026의 0과 ALL의 A 수직 칼각 일치! */
       .footer-center {
         order: 2 !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        text-align: center !important;
+        text-align: left !important;
         gap: 1px !important;
         flex: 1.4 1 0 !important;
         min-width: 0 !important;
       }
 
-      .footer-center .footer-l1 {
-        display: block !important;
-        text-align: center !important;
-        width: 100% !important;
+      .footer-cr-row1,
+      .footer-cr-row2 {
+        display: inline-flex !important;
+        align-items: center !important;
+        text-align: left !important;
         white-space: nowrap !important;
       }
 
-      .footer-center .footer-l2 {
-        display: block !important;
-        text-align: center !important;
-        width: 100% !important;
-        white-space: nowrap !important;
-        line-height: 1.2 !important;
+      .footer-cr-prefix {
+        font-size: 11.5px !important;
+        color: #f1f5f9 !important;
+        letter-spacing: 1.2px !important;
       }
 
       .footer-cr {
         font-size: 11.5px !important;
-        color: #f1f5f9 !important;
         letter-spacing: 1.2px !important;
-        text-align: center !important;
+      }
+
+      /* ALL의 A를 2026의 0에 정확히 수직 일치 */
+      .footer-cr-spacer {
+        display: inline-block !important;
+        visibility: hidden !important;
+        font-size: 11.5px !important;
+        letter-spacing: 1.2px !important;
+        user-select: none !important;
       }
 
       .footer-cr-reserved {
         font-size: 10.5px !important;
         color: #94a3b8 !important;
         letter-spacing: 1.4px !important;
-        text-align: center !important;
       }
 
       /* [우측 열] 우측 끝 정렬 */
@@ -5120,15 +5173,16 @@
           <span>SYSTEM ONLINE · 100vh</span>
         </div>
         <div class="footer-l2">
+          <span class="footer-dot-spacer"></span>
           <span class="footer-ver-badge">V5.0</span>
         </div>
       </div>
       <div class="footer-center">
-        <div class="footer-l1">
-          <span class="footer-cr">© 2026 <strong class="cr-brand">HOOKVERSE STUDIO</strong></span>
+        <div class="footer-l1 footer-cr-row1">
+          <span class="footer-cr-prefix">© 2</span><span class="footer-cr">026 <strong class="cr-brand">HOOKVERSE STUDIO</strong></span>
         </div>
-        <div class="footer-l2">
-          <span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
+        <div class="footer-l2 footer-cr-row2">
+          <span class="footer-cr-spacer">© 2</span><span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
         </div>
       </div>
       <div class="footer-right">
