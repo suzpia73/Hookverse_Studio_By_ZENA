@@ -1604,17 +1604,60 @@
 
     .ep-title-header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
       flex-shrink: 0;
+      width: 100%;
     }
 
     .ep-fullname {
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 800;
       color: #fff;
       font-family: var(--font-display);
+      line-height: 1.35;
+      word-break: keep-all;
+      width: 100%;
+    }
+
+    /* 오디오 트랙 헤더 (가로모드: 한 줄 인라인, 배지 제거) */
+    .stage-audio-meta-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .stage-audio-icon {
+      font-size: 13px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .stage-audio-text-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-primary);
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    .stage-audio-title {
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .stage-audio-title::after {
+      content: ":";
+    }
+
+    .stage-audio-desc {
+      font-weight: 600;
     }
 
     .screenplay-panel {
@@ -2899,6 +2942,52 @@
         padding: 8px 10px !important;
       }
 
+      /* 🌟 [오빠 지침 100% 반영] 세로 모드 오디오 트랙:
+         - 1줄: [🔊] [오디오 트랙] (콜론 없음)
+         - 2줄: [카이라(KAIRA) 공식 1인칭 생체 긴박 연기 보이스]
+         - '카'를 윗줄 '오'와 수직 칼각 일치! */
+      .stage-audio-meta-header {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        width: 100% !important;
+      }
+
+      .stage-audio-icon {
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        margin-top: 0 !important;
+        flex-shrink: 0 !important;
+      }
+
+      .stage-audio-text-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px !important;
+        width: 100% !important;
+      }
+
+      .stage-audio-title {
+        font-size: 12px !important;
+        font-weight: 800 !important;
+        color: var(--gold-primary) !important;
+        line-height: 1.35 !important;
+        white-space: nowrap !important;
+      }
+
+      .stage-audio-title::after {
+        content: "" !important; /* 세로모드 콜론 제거 */
+      }
+
+      .stage-audio-desc {
+        font-size: 11.5px !important;
+        font-weight: 600 !important;
+        color: var(--gold-primary) !important;
+        line-height: 1.35 !important;
+        word-break: keep-all !important;
+      }
+
       .screenplay-panel,
       .specs-panel {
         width: 100% !important;
@@ -3808,9 +3897,8 @@
 
       .stage-action-bar {
         display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
+        flex-direction: column !important;
+        gap: 8px !important;
       }
     }
 
@@ -4980,16 +5068,12 @@
                   <!-- Audio Station (Moved above screenplay for instant 0-second access on both PC & Mobile) -->
                   <div class="audio-player-panel" id="stage-audio-wrap"
                     style="flex-direction: column; align-items: stretch; gap: 8px;">
-                    <div
-                      style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; width: 100%;">
-                      <span
-                        style="font-size: 12px; font-weight: 700; color: var(--gold-primary); display: flex; align-items: center; gap: 5px; flex: 1; min-width: 180px;">
-                        <span>🔊</span> <span id="stage-audio-label" style="word-break: keep-all; line-height: 1.4;">오디오
-                          트랙: 카이라(KAIRA) 공식 1인칭 생체 긴박 연기 보이스</span>
-                      </span>
-                      <span class="badge-chip" id="stage-audio-badge"
-                        style="background: rgba(238, 211, 127, 0.15); color: var(--gold-primary); flex-shrink: 0;">공식 생체
-                        보이스</span>
+                    <div class="stage-audio-meta-header">
+                      <span class="stage-audio-icon">🔊</span>
+                      <div class="stage-audio-text-group">
+                        <span class="stage-audio-title" id="stage-audio-title">오디오 트랙</span>
+                        <span class="stage-audio-desc" id="stage-audio-desc">카이라(KAIRA) 공식 1인칭 생체 긴박 연기 보이스</span>
+                      </div>
                     </div>
                     <audio controls preload="metadata" id="stage-audio-player"
                       style="width: 100%; min-height: 44px; height: 44px;">
@@ -5351,8 +5435,9 @@
         videoSrc: '../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4',
         posterSrc: '../assets/images/review/snap_master_c01_02s.jpg',
         audioSrc: '../assets/audio/ep02_imf_chase_master_audio.mp3',
+        audioTitle: '오디오 트랙',
+        audioDesc: '카이라(KAIRA) 공식 1인칭 생체 긴박 연기 보이스',
         audioLabel: '오디오 트랙: 카이라(KAIRA) 공식 1인칭 생체 긴박 연기 보이스',
-        audioBadge: '공식 생체 보이스',
         downloadName: 'IMF2화_추격과비밀통화_4컷_마스터완성본.mp4',
         downloadSize: '10.48 MB',
         ytUrl: 'https://youtube.com/shorts/qPGCY6gJHBU',
@@ -5424,8 +5509,9 @@
         videoSrc: '../assets/videos/EP-1화_국가부도_첫쇼츠.mp4',
         posterSrc: '../assets/images/IMF1화/neura_cut3_thumbnail_1789109819463.jpg',
         audioSrc: '../assets/audio/ep01_imf_pilot_master_audio.mp3',
+        audioTitle: '오디오 트랙',
+        audioDesc: 'EP.01 국가부도의 날 전야 마스터 보이스 (24.25s)',
         audioLabel: '오디오 트랙: EP.01 국가부도의 날 전야 마스터 보이스 (24.25s)',
-        audioBadge: '24초 공식 마스터',
         downloadName: 'EP-1화_국가부도_첫쇼츠.mp4',
         downloadSize: '25.66 MB',
         ytUrl: 'https://youtube.com/shorts/h_9qfiVv72w',
@@ -5491,8 +5577,9 @@
         videoSrc: '',
         posterSrc: '../assets/images/review/snap_master_c01_02s.jpg',
         audioSrc: '../assets/audio/ep03_imf_vault_pilot_audio.mp3',
+        audioTitle: '오디오 트랙',
+        audioDesc: 'EP.03 지하 비밀 외환 금고 잠입 사전 기획 성우 보이스',
         audioLabel: '오디오 트랙: EP.03 지하 비밀 외환 금고 잠입 사전 기획 성우 보이스',
-        audioBadge: '사전 기획 보이스',
         downloadName: '',
         downloadSize: '',
         ytUrl: '',
@@ -5738,15 +5825,15 @@
       const aWrap = document.getElementById('stage-audio-wrap');
       const aPlayer = document.getElementById('stage-audio-player');
       const aSrc = document.getElementById('stage-audio-source');
-      const aLabel = document.getElementById('stage-audio-label');
-      const aBadge = document.getElementById('stage-audio-badge');
+      const aTitle = document.getElementById('stage-audio-title');
+      const aDesc = document.getElementById('stage-audio-desc');
       if (aPlayer && aWrap) {
         aPlayer.pause();
         if (ep.audioSrc) {
           aPlayer.src = ep.audioSrc;
           if (aSrc) aSrc.src = ep.audioSrc;
-          if (aLabel) aLabel.innerText = ep.audioLabel || '오디오 트랙: 공식 나레이션 음성';
-          if (aBadge) aBadge.innerText = ep.audioBadge || '공식 음성';
+          if (aTitle) aTitle.innerText = ep.audioTitle || '오디오 트랙';
+          if (aDesc) aDesc.innerText = ep.audioDesc || '공식 나레이션 음성';
           aPlayer.load();
           aWrap.style.display = 'flex';
         } else {
