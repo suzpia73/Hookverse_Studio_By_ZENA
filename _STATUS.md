@@ -1,21 +1,20 @@
 # 🏛️ Hookverse Studio 작업 상태 (2026-10-09)
 
-> **마지막 세션 저장 일시**: 2026-10-09 21:56 (📱 푸터 레이아웃 초정밀 맞춤: 세로 총 4줄 중앙정렬 / 가로 KAIRA 우측정렬 + ALL RIGHTS RESERVED 아래 2줄 중앙정렬 완결 ✅)  
+> **마지막 세션 저장 일시**: 2026-10-09 22:18 (📱 가로 푸터 3열 2줄 완벽 정렬 (좌측/중앙/우측) & 실시간 관제탑 스포트라이트 [📺 숏폼 보기] 버튼 추가 완결 ✅)  
 > 
 > ### 🚨 [현재 실행 공정 및 핵심 팩트]
-> - **💎 모바일 세로/가로 푸터 미세 조정 완결 (2026-10-09)**:
->   - 1) **[오빠 지침 100% 반영] 세로 모드 푸터 (Portrait)**:
->     * `ALL RIGHTS RESERVED.` 글자를 독립 줄로 아래로 내려서 **총 4줄 중앙 정렬 완결**!
->     * 1줄: `● SYSTEM ONLINE · 100vh V5.0`
->     * 2줄: `© 2026 HOOKVERSE STUDIO.`
->     * 3줄: `ALL RIGHTS RESERVED.`
->     * 4줄: `Powered & Designed By KAIRA`
->     * 화면 중앙에 단정하고 균형 잡힌 4줄 타이포그래피 완성!
->   - 2) **[오빠 지침 100% 반영] 가로 모드 푸터 (Landscape)**:
->     * 1행: 좌측 `● SYSTEM ONLINE · 100vh V5.0` ---------------- **우측 끝 `Powered & Designed By KAIRA` (KAIRA 우측 정렬!)**
->     * 2행: `© 2026 HOOKVERSE STUDIO. ALL RIGHTS RESERVED.` 가 아래로 내려와서 **전체 너비 중앙 정렬 (총 2줄 완결!)**
->   - 3) **실기기 브라우저 서브에이전트 캡처 검증 100% 통과 (`footer_portrait_4lines.png`, `footer_landscape_2lines.png`)**.
->   - 4) **단일 진실 공급원(`control_room.html` & `index.html`) 핫싱크 & 깃허브 원격 푸시 완결**.
+> - **💎 모바일 가로 푸터 3열 2줄 레이아웃 & 스포트라이트 숏폼보기 버튼 완결 (2026-10-09)**:
+>   - 1) **[오빠 지침 100% 반영] 가로 모드 푸터 (Landscape 3열 2줄 완벽 정렬)**:
+>     * **좌측 열 (Left Aligned)**: 1줄 `● SYSTEM ONLINE · 100vh` / 2줄 `V5.0` (좌측 정렬)
+>     * **중앙 열 (Center Aligned)**: 1줄 `© 2026 HOOKVERSE STUDIO` / 2줄 `ALL RIGHTS RESERVED.` (중앙 정렬)
+>     * **우측 열 (Right Aligned)**: 1줄 `Powered & Designed By` / 2줄 `KAIRA` (우측 끝 정렬)
+>     * 3개 열이 가로 화면에서 한 줄로 나란히 배치되고, 각 블록 내부가 2줄씩 깔끔하게 정돈된 최고급 하이엔드 3열 분할 레이아웃 완성!
+>   - 2) **[오빠 지침 100% 반영] 실시간 관제탑 최신작 스포트라이트 `[📺 숏폼 보기]` 버튼 장착**:
+>     * TAB 1 최신작(EP.02) 스포트라이트 액션바에서 `[0 Byte 다운로드 (10.48 MB)]` 바로 옆에 유튜브 숏폼 직행 **`[📺 숏폼 보기]`** 버튼 추가!
+>     * 오빠가 관제탑에서 시네마틱 감상 후 유튜브 숏폼으로 딸깍 한 번에 바로 이동 가능!
+>   - 3) **[세로 모드 푸터 (Portrait)]**: 기존 오빠 지침대로 총 4줄 중앙 정렬 완벽 유지!
+>   - 4) **실기기 브라우저 서브에이전트 캡처 검증 100% 통과 (`landscape_footer_3cols_2rows.png`, `portrait_footer_4lines.png`)**.
+>   - 5) **단일 진실 공급원(`control_room.html` & `index.html`) 핫싱크 & 깃허브 원격 푸시 완결**.
 > 
 > ---
 

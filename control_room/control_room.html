@@ -2145,11 +2145,18 @@
 
     .footer-left {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
       font-size: 12px;
       color: #f1f5f9;
       font-weight: 500;
+    }
+
+    .footer-left .footer-l1 {
+      display: flex;
+      align-items: center;
+      gap: 7px;
     }
 
     .footer-status-dot {
@@ -2159,6 +2166,14 @@
       background: #10b981;
       box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
       animation: statusPulse 2.5s ease-in-out infinite;
+    }
+
+    .footer-ver-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-primary);
+      letter-spacing: 1.5px;
+      padding-left: 14px;
     }
 
     @keyframes statusPulse {
@@ -2177,6 +2192,10 @@
     }
 
     .footer-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
       text-align: center;
     }
 
@@ -2257,8 +2276,10 @@
 
     .footer-right {
       display: flex;
-      align-items: center;
-      gap: 7px;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      text-align: right;
       font-size: 12px;
     }
 
@@ -2941,14 +2962,35 @@
         width: 100% !important;
       }
 
-      /* 1줄: SYSTEM ONLINE */
+      /* 1줄: SYSTEM ONLINE · 100vh V5.0 */
       .footer-left {
         display: flex !important;
+        flex-direction: row !important;
         justify-content: center !important;
         align-items: center !important;
+        gap: 6px !important;
         width: 100% !important;
         text-align: center !important;
         font-size: 11px !important;
+      }
+
+      .footer-left .footer-l1 {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+      }
+
+      .footer-left .footer-l2 {
+        display: inline-flex !important;
+        align-items: center !important;
+        padding-left: 0 !important;
+      }
+
+      .footer-left .footer-ver-badge {
+        padding-left: 0 !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: var(--gold-primary) !important;
       }
 
       /* 2줄 & 3줄 컨테이너 */
@@ -2962,7 +3004,8 @@
         text-align: center !important;
       }
 
-      /* 2줄: © 2026 HOOKVERSE STUDIO. */
+      /* 2줄: © 2026 HOOKVERSE STUDIO */
+      .footer-center .footer-l1,
       .footer-cr {
         display: block !important;
         font-size: 11.5px !important;
@@ -2971,6 +3014,7 @@
       }
 
       /* 3줄: ALL RIGHTS RESERVED. 아래로 내려서 독립 줄! */
+      .footer-center .footer-l2,
       .footer-cr-reserved {
         display: block !important;
         font-size: 10.5px !important;
@@ -2983,12 +3027,20 @@
       /* 4줄: Powered & Designed By KAIRA */
       .footer-right {
         display: flex !important;
+        flex-direction: row !important;
         justify-content: center !important;
         align-items: center !important;
+        gap: 6px !important;
         width: 100% !important;
         text-align: center !important;
         font-size: 11.5px !important;
         margin-top: 1px !important;
+      }
+
+      .footer-right .footer-l1,
+      .footer-right .footer-l2 {
+        display: inline-flex !important;
+        align-items: center !important;
       }
     }
 
@@ -3355,61 +3407,142 @@
         box-sizing: border-box !important;
       }
 
-      /* 🌟 [오빠 지침 반영] 가로 모드 푸터: 
-         - 1행: 좌측 SYSTEM ONLINE / 우측 KAIRA 우측 정렬!
-         - 2행: ALL RIGHTS RESERVED 아래로 내려서 2줄 중앙 정렬 완결! */
+      /* 🌟 [오빠 지침 반영] 가로 모드 푸터: 3열 2줄 레이아웃!
+         - [좌측 열]: 1줄 SYSTEM ONLINE · 100vh / 2줄 V5.0 (좌측 정렬)
+         - [중앙 열]: 1줄 © 2026 HOOKVERSE STUDIO / 2줄 ALL RIGHTS RESERVED. (중앙 정렬)
+         - [우측 열]: 1줄 Powered & Designed By / 2줄 KAIRA (우측 끝 정렬) */
       .master-footer {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: wrap !important;
         justify-content: space-between !important;
         align-items: center !important;
-        padding: 8px 10px !important;
-        gap: 4px !important;
+        padding: 5px 12px 3px !important;
         width: 100% !important;
+        box-sizing: border-box !important;
+        margin-top: 2px !important;
       }
 
-      /* 1행 좌측: SYSTEM ONLINE */
+      /* [좌측 열] 좌측 정렬 */
       .footer-left {
         order: 1 !important;
         display: flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        font-size: 11px !important;
-      }
-
-      /* 1행 우측: Powered & Designed By KAIRA (우측 정렬!) */
-      .footer-right {
-        order: 2 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-end !important;
-        font-size: 11px !important;
-        margin-left: auto !important;
-        text-align: right !important;
-      }
-
-      /* 2행: 아래로 내려서 2줄로 전체 중앙 정렬! */
-      .footer-center {
-        order: 3 !important;
-        width: 100% !important;
-        display: flex !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
         justify-content: center !important;
+        text-align: left !important;
+        gap: 1px !important;
+        font-size: 11px !important;
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+      }
+
+      .footer-left .footer-l1 {
+        display: flex !important;
         align-items: center !important;
         gap: 6px !important;
+        text-align: left !important;
+        white-space: nowrap !important;
+      }
+
+      .footer-left .footer-l2 {
+        display: block !important;
+        text-align: left !important;
+        padding-left: 13px !important;
+        line-height: 1.2 !important;
+      }
+
+      .footer-ver-badge {
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: var(--gold-primary) !important;
+        letter-spacing: 1.5px !important;
+        text-align: left !important;
+      }
+
+      /* [중앙 열] 중앙 정렬 */
+      .footer-center {
+        order: 2 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         text-align: center !important;
-        margin-top: 2px !important;
-        font-size: 11.5px !important;
+        gap: 1px !important;
+        flex: 1.4 1 0 !important;
+        min-width: 0 !important;
+      }
+
+      .footer-center .footer-l1 {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+      }
+
+      .footer-center .footer-l2 {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+        line-height: 1.2 !important;
       }
 
       .footer-cr {
         font-size: 11.5px !important;
+        color: #f1f5f9 !important;
+        letter-spacing: 1.2px !important;
+        text-align: center !important;
       }
 
       .footer-cr-reserved {
+        font-size: 10.5px !important;
+        color: #94a3b8 !important;
+        letter-spacing: 1.4px !important;
+        text-align: center !important;
+      }
+
+      /* [우측 열] 우측 끝 정렬 */
+      .footer-right {
+        order: 3 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+        text-align: right !important;
+        gap: 1px !important;
+        font-size: 11px !important;
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+        margin-left: auto !important;
+      }
+
+      .footer-right .footer-l1 {
+        display: block !important;
+        text-align: right !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+      }
+
+      .footer-right .footer-l2 {
+        display: block !important;
+        text-align: right !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+        line-height: 1.2 !important;
+      }
+
+      .footer-powered {
         font-size: 11px !important;
         color: #94a3b8 !important;
+        text-align: right !important;
+      }
+
+      .kaira-brand {
+        font-size: 13.5px !important;
+        font-weight: 800 !important;
+        letter-spacing: 1.8px !important;
+        text-align: right !important;
+        display: inline-block !important;
       }
     }
 
@@ -4535,6 +4668,11 @@
                   <a href="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" download class="btn-cinema-action primary">
                     <span>⬇️</span> 0 Byte 다운로드 (10.48 MB)
                   </a>
+                  <a href="https://youtube.com/shorts/qPGCY6gJHBU" target="_blank" rel="noopener noreferrer"
+                    class="btn-cinema-action"
+                    style="background: linear-gradient(135deg, rgba(239,68,68,0.18) 0%, rgba(220,38,38,0.3) 100%); border-color: rgba(239,68,68,0.65); color: #fee2e2; font-weight: 700; box-shadow: 0 0 12px rgba(239,68,68,0.25);">
+                    <span style="color: #ef4444; filter: drop-shadow(0 0 6px rgba(239,68,68,0.8));">📺</span> 숏폼 보기
+                  </a>
                 </div>
               </div>
             </div>
@@ -4977,15 +5115,29 @@
          ============================================================ -->
     <footer class="master-footer">
       <div class="footer-left">
-        <span class="footer-status-dot"></span>
-        <span>SYSTEM ONLINE · 100vh V5.0</span>
+        <div class="footer-l1">
+          <span class="footer-status-dot"></span>
+          <span>SYSTEM ONLINE · 100vh</span>
+        </div>
+        <div class="footer-l2">
+          <span class="footer-ver-badge">V5.0</span>
+        </div>
       </div>
       <div class="footer-center">
-        <span class="footer-cr">© 2026 <strong class="cr-brand">HOOKVERSE STUDIO</strong>.</span>
-        <span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
+        <div class="footer-l1">
+          <span class="footer-cr">© 2026 <strong class="cr-brand">HOOKVERSE STUDIO</strong></span>
+        </div>
+        <div class="footer-l2">
+          <span class="footer-cr-reserved">ALL RIGHTS RESERVED.</span>
+        </div>
       </div>
       <div class="footer-right">
-        <span class="footer-powered">Powered &amp; Designed By <strong class="kaira-brand">KAIRA</strong></span>
+        <div class="footer-l1">
+          <span class="footer-powered">Powered &amp; Designed By</span>
+        </div>
+        <div class="footer-l2">
+          <strong class="kaira-brand">KAIRA</strong>
+        </div>
       </div>
     </footer>
 

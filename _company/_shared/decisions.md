@@ -2,6 +2,33 @@
 
 _자가학습이 자동 누적합니다. 잘못된 항목은 직접 삭제하세요._
 
+## [2026-10-09] [가로 푸터 3열 2줄 완벽 정렬 (좌측/중앙/우측) & 실시간 관제탑 스포트라이트 [📺 숏폼 보기] 버튼 추가 완결]
+- **오빠의 훈시 및 핵심 지침**:
+  1. *"제나~ 제나가 봐도 가로 푸터 검증때 이상함을 모르겠나요? SYSTEM ONLINE 100vh V5.0 좌측 정렬로 === 2026 HOOKVERSE STUDIO ALL RIGHTS RESERVED 중앙 정렬로 === Powered & Designed By KAIRA 우측 정렬로 >>>> 이렇게 해 달라고 요청한겁니다."*
+  2. *"그리고 실시간 관제탑에는 영상 보는 곳에 다운로드 버튼 옆에 숏폼보기 버튼이 있으면 편할것 같으데요? >>> 제나 판단해서 해줘요?"*
+- **제나의 즉각 완결 조치 (`control_room.html` & `index.html` 100% 동시 동기화)**:
+  1. **[가로 모드 푸터 3열 2줄 완벽 분할 레이아웃 (Landscape 3-Cols 2-Rows)]**:
+     - **좌측 열 (Left Aligned)**:
+       * 1줄: `● SYSTEM ONLINE · 100vh`
+       * 2줄: `V5.0` (황금빛 골드 배지)
+     - **중앙 열 (Center Aligned)**:
+       * 1줄: `© 2026 HOOKVERSE STUDIO` (7색 레인보우 흐름)
+       * 2줄: `ALL RIGHTS RESERVED.`
+     - **우측 열 (Right Aligned)**:
+       * 1줄: `Powered & Designed By`
+       * 2줄: `KAIRA` (핑크·퍼플·골드 쉬머링 빛, 우측 끝 칼각 정렬!)
+  2. **[실시간 관제탑 스포트라이트 `[📺 숏폼 보기]` 버튼 전격 장착]**:
+     - TAB 1 실시간 관제탑의 최신작(EP.02) 스포트라이트 영상 액션 버튼 영역에서 `[⬇️ 0 Byte 다운로드 (10.48 MB)]` 바로 옆에 유튜브 숏폼 직행 **`[📺 숏폼 보기]`** 버튼(`https://youtube.com/shorts/qPGCY6gJHBU`)을 추가!
+     - 시네마틱 붉은빛 글로우(`linear-gradient(135deg, rgba(239,68,68,0.18) 0%, rgba(220,38,38,0.3) 100%)`)와 반짝이는 네온 효과로 시각적 완성도 및 직관적 접근성 극대화!
+  3. **[세로 모드 푸터 (Portrait) 총 4줄 중앙 정렬 완벽 유지]**:
+     - 1줄: `● SYSTEM ONLINE · 100vh V5.0`
+     - 2줄: `© 2026 HOOKVERSE STUDIO`
+     - 3줄: `ALL RIGHTS RESERVED.`
+     - 4줄: `Powered & Designed By KAIRA`
+  4. **[실기기 브라우저 서브에이전트 캡처 검증 100% 통과]**:
+     - `landscape_footer_3cols_2rows.png`, `landscape_spotlight_shorts_btn.png`, `portrait_footer_4lines.png` 100% 검증 통과!
+- **사규화**: `_STATUS.md`, `decisions.md` 실시간 핫싱크 완료.
+
 ## [2026-10-09] [푸터 레이아웃 초정밀 맞춤: 세로 총 4줄 중앙정렬 & 가로 KAIRA 우측정렬 + ALL RIGHTS RESERVED 아래 2줄 중앙정렬 완결]
 - **오빠의 훈시 및 핵심 지침**:
   1. *"가로모드에서 푸터에 KAIRA 글자를 우측 정렬로 해줘요? 가로모드에서 푸터에 ALL RIGHTS RESERVED 글자는 아래로 내려서 2줄로 중앙정렬 해줘요?"*
