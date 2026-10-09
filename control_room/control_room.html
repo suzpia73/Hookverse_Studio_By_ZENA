@@ -1494,6 +1494,30 @@
       color: #000;
     }
 
+    /* 🎬 [오빠 지침 반영] 유튜브 숏폼 보기 전용 시네마틱 레드 글로우 버튼 */
+    .btn-cinema-action.btn-shorts-yt {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.22) 0%, rgba(220, 38, 38, 0.35) 100%) !important;
+      border: 1px solid rgba(239, 68, 68, 0.7) !important;
+      color: #fee2e2 !important;
+      font-weight: 700 !important;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.28) !important;
+    }
+
+    .btn-cinema-action.btn-shorts-yt:hover {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.35) 0%, rgba(220, 38, 38, 0.5) 100%) !important;
+      border-color: rgba(239, 68, 68, 0.95) !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 18px rgba(239, 68, 68, 0.55) !important;
+      transform: translateY(-1px);
+    }
+
+    .btn-cinema-action.btn-shorts-yt .yt-icon {
+      color: #ef4444;
+      filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.85));
+      display: inline-flex;
+      align-items: center;
+    }
+
     /* Stage Dynamic Content Area */
     .stage-content-area {
       flex: 1;
@@ -4743,9 +4767,8 @@
                     <span>⬇️</span> 0 Byte 다운로드 (10.48 MB)
                   </a>
                   <a href="https://youtube.com/shorts/qPGCY6gJHBU" target="_blank" rel="noopener noreferrer"
-                    class="btn-cinema-action"
-                    style="background: linear-gradient(135deg, rgba(239,68,68,0.18) 0%, rgba(220,38,38,0.3) 100%); border-color: rgba(239,68,68,0.65); color: #fee2e2; font-weight: 700; box-shadow: 0 0 12px rgba(239,68,68,0.25);">
-                    <span style="color: #ef4444; filter: drop-shadow(0 0 6px rgba(239,68,68,0.8));">📺</span> 숏폼 보기
+                    class="btn-cinema-action btn-shorts-yt">
+                    <span class="yt-icon">📺</span> 숏폼 보기
                   </a>
                 </div>
               </div>
@@ -4864,8 +4887,8 @@
                   <span>⬇️</span> 0 Byte 다운로드
                 </a>
                 <a id="btn-yt-link" href="https://youtube.com/shorts/qPGCY6gJHBU" target="_blank"
-                  rel="noopener noreferrer" class="btn-cinema-action">
-                  <span>📺</span> 숏폼 보기
+                  rel="noopener noreferrer" class="btn-cinema-action btn-shorts-yt">
+                  <span class="yt-icon">📺</span> 숏폼 보기
                 </a>
               </div>
             </div>
@@ -5583,18 +5606,18 @@
           ytBtn.style.display = 'inline-flex';
           ytBtn.style.opacity = '1';
           ytBtn.onclick = null;
-          ytBtn.innerHTML = `<span>📺</span> 숏폼 보기`;
+          ytBtn.innerHTML = `<span class="yt-icon">📺</span> 숏폼 보기`;
         } else {
           // 🌟 [오빠 지침 반영] EP.03 등 미공개여도 숏폼보기 버튼 자리 100% 확고하게 유지!
           ytBtn.removeAttribute('href');
           ytBtn.removeAttribute('target');
           ytBtn.style.display = 'inline-flex';
-          ytBtn.style.opacity = '0.55';
+          ytBtn.style.opacity = '0.65';
           ytBtn.onclick = (e) => {
             e.preventDefault();
             showToast('🎬 EP.03은 제작 완료 후 공식 유튜브에 공개됩니다! ✨');
           };
-          ytBtn.innerHTML = `<span>📺</span> 숏폼 (공개 예정)`;
+          ytBtn.innerHTML = `<span class="yt-icon">📺</span> 숏폼 (공개 예정)`;
         }
       }
 
