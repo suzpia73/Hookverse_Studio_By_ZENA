@@ -851,6 +851,12 @@
       }
     }
 
+    .header-status-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .time-hud {
       display: flex;
       align-items: baseline;
@@ -864,6 +870,16 @@
       font-size: 14.5px;
       font-weight: 700;
       color: var(--gold-primary);
+    }
+
+    .time-hud-nav {
+      display: none;
+    }
+
+    .header-shortcuts-row {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
     }
 
     /* Social Hub Buttons (Compact 3x2 Grid Right-Aligned) */
@@ -2304,10 +2320,14 @@
         width: 100% !important;
       }
 
+      /* 🌟 [오빠 요청 1 반영] 세로 모드: LIVE 100vh 우측 상단 맞춤 & 시계는 새로고침 왼쪽 안착! */
       .header-top-row {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 4px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 6px !important;
         width: 100% !important;
         box-sizing: border-box !important;
       }
@@ -2317,7 +2337,9 @@
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 2px !important;
-        width: 100% !important;
+        width: auto !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
       }
 
       .brand-main-row {
@@ -2325,32 +2347,60 @@
         flex-direction: row !important;
         align-items: center !important;
         gap: 6px !important;
+        min-width: 0 !important;
       }
 
       .brand-emblem {
-        width: 36px !important;
-        height: 36px !important;
+        width: 30px !important;
+        height: 30px !important;
+        flex-shrink: 0 !important;
       }
 
       .brand-title-anim {
-        font-size: 16px !important;
-        letter-spacing: 0.5px !important;
-        gap: 6px !important;
+        font-size: 14.5px !important;
+        letter-spacing: 0.3px !important;
+        gap: 4px !important;
         line-height: 1.1 !important;
+        white-space: nowrap !important;
       }
 
-      .brand-meta-tags {
+      /* 세로 화면 우측 상단: LIVE 100vh 배지만 단독 노출! */
+      .header-status-box {
         display: flex !important;
-        width: 100% !important;
         align-items: center !important;
-        gap: 5px !important;
-        margin: 0 !important;
+        flex-shrink: 0 !important;
       }
 
-      .live-badge,
-      .time-hud {
+      .header-status-box .time-hud-top {
+        display: none !important;
+      }
+
+      .live-badge {
+        display: inline-flex !important;
         font-size: 10px !important;
-        padding: 2px 6px !important;
+        padding: 2.5px 7px !important;
+        white-space: nowrap !important;
+      }
+
+      /* 🌟 세로 화면 시계: 새로고침 왼쪽에 쏙 안착 (크기·패딩 정밀 조율) */
+      .time-hud-nav {
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 10.5px !important;
+        padding: 3px 6px !important;
+        white-space: nowrap !important;
+        border-radius: 4px !important;
+        background: rgba(0, 0, 0, 0.45) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: #67e8f9 !important;
+        font-family: 'SF Mono', monospace !important;
+        font-weight: 700 !important;
+        flex-shrink: 0 !important;
+      }
+
+      .header-shortcuts-row {
+        width: 100% !important;
+        margin: 2px 0 !important;
       }
 
       /* 🌟 바로가기 6대 버튼: 3x2 대칭 그리드로 우측 짤림 0% & 균형 완결 */
@@ -2907,10 +2957,10 @@
         box-sizing: border-box !important;
       }
 
-      /* 🌟 가로 헤더: 와이드 100% 공간 알찬 활용 */
+      /* 🌟 [오빠 요청 2 반영] 가로 헤더: 와이드 100% 공간 알찬 활용 */
       .master-header {
-        gap: 4px !important;
-        padding-bottom: 4px !important;
+        gap: 3px !important;
+        padding-bottom: 3px !important;
         width: 100% !important;
       }
 
@@ -2939,8 +2989,8 @@
       }
 
       .brand-emblem {
-        width: 30px !important;
-        height: 30px !important;
+        width: 28px !important;
+        height: 28px !important;
       }
 
       .brand-title-anim {
@@ -2948,35 +2998,72 @@
         letter-spacing: 0.5px !important;
       }
 
-      .brand-meta-tags {
-        display: inline-flex !important;
-        width: auto !important;
-        margin: 0 !important;
+      /* 🌟 [오빠 요청 2] 가로 화면 우측 상단: LIVE 100vh + 시계 나란히 컴팩트 완벽 안착! */
+      .header-status-box {
+        display: flex !important;
+        flex-direction: row !important;
         align-items: center !important;
-        gap: 5px !important;
-        padding-left: 2px !important;
-      }
-
-      .live-badge,
-      .time-hud {
-        font-size: 9.5px !important;
-        padding: 1px 5px !important;
-      }
-
-      /* 🌟 6대 바로가기: 오빠 지침 100% 반영! 우측정렬 3X2 2줄로 유튜브채널 & 스튜디오 상시 노출! */
-      .hub-links {
-        display: grid !important;
-        grid-template-columns: repeat(3, auto) !important;
-        gap: 3px 6px !important;
-        justify-content: end !important;
-        align-items: center !important;
+        gap: 6px !important;
         flex-shrink: 0 !important;
       }
 
+      .live-badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 9.5px !important;
+        padding: 2px 6px !important;
+        white-space: nowrap !important;
+      }
+
+      .time-hud-top {
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 9.5px !important;
+        padding: 2px 6px !important;
+        white-space: nowrap !important;
+        border-radius: 4px !important;
+        background: rgba(0, 0, 0, 0.45) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: #67e8f9 !important;
+        font-family: 'SF Mono', monospace !important;
+        font-weight: 700 !important;
+      }
+
+      .time-hud-top .time-val {
+        font-size: 10px !important;
+        color: #67e8f9 !important;
+      }
+
+      /* 🌟 [오빠 요청 2] 6대 바로가기: HOOKVERSE STUDIO 아래 줄에 1줄로 길게 시원하게 나열! */
+      .header-shortcuts-row {
+        width: 100% !important;
+        margin: 1px 0 !important;
+        overflow: hidden !important;
+      }
+
+      .header-shortcuts-row .hub-links {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 6px !important;
+        width: 100% !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding-bottom: 2px !important;
+      }
+
       .hub-btn {
-        padding: 3px 7px !important;
+        flex: 0 0 auto !important;
+        padding: 3px 8px !important;
         font-size: 10.5px !important;
         white-space: nowrap !important;
+      }
+
+      /* 가로 모드에서는 네비게이션 시계 숨김 (우측 상단에 이미 표시) */
+      .time-hud-nav {
+        display: none !important;
       }
 
       .header-nav-row {
@@ -3922,10 +4009,10 @@
          ============================================================ -->
     <header class="master-header">
 
-      <!-- Row 1: Brand Logo + Status + Social Shortcut Links -->
+      <!-- Row 1: Brand (Left) + Top Status [LIVE 100vh + Clock] (Right) -->
       <div class="header-top-row">
 
-        <!-- Left: Brand Emblem + HOOKVERSE STUDIO (Top) & Live & Clock (Bottom) -->
+        <!-- Left: Brand Emblem + HOOKVERSE STUDIO -->
         <div class="brand-group">
           <div class="brand-main-row">
             <img src="../assets/images/hookverse_studio_logo_transparent.png" alt="Hookverse Emblem" class="brand-emblem"
@@ -3994,17 +4081,21 @@
               </span>
             </h1>
           </div>
+        </div>
 
-          <div class="brand-meta-tags">
-            <span class="live-badge"><span class="live-dot"></span> LIVE 100vh</span>
-            <div class="time-hud">
-              <span class="time-val" id="hud-clock">--:--:--</span>
-              <span id="hud-date" style="display: none;"></span>
-            </div>
+        <!-- Right: Top Status Hub [LIVE 100vh + Clock HUD] -->
+        <div class="header-status-box" id="header-status-box">
+          <span class="live-badge"><span class="live-dot"></span> LIVE 100vh</span>
+          <div class="time-hud time-hud-top" id="hud-clock-top-wrap">
+            <span class="time-val" id="hud-clock">--:--:--</span>
+            <span id="hud-date" style="display: none;"></span>
           </div>
         </div>
 
-        <!-- Right: 6 Official Brand SVG Shortcuts -->
+      </div>
+
+      <!-- Row 2: 6 Official Brand SVG Shortcuts (Dedicated Row) -->
+      <div class="header-shortcuts-row">
         <div class="hub-links">
           <a href="https://www.youtube.com/@hookverse_studio" target="_blank" rel="noopener noreferrer"
             class="hub-btn yt" id="link-yt">
@@ -4076,7 +4167,7 @@
         </div>
       </div>
 
-      <!-- Row 2: Navigation Tabs + Collapsible Brief Toggle -->
+      <!-- Row 3: Navigation Tabs + Collapsible Brief Toggle + Mobile Clock -->
       <div class="header-nav-row">
         <nav class="nav-bar" id="main-nav-tabs">
           <button class="nav-tab active" onclick="switchTab('tab-control')" id="tab-btn-control">
@@ -4096,7 +4187,11 @@
           </button>
         </nav>
 
-        <div class="header-nav-ctrls" style="display: flex; gap: 8px; align-items: center; flex-shrink: 0;">
+        <div class="header-nav-ctrls" style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
+          <!-- 🌟 [오빠 지침 100% 반영] 세로 화면 시계: 새로고침 왼쪽에 쏙 안착! -->
+          <div class="time-hud time-hud-nav" id="hud-clock-nav-wrap">
+            <span class="time-val" id="hud-clock-nav">--:--:--</span>
+          </div>
           <button class="btn-refresh" onclick="location.reload()" title="관제탑 실시간 새로고침">
             <span>🔄</span> 새로고침
           </button>
@@ -5293,14 +5388,18 @@
       if (modal) modal.classList.remove('active');
     }
 
-    // 10. Realtime Clock HUD
+    // 10. Realtime Clock HUD (상단 및 네비게이션 시계 동시 갱신)
     function updateClock() {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
-      const clockEl = document.getElementById('hud-clock');
-      if (clockEl) clockEl.innerText = `${hours}:${minutes}:${seconds}`;
+      const timeStr = `${hours}:${minutes}:${seconds}`;
+
+      // 모든 시계 HUD (.time-val) 동시 업데이트
+      document.querySelectorAll('.time-val').forEach(el => {
+        el.innerText = timeStr;
+      });
 
       const year = now.getFullYear();
       const month = String(now.getMonth() + 1).padStart(2, '0');
