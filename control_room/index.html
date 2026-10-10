@@ -2676,57 +2676,55 @@
       }
 
       .brand-emblem {
-        width: 30px !important;
-        height: 30px !important;
+        width: 34px !important;
+        height: 34px !important;
         flex-shrink: 0 !important;
       }
 
       .brand-title-anim {
-        font-size: 14.5px !important;
-        letter-spacing: 0.3px !important;
-        gap: 4px !important;
+        font-size: 15.5px !important;
+        letter-spacing: 0.4px !important;
+        gap: 5px !important;
         line-height: 1.1 !important;
         white-space: nowrap !important;
       }
 
-      /* 세로 화면 우측 상단: LIVE 100vh 배지만 단독 노출! */
+      /* 세로 화면 우측 상단: LIVE 100vh 뱃지 + 그 바로 밑에 황금빛 시계 안착 (상하 2단 미니 HUD) */
       .header-status-box {
         display: flex !important;
-        align-items: center !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        gap: 2px !important;
         flex-shrink: 0 !important;
-      }
-
-      .header-status-box .time-hud-top {
-        display: none !important;
       }
 
       .live-badge {
         display: inline-flex !important;
-        font-size: 10px !important;
-        padding: 2.5px 7px !important;
+        font-size: 9.5px !important;
+        padding: 2px 6px !important;
         white-space: nowrap !important;
       }
 
-      /* 🌟 [오빠 지침 반영] 세로 화면 시계: 좌측 정렬 & 황금빛 골드 원래 색상 완벽 복원! */
-      .time-hud-nav {
-        display: inline-flex !important;
+      .header-status-box .time-hud-top {
+        display: flex !important;
         align-items: center !important;
-        font-size: 11px !important;
-        padding: 3px 8px !important;
-        white-space: nowrap !important;
-        border-radius: 4px !important;
-        background: rgba(0, 0, 0, 0.45) !important;
-        border: 1px solid rgba(238, 211, 127, 0.35) !important;
-        color: var(--gold-primary) !important;
         font-family: 'SF Mono', monospace !important;
+        font-size: 10px !important;
         font-weight: 700 !important;
-        flex-shrink: 0 !important;
-        margin-right: auto !important; /* 🌟 시계 좌측 정렬 완결! */
+        color: var(--gold-primary) !important;
+        line-height: 1 !important;
+        padding: 0 !important;
+        margin: 0 !important;
       }
 
-      .time-hud-nav .time-val {
+      .header-status-box .time-hud-top .time-val {
+        font-size: 10.5px !important;
         color: var(--gold-primary) !important;
-        font-size: 11.5px !important;
+      }
+
+      /* 세로 화면 하단 바에서는 상단으로 올라간 시계 숨김 */
+      .time-hud-nav {
+        display: none !important;
       }
 
       .header-status-box-row2 {
@@ -2735,36 +2733,46 @@
 
       .header-shortcuts-row {
         width: 100% !important;
-        margin: 2px 0 !important;
+        margin: 2px 0 0 0 !important;
       }
 
-      /* 🌟 바로가기 6대 버튼: 3x2 대칭 그리드로 우측 짤림 0% & 균형 완결 */
+      /* 🌟 바로가기 6대 버튼: 3x2(2줄) ➔ 1줄 가로 스크롤로 1줄 삭제 완결! */
       .hub-links {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 4px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 5px !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        margin-top: 2px !important;
+        margin-top: 1px !important;
+        padding-bottom: 2px !important;
+        scrollbar-width: none !important;
+      }
+
+      .hub-links::-webkit-scrollbar {
+        display: none !important;
       }
 
       .hub-btn {
-        display: flex !important;
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
         justify-content: center !important;
         align-items: center !important;
-        width: 100% !important;
+        width: auto !important;
         font-size: 11px !important;
-        padding: 5px 2px !important;
+        padding: 4px 9px !important;
         box-sizing: border-box !important;
         text-align: center !important;
-        min-width: 0 !important;
         white-space: nowrap !important;
+        border-radius: 6px !important;
       }
 
       .hub-icon {
-        width: 13px !important;
-        height: 13px !important;
-        margin-right: 3px !important;
+        width: 12px !important;
+        height: 12px !important;
+        margin-right: 4px !important;
         flex-shrink: 0 !important;
       }
 
@@ -2785,6 +2793,11 @@
         width: 100% !important;
         box-sizing: border-box !important;
         gap: 4px !important;
+        scrollbar-width: none !important;
+      }
+
+      .nav-bar::-webkit-scrollbar {
+        display: none !important;
       }
 
       .nav-tab {
@@ -2792,18 +2805,25 @@
         font-size: 11.5px !important;
       }
 
+      /* 새로고침(좌측) & 미션 브리프(우측) 양끝 시원한 정렬 */
       .header-nav-ctrls {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        gap: 4px !important;
         width: 100% !important;
+        gap: 6px !important;
       }
 
-      .btn-refresh,
+      .btn-refresh {
+        padding: 5px 12px !important;
+        font-size: 11.5px !important;
+        font-weight: 700 !important;
+      }
+
       .brief-toggle-btn {
-        padding: 4px 8px !important;
-        font-size: 11px !important;
+        padding: 5px 12px !important;
+        font-size: 11.5px !important;
+        font-weight: 700 !important;
       }
 
       .workspace-container,
