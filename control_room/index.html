@@ -881,6 +881,16 @@
       display: none;
     }
 
+    .header-top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-pc-hub-links {
+      display: none;
+    }
+
     .header-shortcuts-row {
       display: flex;
       justify-content: flex-end;
@@ -4024,16 +4034,13 @@
         justify-content: space-between !important;
       }
 
-      /* 🌟 [PC 보장 1-1] 6대 바로가기 버튼: 1줄 가로 나열 (이중 쌓임 0% 완전 해결!) */
+      /* 🌟 [PC 2줄 대개편] 헤더 3줄 ➔ 2줄 압축: 2행 전용 바로가기 행 숨김 */
       .header-shortcuts-row {
-        display: flex !important;
-        justify-content: flex-end !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 3px 0 0 0 !important;
+        display: none !important;
       }
 
-      .header-shortcuts-row .hub-links {
+      /* 🌟 [PC 2줄 대개편] 1행 우측에 6대 바로가기 노출 및 시계와 나란히 정렬 */
+      .header-pc-hub-links {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
@@ -4042,10 +4049,34 @@
         gap: 6px !important;
       }
 
-      .header-shortcuts-row .hub-btn {
+      .header-top-right {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+      }
+
+      .header-top-right .hub-btn {
         padding: 4px 10px !important;
         font-size: 11.5px !important;
         white-space: nowrap !important;
+      }
+
+      /* 🌟 [오빠 아이디어 100% 반영] 2줄 높이에 맞춰 앰블럼 & 글자 크기 웅장하게 확대 */
+      .brand-emblem {
+        width: 56px !important;
+        height: 56px !important;
+      }
+
+      .brand-title-anim {
+        font-size: 26.5px !important;
+        letter-spacing: 1.4px !important;
+        gap: 12px !important;
+      }
+
+      .master-header {
+        gap: 10px !important;
+        padding-bottom: 8px !important;
       }
 
       .brand-group {
@@ -4845,12 +4876,84 @@
           </div>
         </div>
 
-        <!-- Right: Top Status Hub [LIVE 100vh + Clock HUD] -->
-        <div class="header-status-box" id="header-status-box">
-          <span class="live-badge"><span class="live-dot"></span> LIVE 100vh</span>
-          <div class="time-hud time-hud-top" id="hud-clock-top-wrap">
-            <span class="time-val" id="hud-clock">--:--:--</span>
-            <span id="hud-date" style="display: none;"></span>
+        <!-- Right: Top Status Hub [LIVE 100vh + Clock HUD] & PC 6 Official Shortcuts -->
+        <div class="header-top-right">
+          <div class="hub-links header-pc-hub-links">
+            <a href="https://www.youtube.com/@hookverse_studio" target="_blank" rel="noopener noreferrer"
+              class="hub-btn yt" id="link-yt-pc">
+              <svg class="hub-icon yt-icon" viewBox="0 0 24 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              유튜브 채널
+            </a>
+            <a href="https://studio.youtube.com/channel/UC-official" target="_blank" rel="noopener noreferrer"
+              class="hub-btn studio" id="link-studio-pc" onclick="handleAdminSecurity(event, '유튜브 스튜디오', this.href)">
+              <svg class="hub-icon studio-icon" viewBox="0 0 24 24" fill="#FF4E45" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L3.5 6.9v9.8L12 21.6l8.5-4.9V6.9L12 2zm-1.8 13.5v-7l6 3.5-6 3.5z" />
+              </svg>
+              스튜디오
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="hub-btn insta"
+              id="link-insta-pc" onclick="handleAdminSecurity(event, '공식 인스타그램', this.href)">
+              <svg class="hub-icon insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="instaGradPc" cx="30%" cy="105%" r="105%">
+                    <stop offset="0%" stop-color="#FFD600" />
+                    <stop offset="20%" stop-color="#FF0100" />
+                    <stop offset="50%" stop-color="#D800B9" />
+                    <stop offset="100%" stop-color="#7000FF" />
+                  </radialGradient>
+                </defs>
+                <rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#instaGradPc)" />
+                <circle cx="12" cy="12" r="4.2" stroke="#FFFFFF" stroke-width="1.8" />
+                <circle cx="17.2" cy="6.8" r="1.1" fill="#FFFFFF" />
+              </svg>
+              인스타그램
+            </a>
+            <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer" class="hub-btn threads"
+              id="link-threads-pc" onclick="handleAdminSecurity(event, '공식 쓰레드', this.href)">
+              <svg class="hub-icon threads-icon" viewBox="0 0 16 16" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161" />
+              </svg>
+              쓰레드
+            </a>
+            <a href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener noreferrer" class="hub-btn opal"
+              id="link-flow-pc" onclick="handleAdminSecurity(event, 'Google Flow AI 제작소', this.href)">
+              <svg class="hub-icon flow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="flowStarGradPc" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#22d3ee" />
+                    <stop offset="50%" stop-color="#818cf8" />
+                    <stop offset="100%" stop-color="#c084fc" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"
+                  fill="url(#flowStarGradPc)" />
+                <path
+                  d="M19.5 2.5C19.5 4.157 18.157 5.5 16.5 5.5C18.157 5.5 19.5 6.843 19.5 8.5C19.5 6.843 20.843 5.5 22.5 5.5C20.843 5.5 19.5 4.157 19.5 2.5Z"
+                  fill="#22d3ee" />
+              </svg>
+              Google Flow
+            </a>
+            <a href="https://github.com/suzpia73/Hookverse_Studio_By_ZENA" target="_blank" rel="noopener noreferrer"
+              class="hub-btn github" id="link-github-pc" onclick="handleAdminSecurity(event, 'GitHub 개발 본진', this.href)">
+              <svg class="hub-icon github-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              GitHub 본진
+            </a>
+          </div>
+
+          <div class="header-status-box" id="header-status-box">
+            <span class="live-badge"><span class="live-dot"></span> LIVE 100vh</span>
+            <div class="time-hud time-hud-top" id="hud-clock-top-wrap">
+              <span class="time-val" id="hud-clock">--:--:--</span>
+              <span id="hud-date" style="display: none;"></span>
+            </div>
           </div>
         </div>
 
