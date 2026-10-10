@@ -277,6 +277,7 @@
       flex-shrink: 0;
       padding-bottom: 6px;
       border-bottom: 1px solid var(--border-subtle);
+      position: relative;
     }
 
     /* Top Row: Brand & Live Status + Social Hub Buttons */
@@ -1064,6 +1065,13 @@
       box-shadow: 0 0 12px var(--gold-glow);
     }
 
+    .brief-toggle-btn.active {
+      background: rgba(238, 211, 127, 0.25);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 14px var(--gold-glow);
+      color: var(--gold-primary);
+    }
+
     /* Refresh Button */
     .btn-refresh {
       display: inline-flex;
@@ -1089,25 +1097,40 @@
       color: var(--gold-primary);
     }
 
-    /* Collapsible Mission Brief Drawer (Overlay/Dropdown) */
+    /* Collapsible Mission Brief Drawer (Overlay/Dropdown - Smooth Folding & Zero Memory) */
     .brief-drawer {
-      display: none;
       background: rgba(12, 14, 20, 0.98);
       border: 1px solid var(--border-gold);
       border-radius: 12px;
-      padding: 14px 18px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--gold-glow);
+      padding: 0 18px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.85), 0 0 24px var(--gold-glow);
       backdrop-filter: blur(16px);
       position: absolute;
-      top: 86px;
-      left: 20px;
-      right: 20px;
+      top: calc(100% + 6px);
+      left: 16px;
+      right: 16px;
       z-index: 1000;
-      animation: fadeIn 0.2s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-8px) scaleY(0.96);
+      transform-origin: top center;
+      pointer-events: none;
+      visibility: hidden;
+      transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.25s ease,
+                  transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  padding 0.3s ease,
+                  visibility 0.32s;
     }
 
     .brief-drawer.open {
-      display: block;
+      max-height: 520px;
+      opacity: 1;
+      padding: 14px 18px;
+      transform: translateY(0) scaleY(1);
+      pointer-events: auto;
+      visibility: visible;
     }
 
     .brief-drawer-grid {
@@ -4001,6 +4024,30 @@
         justify-content: space-between !important;
       }
 
+      /* 🌟 [PC 보장 1-1] 6대 바로가기 버튼: 1줄 가로 나열 (이중 쌓임 0% 완전 해결!) */
+      .header-shortcuts-row {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 3px 0 0 0 !important;
+      }
+
+      .header-shortcuts-row .hub-links {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 6px !important;
+      }
+
+      .header-shortcuts-row .hub-btn {
+        padding: 4px 10px !important;
+        font-size: 11.5px !important;
+        white-space: nowrap !important;
+      }
+
       .brand-group {
         display: flex !important;
         flex-direction: column !important;
@@ -5921,11 +5968,18 @@
       }
     }
 
-    // 4. Mission Brief Drawer Toggle
+    // 4. Mission Brief Drawer Toggle (Smooth Folding & Dynamic State Sync)
     function toggleMissionBrief() {
       const drawer = document.getElementById('mission-brief-drawer');
+      const btn = document.getElementById('btn-toggle-brief');
       if (drawer) {
-        drawer.classList.toggle('open');
+        const isOpen = drawer.classList.toggle('open');
+        if (btn) {
+          btn.classList.toggle('active', isOpen);
+          btn.innerHTML = isOpen 
+            ? '<span>📋</span> 미션 브리프 [접기]' 
+            : '<span>📋</span> 미션 브리프 [보기/접기]';
+        }
       }
     }
 
@@ -6266,7 +6320,14 @@
         closeModal();
         closeAdminSecurity();
         const drawer = document.getElementById('mission-brief-drawer');
-        if (drawer && drawer.classList.contains('open')) drawer.classList.remove('open');
+        const btn = document.getElementById('btn-toggle-brief');
+        if (drawer && drawer.classList.contains('open')) {
+          drawer.classList.remove('open');
+          if (btn) {
+            btn.classList.remove('active');
+            btn.innerHTML = '<span>📋</span> 미션 브리프 [보기/접기]';
+          }
+        }
       }
       if (e.key === 'ArrowLeft') navigateModal(-1);
       if (e.key === 'ArrowRight') navigateModal(1);
