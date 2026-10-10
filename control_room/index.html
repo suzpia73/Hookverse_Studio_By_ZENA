@@ -1592,6 +1592,148 @@
       display: block;
     }
 
+    /* 🌟 EP.03 등 프리프로덕션 에피소드용 시네마틱 비디오 플레이어 프레임 (비디오와 100% 동일 화각/위치/크기) */
+    .video-placeholder-frame {
+      width: auto;
+      max-width: 360px;
+      height: 100%;
+      max-height: calc(100vh - 195px);
+      aspect-ratio: 9/16;
+      background: #000;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .v-placeholder-artwork {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .v-placeholder-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: transform 0.4s ease;
+    }
+
+    .video-placeholder-frame:hover .v-placeholder-img {
+      transform: scale(1.02);
+    }
+
+    .v-placeholder-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4, 5, 7, 0.35) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(4, 5, 7, 0.88) 100%);
+      z-index: 2;
+    }
+
+    .v-placeholder-badge {
+      position: relative;
+      z-index: 3;
+      margin-top: 14px;
+      background: rgba(12, 16, 26, 0.88);
+      border: 1px solid rgba(192, 132, 252, 0.6);
+      color: var(--neon-purple);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 12px rgba(192, 132, 252, 0.3);
+    }
+
+    .v-placeholder-play-btn {
+      position: relative;
+      z-index: 3;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(238, 211, 127, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+    }
+
+    .video-placeholder-frame:hover .v-placeholder-play-btn {
+      transform: scale(1.1);
+      background: #ffffff;
+    }
+
+    .v-placeholder-play-btn .play-icon {
+      font-size: 24px;
+      color: #040507;
+      margin-left: 4px;
+      line-height: 1;
+    }
+
+    .v-placeholder-controls {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 6px 12px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-mono);
+    }
+
+    .v-ctrl-left,
+    .v-ctrl-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .v-ctrl-icon {
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .v-ctrl-time {
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .v-ctrl-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .v-ctrl-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold-primary), var(--neon-purple));
+      border-radius: 2px;
+      transition: width 0.1s linear;
+    }
+
     .stage-meta-col {
       height: 100%;
       min-height: 0;
@@ -2912,6 +3054,14 @@
         object-fit: contain !important;
       }
 
+      .video-placeholder-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 250px !important;
+        aspect-ratio: 9/16 !important;
+      }
+
       .stage-meta-col {
         width: 100% !important;
         max-width: 100% !important;
@@ -3620,6 +3770,13 @@
         height: 100% !important;
         max-height: 340px !important;
         object-fit: contain !important;
+      }
+
+      .video-placeholder-frame {
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 340px !important;
+        aspect-ratio: 9/16 !important;
       }
 
       .stage-meta-col {
@@ -5089,6 +5246,37 @@
                     <source id="stage-video-source" src="../assets/videos/IMF2화_추격과비밀통화_4컷_마스터완성본.mp4" type="video/mp4">
                     브라우저가 비디오 재생을 지원하지 않습니다.
                   </video>
+
+                  <!-- 🌟 EP.03 등 사전제작 에피소드용 시네마틱 비디오 플레이어 위치 프레임 (절대 빈자리/공백 0% 원천 방지) -->
+                  <div id="stage-video-placeholder" class="video-placeholder-frame" style="display: none;" onclick="handlePlaceholderPlay()">
+                    <div class="v-placeholder-artwork" id="v-placeholder-art">
+                      <img id="v-placeholder-img" src="../assets/images/review/ep03_vault_master_poster.svg" alt="EP.03 시네마틱 프리뷰 포스터" class="v-placeholder-img">
+                      <div class="v-placeholder-overlay"></div>
+                      
+                      <!-- Top Status Badge -->
+                      <span class="v-placeholder-badge">⚙️ Opal 6대 노드 영상 제작 대기</span>
+                      
+                      <!-- Center White Circular Play Button (Native Video Player Style) -->
+                      <div class="v-placeholder-play-btn" id="v-placeholder-play-btn" title="EP.03 기획 성우 보이스 듣기">
+                        <span class="play-icon" id="v-play-icon">▶</span>
+                      </div>
+                      
+                      <!-- Bottom Video Control Bar Simulation -->
+                      <div class="v-placeholder-controls">
+                        <div class="v-ctrl-left">
+                          <span class="v-ctrl-icon" id="v-ctrl-btn">▶</span>
+                          <span class="v-ctrl-time" id="v-ctrl-time">0:00 / 0:30</span>
+                        </div>
+                        <div class="v-ctrl-track">
+                          <div class="v-ctrl-progress" id="v-ctrl-bar"></div>
+                        </div>
+                        <div class="v-ctrl-right">
+                          <span class="v-ctrl-icon">🔊</span>
+                          <span class="v-ctrl-icon">⛶</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Meta & Screenplay Column (Internal Scroll) -->
@@ -5612,7 +5800,7 @@
         views: '기획 중',
         badge: 'Opal V2 6대 마스터 노드 가동 중 ⚙️',
         videoSrc: '',
-        posterSrc: '../assets/images/review/snap_master_c01_02s.jpg',
+        posterSrc: '../assets/images/review/ep03_vault_master_poster.svg',
         audioSrc: '../assets/audio/ep03_imf_vault_pilot_audio.mp3',
         audioTitle: '오디오 트랙',
         audioDesc: 'EP.03 지하 비밀 외환 금고 잠입 사전 기획 성우 보이스',
@@ -5766,16 +5954,16 @@
           dlBtn.onclick = null;
           dlBtn.innerHTML = `<span>⬇️</span> 0 Byte 다운로드 (${ep.downloadSize})`;
         } else {
-          // 🌟 [오빠 지침 반영] EP.03 등 제작 준비 중이어도 다운로드 버튼 자리 100% 확고하게 유지!
+          // 🌟 [오빠 지침 반영] EP.03 등 제작 준비 중이어도 다운로드 버튼 자리 및 형태 100% 확고하게 유지!
           dlBtn.removeAttribute('href');
           dlBtn.removeAttribute('download');
           dlBtn.style.display = 'inline-flex';
-          dlBtn.style.opacity = '0.55';
+          dlBtn.style.opacity = '1';
           dlBtn.onclick = (e) => {
             e.preventDefault();
             showToast('⏳ EP.03 영상은 현재 Google Opal 6대 노드 제작 준비 중입니다! 🎬');
           };
-          dlBtn.innerHTML = `<span>⏳</span> 다운로드 (준비 중)`;
+          dlBtn.innerHTML = `<span>⬇️</span> 0 Byte 다운로드 (준비 중)`;
         }
       }
 
@@ -5789,16 +5977,16 @@
           ytBtn.onclick = null;
           ytBtn.innerHTML = `<span class="yt-icon">📺</span> 숏폼 보기`;
         } else {
-          // 🌟 [오빠 지침 반영] EP.03 등 미공개여도 숏폼보기 버튼 자리 100% 확고하게 유지!
+          // 🌟 [오빠 지침 반영] EP.03 등 미공개여도 숏폼보기 버튼 자리 및 형태 100% 확고하게 유지!
           ytBtn.removeAttribute('href');
           ytBtn.removeAttribute('target');
           ytBtn.style.display = 'inline-flex';
-          ytBtn.style.opacity = '0.65';
+          ytBtn.style.opacity = '1';
           ytBtn.onclick = (e) => {
             e.preventDefault();
             showToast('🎬 EP.03은 제작 완료 후 공식 유튜브에 공개됩니다! ✨');
           };
-          ytBtn.innerHTML = `<span class="yt-icon">📺</span> 숏폼 (공개 예정)`;
+          ytBtn.innerHTML = `<span class="yt-icon">📺</span> 숏폼 보기 (공개 예정)`;
         }
       }
 
@@ -5829,6 +6017,9 @@
       // Update Video Player & Source
       const vid = document.getElementById('stage-main-video');
       const vSrc = document.getElementById('stage-video-source');
+      const vPlaceholder = document.getElementById('stage-video-placeholder');
+      const vPlaceholderImg = document.getElementById('v-placeholder-img');
+
       if (vid && vSrc) {
         vid.pause();
         if (ep.videoSrc) {
@@ -5836,9 +6027,14 @@
           vid.poster = ep.posterSrc;
           vid.load();
           vid.style.display = 'block';
+          if (vPlaceholder) vPlaceholder.style.display = 'none';
         } else {
           vSrc.src = '';
           vid.style.display = 'none';
+          if (vPlaceholder) {
+            vPlaceholder.style.display = 'flex';
+            if (vPlaceholderImg) vPlaceholderImg.src = ep.posterSrc;
+          }
         }
       }
 
@@ -5879,6 +6075,48 @@
       }
 
       showToast(`🎬 ${ep.num} ${ep.title} 100vh 스튜디오 동기화 완료! ✨`);
+    }
+
+    // 5-1. Placeholder Player Interactive Audio Play Function (EP.03 등 영상 제작 중 에피소드)
+    function handlePlaceholderPlay() {
+      const aPlayer = document.getElementById('stage-audio-player');
+      const vPlayIcon = document.getElementById('v-play-icon');
+      const vCtrlBtn = document.getElementById('v-ctrl-btn');
+      const vCtrlBar = document.getElementById('v-ctrl-bar');
+      const vCtrlTime = document.getElementById('v-ctrl-time');
+
+      if (!aPlayer) return;
+
+      if (aPlayer.paused) {
+        aPlayer.play().then(() => {
+          if (vPlayIcon) vPlayIcon.innerText = '⏸';
+          if (vCtrlBtn) vCtrlBtn.innerText = '⏸';
+          showToast('🎬 [EP.03 지하 비밀 외환 금고 잠입] 기획 성우 보이스가 재생됩니다! (영상은 Opal 6대 노드 제작 준비 중) ✨');
+        }).catch(() => {
+          showToast('🎬 [EP.03] 오디오 재생을 위해 플레이어를 다시 터치해주세요!');
+        });
+      } else {
+        aPlayer.pause();
+        if (vPlayIcon) vPlayIcon.innerText = '▶';
+        if (vCtrlBtn) vCtrlBtn.innerText = '▶';
+      }
+
+      aPlayer.ontimeupdate = () => {
+        if (!aPlayer.duration) return;
+        const pct = (aPlayer.currentTime / aPlayer.duration) * 100;
+        if (vCtrlBar) vCtrlBar.style.width = pct + '%';
+        const curM = Math.floor(aPlayer.currentTime / 60);
+        const curS = Math.floor(aPlayer.currentTime % 60).toString().padStart(2, '0');
+        const durM = Math.floor(aPlayer.duration / 60);
+        const durS = Math.floor(aPlayer.duration % 60).toString().padStart(2, '0');
+        if (vCtrlTime) vCtrlTime.innerText = `${curM}:${curS} / ${durM}:${durS}`;
+      };
+
+      aPlayer.onended = () => {
+        if (vPlayIcon) vPlayIcon.innerText = '▶';
+        if (vCtrlBtn) vCtrlBtn.innerText = '▶';
+        if (vCtrlBar) vCtrlBar.style.width = '0%';
+      };
     }
 
     // 6. Copy Screenplay to Clipboard
