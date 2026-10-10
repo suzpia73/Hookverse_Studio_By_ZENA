@@ -2693,33 +2693,38 @@
       .header-status-box {
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-end !important;
+        align-items: flex-start !important;
+        margin-left: auto !important;
         gap: 2px !important;
         flex-shrink: 0 !important;
       }
 
       .live-badge {
         display: inline-flex !important;
+        align-items: center !important;
         font-size: 9.5px !important;
-        padding: 2px 6px !important;
+        padding: 2px 7px !important;
+        gap: 5px !important;
         white-space: nowrap !important;
       }
 
+      /* 🌟 [오빠 지침 반영 1] 세로 화면 시계: LIVE의 'L'과 시간 '17'의 '1' 완벽한 수직 칼정렬 (20.5px) */
       .header-status-box .time-hud-top {
         display: flex !important;
         align-items: center !important;
         font-family: 'SF Mono', monospace !important;
-        font-size: 10px !important;
+        font-size: 10.5px !important;
         font-weight: 700 !important;
         color: var(--gold-primary) !important;
         line-height: 1 !important;
-        padding: 0 !important;
+        padding: 0 0 0 20.5px !important;
         margin: 0 !important;
       }
 
       .header-status-box .time-hud-top .time-val {
         font-size: 10.5px !important;
         color: var(--gold-primary) !important;
+        letter-spacing: 0.2px !important;
       }
 
       /* 세로 화면 하단 바에서는 상단으로 올라간 시계 숨김 */
@@ -2731,38 +2736,66 @@
         display: none !important;
       }
 
+      /* 🌟 [오빠 지침 반영 2 & 3] 6대 바로가기 행: 블록 레이아웃 & overflow visible로 가로 스크롤바 100% 시원하게 노출 */
       .header-shortcuts-row {
+        display: block !important;
         width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
         margin: 2px 0 0 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
       }
 
-      /* 🌟 바로가기 6대 버튼: 3x2(2줄) ➔ 1줄 가로 스크롤로 1줄 삭제 완결! */
+      /* 🌟 바로가기 6대 버튼: 좌측 정렬(유튜브 채널 1순위 노출) + 황금빛 가로 스크롤바 100% 상시 표시 */
       .hub-links {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch !important;
-        gap: 5px !important;
+        touch-action: pan-x !important;
+        gap: 6px !important;
         width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
         box-sizing: border-box !important;
-        margin-top: 1px !important;
-        padding-bottom: 2px !important;
-        scrollbar-width: none !important;
+        margin: 1px 0 0 0 !important;
+        padding: 2px 2px 7px 2px !important;
+        scrollbar-width: thin !important;
+        scrollbar-color: #eed37f rgba(255, 255, 255, 0.12) !important;
       }
 
       .hub-links::-webkit-scrollbar {
-        display: none !important;
+        display: block !important;
+        height: 5px !important;
+        -webkit-appearance: none !important;
+      }
+
+      .hub-links::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-radius: 9999px !important;
+      }
+
+      .hub-links::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #eed37f, #f43f5e) !important;
+        border-radius: 9999px !important;
+        box-shadow: 0 0 8px rgba(238, 211, 127, 0.7) !important;
       }
 
       .hub-btn {
         display: inline-flex !important;
         flex: 0 0 auto !important;
+        flex-shrink: 0 !important;
         justify-content: center !important;
         align-items: center !important;
         width: auto !important;
         font-size: 11px !important;
-        padding: 4px 9px !important;
+        padding: 4px 10px !important;
         box-sizing: border-box !important;
         text-align: center !important;
         white-space: nowrap !important;
@@ -2782,22 +2815,37 @@
         gap: 4px !important;
         width: 100% !important;
         margin-top: 2px !important;
+        box-sizing: border-box !important;
       }
 
-      /* 네비게이션 탭 가로 스와이프 */
+      /* 네비게이션 탭 가로 스와이프 & 슬림 스크롤바 */
       .nav-bar {
         overflow-x: auto !important;
+        overflow-y: hidden !important;
         white-space: nowrap !important;
         -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-x !important;
         padding-bottom: 2px !important;
         width: 100% !important;
         box-sizing: border-box !important;
         gap: 4px !important;
-        scrollbar-width: none !important;
+        scrollbar-width: thin !important;
+        scrollbar-color: rgba(238, 211, 127, 0.4) rgba(255, 255, 255, 0.05) !important;
       }
 
       .nav-bar::-webkit-scrollbar {
-        display: none !important;
+        display: block !important;
+        height: 3px !important;
+      }
+
+      .nav-bar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 3px !important;
+      }
+
+      .nav-bar::-webkit-scrollbar-thumb {
+        background: rgba(238, 211, 127, 0.5) !important;
+        border-radius: 3px !important;
       }
 
       .nav-tab {
@@ -2805,27 +2853,33 @@
         font-size: 11.5px !important;
       }
 
-      /* 새로고침(좌측) & 미션 브리프(우측) 양끝 시원한 정렬 */
+      /* 🌟 [오빠 지침 반영 2] 새로고침(좌측) & 미션 브리프(우측): 이하 패널과 100% 좌우 끝 일치 */
       .header-nav-ctrls {
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
+        box-sizing: border-box !important;
         gap: 6px !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       .btn-refresh {
         padding: 5px 12px !important;
         font-size: 11.5px !important;
         font-weight: 700 !important;
+        flex-shrink: 0 !important;
       }
 
       .brief-toggle-btn {
         padding: 5px 12px !important;
         font-size: 11.5px !important;
         font-weight: 700 !important;
+        flex-shrink: 0 !important;
       }
 
+      /* 🌟 [오빠 지침 반영 2] 하단 워크스페이스/패널 우측 여백 0px 칼일치 */
       .workspace-container,
       .view-content,
       .control-tab-scroll {
@@ -2835,6 +2889,8 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        padding-right: 0 !important;
+        margin-right: 0 !important;
       }
 
       /* 🌟 5대 파이프라인 세로 스택 */
@@ -6415,9 +6471,42 @@
       if (e.key === 'ArrowRight') navigateModal(1);
     });
 
-    // 12. Initialize Default Episode (EP.02)
+    // 12. Initialize Default Episode (EP.02) & Horizontal Shortcuts Drag/Wheel Support
     window.addEventListener('DOMContentLoaded', () => {
       selectEpisodeArchive('ep02');
+
+      // 🌟 바로가기 6대 버튼: 시작 시 항상 좌측(유튜브) 정렬 & 휠/드래그 스크롤 지원
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      const hubLinks = document.querySelector('.hub-links');
+      if (hubLinks) {
+        const resetScroll = () => { hubLinks.scrollLeft = 0; };
+        resetScroll();
+        setTimeout(resetScroll, 50);
+        setTimeout(resetScroll, 200);
+        window.addEventListener('load', resetScroll);
+        hubLinks.addEventListener('wheel', (e) => {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            hubLinks.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+        let isDown = false, startX, scrollLeft;
+        hubLinks.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - hubLinks.offsetLeft;
+          scrollLeft = hubLinks.scrollLeft;
+        });
+        hubLinks.addEventListener('mouseleave', () => { isDown = false; });
+        hubLinks.addEventListener('mouseup', () => { isDown = false; });
+        hubLinks.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - hubLinks.offsetLeft;
+          hubLinks.scrollLeft = scrollLeft - (x - startX) * 1.5;
+        });
+      }
     });
   </script>
 </body>
